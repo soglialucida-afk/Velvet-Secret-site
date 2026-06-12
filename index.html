@@ -416,6 +416,38 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
 </section>
 
+<section id="branje">
+  <div class="section-header fade-in">
+    <span class="section-label">Prva karta</span>
+    <h2 class="section-title">Izberi področje, ki te trenutno najbolj zanima</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
+  </div>
+  <div class="intent-wrap fade-in">
+    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
+    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno. En stavek ali beseda je dovolj."></textarea>
+  </div>
+  <div class="topic-row fade-in">
+    <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
+    <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
+    <button class="topic" data-topic="Delo" onclick="setTopic(this)">Delo</button>
+    <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
+    <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
+  </div>
+  <div class="cards fade-in" id="cards"></div>
+  <p class="daily-notice" id="daily-notice"></p>
+  <div class="result" id="result">
+    <span class="section-label" id="rTopic"></span>
+    <h3 id="rName"></h3>
+    <p id="rText"></p>
+    <div class="reflect" id="rReflect"></div>
+    <div class="result-cta">
+      <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
+      <button class="pricing-btn" onclick="resetCards()">Zapri</button>
+    </div>
+  </div>
+</section>
+
 <section id="zgodba">
   <div class="section-header fade-in">
     <span class="section-label">Ko se ustaviš</span>
@@ -469,38 +501,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section id="branje">
-  <div class="section-header fade-in">
-    <span class="section-label">Prva karta</span>
-    <h2 class="section-title">Izberi področje, ki te trenutno najbolj zanima</h2>
-    <div class="section-divider"></div>
-    <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
-  </div>
-  <div class="intent-wrap fade-in">
-    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
-    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno — en stavek ali beseda je dovolj."></textarea>
-  </div>
-  <div class="topic-row fade-in">
-    <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
-    <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
-    <button class="topic" data-topic="Delo" onclick="setTopic(this)">Delo</button>
-    <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
-    <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
-  </div>
-  <div class="cards fade-in" id="cards"></div>
-  <p class="daily-notice" id="daily-notice"></p>
-  <div class="result" id="result">
-    <span class="section-label" id="rTopic"></span>
-    <h3 id="rName"></h3>
-    <p id="rText"></p>
-    <div class="reflect" id="rReflect"></div>
-    <div class="result-cta">
-      <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
-      <button class="pricing-btn" onclick="resetCards()">Zapri</button>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="section-header fade-in">
     <span class="section-label">Razpleti</span>
@@ -513,6 +513,38 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="gallery-card fade-in" onclick="openReading(1)" role="button" tabindex="0"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Tri karte</h3><p>Za vprašanje, ki ima preteklost, sedanjost in možno smer.</p></div></div>
     <div class="gallery-card fade-in" onclick="openReading(2)" role="button" tabindex="0"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Veliki razplet</h3><p>Ko čutiš, da se pod površjem dogaja več, kot znaš povedati.</p></div></div>
     <div class="gallery-card fade-in" onclick="openReading(3)" role="button" tabindex="0"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Mesečni krog</h3><p>Za trenutke, ko se želiš k sebi vračati bolj redno.</p></div></div>
+  </div>
+</section>
+
+<section id="karta-cta" style="padding:5rem 2rem;max-width:760px;text-align:center">
+  <div class="section-header fade-in">
+    <span class="section-label">Še nisi obrnil karte?</span>
+    <h2 class="section-title">Ena karta je brezplačna vsak dan</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Preden se odločiš za globlje branje, preizkusi kako to deluje. Karta ne odloči namesto tebe. Pokaže, kje se kaj že premika.</p>
+  </div>
+  <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem">
+    <button class="card" id="single-card" onclick="revealSingle()" style="width:130px;height:210px">
+      <span class="card-inner">
+        <span class="face face-back"></span>
+        <span class="face face-front">
+          <span class="card-kind" id="sc-kind"></span>
+          <span class="symbol" id="sc-symbol"></span>
+          <span class="card-num" id="sc-num"></span>
+          <span class="card-name" id="sc-name"></span>
+        </span>
+      </span>
+    </button>
+    <p class="daily-notice" id="daily-notice2"></p>
+    <div class="result" id="result2" style="text-align:left;width:100%;max-width:580px">
+      <span class="section-label" id="r2Topic"></span>
+      <h3 id="r2Name"></h3>
+      <p id="r2Text"></p>
+      <div class="reflect" id="r2Reflect"></div>
+      <div class="result-cta">
+        <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -961,12 +993,52 @@ function closeUpsell(){
   document.getElementById('upsellModal').classList.remove('open');
 }
 
+function showResult2(card, topicLabel){
+  document.getElementById('r2Topic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
+  document.getElementById('r2Name').textContent = card.name;
+  document.getElementById('r2Text').textContent = card.text;
+  document.getElementById('r2Reflect').textContent = card.reflect;
+  document.getElementById('result2').classList.add('show');
+}
+function revealSingle(){
+  if(loadDaily()) return;
+  const card = shuffleDeck(tarotDeck)[0];
+  const sc = document.getElementById('single-card');
+  document.getElementById('sc-kind').textContent = card.kind;
+  document.getElementById('sc-symbol').textContent = card.symbol;
+  document.getElementById('sc-num').textContent = card.num;
+  document.getElementById('sc-name').textContent = card.name;
+  sc.classList.add('flipped');
+  saveDaily(card, 'Splošno');
+  showResult2(card, 'Splošno');
+  applyDailyLock();
+  const n = document.getElementById('daily-notice2');
+  n.textContent = 'Tvoja karta za danes je bila odprta. Vrni se jutri.';
+  n.style.display = 'block';
+}
+function initSingleCard(){
+  const daily = loadDaily();
+  if(!daily) return;
+  const sc = document.getElementById('single-card');
+  if(!sc) return;
+  document.getElementById('sc-kind').textContent = daily.card.kind;
+  document.getElementById('sc-symbol').textContent = daily.card.symbol;
+  document.getElementById('sc-num').textContent = daily.card.num;
+  document.getElementById('sc-name').textContent = daily.card.name;
+  sc.classList.add('flipped');
+  showResult2(daily.card, daily.topic);
+  const n = document.getElementById('daily-notice2');
+  n.textContent = 'Tvoja karta za danes je bila odprta. Vrni se jutri.';
+  n.style.display = 'block';
+}
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: .1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 initHeroVideoLoop();
 renderCards();
+initSingleCard();
 const _daily = loadDaily();
 if(_daily){
   document.querySelectorAll('.card')[0]?.classList.add('flipped');
