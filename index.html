@@ -108,12 +108,15 @@ img,svg{display:block;max-width:100%}
 .hero{
   position:relative;
   width:100%;
+  max-width:none;
   height:100vh;
   min-height:620px;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
+  margin:0;
+  padding:0;
 }
 .hero-video-container{position:absolute;inset:0;z-index:1;background:#0f0e15 url("assets/images/hero-crystal-ball-fortune-teller.png") center/cover no-repeat}
 .hero-video{
@@ -189,7 +192,7 @@ img,svg{display:block;max-width:100%}
 .fade-in{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-section{padding:7rem 2rem;max-width:1200px;margin:0 auto}
+section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .section-header{text-align:center;margin-bottom:4rem}
 .section-label{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block;color:var(--violet-light)}
 .section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff}
@@ -222,9 +225,13 @@ section{padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
 .card.flipped .card-inner{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid rgba(199,188,228,.26);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.face-back{background:linear-gradient(160deg,#242231,#15141f 64%,#1b1830)}
-.face-back::before{content:"";position:absolute;inset:14px;border:1px solid rgba(216,189,154,.18)}
-.face-back::after{content:"✦";font-size:2.4rem;color:var(--violet-light);opacity:.75}
+.face-back{
+  background:
+    linear-gradient(160deg,rgba(36,34,49,.35),rgba(21,20,31,.28) 64%,rgba(27,24,48,.36)),
+    url("assets/images/oracle-card-thread.png") 36% 19%/360% auto no-repeat;
+}
+.face-back::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.38);box-shadow:inset 0 0 32px rgba(17,16,24,.55)}
+.face-back::after{content:"";position:absolute;inset:22%;border:1px solid rgba(216,189,154,.28);background:radial-gradient(circle,rgba(216,189,154,.2),transparent 58%)}
 .face-front{transform:rotateY(180deg);background:linear-gradient(170deg,#262331,#171620);flex-direction:column;gap:.6rem;padding:1rem;border-color:rgba(216,189,154,.32)}
 .face-front .symbol{font-size:2.7rem;color:var(--warm)}
 .face-front .card-name{font-family:var(--display);font-size:1.08rem;color:var(--warm);letter-spacing:.06em;text-align:center}
@@ -242,10 +249,11 @@ section{padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;cursor:pointer}
 .gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08));z-index:1;transition:.45s}
 .gallery-card:hover::before{background:linear-gradient(135deg,rgba(199,188,228,.28),rgba(216,189,154,.12))}
-.gallery-card .visual{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,rgba(216,189,154,.17),transparent 26%),linear-gradient(150deg,#242331,#111018);transition:.45s}
-.gallery-card:nth-child(2) .visual{background:radial-gradient(circle at 38% 35%,rgba(168,190,223,.18),transparent 30%),linear-gradient(150deg,#1f2630,#101018)}
-.gallery-card:nth-child(3) .visual{background:radial-gradient(circle at 65% 42%,rgba(199,188,228,.2),transparent 31%),linear-gradient(150deg,#251f32,#101018)}
-.gallery-card:nth-child(4) .visual{background:radial-gradient(circle at 45% 64%,rgba(216,189,154,.14),transparent 28%),linear-gradient(150deg,#20202b,#0f0e15)}
+.gallery-card .visual{position:absolute;inset:0;background-size:cover;background-position:center;transition:.45s}
+.gallery-card:nth-child(1) .visual{background-image:url("assets/images/crystal-ball-closeup.png")}
+.gallery-card:nth-child(2) .visual{background-image:url("assets/images/oracle-card-thread.png")}
+.gallery-card:nth-child(3) .visual{background-image:url("assets/images/dark-bohemian-salon.png")}
+.gallery-card:nth-child(4) .visual{background-image:url("assets/images/geometric-pictograms.png");background-position:center 38%}
 .gallery-card:hover .visual{transform:scale(1.04)}
 .gallery-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.85),transparent)}
 .gallery-num{font-family:var(--display);font-size:2.7rem;opacity:.18;line-height:1}
