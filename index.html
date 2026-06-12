@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velvet Secret — ko ne veš, kaj pomeni tišina</title>
+<title>Velvet Secret · ko ne veš, kaj pomeni tišina</title>
 <meta name="description" content="Velvet Secret je miren prostor za simbolno branje kart, ko potrebuješ znak, premislek ali naslednji korak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -217,6 +217,11 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 
 #branje{background:var(--bg-soft);max-width:100%;padding:7rem 2rem}
 #branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
+.intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative}
+.intent-label{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;text-align:center}
+.intent-input{width:100%;background:rgba(255,255,255,.035);border:1px solid var(--line-soft);color:var(--text);font-family:var(--sans);font-size:.97rem;font-weight:300;padding:1rem 1.25rem;outline:none;transition:.3s;resize:none;line-height:1.6}
+.intent-input::placeholder{color:var(--muted-dark)}
+.intent-input:focus{border-color:rgba(199,188,228,.35);background:rgba(255,255,255,.05)}
 .topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
 .topic{
   border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -422,12 +427,34 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
+<section id="pristop" style="padding:5rem 2rem;max-width:760px">
+  <div class="section-header fade-in">
+    <span class="section-label">Osnova</span>
+    <h2 class="section-title">Zakaj karte delujejo</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;text-align:left">
+    <div>
+      <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.85rem">Arhetipski sistem</h3>
+      <p style="color:var(--muted);font-size:.95rem;line-height:1.8">Tarot ima strukturo 78 arhetipov. To so vzorci, ki se ponavljajo v človeški izkušnji. Carl Jung jih je opisal kot simbolna ogledala: ne pokažejo, kaj se bo zgodilo, ampak kaj v tebi že poteka.</p>
+    </div>
+    <div>
+      <h3 style="font-family:var(--display);font-size:1.1rem;font-weight:500;color:#fff;margin-bottom:.85rem">Projekcija, ne prerokba</h3>
+      <p style="color:var(--muted);font-size:.95rem;line-height:1.8">Ko obrneš karto, tvoj um naredi pomen. Ta mehanizem je Jungu dobro poznan. Velvet Secret sloni na tem principu: karta je povabilo, da pogledaš, katera misel se ob njej v tebi premakne.</p>
+    </div>
+  </div>
+</section>
+
 <section id="branje">
   <div class="section-header fade-in">
     <span class="section-label">Prva karta</span>
     <h2 class="section-title">Izberi področje, ki te trenutno najbolj zanima</h2>
     <div class="section-divider"></div>
     <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
+  </div>
+  <div class="intent-wrap fade-in">
+    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
+    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno — en stavek ali beseda je dovolj."></textarea>
   </div>
   <div class="topic-row fade-in">
     <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
@@ -777,7 +804,7 @@ function loadDaily(){
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
-function showResult(card, topicLabel){
+function showResult(card, topicLabel, intent){
   document.getElementById('rTopic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
   document.getElementById('rName').textContent = card.name;
   document.getElementById('rText').textContent = card.text;
@@ -829,8 +856,9 @@ function reveal(index){
     card.classList.toggle('dimmed', i !== index);
   });
   const card = currentSpread[index];
+  const intent = document.getElementById('intent')?.value.trim() || '';
   saveDaily(card, topic);
-  showResult(card, topic);
+  showResult(card, topic, intent);
   applyDailyLock();
 }
 function resetCards(){
@@ -852,7 +880,7 @@ const readingDetails = [
     label: 'Brezplačno · vsak dan',
     title: 'Karta dneva',
     body: 'Ena karta je včasih ravno dovolj. En stavek, ki prekine krog iste misli in postavi eno vprašanje nazaj v tvoje roke.',
-    body2: 'Včasih pa karta odpre vrata, ki jih prej nisi opazila. In takrat ena ne zadošča — ne zato, ker bi bila premajhna, ampak ker je pokazala, da je za njo še prostor.',
+    body2: 'Včasih pa karta odpre vrata, ki jih prej nisi opazila. In takrat ena ne zadošča, ne zato ker bi bila premajhna, ampak ker je pokazala, da je za njo še prostor.',
     cta: 'Obrni karto',
     href: '#branje',
     price: '0 €'
@@ -860,7 +888,7 @@ const readingDetails = [
   {
     label: 'Enkratno branje',
     title: 'Tri karte',
-    body: 'Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče. Primerno za vprašanja, ki imajo kontekst — ko samo ena karta ni dovolj.',
+    body: 'Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče. Primerno za vprašanja, ki imajo kontekst, ko sama ena karta ni dovolj.',
     body2: 'Dobiš pisno branje z razlago vseh treh kart in njihovo medsebojno zvezo.',
     cta: 'Kupi branje',
     href: '#cenik',
