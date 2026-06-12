@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zlata nit — ko iščeš znak</title>
+<meta name="description" content="Zlata nit je sodobno vedeževanje s kartami za razvedrilo, premislek in tiha razkritja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#111018;
+  --bg-soft:#181720;
+  --bg-lift:#20202b;
+  --violet-light:#c7bce4;
+  --violet-medium:#a997cf;
+  --violet-deep:#7f6caf;
+  --blue-soft:#a8bedf;
+  --blue-muted:#6e829f;
+  --ink:#f0ecf5;
+  --text:#d7d0df;
+  --muted:#9690a3;
+  --muted-dark:#696377;
+  --line:rgba(199,188,228,.2);
+  --line-soft:rgba(199,188,228,.1);
+  --warm:#d8bd9a;
+  --warm-soft:rgba(216,189,154,.14);
+  --display:"Playfair Display", Georgia, serif;
+  --sans:"Lato", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  font-family:var(--sans);
+  font-weight:300;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.72;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--violet-deep);color:#fff}
+
+.nav{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  z-index:100;
+  padding:1.55rem 3rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:all .4s ease;
+}
+.nav.scrolled{
+  background:rgba(17,16,24,.92);
+  backdrop-filter:blur(20px);
+  padding:1rem 3rem;
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-logo{
+  font-family:var(--display);
+  font-size:1.58rem;
+  font-weight:500;
+  color:#fff;
+  letter-spacing:.04em;
+}
+.nav-links{display:flex;list-style:none;gap:2.35rem;align-items:center}
+.nav-link,.nav-login{
+  color:rgba(255,255,255,.82);
+  font-size:.74rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  position:relative;
+  transition:color .25s;
+}
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:-5px;
+  width:0;height:1px;
+  background:var(--violet-light);
+  transition:width .3s ease;
+}
+.nav-link:hover::after{width:100%}
+.nav-link:hover,.nav-login:hover{color:var(--violet-light)}
+.nav-login{
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(255,255,255,.04);
+  padding:.64rem 1.25rem;
+}
+.hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}
+.hamb.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile{
+  display:none;position:fixed;inset:0;z-index:80;background:rgba(17,16,24,.96);
+  backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column;gap:2rem;
+}
+.mobile.open{display:flex}
+.mobile a,.mobile button{font-family:var(--display);font-size:2rem;color:#fff;background:none;border:0}
+
+.hero{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:620px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-video-container{position:absolute;inset:0;z-index:1;background:#0f0e15 url("assets/images/hero-crystal-ball-fortune-teller.png") center/cover no-repeat}
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .9s ease;
+}
+.hero-video.active{opacity:.74}
+.hero-video-container::after{
+  content:"";
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(circle at 50% 58%,rgba(216,189,154,.22),transparent 12%),
+    radial-gradient(circle at 50% 52%,rgba(199,188,228,.22),transparent 28%),
+    radial-gradient(circle at 70% 25%,rgba(168,190,223,.13),transparent 36%),
+    linear-gradient(135deg,#111018,#1a1823 58%,#0d0c12);
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(135deg,rgba(17,16,24,.78) 0%,rgba(34,30,47,.38) 48%,rgba(17,16,24,.78) 100%),
+    linear-gradient(180deg,rgba(17,16,24,.36),rgba(17,16,24,.78));
+}
+.hero-content{
+  position:relative;z-index:3;text-align:center;max-width:920px;padding:0 2rem;
+}
+.hero-subtitle{
+  display:block;margin-bottom:1.5rem;color:var(--violet-light);
+  font-size:.84rem;letter-spacing:4px;text-transform:uppercase;font-weight:300;
+}
+.hero-title{
+  font-family:var(--display);
+  font-size:clamp(3rem,6.4vw,5.8rem);
+  font-weight:400;
+  line-height:1.12;
+  color:#fff;
+  margin-bottom:1.45rem;
+  text-shadow:0 4px 30px rgba(0,0,0,.34);
+}
+.hero-title em{font-style:italic;color:var(--violet-light)}
+.hero-desc{
+  max-width:620px;margin:0 auto 2.25rem;color:rgba(255,255,255,.84);
+  font-size:1.14rem;font-weight:300;line-height:1.85;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:.75rem;
+  padding:1rem 2.35rem;border:1px solid rgba(255,255,255,.3);
+  color:#fff;background:rgba(255,255,255,.1);
+  font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
+  backdrop-filter:blur(10px);transition:.35s ease;
+}
+.hero-cta:hover{background:var(--violet-deep);border-color:var(--violet-deep);transform:translateY(-2px);box-shadow:0 10px 40px rgba(127,108,175,.38)}
+.hero-second{margin-left:.75rem;background:rgba(17,16,24,.28)}
+.hero-note{
+  display:block;margin-top:1.25rem;color:rgba(255,255,255,.56);
+  font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;
+}
+.hero-scroll{
+  position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:rgba(255,255,255,.55);font-size:.68rem;letter-spacing:2px;text-transform:uppercase;
+  animation:bounce 2.4s infinite;
+}
+.hero-scroll-line{width:1px;height:42px;background:linear-gradient(to bottom,rgba(255,255,255,.55),transparent)}
+@keyframes bounce{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-8px)}60%{transform:translateX(-50%) translateY(-4px)}}
+@keyframes fadeSlideUp{to{opacity:1;transform:translateY(0)}}
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+section{padding:7rem 2rem;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-label{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block;color:var(--violet-light)}
+.section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff}
+.section-divider{width:60px;height:1px;background:var(--violet-medium);margin:1.5rem auto}
+.section-desc{max-width:630px;margin:0 auto;color:var(--muted);font-weight:300}
+
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
+.intro-card{
+  text-align:center;background:rgba(255,255,255,.035);border:1px solid var(--line-soft);
+  padding:3rem 2rem;transition:.4s ease;
+}
+.intro-card:hover{transform:translateY(-8px);border-color:var(--line);box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.intro-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem;background:rgba(199,188,228,.12);color:var(--violet-light);font-size:1.5rem}
+.intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
+.intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
+
+#branje{background:var(--bg-soft);max-width:100%;padding:7rem 2rem}
+#branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
+.topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
+.topic{
+  border:1px solid var(--line);background:transparent;color:var(--muted);
+  padding:.62rem 1.25rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  transition:.25s;
+}
+.topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
+.cards{display:flex;justify-content:center;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
+.card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
+.card:hover:not(.flipped):not(.dimmed){transform:translateY(-14px)}
+.card.dimmed{opacity:.24;pointer-events:none}
+.card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
+.card.flipped .card-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border:1px solid rgba(199,188,228,.26);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.face-back{background:linear-gradient(160deg,#242231,#15141f 64%,#1b1830)}
+.face-back::before{content:"";position:absolute;inset:14px;border:1px solid rgba(216,189,154,.18)}
+.face-back::after{content:"✦";font-size:2.4rem;color:var(--violet-light);opacity:.75}
+.face-front{transform:rotateY(180deg);background:linear-gradient(170deg,#262331,#171620);flex-direction:column;gap:.6rem;padding:1rem;border-color:rgba(216,189,154,.32)}
+.face-front .symbol{font-size:2.7rem;color:var(--warm)}
+.face-front .card-name{font-family:var(--display);font-size:1.08rem;color:var(--warm);letter-spacing:.06em;text-align:center}
+.face-front .card-num{font-size:.62rem;letter-spacing:.28em;color:var(--muted)}
+.result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
+.result.show{display:block;animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.result .section-label{text-align:center;color:var(--violet-light)}
+.result h3{font-family:var(--display);font-size:2rem;color:var(--warm);text-align:center;margin:.8rem 0 1.2rem}
+.result p{color:var(--text);font-weight:300;margin-bottom:1rem}
+.result .reflect{border-left:1px solid var(--violet-light);padding:.25rem 0 .25rem 1.1rem;color:var(--violet-light);font-family:var(--display);font-style:italic;font-size:1.16rem;margin:1.4rem 0}
+.result-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.gallery-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;cursor:pointer}
+.gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08));z-index:1;transition:.45s}
+.gallery-card:hover::before{background:linear-gradient(135deg,rgba(199,188,228,.28),rgba(216,189,154,.12))}
+.gallery-card .visual{position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,rgba(216,189,154,.17),transparent 26%),linear-gradient(150deg,#242331,#111018);transition:.45s}
+.gallery-card:nth-child(2) .visual{background:radial-gradient(circle at 38% 35%,rgba(168,190,223,.18),transparent 30%),linear-gradient(150deg,#1f2630,#101018)}
+.gallery-card:nth-child(3) .visual{background:radial-gradient(circle at 65% 42%,rgba(199,188,228,.2),transparent 31%),linear-gradient(150deg,#251f32,#101018)}
+.gallery-card:nth-child(4) .visual{background:radial-gradient(circle at 45% 64%,rgba(216,189,154,.14),transparent 28%),linear-gradient(150deg,#20202b,#0f0e15)}
+.gallery-card:hover .visual{transform:scale(1.04)}
+.gallery-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.85),transparent)}
+.gallery-num{font-family:var(--display);font-size:2.7rem;opacity:.18;line-height:1}
+.gallery-content h3{font-family:var(--display);font-size:1.38rem;font-weight:500;margin:.35rem 0}
+.gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68)}
+
+#cenik{background:#15141d;max-width:100%;padding:7rem 2rem}
+.pricing-container{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:start}
+.price-stack{display:grid;gap:1rem}
+.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s}
+.pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
+.pricing-name{font-family:var(--display);font-size:1.35rem;color:#fff;margin-bottom:.35rem}
+.pricing-desc{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}
+.pricing-price{font-family:var(--display);font-size:2.1rem;color:var(--blue-soft);margin-bottom:1.2rem}
+.pricing-price span{font-family:var(--sans);font-size:.82rem;color:var(--muted)}
+.pricing-features{list-style:none;margin-bottom:1.6rem}
+.pricing-features li{padding:.45rem 0;color:var(--text);font-size:.93rem;border-bottom:1px solid rgba(199,188,228,.08)}
+.pricing-features li::before{content:"✦";color:var(--violet-light);font-size:.7rem;margin-right:.7rem}
+.pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045));position:relative}
+.pricing-card.featured::before{content:"Naročnina";position:absolute;top:-12px;left:2rem;background:var(--violet-light);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid var(--line);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s}
+.pricing-btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}
+.pricing-card.featured .pricing-btn{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+
+#racun .section-label{color:var(--blue-soft)}
+.account-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.account-panel{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2.4rem}
+.account-panel h3{font-family:var(--display);font-size:1.45rem;color:#fff;margin-bottom:1rem}
+.account-panel p{color:var(--muted)}
+.account-list{list-style:none;margin-top:1.2rem}
+.account-list li{padding:.7rem 0;border-bottom:1px solid rgba(199,188,228,.08);color:var(--text)}
+.legal{max-width:780px;text-align:center}
+.legal p{color:var(--muted);margin-bottom:1rem}
+.legal strong{color:#fff;font-weight:400}
+footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)}
+.footer-logo{font-family:var(--display);font-size:1.55rem;color:#fff;margin-bottom:1rem}
+.footer-tagline{color:var(--muted);font-family:var(--display);font-style:italic;margin-bottom:1.4rem}
+.footer-links{display:flex;justify-content:center;gap:1.7rem;list-style:none;flex-wrap:wrap}
+.footer-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.open{display:flex}
+.modal{width:min(430px,100%);background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative}
+.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem}
+.modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}
+.modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}
+.tabs{display:flex;border:1px solid var(--line);margin-bottom:1.3rem}
+.tabs button{flex:1;background:none;border:0;color:var(--muted);padding:.75rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
+.tabs button.active{background:var(--violet-light);color:#111018}
+.field{margin-bottom:1rem}
+.field label{display:block;color:var(--muted);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.45rem}
+.field input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#fff;padding:.9rem}
+.modal .pricing-btn{width:100%;justify-content:center;background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+.fine{font-size:.7rem;color:var(--muted);text-align:center;margin-top:1rem}
+
+@media(max-width:900px){
+  .intro-grid,.gallery,.pricing-container,.account-grid{grid-template-columns:1fr}
+  .gallery-card{aspect-ratio:16/10}
+}
+@media(max-width:760px){
+  .nav-links{display:none}.hamb{display:flex}.nav{padding:1.1rem 1.5rem}.nav.scrolled{padding:.9rem 1.5rem}
+  section,#branje,#cenik{padding:5rem 1.2rem}
+  .hero-title{font-size:clamp(2.65rem,12vw,4rem)}
+  .hero-second{margin-left:0;margin-top:.75rem}
+  .hero-cta{width:100%;justify-content:center}
+  .cards{gap:.5rem}
+  .result{padding:2rem 1.4rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .fade-in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="#vrh" class="nav-logo">Zlata nit</a>
+  <ul class="nav-links">
+    <li><a href="#zgodba" class="nav-link">Občutek</a></li>
+    <li><a href="#branje" class="nav-link">Branje</a></li>
+    <li><a href="#cenik" class="nav-link">Cenik</a></li>
+    <li><a href="#racun" class="nav-link">Račun</a></li>
+    <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
+  </ul>
+  <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="#zgodba" class="mobile-link">Občutek</a>
+  <a href="#branje" class="mobile-link">Branje</a>
+  <a href="#cenik" class="mobile-link">Cenik</a>
+  <button onclick="openAuth();toggleMenu(false)">Prijava</button>
+</div>
+
+<section class="hero" id="vrh">
+  <div class="hero-video-container">
+    <video autoplay muted playsinline preload="auto" id="hero-video" class="hero-video active" poster="assets/images/hero-crystal-ball-fortune-teller.png" data-hero-video>
+      <source src="assets/images/zlata-nit-hero-loop-v2.mp4" type="video/mp4">
+    </video>
+    <video muted playsinline preload="auto" class="hero-video" aria-hidden="true" tabindex="-1" data-hero-video>
+      <source src="assets/images/zlata-nit-hero-loop-v2.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
+      <span class="hero-subtitle">Sodobno vedeževanje</span>
+      <h1 class="hero-title">Ko iščeš znak,<br>naj te vodi <em>zlata nit</em></h1>
+      <p class="hero-desc">Temen, mehak in varen prostor za kratka razkritja, simbolno igro in psihološko zasnovane odgovore. Ena karta je brezplačna.</p>
+      <a href="#branje" class="hero-cta">Obrni karto →</a>
+      <a href="#cenik" class="hero-cta hero-second">Cenik</a>
+      <span class="hero-note">Vsebina je namenjena razvedrilu in zabavi</span>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
+</section>
+
+<section id="zgodba">
+  <div class="section-header fade-in">
+    <span class="section-label">Salon tihih razkritij</span>
+    <h2 class="section-title">Premium občutek brez hladnega blišča</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Zlata nit ni cirkus in ni aplikacija, ki kriči. Je temen salon z mehko svetlobo, zadržano skrivnostjo in občutkom, da se lahko ustaviš.</p>
+  </div>
+  <div class="intro-grid">
+    <div class="intro-card fade-in">
+      <div class="intro-icon">☾</div>
+      <h3>Varno</h3>
+      <p>Odgovori so oblikovani kot premislek, ne kot ukaz. Stran je namenjena razvedrilu in zabavi.</p>
+    </div>
+    <div class="intro-card fade-in">
+      <div class="intro-icon">✦</div>
+      <h3>Psihološko</h3>
+      <p>V ozadju je kakovostna vsebina: vprašanja, vzorci, čustva in odločanje, ne prazna mistika.</p>
+    </div>
+    <div class="intro-card fade-in">
+      <div class="intro-icon">◈</div>
+      <h3>Osebno</h3>
+      <p>Uporabnik ima račun, arhiv branj, naročnino in kasneje enako izkušnjo v angleščini ter aplikaciji.</p>
+    </div>
+  </div>
+</section>
+
+<section id="branje">
+  <div class="section-header fade-in">
+    <span class="section-label">Prva karta je darilo</span>
+    <h2 class="section-title">Vprašanja so pogosto podobna</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Ali ostati, počakati, zaupati, oditi, začeti znova. Izberi področje in obrni eno karto.</p>
+  </div>
+  <div class="topic-row fade-in">
+    <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
+    <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
+    <button class="topic" data-topic="Delo" onclick="setTopic(this)">Delo</button>
+    <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
+    <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
+  </div>
+  <div class="cards fade-in" id="cards"></div>
+  <div class="result" id="result">
+    <span class="section-label" id="rTopic"></span>
+    <h3 id="rName"></h3>
+    <p id="rText"></p>
+    <div class="reflect" id="rReflect"></div>
+    <div class="result-cta">
+      <a href="#cenik" class="pricing-btn">Globlji vpogled</a>
+      <button class="pricing-btn" onclick="resetCards()">Zapri</button>
+    </div>
+    <p class="fine">Vsebina je namenjena razvedrilu in zabavi.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-header fade-in">
+    <span class="section-label">Razpleti</span>
+    <h2 class="section-title">Vsaka izbira ima svoj ton</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Vizualno naj stran deluje kot nočni salon: črno-siva osnova, sivka, prašna modra in samo malo topline ob razkritju.</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Karta dneva</h3><p>Kratek odgovor za dnevni premislek.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Tri karte</h3><p>Situacija, vpliv in možna smer.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Veliki razplet</h3><p>Poglobljen zapis in arhiv v računu.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Mesečni krog</h3><p>Navada za tiste, ki se redno vračajo.</p></div></div>
+  </div>
+</section>
+
+<section id="cenik">
+  <div class="section-header fade-in">
+    <span class="section-label">Cenik</span>
+    <h2 class="section-title">Enkratno ali naročniško</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Ena kratka prerokba ostane brezplačna. Naprej lahko kupiš samo posamezno branje ali vstopiš v naročniški Krog.</p>
+  </div>
+  <div class="pricing-container">
+    <div class="price-stack">
+      <div class="pricing-card fade-in">
+        <h3 class="pricing-name">Karta dneva</h3>
+        <p class="pricing-desc">Ena kratka prerokba, enkrat dnevno.</p>
+        <div class="pricing-price">0 €</div>
+        <a href="#branje" class="pricing-btn">Obrni</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <h3 class="pricing-name">Tri karte</h3>
+        <p class="pricing-desc">Povezano branje za eno področje.</p>
+        <div class="pricing-price">4,90 €</div>
+        <a href="#racun" class="pricing-btn">Kupi</a>
+      </div>
+      <div class="pricing-card fade-in">
+        <h3 class="pricing-name">Veliki razplet</h3>
+        <p class="pricing-desc">Sedem kart, daljši zapis in shranjen arhiv.</p>
+        <div class="pricing-price">14,90 €</div>
+        <a href="#racun" class="pricing-btn">Kupi</a>
+      </div>
+    </div>
+    <div class="pricing-card featured fade-in">
+      <h3 class="pricing-name">Krog</h3>
+      <p class="pricing-desc">Za redna vprašanja, arhiv branj in več agentnih odgovorov.</p>
+      <div class="pricing-price">9,90 € <span>/ mesec</span></div>
+      <ul class="pricing-features">
+        <li>Neomejena karta dneva</li>
+        <li>8 branj s tremi kartami mesečno</li>
+        <li>1 veliki razplet mesečno</li>
+        <li>Arhiv vseh branj v uporabniškem računu</li>
+        <li>Tematski agenti: ljubezen, delo, denar, osebna rast</li>
+      </ul>
+      <a href="#racun" class="pricing-btn">Vstopi v Krog</a>
+    </div>
+  </div>
+</section>
+
+<section id="racun">
+  <div class="section-header fade-in">
+    <span class="section-label">Uporabniški račun</span>
+    <h2 class="section-title">Tvoj zasebni arhiv branj</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Račun hrani enkratne nakupe, naročnino, zgodovino branj in kasneje omogoča prehod v angleško verzijo ter mobilno aplikacijo.</p>
+  </div>
+  <div class="account-grid">
+    <div class="account-panel fade-in">
+      <h3>V računu</h3>
+      <p>Uporabnik vidi kupljena branja, aktivno naročnino, arhiv in nadaljevanja tem.</p>
+      <ul class="account-list">
+        <li>Arhiv branj</li>
+        <li>Zgodovina vprašanj</li>
+        <li>Enkratni nakupi in naročnine</li>
+        <li>Pripravljeno za EN verzijo</li>
+      </ul>
+    </div>
+    <div class="account-panel fade-in">
+      <h3>Varnost vsebine</h3>
+      <p>Odgovori naj bodo empatični, psihološko odgovorni in brez absolutnih trditev o prihodnosti.</p>
+      <ul class="account-list">
+        <li>Razvedrilo in zabava</li>
+        <li>Brez zdravstvenih, pravnih ali finančnih nasvetov</li>
+        <li>Jasna opozorila pri občutljivih temah</li>
+        <li>Odločitev ostane uporabnikova</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="section-header fade-in">
+    <span class="section-label">Pomembno</span>
+    <h2 class="section-title">To ni napoved usode</h2>
+    <div class="section-divider"></div>
+    <p><strong>Zlata nit je namenjena razvedrilu in zabavi.</strong> Vsebina ne predstavlja strokovnega, zdravstvenega, psihološkega, finančnega ali pravnega svetovanja.</p>
+    <p>Besedila so zasnovana kot simbolni in psihološki premislek. Odločitve sprejema uporabnik sam.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Zlata nit</div>
+  <p class="footer-tagline">„Nekatera razkritja so glasna. Najboljša so tiha."</p>
+  <ul class="footer-links">
+    <li><a href="#branje">Branje</a></li>
+    <li><a href="#cenik">Cenik</a></li>
+    <li><a href="#racun">Račun</a></li>
+    <li><a href="#">Pogoji</a></li>
+    <li><a href="#">Zasebnost</a></li>
+  </ul>
+</footer>
+
+<div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal">
+    <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
+    <h3 id="authTitle">Tvoj prostor</h3>
+    <p class="sub-t">Prijava, arhiv branj in naročnina.</p>
+    <div class="tabs">
+      <button class="active" id="tabLogin" onclick="authTab('login')">Prijava</button>
+      <button id="tabReg" onclick="authTab('reg')">Registracija</button>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Tu se kasneje povežejo uporabniški računi, plačila in agenti.');">
+      <div class="field" id="fieldName" style="display:none"><label for="name">Ime</label><input id="name" autocomplete="name"></div>
+      <div class="field"><label for="email">E-pošta</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="pass">Geslo</label><input id="pass" type="password" autocomplete="current-password" required></div>
+      <button class="pricing-btn" style="margin-top:.5rem" id="authBtn">Prijavi se</button>
+    </form>
+    <p class="fine">Vsebina strani je namenjena razvedrilu in zabavi.</p>
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 100));
+const hamb = document.getElementById('hamb');
+const mobile = document.getElementById('mobile');
+function toggleMenu(open){
+  hamb.classList.toggle('open', open);
+  mobile.classList.toggle('open', open);
+  hamb.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
+document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); } });
+
+function initHeroVideoLoop(){
+  const videos = Array.from(document.querySelectorAll('[data-hero-video]'));
+  if(videos.length < 2) return;
+
+  let active = 0;
+  let swapping = false;
+  const fadeMs = 900;
+  const leadSeconds = fadeMs / 1000;
+
+  videos.forEach(video => {
+    video.loop = false;
+    video.addEventListener('timeupdate', maybeSwap);
+    video.addEventListener('ended', maybeSwap);
+  });
+
+  videos[active].play().catch(() => {
+    videos[active].loop = true;
+  });
+
+  function maybeSwap(){
+    const current = videos[active];
+    if(swapping || !current.duration) return;
+    if(current.duration - current.currentTime > leadSeconds && !current.ended) return;
+
+    swapping = true;
+    const nextIndex = (active + 1) % videos.length;
+    const next = videos[nextIndex];
+    next.currentTime = 0;
+
+    next.play().then(() => {
+      next.classList.add('active');
+      current.classList.remove('active');
+
+      window.setTimeout(() => {
+        current.pause();
+        current.currentTime = 0;
+        active = nextIndex;
+        swapping = false;
+      }, fadeMs + 120);
+    }).catch(() => {
+      current.loop = true;
+      swapping = false;
+    });
+  }
+}
+
+const readings = [
+  {name:'Luna', num:'XVIII', symbol:'☾', text:'Odgovor še ni pripravljen na hrup. Najprej potrebuje tišino, potem obliko.', reflect:'Kaj veš, pa si še ne dovoliš priznati?'},
+  {name:'Zvezda', num:'XVII', symbol:'✦', text:'Vračanje zaupanja ni naivnost. Je odločitev, da ne boš vsega merila skozi strah.', reflect:'Kje si zamenjala upanje za čakanje?'},
+  {name:'Ključ', num:'IV', symbol:'⌁', text:'Vrata niso nujno zaprta. Morda stojiš pred napačnimi ali trkaš preglasno.', reflect:'Katera možnost je tiha, a vztrajna?'}
+];
+let topic = 'Splošno';
+function renderCards(){
+  document.getElementById('cards').innerHTML = readings.map((card, index) => `
+    <button class="card" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1}">
+      <span class="card-inner">
+        <span class="face face-back"></span>
+        <span class="face face-front">
+          <span class="symbol">${card.symbol}</span>
+          <span class="card-num">${card.num}</span>
+          <span class="card-name">${card.name}</span>
+        </span>
+      </span>
+    </button>
+  `).join('');
+}
+function setTopic(btn){
+  document.querySelectorAll('.topic').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  topic = btn.dataset.topic;
+  resetCards();
+}
+function reveal(index){
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.classList.toggle('flipped', i === index);
+    card.classList.toggle('dimmed', i !== index);
+  });
+  const card = readings[index];
+  document.getElementById('rTopic').textContent = topic;
+  document.getElementById('rName').textContent = card.name;
+  document.getElementById('rText').textContent = card.text;
+  document.getElementById('rReflect').textContent = card.reflect;
+  document.getElementById('result').classList.add('show');
+}
+function resetCards(){
+  document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped','dimmed'));
+  document.getElementById('result').classList.remove('show');
+}
+function openAuth(){document.getElementById('authModal').classList.add('open')}
+function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+function authTab(mode){
+  document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
+  document.getElementById('tabReg').classList.toggle('active', mode === 'reg');
+  document.getElementById('fieldName').style.display = mode === 'reg' ? 'block' : 'none';
+  document.getElementById('authBtn').textContent = mode === 'reg' ? 'Ustvari račun' : 'Prijavi se';
+}
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+initHeroVideoLoop();
+renderCards();
+</script>
+</body>
+</html>
