@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zlata nit — ko iščeš znak</title>
-<meta name="description" content="Zlata nit je sodobno vedeževanje s kartami za razvedrilo, premislek in tiha razkritja.">
+<title>Velvet Secret — ko ne veš, kaj pomeni tišina</title>
+<meta name="description" content="Velvet Secret je miren prostor za simbolno branje kart, ko potrebuješ znak, premislek ali naslednji korak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
   --warm:#d8bd9a;
   --warm-soft:rgba(216,189,154,.14);
   --display:"Playfair Display", Georgia, serif;
-  --sans:"Lato", system-ui, sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;background:var(--bg)}
@@ -202,10 +202,16 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
 .intro-card{
   text-align:center;background:rgba(255,255,255,.035);border:1px solid var(--line-soft);
-  padding:3rem 2rem;transition:.4s ease;
+  overflow:hidden;transition:.4s ease;
 }
 .intro-card:hover{transform:translateY(-8px);border-color:var(--line);box-shadow:0 20px 60px rgba(0,0,0,.18)}
-.intro-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem;background:rgba(199,188,228,.12);color:var(--violet-light);font-size:1.5rem}
+.intro-visual{position:relative;aspect-ratio:16/11;background-size:cover;background-position:center;overflow:hidden}
+.intro-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,16,24,.12),rgba(17,16,24,.72)),linear-gradient(135deg,rgba(199,188,228,.18),rgba(216,189,154,.08))}
+.intro-card:nth-child(1) .intro-visual{background-image:url("assets/images/intro-nezno.png")}
+.intro-card:nth-child(2) .intro-visual{background-image:url("assets/images/intro-konkretno.png")}
+.intro-card:nth-child(3) .intro-visual{background-image:url("assets/images/intro-tvoje.png")}
+.intro-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;background:rgba(199,188,228,.12);border:1px solid rgba(199,188,228,.18);color:var(--violet-light);font-size:1.22rem}
+.intro-copy{padding:2.4rem 2rem 2.5rem}
 .intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
 .intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
 
@@ -232,10 +238,20 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 }
 .face-back::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.38);box-shadow:inset 0 0 32px rgba(17,16,24,.55)}
 .face-back::after{content:"";position:absolute;inset:22%;border:1px solid rgba(216,189,154,.28);background:radial-gradient(circle,rgba(216,189,154,.2),transparent 58%)}
-.face-front{transform:rotateY(180deg);background:linear-gradient(170deg,#262331,#171620);flex-direction:column;gap:.6rem;padding:1rem;border-color:rgba(216,189,154,.32)}
-.face-front .symbol{font-size:2.7rem;color:var(--warm)}
-.face-front .card-name{font-family:var(--display);font-size:1.08rem;color:var(--warm);letter-spacing:.06em;text-align:center}
-.face-front .card-num{font-size:.62rem;letter-spacing:.28em;color:var(--muted)}
+.face-front{
+  transform:rotateY(180deg);
+  background:
+    radial-gradient(circle at 50% 30%,rgba(216,189,154,.18),transparent 23%),
+    linear-gradient(170deg,#282431,#171620 72%);
+  flex-direction:column;gap:.55rem;padding:1rem;border-color:rgba(216,189,154,.34);
+}
+.face-front::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.28)}
+.face-front::after{content:"";position:absolute;inset:26px;border:1px solid rgba(199,188,228,.13);background:radial-gradient(circle,rgba(199,188,228,.12),transparent 56%)}
+.face-front span{position:relative;z-index:1}
+.face-front .card-kind{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.face-front .symbol{font-size:2.35rem;color:var(--warm);line-height:1}
+.face-front .card-name{font-family:var(--display);font-size:clamp(.86rem,1.25vw,1.06rem);color:var(--warm);letter-spacing:.04em;text-align:center;line-height:1.2}
+.face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:var(--muted);text-align:center;text-transform:uppercase}
 .result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
 .result.show{display:block;animation:rise .7s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -330,7 +346,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 </head>
 <body>
 <nav class="nav" id="nav">
-  <a href="#vrh" class="nav-logo">Zlata nit</a>
+  <a href="#vrh" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
     <li><a href="#zgodba" class="nav-link">Občutek</a></li>
     <li><a href="#branje" class="nav-link">Branje</a></li>
@@ -359,12 +375,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
-      <span class="hero-subtitle">Sodobno vedeževanje</span>
-      <h1 class="hero-title">Ko iščeš znak,<br>naj te vodi <em>zlata nit</em></h1>
-      <p class="hero-desc">Temen, mehak in varen prostor za kratka razkritja, simbolno igro in psihološko zasnovane odgovore. Ena karta je brezplačna.</p>
+      <span class="hero-subtitle">Sodobno branje kart</span>
+      <h1 class="hero-title">Ko ne veš, kaj pomeni tišina,<br>obrni <em>eno karto</em></h1>
+      <p class="hero-desc">Za trenutke, ko čakaš odgovor, te vleče v dve smeri ali čutiš, da nekaj ni več tako kot prej. Karta ne odloči namesto tebe, lahko pa pokaže, kje se nekaj že premika.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
-      <a href="#cenik" class="hero-cta hero-second">Cenik</a>
-      <span class="hero-note">Vsebina je namenjena razvedrilu in zabavi</span>
+      <a href="#cenik" class="hero-cta hero-second">Izberi branje</a>
+      <span class="hero-note">Najprej mir, potem odgovor</span>
     </div>
   </div>
   <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
@@ -372,36 +388,45 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 <section id="zgodba">
   <div class="section-header fade-in">
-    <span class="section-label">Salon tihih razkritij</span>
-    <h2 class="section-title">Premium občutek brez hladnega blišča</h2>
+    <span class="section-label">Ko se ustaviš</span>
+    <h2 class="section-title">Vprašanje ponavadi pride prej kot odgovor</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Zlata nit ni cirkus in ni aplikacija, ki kriči. Je temen salon z mehko svetlobo, zadržano skrivnostjo in občutkom, da se lahko ustaviš.</p>
+    <p class="section-desc">Včasih ne potrebuješ velike napovedi. Potrebuješ samo trenutek, ki razbije krog razmišljanja in ti pomaga slišati, katera misel se ponavlja.</p>
   </div>
   <div class="intro-grid">
     <div class="intro-card fade-in">
-      <div class="intro-icon">☾</div>
-      <h3>Varno</h3>
-      <p>Odgovori so oblikovani kot premislek, ne kot ukaz. Stran je namenjena razvedrilu in zabavi.</p>
+      <div class="intro-visual"></div>
+      <div class="intro-copy">
+        <div class="intro-icon">☾</div>
+        <h3>Nežno</h3>
+        <p>Odgovor ni ukaz. Je stavek, ob katerem lahko preveriš, kaj v tebi popusti in kaj se upre.</p>
+      </div>
     </div>
     <div class="intro-card fade-in">
-      <div class="intro-icon">✦</div>
-      <h3>Psihološko</h3>
-      <p>V ozadju je kakovostna vsebina: vprašanja, vzorci, čustva in odločanje, ne prazna mistika.</p>
+      <div class="intro-visual"></div>
+      <div class="intro-copy">
+        <div class="intro-icon">✦</div>
+        <h3>Konkretno</h3>
+        <p>Vprašanja niso abstraktna. Ljubezen, delo, denar, odločitev, čakanje, odhod, nov začetek.</p>
+      </div>
     </div>
     <div class="intro-card fade-in">
-      <div class="intro-icon">◈</div>
-      <h3>Osebno</h3>
-      <p>Uporabnik ima račun, arhiv branj, naročnino in kasneje enako izkušnjo v angleščini ter aplikaciji.</p>
+      <div class="intro-visual"></div>
+      <div class="intro-copy">
+        <div class="intro-icon">◈</div>
+        <h3>Tvoje</h3>
+        <p>Branje ne vzame odgovornosti iz tvojih rok. Samo osvetli nit, ki je bila morda že tam.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="branje">
   <div class="section-header fade-in">
-    <span class="section-label">Prva karta je darilo</span>
-    <h2 class="section-title">Vprašanja so pogosto podobna</h2>
+    <span class="section-label">Prva karta</span>
+    <h2 class="section-title">Izberi področje, ki te trenutno najbolj vleče</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ali ostati, počakati, zaupati, oditi, začeti znova. Izberi področje in obrni eno karto.</p>
+    <p class="section-desc">Ne rabiš pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali kje se ne moreš odločiti.</p>
   </div>
   <div class="topic-row fade-in">
     <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
@@ -417,66 +442,65 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <p id="rText"></p>
     <div class="reflect" id="rReflect"></div>
     <div class="result-cta">
-      <a href="#cenik" class="pricing-btn">Globlji vpogled</a>
+      <a href="#cenik" class="pricing-btn">Nadaljuj branje</a>
       <button class="pricing-btn" onclick="resetCards()">Zapri</button>
     </div>
-    <p class="fine">Vsebina je namenjena razvedrilu in zabavi.</p>
   </div>
 </section>
 
 <section>
   <div class="section-header fade-in">
     <span class="section-label">Razpleti</span>
-    <h2 class="section-title">Vsaka izbira ima svoj ton</h2>
+    <h2 class="section-title">Včasih ena karta ni dovolj</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Vizualno naj stran deluje kot nočni salon: črno-siva osnova, sivka, prašna modra in samo malo topline ob razkritju.</p>
+    <p class="section-desc">Ko se ista misel vrača, ko odgovor ni enostaven ali ko želiš videti širšo sliko, lahko izbereš branje, ki gre globlje.</p>
   </div>
   <div class="gallery">
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Karta dneva</h3><p>Kratek odgovor za dnevni premislek.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Tri karte</h3><p>Situacija, vpliv in možna smer.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Veliki razplet</h3><p>Poglobljen zapis in arhiv v računu.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Mesečni krog</h3><p>Navada za tiste, ki se redno vračajo.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Karta dneva</h3><p>Ko potrebuješ samo en stavek, da se dan malo umiri.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Tri karte</h3><p>Za vprašanje, ki ima preteklost, sedanjost in možno smer.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Veliki razplet</h3><p>Ko čutiš, da se pod površjem dogaja več, kot znaš povedati.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Mesečni krog</h3><p>Za trenutke, ko se želiš k sebi vračati bolj redno.</p></div></div>
   </div>
 </section>
 
 <section id="cenik">
   <div class="section-header fade-in">
-    <span class="section-label">Cenik</span>
-    <h2 class="section-title">Enkratno ali naročniško</h2>
+    <span class="section-label">Branja</span>
+    <h2 class="section-title">En znak danes. Več jasnosti, ko jo potrebuješ</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ena kratka prerokba ostane brezplačna. Naprej lahko kupiš samo posamezno branje ali vstopiš v naročniški Krog.</p>
+    <p class="section-desc">Lahko ostaneš pri eni karti. Če se vprašanje ne zapre, lahko odpreš še več konteksta.</p>
   </div>
   <div class="pricing-container">
     <div class="price-stack">
       <div class="pricing-card fade-in">
         <h3 class="pricing-name">Karta dneva</h3>
-        <p class="pricing-desc">Ena kratka prerokba, enkrat dnevno.</p>
+        <p class="pricing-desc">Kratek odgovor za trenutek, ko ne želiš več vrteti iste misli.</p>
         <div class="pricing-price">0 €</div>
         <a href="#branje" class="pricing-btn">Obrni</a>
       </div>
       <div class="pricing-card fade-in">
         <h3 class="pricing-name">Tri karte</h3>
-        <p class="pricing-desc">Povezano branje za eno področje.</p>
+        <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
         <div class="pricing-price">4,90 €</div>
         <a href="#racun" class="pricing-btn">Kupi</a>
       </div>
       <div class="pricing-card fade-in">
         <h3 class="pricing-name">Veliki razplet</h3>
-        <p class="pricing-desc">Sedem kart, daljši zapis in shranjen arhiv.</p>
+        <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš ujeti z enim stavkom.</p>
         <div class="pricing-price">14,90 €</div>
         <a href="#racun" class="pricing-btn">Kupi</a>
       </div>
     </div>
     <div class="pricing-card featured fade-in">
       <h3 class="pricing-name">Krog</h3>
-      <p class="pricing-desc">Za redna vprašanja, arhiv branj in več agentnih odgovorov.</p>
+      <p class="pricing-desc">Mesečni prostor za vprašanja, ki se vračajo, spreminjajo in zorijo s tabo.</p>
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
       <ul class="pricing-features">
-        <li>Neomejena karta dneva</li>
+        <li>Karta dneva, kadar jo potrebuješ</li>
         <li>8 branj s tremi kartami mesečno</li>
         <li>1 veliki razplet mesečno</li>
-        <li>Arhiv vseh branj v uporabniškem računu</li>
-        <li>Tematski agenti: ljubezen, delo, denar, osebna rast</li>
+        <li>Shranjena branja na enem mestu</li>
+        <li>Ljubezen, delo, denar in osebna rast</li>
       </ul>
       <a href="#racun" class="pricing-btn">Vstopi v Krog</a>
     </div>
@@ -485,30 +509,30 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 <section id="racun">
   <div class="section-header fade-in">
-    <span class="section-label">Uporabniški račun</span>
-    <h2 class="section-title">Tvoj zasebni arhiv branj</h2>
+    <span class="section-label">Tvoj prostor</span>
+    <h2 class="section-title">Nekateri odgovori se pokažejo šele kasneje</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Račun hrani enkratne nakupe, naročnino, zgodovino branj in kasneje omogoča prehod v angleško verzijo ter mobilno aplikacijo.</p>
+    <p class="section-desc">Kar danes zveni nejasno, lahko čez nekaj dni dobi obliko. Zato se lahko vrneš k branjem, ki jih še nisi čisto odložila.</p>
   </div>
   <div class="account-grid">
     <div class="account-panel fade-in">
-      <h3>V računu</h3>
-      <p>Uporabnik vidi kupljena branja, aktivno naročnino, arhiv in nadaljevanja tem.</p>
+      <h3>Za kasneje</h3>
+      <p>Ko se vprašanje ponovi ali dobi nov pomen, ti ni treba začeti znova.</p>
       <ul class="account-list">
-        <li>Arhiv branj</li>
+        <li>Shranjena branja</li>
         <li>Zgodovina vprašanj</li>
-        <li>Enkratni nakupi in naročnine</li>
-        <li>Pripravljeno za EN verzijo</li>
+        <li>Odprte teme</li>
+        <li>Izbrana branja</li>
       </ul>
     </div>
     <div class="account-panel fade-in">
-      <h3>Varnost vsebine</h3>
-      <p>Odgovori naj bodo empatični, psihološko odgovorni in brez absolutnih trditev o prihodnosti.</p>
+      <h3>Brez pritiska</h3>
+      <p>Ničesar ti ni treba sprejeti, če v tebi ne zveni resnično.</p>
       <ul class="account-list">
-        <li>Razvedrilo in zabava</li>
-        <li>Brez zdravstvenih, pravnih ali finančnih nasvetov</li>
-        <li>Jasna opozorila pri občutljivih temah</li>
-        <li>Odločitev ostane uporabnikova</li>
+        <li>Brez absolutnih napovedi</li>
+        <li>Brez strašenja in velikih obljub</li>
+        <li>Prostor za premislek</li>
+        <li>Zadnja beseda ostane tvoja</li>
       </ul>
     </div>
   </div>
@@ -517,16 +541,16 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <section class="legal">
   <div class="section-header fade-in">
     <span class="section-label">Pomembno</span>
-    <h2 class="section-title">To ni napoved usode</h2>
+    <h2 class="section-title">Znak ni ukaz</h2>
     <div class="section-divider"></div>
-    <p><strong>Zlata nit je namenjena razvedrilu in zabavi.</strong> Vsebina ne predstavlja strokovnega, zdravstvenega, psihološkega, finančnega ali pravnega svetovanja.</p>
-    <p>Besedila so zasnovana kot simbolni in psihološki premislek. Odločitve sprejema uporabnik sam.</p>
+    <p><strong>Velvet Secret je namenjen simbolnemu premisleku, razvedrilu in osebni refleksiji.</strong></p>
+    <p>Ne nadomešča strokovnega, zdravstvenega, psihološkega, finančnega ali pravnega svetovanja. Pri pomembnih odločitvah ostane zadnja beseda vedno tvoja.</p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">Zlata nit</div>
-  <p class="footer-tagline">„Nekatera razkritja so glasna. Najboljša so tiha."</p>
+  <div class="footer-logo">Velvet Secret</div>
+  <p class="footer-tagline">„Najprej mir, potem odgovor."</p>
   <ul class="footer-links">
     <li><a href="#branje">Branje</a></li>
     <li><a href="#cenik">Cenik</a></li>
@@ -540,18 +564,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="modal">
     <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
     <h3 id="authTitle">Tvoj prostor</h3>
-    <p class="sub-t">Prijava, arhiv branj in naročnina.</p>
+    <p class="sub-t">Za branja, h katerim se želiš vrniti.</p>
     <div class="tabs">
       <button class="active" id="tabLogin" onclick="authTab('login')">Prijava</button>
       <button id="tabReg" onclick="authTab('reg')">Registracija</button>
     </div>
-    <form onsubmit="event.preventDefault(); alert('Tu se kasneje povežejo uporabniški računi, plačila in agenti.');">
+    <form onsubmit="event.preventDefault(); alert('Tvoj prostor bo kmalu pripravljen.');">
       <div class="field" id="fieldName" style="display:none"><label for="name">Ime</label><input id="name" autocomplete="name"></div>
       <div class="field"><label for="email">E-pošta</label><input id="email" type="email" autocomplete="email" required></div>
       <div class="field"><label for="pass">Geslo</label><input id="pass" type="password" autocomplete="current-password" required></div>
       <button class="pricing-btn" style="margin-top:.5rem" id="authBtn">Prijavi se</button>
     </form>
-    <p class="fine">Vsebina strani je namenjena razvedrilu in zabavi.</p>
+    <p class="fine">Za vprašanja, h katerim se še vračaš.</p>
   </div>
 </div>
 
@@ -616,18 +640,99 @@ function initHeroVideoLoop(){
   }
 }
 
-const readings = [
-  {name:'Luna', num:'XVIII', symbol:'☾', text:'Odgovor še ni pripravljen na hrup. Najprej potrebuje tišino, potem obliko.', reflect:'Kaj veš, pa si še ne dovoliš priznati?'},
-  {name:'Zvezda', num:'XVII', symbol:'✦', text:'Vračanje zaupanja ni naivnost. Je odločitev, da ne boš vsega merila skozi strah.', reflect:'Kje si zamenjala upanje za čakanje?'},
-  {name:'Ključ', num:'IV', symbol:'⌁', text:'Vrata niso nujno zaprta. Morda stojiš pred napačnimi ali trkaš preglasno.', reflect:'Katera možnost je tiha, a vztrajna?'}
+const tarotDeck = [
+  {name:'Norček', num:'0', kind:'Velika arkana', symbol:'✧', text:'Danes je pred tabo svež začetek. Ne potrebuješ vseh dokazov, potrebuješ iskren prvi korak.', reflect:'Kje te življenje vabi, da začneš bolj lahkotno?'},
+  {name:'Mag', num:'I', kind:'Velika arkana', symbol:'✦', text:'Kar potrebuješ, je bližje, kot se zdi. Danes uporabi voljo, besedo in jasen namen.', reflect:'Katero moč že imaš v rokah?'},
+  {name:'Visoka svečenica', num:'II', kind:'Velika arkana', symbol:'☾', text:'Odgovor še ni glasen, vendar je prisoten. Poslušaj tišino pred razlago.', reflect:'Kaj veš, pa še nisi povedala na glas?'},
+  {name:'Cesarica', num:'III', kind:'Velika arkana', symbol:'✺', text:'Dan podpira nežnost, telo, ustvarjalnost in sprejemanje. Nekaj raste, če mu daš prostor.', reflect:'Kaj potrebuje več mehkobe, ne več pritiska?'},
+  {name:'Cesar', num:'IV', kind:'Velika arkana', symbol:'◈', text:'Potrebna je meja, struktura ali jasna odločitev. Mir se vrne, ko nekaj postaviš na svoje mesto.', reflect:'Kje moraš stati bolj trdno?'},
+  {name:'Svečenik', num:'V', kind:'Velika arkana', symbol:'✥', text:'Danes pomaga modrost, ki ni nova, ampak preverjena. Obrni se k vrednoti, ki te drži pokonci.', reflect:'Katero notranje pravilo te res varuje?'},
+  {name:'Ljubimca', num:'VI', kind:'Velika arkana', symbol:'♡', text:'Pred tabo je izbira, ki ni samo razumska. Srce že kaže, kje je več resnice.', reflect:'Kaj izbereš, ko si iskrena do sebe?'},
+  {name:'Voz', num:'VII', kind:'Velika arkana', symbol:'⬦', text:'Energija se premakne, ko jo usmeriš. Ne vleci v dve smeri, izberi eno pot za danes.', reflect:'Kam gre tvoja moč, ko se ne razprši?'},
+  {name:'Moč', num:'VIII', kind:'Velika arkana', symbol:'∞', text:'Tvoja prava moč danes ni trda. Je mirna, zbrana in nežna do tistega, kar je ranljivo.', reflect:'Kje lahko zmagaš brez boja?'},
+  {name:'Puščavnik', num:'IX', kind:'Velika arkana', symbol:'✶', text:'Odmakni se od hrupa. En sam miren uvid je danes vreden več kot deset mnenj.', reflect:'Kaj zaslišiš, ko se ne razlagaš nikomur?'},
+  {name:'Kolo sreče', num:'X', kind:'Velika arkana', symbol:'◌', text:'Nekaj se obrača. Ne drži za staro obliko, če se življenje že premika naprej.', reflect:'Kje se sprememba dogaja brez tvojega dovoljenja?'},
+  {name:'Pravica', num:'XI', kind:'Velika arkana', symbol:'⚖', text:'Danes šteje resnica brez olepševanja. Jasnost morda ni mehka, je pa osvobajajoča.', reflect:'Kaj bi bilo pošteno do tebe?'},
+  {name:'Obešenec', num:'XII', kind:'Velika arkana', symbol:'◇', text:'Ne sili odgovora. Ko spremeniš pogled, se lahko spremeni tudi pomen situacije.', reflect:'Kaj vidiš drugače, če za trenutek ne ukrepaš?'},
+  {name:'Smrt', num:'XIII', kind:'Velika arkana', symbol:'✣', text:'Nekaj se zaključuje, da energija ne ostane ujeta. Konec ni kazen, lahko je prehod.', reflect:'Kaj je že odšlo, čeprav ga še držiš?'},
+  {name:'Zmernost', num:'XIV', kind:'Velika arkana', symbol:'≈', text:'Danes ne potrebuješ skrajnosti. Zdravilna pot je v mešanju, ravnovesju in počasnem vračanju.', reflect:'Kaj se umiri, ko ne pretiravaš?'},
+  {name:'Hudič', num:'XV', kind:'Velika arkana', symbol:'⛓', text:'Nekaj te veže, ker obljublja hitro olajšanje. Poglej, kje zamenjuješ željo za svobodo.', reflect:'Kaj ti jemlje energijo, čeprav te privlači?'},
+  {name:'Stolp', num:'XVI', kind:'Velika arkana', symbol:'⚡', text:'Kar ni imelo trdnih temeljev, se lahko zamaje. Resnica ruši samo tisto, kar je bilo pretesno.', reflect:'Kje je razpoka pravzaprav izhod?'},
+  {name:'Zvezda', num:'XVII', kind:'Velika arkana', symbol:'✦', text:'Upanje se vrača tiho, ne na silo. Danes zaupaj majhnemu znaku svetlobe.', reflect:'Kje se duša spet odpira?'},
+  {name:'Luna', num:'XVIII', kind:'Velika arkana', symbol:'☾', text:'Ni vse takšno, kot se kaže. Ne hiti v sklep, dokler se megla ne razredči.', reflect:'Kaj je občutek, in kaj je strah?'},
+  {name:'Sonce', num:'XIX', kind:'Velika arkana', symbol:'☉', text:'Dan prinaša toplino, preprostost in več življenjske energije. Dovoli si videti dobro.', reflect:'Kaj postane lažje, ko ne skrivaš svoje svetlobe?'},
+  {name:'Sodba', num:'XX', kind:'Velika arkana', symbol:'✷', text:'Nekaj v tebi se prebuja. Stari klic se vrača, tokrat z več jasnosti.', reflect:'Katera verzija tebe kliče nazaj?'},
+  {name:'Svet', num:'XXI', kind:'Velika arkana', symbol:'◎', text:'Krog se zapira. Danes priznaj, kaj si že prehodila, preden zahtevaš nov začetek.', reflect:'Kaj je dozorelo do zaključka?'},
+  {name:'As kelihov', num:'As', kind:'Kelihi', symbol:'♢', text:'Odpre se nežen čustveni tok. Danes je dobro sprejeti, kar prihaja iz srca.', reflect:'Kje lahko pustiš občutku, da te doseže?'},
+  {name:'Dvojka kelihov', num:'2', kind:'Kelihi', symbol:'♢', text:'Povezava se pokaže skozi vzajemnost. Opazuj, kje je energija obojestranska.', reflect:'Kdo ti pride naproti brez prisile?'},
+  {name:'Trojka kelihov', num:'3', kind:'Kelihi', symbol:'♢', text:'Dan podpira bližino, radost in podporo ljudi, ki ti dobro denejo.', reflect:'S kom je tvoja energija lažja?'},
+  {name:'Štirica kelihov', num:'4', kind:'Kelihi', symbol:'♢', text:'Morda ne vidiš ponudbe, ker gledaš v razočaranje. Danes dvigni pogled počasi.', reflect:'Kaj ti je ponujeno, pa tega še ne sprejemaš?'},
+  {name:'Petica kelihov', num:'5', kind:'Kelihi', symbol:'♢', text:'Nekaj boli, a ni vse izgubljeno. Dovoli žalosti prostor, vendar ji ne daj vsega dneva.', reflect:'Kaj še vedno stoji ob tebi?'},
+  {name:'Šestica kelihov', num:'6', kind:'Kelihi', symbol:'♢', text:'Spomin prinaša sporočilo. Danes lahko nekaj iz preteklosti vidiš z mehkejšimi očmi.', reflect:'Kateri stari občutek želi ozdraveti?'},
+  {name:'Sedmica kelihov', num:'7', kind:'Kelihi', symbol:'♢', text:'Možnosti je veliko, vse pa niso resnične. Izberi tisto, kjer je mir, ne samo privlak.', reflect:'Katera želja ima tudi korenine?'},
+  {name:'Osmica kelihov', num:'8', kind:'Kelihi', symbol:'♢', text:'Duša se odmika od nečesa, kar je nekoč hranilo. Odhod je lahko dejanje zvestobe sebi.', reflect:'Od česa se tiho poslavljaš?'},
+  {name:'Devetica kelihov', num:'9', kind:'Kelihi', symbol:'♢', text:'Danes opazi izpolnitev, ki je že prisotna. Hvaležnost ti odpre več prostora.', reflect:'Kaj je že dovolj dobro?'},
+  {name:'Desetica kelihov', num:'10', kind:'Kelihi', symbol:'♢', text:'Čustveni mir je mogoč, ko ne iščeš popolnosti. Toplina se gradi iz drobnih gest.', reflect:'Kje lahko izbereš povezanost?'},
+  {name:'Paž kelihov', num:'Paž', kind:'Kelihi', symbol:'♢', text:'Nežno sporočilo prihaja skozi intuicijo, sanje ali nepričakovan občutek.', reflect:'Kaj ti srce šepeta brez logike?'},
+  {name:'Vitez kelihov', num:'Vitez', kind:'Kelihi', symbol:'♢', text:'Čustvo želi pot. Izrazi ga lepo, vendar ne obljubi več, kot lahko nosiš.', reflect:'Kaj želiš povedati z odprtim srcem?'},
+  {name:'Kraljica kelihov', num:'Kraljica', kind:'Kelihi', symbol:'♢', text:'Tvoja občutljivost je kompas. Danes jo varuj, ne skrivaj.', reflect:'Kaj čutiš, preden začneš razlagati?'},
+  {name:'Kralj kelihov', num:'Kralj', kind:'Kelihi', symbol:'♢', text:'Čustva so močna, a jih lahko vodiš mirno. Zrelost pomeni ostati odprta in stabilna.', reflect:'Kje lahko ostaneš mehka in zbrana hkrati?'},
+  {name:'As palic', num:'As', kind:'Palice', symbol:'✶', text:'Iskra se prižiga. Danes sledi tistemu, kar ti dvigne energijo.', reflect:'Kaj te kliče z živostjo?'},
+  {name:'Dvojka palic', num:'2', kind:'Palice', symbol:'✶', text:'Stojiš pred širšim obzorjem. Načrtuj, preden skočiš.', reflect:'Katera pot se odpira, če si dovoliš več?'},
+  {name:'Trojka palic', num:'3', kind:'Palice', symbol:'✶', text:'Nekaj, kar si poslala v svet, se začne vračati. Bodi potrpežljiva z razdaljo.', reflect:'Kje že vidiš prve znake premika?'},
+  {name:'Štirica palic', num:'4', kind:'Palice', symbol:'✶', text:'Dan podpira praznovanje majhne zmage. Ustvari kotiček varnosti in svetlobe.', reflect:'Kaj si zasluži priznanje?'},
+  {name:'Petica palic', num:'5', kind:'Palice', symbol:'✶', text:'Energije se križajo. Ni vsak odpor napad; včasih je samo neurejena moč.', reflect:'Kje se lahko nehaš dokazovati?'},
+  {name:'Šestica palic', num:'6', kind:'Palice', symbol:'✶', text:'Priznanje je blizu. Sprejmi uspeh brez zmanjševanja svojega truda.', reflect:'Kaj lahko danes mirno priznaš sebi?'},
+  {name:'Sedmica palic', num:'7', kind:'Palice', symbol:'✶', text:'Varuj svojo pozicijo, a ne izgubljaj srca v obrambi. Stoj za tem, kar je res tvoje.', reflect:'Za kaj se je vredno postaviti?'},
+  {name:'Osmica palic', num:'8', kind:'Palice', symbol:'✶', text:'Stvari se lahko hitro premaknejo. Odgovori jasno, ko pride signal.', reflect:'Kateri premik ne potrebuje več odlašanja?'},
+  {name:'Devetica palic', num:'9', kind:'Palice', symbol:'✶', text:'Utrujenost ne pomeni poraza. Danes varčuj z energijo in dokončaj samo bistveno.', reflect:'Kje potrebuješ mejo, ne še več napora?'},
+  {name:'Desetica palic', num:'10', kind:'Palice', symbol:'✶', text:'Preveč nosiš sama. Odloži vsaj eno stvar, ki ni več tvoja.', reflect:'Kaj lahko danes nehaš vleči za seboj?'},
+  {name:'Paž palic', num:'Paž', kind:'Palice', symbol:'✶', text:'Radovednost odpira vrata. Poskusi majhno novo potezo brez velike drame.', reflect:'Kaj bi raziskala, če ne bi moralo uspeti takoj?'},
+  {name:'Vitez palic', num:'Vitez', kind:'Palice', symbol:'✶', text:'Strast se premika hitro. Uporabi ogenj, vendar ne požgi mostu za seboj.', reflect:'Kje potrebuješ pogum z nekaj potrpežljivosti?'},
+  {name:'Kraljica palic', num:'Kraljica', kind:'Palice', symbol:'✶', text:'Tvoja prisotnost ima moč. Danes ne zmanjšuj svoje svetlobe, da bi bila sprejemljiva.', reflect:'Kje lahko zasiješ brez opravičila?'},
+  {name:'Kralj palic', num:'Kralj', kind:'Palice', symbol:'✶', text:'Vizija potrebuje odločnost. Vodi z navdihom, ne s pritiskom.', reflect:'Katero smer lahko danes držiš jasno?'},
+  {name:'As mečev', num:'As', kind:'Meči', symbol:'⌁', text:'Resnica prereže meglo. Danes poimenuj stvar takšno, kot je.', reflect:'Katera misel prinese olajšanje, ko jo izrečeš?'},
+  {name:'Dvojka mečev', num:'2', kind:'Meči', symbol:'⌁', text:'Odločitev čaka, ker srce in razum še ne govorita skupaj. Ne odlašaj predolgo.', reflect:'Kaj že veš, če odložiš strah?'},
+  {name:'Trojka mečev', num:'3', kind:'Meči', symbol:'⌁', text:'Bolečina potrebuje zrak. Ne popravljaj je prehitro; najprej jo priznaj.', reflect:'Kaj boli, ker ti je bilo pomembno?'},
+  {name:'Štirica mečev', num:'4', kind:'Meči', symbol:'⌁', text:'Počitek je del odgovora. Um se zbistri šele, ko prenehaš pritiskati nanj.', reflect:'Kaj se razjasni, če danes ne siliš?'},
+  {name:'Petica mečev', num:'5', kind:'Meči', symbol:'⌁', text:'Zmaga brez miru ni prava zmaga. Izberi dostojanstvo pred dokazovanjem.', reflect:'Kje bi bilo bolje odnehati kot zmagati?'},
+  {name:'Šestica mečev', num:'6', kind:'Meči', symbol:'⌁', text:'Premik stran od nemira se je že začel. Ne glej nazaj za vsako potrditev.', reflect:'Kam te vodi tišja voda?'},
+  {name:'Sedmica mečev', num:'7', kind:'Meči', symbol:'⌁', text:'Nekaj ni popolnoma odkrito. Bodi iskrena do sebe, še preden zahtevaš iskrenost od drugih.', reflect:'Kje se izogibaš celotni resnici?'},
+  {name:'Osmica mečev', num:'8', kind:'Meči', symbol:'⌁', text:'Omejitev je delno v mislih. Danes poišči eno majhno odprtino.', reflect:'Katera vrata niso zaklenjena, samo nepreizkušena?'},
+  {name:'Devetica mečev', num:'9', kind:'Meči', symbol:'⌁', text:'Skrb povečuje senco. Vrni se v telo, v dih, v nekaj oprijemljivega.', reflect:'Kaj je dejstvo, in kaj nočni strah?'},
+  {name:'Desetica mečev', num:'10', kind:'Meči', symbol:'⌁', text:'Cikel misli se izčrpava. Naj se konča tam, kjer te ne hrani več.', reflect:'Kaj je dovolj, res dovolj?'},
+  {name:'Paž mečev', num:'Paž', kind:'Meči', symbol:'⌁', text:'Vprašaj, preveri, opazuj. Danes informacija pride skozi pozornost.', reflect:'Katero vprašanje bi morala postaviti?'},
+  {name:'Vitez mečev', num:'Vitez', kind:'Meči', symbol:'⌁', text:'Hitrost je koristna samo, če veš, kam greš. Ne dovoli impulzu, da govori namesto resnice.', reflect:'Kje moraš upočasniti besede?'},
+  {name:'Kraljica mečev', num:'Kraljica', kind:'Meči', symbol:'⌁', text:'Jasnost je dar. Danes lahko rečeš ne brez krivde in da brez zmede.', reflect:'Katera meja bi prinesla mir?'},
+  {name:'Kralj mečev', num:'Kralj', kind:'Meči', symbol:'⌁', text:'Odločitev potrebuje hladno glavo in čisto srce. Ne zapletaj, kar je že jasno.', reflect:'Kaj bi izbral tvoj najbolj miren razum?'},
+  {name:'As pentakljev', num:'As', kind:'Pentaklji', symbol:'◍', text:'Majhna konkretna priložnost ima večjo vrednost, kot se zdi. Posadi jo.', reflect:'Kaj lahko danes narediš oprijemljivo?'},
+  {name:'Dvojka pentakljev', num:'2', kind:'Pentaklji', symbol:'◍', text:'Ravnovesje je gibanje, ne popolna kontrola. Prilagodi ritem.', reflect:'Kaj lahko poenostaviš?'},
+  {name:'Trojka pentakljev', num:'3', kind:'Pentaklji', symbol:'◍', text:'Podpora in sodelovanje sta danes ključna. Ni ti treba vsega znati sama.', reflect:'Kdo lahko prispeva svoj del?'},
+  {name:'Štirica pentakljev', num:'4', kind:'Pentaklji', symbol:'◍', text:'Varovanje je dobro, stiskanje pa utrudi. Poglej, kje se bojiš izgubiti nadzor.', reflect:'Kaj lahko držiš bolj mehko?'},
+  {name:'Petica pentakljev', num:'5', kind:'Pentaklji', symbol:'◍', text:'Občutek pomanjkanja ni celotna resnica. Pomoč je bližje, če jo dovoliš videti.', reflect:'Kje nisi tako sama, kot se zdi?'},
+  {name:'Šestica pentakljev', num:'6', kind:'Pentaklji', symbol:'◍', text:'Dajanje in prejemanje iščeta ravnovesje. Sprejmi podporo brez dolga v srcu.', reflect:'Kje je izmenjava poštena?'},
+  {name:'Sedmica pentakljev', num:'7', kind:'Pentaklji', symbol:'◍', text:'Rezultat še zori. Danes ne izkoplji semena samo zato, ker te skrbi.', reflect:'Kaj potrebuje še malo časa?'},
+  {name:'Osmica pentakljev', num:'8', kind:'Pentaklji', symbol:'◍', text:'Majhna ponovljena dejanja gradijo mojstrstvo. Danes šteje praksa, ne popolnost.', reflect:'Katero veščino neguješ z vztrajnostjo?'},
+  {name:'Devetica pentakljev', num:'9', kind:'Pentaklji', symbol:'◍', text:'Samostojnost ima lepoto. Danes opazi, kaj si ustvarila s svojo energijo.', reflect:'Kje lahko uživaš sadove svojega dela?'},
+  {name:'Desetica pentakljev', num:'10', kind:'Pentaklji', symbol:'◍', text:'V ospredju so korenine, dom, vrednost in dolgoročna varnost. Misli širše od danes.', reflect:'Kaj gradi stabilnost za naprej?'},
+  {name:'Paž pentakljev', num:'Paž', kind:'Pentaklji', symbol:'◍', text:'Nova možnost potrebuje učenje. Bodi začetnica brez sramu.', reflect:'Kaj bi rada razumela bolj praktično?'},
+  {name:'Vitez pentakljev', num:'Vitez', kind:'Pentaklji', symbol:'◍', text:'Počasna pot je še vedno pot. Danes zaupaj koraku, ki ga lahko ponoviš.', reflect:'Kaj napreduje tiho, a zanesljivo?'},
+  {name:'Kraljica pentakljev', num:'Kraljica', kind:'Pentaklji', symbol:'◍', text:'Neguj telo, dom in energijo. Duhovno se danes pokaže skozi oprijemljivo skrb.', reflect:'Kaj te prizemlji na dober način?'},
+  {name:'Kralj pentakljev', num:'Kralj', kind:'Pentaklji', symbol:'◍', text:'Stabilnost pride iz modrega upravljanja. Danes izberi dolgoročno vrednost pred hitrim vtisom.', reflect:'Kaj je res vredno tvoje energije?'}
 ];
+let currentSpread = [];
 let topic = 'Splošno';
+function shuffleDeck(deck){
+  return deck.map(card => ({ card, sort: crypto.getRandomValues(new Uint32Array(1))[0] })).sort((a, b) => a.sort - b.sort).map(item => item.card);
+}
 function renderCards(){
-  document.getElementById('cards').innerHTML = readings.map((card, index) => `
-    <button class="card" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1}">
+  currentSpread = shuffleDeck(tarotDeck).slice(0, 3);
+  document.getElementById('cards').innerHTML = currentSpread.map((card, index) => `
+    <button class="card" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
       <span class="card-inner">
         <span class="face face-back"></span>
         <span class="face face-front">
+          <span class="card-kind">${card.kind}</span>
           <span class="symbol">${card.symbol}</span>
           <span class="card-num">${card.num}</span>
           <span class="card-name">${card.name}</span>
@@ -641,14 +746,15 @@ function setTopic(btn){
   btn.classList.add('active');
   topic = btn.dataset.topic;
   resetCards();
+  renderCards();
 }
 function reveal(index){
   document.querySelectorAll('.card').forEach((card, i) => {
     card.classList.toggle('flipped', i === index);
     card.classList.toggle('dimmed', i !== index);
   });
-  const card = readings[index];
-  document.getElementById('rTopic').textContent = topic;
+  const card = currentSpread[index];
+  document.getElementById('rTopic').textContent = `${topic} · dnevni izid · ${card.kind}`;
   document.getElementById('rName').textContent = card.name;
   document.getElementById('rText').textContent = card.text;
   document.getElementById('rReflect').textContent = card.reflect;
