@@ -1218,7 +1218,9 @@ function openAuth(){document.getElementById('authModal').classList.add('open')}
 function closeAuth(){document.getElementById('authModal').classList.remove('open')}
 
 function getAuthRedirectUrl(){
-  return `${window.location.origin}${window.location.pathname}`;
+  const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const origin = isLocal ? window.location.origin : 'https://velvet-secret-site.netlify.app';
+  return `${origin}${window.location.pathname}`;
 }
 
 async function signInWithGoogle(){
