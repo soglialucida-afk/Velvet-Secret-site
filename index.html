@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{
   --bg:#111018;
@@ -93,6 +94,10 @@ img,svg{display:block;max-width:100%}
   background:rgba(255,255,255,.04);
   padding:.64rem 1.25rem;
 }
+.nav-user{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.nav-user img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
+.nav-signout{background:none;border:0;color:var(--muted);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.nav-signout:hover{color:var(--violet-light)}
 .hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}
 .hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}
 .hamb.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -688,17 +693,11 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
     <h3 id="authTitle">Tvoj prostor</h3>
     <p class="sub-t">Za branja, h katerim se želiš vrniti.</p>
-    <div class="tabs">
-      <button class="active" id="tabLogin" onclick="authTab('login')">Prijava</button>
-      <button id="tabReg" onclick="authTab('reg')">Registracija</button>
-    </div>
-    <form onsubmit="event.preventDefault(); alert('Tvoj prostor bo kmalu pripravljen.');">
-      <div class="field" id="fieldName" style="display:none"><label for="name">Ime</label><input id="name" autocomplete="name"></div>
-      <div class="field"><label for="email">E-pošta</label><input id="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="pass">Geslo</label><input id="pass" type="password" autocomplete="current-password" required></div>
-      <button class="pricing-btn" style="margin-top:.5rem" id="authBtn">Prijavi se</button>
-    </form>
-    <p class="fine">Za vprašanja, h katerim se še vračaš.</p>
+    <button class="pricing-btn" id="googleSignIn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.75rem;margin-top:1.5rem" onclick="signInWithGoogle()">
+      <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#fff" d="M44.5 20H24v8.5h11.7C34.2 33.1 29.6 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l6-6C34.4 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.2-4z"/></svg>
+      Prijava z Googletom
+    </button>
+    <p class="fine" style="margin-top:1.2rem">Tvoja branja se shranijo v tvoj prostor in ostanejo dostopna ob naslednjem obisku.</p>
   </div>
 </div>
 
@@ -924,14 +923,52 @@ function resetCards(){
   }
   document.getElementById('result').classList.remove('show');
 }
+// Supabase
+const _sb = supabase.createClient(
+  'https://pdibcrfpqenougebkbse.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkaWJjcmZwcWVub3VnZWJrYnNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyOTM1ODIsImV4cCI6MjA5Njg2OTU4Mn0.dlwDaH4vOdDzOSZCw6LWjNIuQ67NbglPr9_CBY9TmIk'
+);
+
 function openAuth(){document.getElementById('authModal').classList.add('open')}
 function closeAuth(){document.getElementById('authModal').classList.remove('open')}
-function authTab(mode){
-  document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
-  document.getElementById('tabReg').classList.toggle('active', mode === 'reg');
-  document.getElementById('fieldName').style.display = mode === 'reg' ? 'block' : 'none';
-  document.getElementById('authBtn').textContent = mode === 'reg' ? 'Ustvari račun' : 'Prijavi se';
+
+async function signInWithGoogle(){
+  await _sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin + window.location.pathname }
+  });
 }
+
+async function signOut(){
+  await _sb.auth.signOut();
+  updateNavUser(null);
+}
+
+function updateNavUser(user){
+  const loginBtn = document.querySelector('.nav-login');
+  const mobileLoginBtn = document.querySelector('.mobile button[onclick*="openAuth"]');
+  if(user){
+    const name = user.user_metadata?.name || user.email.split('@')[0];
+    const avatar = user.user_metadata?.avatar_url;
+    const chip = `<span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="signOut()">Odjava</button>`;
+    if(loginBtn) loginBtn.outerHTML = chip;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+  } else {
+    const userEl = document.querySelector('.nav-user');
+    const signoutEl = document.querySelector('.nav-signout');
+    if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Prijava</button>`;
+    if(signoutEl) signoutEl.remove();
+  }
+}
+
+_sb.auth.getSession().then(({ data: { session } }) => {
+  if(session) updateNavUser(session.user);
+});
+_sb.auth.onAuthStateChange((_event, session) => {
+  updateNavUser(session?.user || null);
+  closeAuth();
+});
+
 const readingDetails = [
   {
     label: 'Brezplačno · vsak dan',
