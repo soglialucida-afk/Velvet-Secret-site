@@ -1145,6 +1145,7 @@ async function confirmIntent(){
     return;
   }
   pendingConfirm = false;
+  clearPendingReading();
   document.getElementById('intent-wrap').classList.remove('visible');
   setStepDone(3);
   renderCards();
@@ -1178,6 +1179,7 @@ function openAuth(){document.getElementById('authModal').classList.add('open')}
 function closeAuth(){document.getElementById('authModal').classList.remove('open')}
 
 async function signInWithGoogle(){
+  localStorage.setItem('vs_return_to', '#branje');
   await _sb.auth.signInWithOAuth({
     provider: 'google',
     options: { redirectTo: window.location.origin }
@@ -1217,27 +1219,54 @@ function updateNavUser(user){
   }
 }
 
+let restoredPendingAfterAuth = false;
+function clearPendingReading(){
+  localStorage.removeItem('vs_pending_topic');
+  localStorage.removeItem('vs_pending_intent');
+  localStorage.removeItem('vs_return_to');
+}
+function restorePendingReadingAfterAuth(){
+  if(restoredPendingAfterAuth) return false;
+  const pt = localStorage.getItem('vs_pending_topic');
+  if(!pt) return false;
+
+  restoredPendingAfterAuth = true;
+  pendingConfirm = false;
+  localStorage.removeItem('vs_daily');
+
+  const btn = document.querySelector(`.topic[data-topic="${pt}"]`);
+  if(btn) setTopic(btn);
+
+  const pi = localStorage.getItem('vs_pending_intent') || '';
+  const intentEl = document.getElementById('intent');
+  if(intentEl) intentEl.value = pi;
+
+  document.getElementById('intent-wrap')?.classList.add('visible');
+  setStepDone(2);
+  renderAmbientCards();
+  window.history.replaceState(null, '', '#branje');
+
+  setTimeout(() => {
+    document.getElementById('branje')?.scrollIntoView({ behavior:'smooth', block:'start' });
+    intentEl?.focus();
+  }, 120);
+
+  showToast('Prijava uspešna. Tvoje vprašanje je shranjeno.');
+  return true;
+}
+
 _sb.auth.getSession().then(({ data: { session } }) => {
-  if(session) updateNavUser(session.user);
+  if(session){
+    updateNavUser(session.user);
+    restorePendingReadingAfterAuth();
+  }
 });
 _sb.auth.onAuthStateChange((_event, session) => {
   updateNavUser(session?.user || null);
   closeAuth();
   if(session){
-    const pt = localStorage.getItem('vs_pending_topic');
-    const pi = localStorage.getItem('vs_pending_intent');
-    if(pt){
-      localStorage.removeItem('vs_daily');
-      localStorage.removeItem('vs_pending_topic');
-      localStorage.removeItem('vs_pending_intent');
-      const btn = document.querySelector(`.topic[data-topic="${pt}"]`);
-      if(btn) setTopic(btn);
-      const intentEl = document.getElementById('intent');
-      if(intentEl && pi) intentEl.value = pi;
-      document.getElementById('branje')?.scrollIntoView({ behavior:'smooth' });
-      showToast('Prijava uspešna. Nadaljujemo z branjem.');
-      setTimeout(() => confirmIntent(), 1500);
-    } else if(pendingConfirm){
+    if(restorePendingReadingAfterAuth()) return;
+    if(pendingConfirm){
       confirmIntent();
     }
   }
