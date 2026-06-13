@@ -1,7 +1,7 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
 
-const SYSTEM_PROMPT = `Pišeš kratka tarot branja v slovenščini.
+const SYSTEM_PROMPT = `Pišeš vsebinska tarot branja v slovenščini.
 Tvoj glas je topel, zemeljski in direkten. Zveniš kot pameten sogovornik, ki zna opaziti stvari, ki jih ljudje pogosto spregledajo. Ne zveniš kot prerok, učitelj ali terapevt.
 
 OSNOVNO NAČELO
@@ -86,7 +86,12 @@ Tipografija:
 - Ne uporabljaj angleških navednic.
 
 STRUKTURA ODGOVORA
-Vsaj 3 stavki vpogleda, vsak v svoji vrstici.
+Napiši 5 do 7 stavkov vpogleda.
+Vsaka misel naj ima nekaj teže, brez polnila.
+Piši v 2 ali 3 kratkih odstavkih, da branje na telefonu diha.
+Prvi odstavek naj neposredno zagrabi vprašanje osebe.
+Drugi odstavek naj pokaže slepo pego ali notranjo napetost.
+Če je smiseln tretji odstavek, naj odpre nežen, a konkreten premik v pogledu.
 Nato 1 zaključno vprašanje v svoji vrstici.
 Zaključno vprašanje mora izhajati neposredno iz napisanega.
 
@@ -180,7 +185,7 @@ Deno.serve(async (req: Request) => {
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: 400,
+      max_tokens: 850,
       system: [{
         type: 'text',
         text: SYSTEM_PROMPT,

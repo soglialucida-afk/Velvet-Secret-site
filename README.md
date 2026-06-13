@@ -33,14 +33,27 @@ Velvet-Secret-site/
     original-images/
       reference2.webp
       image-1.webp
+  supabase/
+    functions/
+      reading/
+        index.ts
 ```
 
 ## Kaj je kaj
 
 - `index.html` je trenutna delovna verzija strani.
 - `assets/images` so generirane slike za spletno stran.
+- `supabase/functions/reading` je Supabase edge funkcija za AI branje.
 - `prompts` so prompti za nadaljnje generiranje videa in slik.
 - `references` so tvoje zacetne reference iz screenshota.
+
+## Deploy AI branja
+
+Po Supabase prijavi:
+
+```sh
+supabase functions deploy reading --project-ref pdibcrfpqenougebkbse --use-api
+```
 
 ## Hero video
 

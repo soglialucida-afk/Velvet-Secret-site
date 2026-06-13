@@ -110,6 +110,10 @@ img,svg{display:block;max-width:100%}
 }
 .mobile.open{display:flex}
 .mobile a,.mobile button{font-family:var(--display);font-size:2rem;color:#fff;background:none;border:0}
+.mobile-user{display:none;flex-direction:column;align-items:center;gap:.75rem;color:#fff}
+.mobile-user .nav-user{font-size:.82rem;letter-spacing:.12em;justify-content:center}
+.mobile-user .nav-user img{width:34px;height:34px}
+.mobile-user .nav-signout{font-size:.78rem;letter-spacing:.18em;text-align:center;color:var(--violet-light)}
 
 .hero{
   position:relative;
@@ -329,6 +333,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .result .section-label{text-align:center;color:var(--violet-light)}
 .result h3{font-family:var(--display);font-size:2rem;color:var(--warm);text-align:center;margin:.8rem 0 1.2rem}
 .result p{color:var(--text);font-weight:300;margin-bottom:1rem}
+#rText,#r2Text{white-space:pre-line}
 .result .reflect{border-left:1px solid var(--violet-light);padding:.25rem 0 .25rem 1.1rem;color:var(--violet-light);font-family:var(--display);font-style:italic;font-size:1.16rem;margin:1.4rem 0}
 .result-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
 
@@ -449,7 +454,14 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .crystal-ball{width:64px;height:64px}
   .crystal-wrap{width:64px;height:64px}
   .pristop-grid{grid-template-columns:1fr!important;gap:2rem!important}
-  .gallery-card{aspect-ratio:16/10}
+  .gallery{gap:1.25rem}
+  .gallery-card{aspect-ratio:auto;min-height:0;background:rgba(255,255,255,.035);border:1px solid var(--line-soft)}
+  .gallery-card::before{display:none}
+  .gallery-card .visual{position:relative;inset:auto;height:260px;background-size:cover;background-position:center;opacity:1}
+  .gallery-content{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74));padding:1.45rem 1.35rem 1.55rem}
+  .gallery-num{top:1rem;left:1.1rem;font-size:3.2rem;opacity:.32;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+  .gallery-content p{font-size:.92rem;line-height:1.65}
+  .gallery-footer{gap:1rem}
   .pricing-container{grid-template-columns:1fr}
   .section-title{font-size:clamp(1.75rem,7vw,2.6rem)}
 }
@@ -485,7 +497,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <div class="mobile" id="mobile">
   <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
   <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
-  <button onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <div class="mobile-user" id="mobileUser"></div>
 </div>
 
 <section class="hero" id="vrh">
@@ -1007,6 +1020,14 @@ function fadeInText(el, text, delay = 0){
   el.style.transition = 'opacity .7s ease, transform .7s ease';
   setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, delay);
 }
+function splitReading(text){
+  const parts = (text || '').split(/\n+/).map(p => p.trim()).filter(Boolean);
+  const qi = parts.findIndex(p => p.endsWith('?'));
+  return {
+    main: qi !== -1 ? parts.filter((_, i) => i !== qi).join('\n\n').trim() : (text || '').trim(),
+    reflect: qi !== -1 ? parts[qi] : ''
+  };
+}
 function setStepDone(num){
   for(let i=1;i<=3;i++){
     const el = document.getElementById(`step${i}`) || document.querySelector(`.steps .step:nth-child(${i*2-1})`);
@@ -1047,11 +1068,10 @@ async function showResult(card, topicLabel, intent){
     ]);
     const data = await res.json();
     const raw = data.text || '';
-    const parts = raw.split(/\n+/).filter(p => p.trim());
-    const qi = parts.findIndex(p => p.trim().endsWith('?'));
-    if(qi !== -1){
-      mainText = parts.filter((_,i)=>i!==qi).join(' ').trim();
-      reflectText = parts[qi].trim();
+    const parsed = splitReading(raw);
+    if(parsed.reflect){
+      mainText = parsed.main;
+      reflectText = parsed.reflect;
     } else {
       mainText = raw || card.text;
       reflectText = card.reflect;
@@ -1207,18 +1227,28 @@ function showToast(msg){
 
 function updateNavUser(user){
   const loginBtn = document.querySelector('.nav-login');
-  const mobileLoginBtn = document.querySelector('.mobile button[onclick*="openAuth"]');
+  const mobileLoginBtn = document.getElementById('mobileAuthBtn');
+  const mobileUser = document.getElementById('mobileUser');
   if(user){
     const name = user.user_metadata?.name || user.email.split('@')[0];
     const avatar = user.user_metadata?.avatar_url;
     const chip = `<div class="nav-user-wrap"><span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="signOut()">Odjava</button></div>`;
     if(loginBtn) loginBtn.outerHTML = chip;
     if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+    if(mobileUser){
+      mobileUser.innerHTML = `<span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="toggleMenu(false);signOut()">Odjava</button>`;
+      mobileUser.style.display = 'flex';
+    }
   } else {
     const userEl = document.querySelector('.nav-user-wrap');
-    const signoutEl = document.querySelector('.nav-signout');
+    const desktopSignoutEl = document.querySelector('nav .nav-signout');
     if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Prijava</button>`;
-    if(signoutEl) signoutEl.remove();
+    if(desktopSignoutEl) desktopSignoutEl.remove();
+    if(mobileLoginBtn) mobileLoginBtn.style.display = '';
+    if(mobileUser){
+      mobileUser.innerHTML = '';
+      mobileUser.style.display = 'none';
+    }
   }
 }
 
@@ -1364,11 +1394,10 @@ async function showResult2(card, topicLabel){
       document.getElementById('r2Text').textContent = 'Brezplačna karta za danes je bila že uporabljena.';
       document.getElementById('r2Reflect').textContent = '';
     } else if(data.text){
-      const parts = data.text.split(/\n+/);
-      const question = parts.findIndex(p => p.trim().endsWith('?'));
-      if(question !== -1){
-        document.getElementById('r2Text').textContent = parts.filter((_,i) => i !== question).join(' ').trim();
-        document.getElementById('r2Reflect').textContent = parts[question].trim();
+      const parsed = splitReading(data.text);
+      if(parsed.reflect){
+        document.getElementById('r2Text').textContent = parsed.main;
+        document.getElementById('r2Reflect').textContent = parsed.reflect;
       } else {
         document.getElementById('r2Text').textContent = data.text;
       }
