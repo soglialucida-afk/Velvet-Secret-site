@@ -1000,12 +1000,11 @@ async function showResult(card, topicLabel, intent){
   document.getElementById('rReflect').style.display = 'none';
   document.getElementById('rCta').style.display = 'none';
   document.getElementById('result').classList.add('show');
-  setTimeout(() => {
-    const el = document.getElementById('result');
-    const navH = document.getElementById('nav').offsetHeight;
-    const top = el.getBoundingClientRect().top + window.scrollY - navH - 24;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }, 200);
+  // scroll takoj ko je result viden
+  const el = document.getElementById('result');
+  const navH = document.getElementById('nav').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.scrollY - navH - 24;
+  window.scrollTo({ top, behavior: 'smooth' });
 
   let mainText = card.text, reflectText = card.reflect;
   try {
@@ -1115,8 +1114,9 @@ function reveal(index){
   const card = currentSpread[index];
   const intent = document.getElementById('intent')?.value.trim() || '';
   saveDaily(card, topic);
-  showResult(card, topic, intent);
   applyDailyLock();
+  // počakamo da se karta obrne (flip traja 0.9s), potem pokažemo branje
+  setTimeout(() => showResult(card, topic, intent), 1000);
 }
 function resetCards(){
   if(!loadDaily()){
