@@ -244,7 +244,8 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2s ease-in-out infinite}
 @keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
 
-.intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative}
+.intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s}
+.intent-wrap.visible{opacity:1;visibility:visible;transform:none}
 .intent-label{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.9);margin-bottom:.9rem;text-align:center;font-weight:400}
 .intent-input{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 1.4rem;outline:none;transition:.3s;resize:none;line-height:1.7;border-radius:2px}
 .intent-input:focus{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
@@ -513,7 +514,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <span class="section-label">Prva karta</span>
     <h2 class="section-title">Trije koraki do odgovora.</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
+    <p class="section-desc">Ni treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
   </div>
 
   <div class="steps fade-in">
@@ -541,9 +542,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
   </div>
 
-  <div class="intent-wrap fade-in" id="intent-wrap" style="display:none">
+  <div class="intent-wrap" id="intent-wrap">
     <label class="intent-label" for="intent">Zastavi vprašanje</label>
-    <textarea class="intent-input" id="intent" rows="3"></textarea>
+    <textarea class="intent-input" id="intent" rows="3" placeholder="Zapiši, kar te teži, zanima ali sprašuješ ..."></textarea>
     <div style="text-align:center;margin-top:1.2rem">
       <button class="pricing-btn" id="confirmBtn" onclick="confirmIntent()">Pripravi karte →</button>
     </div>
@@ -612,7 +613,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <section style="padding:4rem 2rem;text-align:center;max-width:640px;margin:0 auto">
   <div class="fade-in">
     <p style="font-family:var(--display);font-size:1.45rem;color:#fff;margin-bottom:.8rem;font-weight:400">Prva karta je brezplačna.</p>
-    <p style="color:var(--muted);font-size:.95rem;font-weight:300;margin-bottom:2rem;line-height:1.7">Brez registracije. Brez obveznosti. Samo vprašanje in karta, ki ti odgovori.</p>
+    <p style="color:var(--muted);font-size:.95rem;font-weight:300;margin-bottom:2rem;line-height:1.7">Brezplačna karta. Samo vprašanje in karta, ki ti odgovori.</p>
     <a href="#branje" class="hero-cta">Obrni svojo karto →</a>
   </div>
 </section>
@@ -1126,10 +1127,12 @@ function setTopic(btn){
   topic = btn.dataset.topic;
   setStepDone(2);
   if(loadDaily()) return;
-  document.getElementById('intent-wrap').style.display = 'block';
   document.getElementById('shuffle-hint').classList.remove('visible');
   renderAmbientCards();
-  document.getElementById('intent').focus();
+  setTimeout(() => {
+    document.getElementById('intent-wrap').classList.add('visible');
+    document.getElementById('intent').focus();
+  }, 50);
 }
 let pendingConfirm = false;
 async function confirmIntent(){
@@ -1142,7 +1145,7 @@ async function confirmIntent(){
     return;
   }
   pendingConfirm = false;
-  document.getElementById('intent-wrap').style.display = 'none';
+  document.getElementById('intent-wrap').classList.remove('visible');
   setStepDone(3);
   renderCards();
 }
@@ -1388,7 +1391,7 @@ initHeroVideoLoop();
 setStepDone(1);
 if(loadDaily()){
   renderCards();
-  document.getElementById('intent-wrap').style.display = 'none';
+  document.getElementById('intent-wrap').classList.remove('visible');
 } else {
   renderAmbientCards();
 }
