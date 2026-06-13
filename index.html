@@ -1239,7 +1239,7 @@ async function signOut(){
   sessionStorage.clear();
   updateNavUser(null);
   showToast('Odjavljena si.');
-  setTimeout(() => window.location.replace(`${window.location.origin}${window.location.pathname}#vrh`), 1200);
+  setTimeout(() => window.location.reload(), 1200);
 }
 function showToast(msg){
   const t = document.createElement('div');
