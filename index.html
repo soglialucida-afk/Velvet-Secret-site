@@ -245,10 +245,9 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 @keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
 
 .intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative}
-.intent-label{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;text-align:center}
-.intent-input{width:100%;background:rgba(255,255,255,.035);border:1px solid var(--line-soft);color:var(--text);font-family:var(--sans);font-size:.97rem;font-weight:300;padding:1rem 1.25rem;outline:none;transition:.3s;resize:none;line-height:1.6}
-.intent-input::placeholder{color:var(--muted-dark)}
-.intent-input:focus{border-color:rgba(199,188,228,.35);background:rgba(255,255,255,.05)}
+.intent-label{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.9);margin-bottom:.9rem;text-align:center;font-weight:400}
+.intent-input{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 1.4rem;outline:none;transition:.3s;resize:none;line-height:1.7;border-radius:2px}
+.intent-input:focus{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
 .topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
 .topic{
   border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -361,8 +360,10 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .pricing-features li::before{content:"✦";color:var(--violet-light);font-size:.7rem;margin-right:.7rem}
 .pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045));position:relative}
 .pricing-card.featured::before{content:"Naročnina";position:absolute;top:-12px;left:2rem;background:var(--violet-light);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
-.pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid var(--line);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s}
+.pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid rgba(199,188,228,.5);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s;background:rgba(199,188,228,.08)}
 .pricing-btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}
+#confirmBtn{background:var(--violet-deep);border-color:var(--violet-light);color:#fff;font-size:.82rem;padding:1rem 2rem;letter-spacing:.2em}
+#confirmBtn:hover{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 .pricing-card.featured .pricing-btn{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 
 #racun .section-label{color:var(--blue-soft)}
@@ -415,6 +416,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .topic-row{gap:.45rem}
   .topic{font-size:.62rem;padding:.45rem .8rem}
   .intent-wrap{margin-bottom:2rem}
+  .intent-input{font-size:1rem;padding:1rem 1.1rem}
+  #confirmBtn{width:100%;justify-content:center;font-size:.78rem;padding:.95rem 1rem}
+  .steps{gap:0;max-width:100%}
+  .step-label{font-size:.55rem;letter-spacing:.1em}
+  .step-num{width:30px;height:30px;font-size:.72rem}
+  .crystal-ball{width:64px;height:64px}
+  .crystal-wrap{width:64px;height:64px}
   .pristop-grid{grid-template-columns:1fr!important;gap:2rem!important}
   .gallery-card{aspect-ratio:16/10}
   .pricing-container{grid-template-columns:1fr}
@@ -515,8 +523,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 
   <div class="intent-wrap fade-in" id="intent-wrap" style="display:none">
-    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
-    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno. En stavek ali beseda je dovolj."></textarea>
+    <label class="intent-label" for="intent">Zastavi vprašanje</label>
+    <textarea class="intent-input" id="intent" rows="3"></textarea>
     <div style="text-align:center;margin-top:1.2rem">
       <button class="pricing-btn" id="confirmBtn" onclick="confirmIntent()">Pripravi karte →</button>
     </div>
@@ -968,16 +976,12 @@ function renderAmbientCards(){
     </button>
   `).join('');
 }
-function typeText(el, text, speed = 22){
-  el.textContent = '';
-  let i = 0;
-  function next(){
-    if(i < text.length){
-      el.textContent += text[i++];
-      setTimeout(next, speed);
-    }
-  }
-  next();
+function fadeInText(el, text, delay = 0){
+  el.textContent = text;
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(10px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, delay);
 }
 function setStepDone(num){
   for(let i=1;i<=3;i++){
@@ -1027,13 +1031,12 @@ async function showResult(card, topicLabel, intent){
   document.getElementById('rText').style.display = '';
   document.getElementById('rReflect').style.display = '';
   document.getElementById('rCta').style.display = 'none';
-  typeText(document.getElementById('rText'), mainText, 22);
-  const delay = mainText.length * 22 + 400;
+  fadeInText(document.getElementById('rText'), mainText, 100);
   setTimeout(() => {
     document.getElementById('rReflect').style.display = '';
-    typeText(document.getElementById('rReflect'), reflectText, 28);
-    setTimeout(() => { document.getElementById('rCta').style.display = ''; }, reflectText.length * 28 + 300);
-  }, delay);
+    fadeInText(document.getElementById('rReflect'), reflectText, 100);
+    setTimeout(() => { document.getElementById('rCta').style.display = ''; }, 900);
+  }, 800);
 }
 function applyDailyLock(){
   document.querySelectorAll('.card').forEach((card, i) => {
