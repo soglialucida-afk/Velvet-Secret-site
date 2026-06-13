@@ -508,9 +508,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
   </div>
 
-  <div class="intent-wrap fade-in">
+  <div class="intent-wrap fade-in" id="intent-wrap" style="display:none">
     <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
     <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno. En stavek ali beseda je dovolj."></textarea>
+    <div style="text-align:center;margin-top:1.2rem">
+      <button class="pricing-btn" id="confirmBtn" onclick="confirmIntent()">Pripravi karte →</button>
+    </div>
   </div>
 
   <div class="cards fade-in" id="cards"></div>
@@ -1070,7 +1073,14 @@ function setTopic(btn){
   topic = btn.dataset.topic;
   setStepDone(2);
   if(loadDaily()) return;
-  resetCards();
+  document.getElementById('intent-wrap').style.display = 'block';
+  document.getElementById('cards').innerHTML = '';
+  document.getElementById('shuffle-hint').classList.remove('visible');
+  document.getElementById('intent').focus();
+}
+function confirmIntent(){
+  document.getElementById('intent-wrap').style.display = 'none';
+  setStepDone(3);
   renderCards();
 }
 function reveal(index){
@@ -1267,9 +1277,11 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: .1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 initHeroVideoLoop();
-renderCards();
 setStepDone(1);
-document.getElementById('intent')?.addEventListener('input', () => { if(document.getElementById('intent').value.trim()) setStepDone(2); });
+if(loadDaily()){
+  renderCards();
+  document.getElementById('intent-wrap').style.display = 'none';
+}
 initSingleCard();
 const _daily = loadDaily();
 if(_daily){
