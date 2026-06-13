@@ -866,12 +866,37 @@ function loadDaily(){
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
-function showResult(card, topicLabel, intent){
+async function showResult(card, topicLabel, intent){
   document.getElementById('rTopic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
   document.getElementById('rName').textContent = card.name;
-  document.getElementById('rText').textContent = card.text;
-  document.getElementById('rReflect').textContent = card.reflect;
+  document.getElementById('rText').textContent = '...';
+  document.getElementById('rReflect').textContent = '';
   document.getElementById('result').classList.add('show');
+
+  try {
+    const res = await fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
+    });
+    const data = await res.json();
+    if(data.text){
+      const parts = data.text.split(/\n+/);
+      const question = parts.findIndex(p => p.trim().endsWith('?'));
+      if(question !== -1){
+        document.getElementById('rText').textContent = parts.filter((_,i) => i !== question).join(' ').trim();
+        document.getElementById('rReflect').textContent = parts[question].trim();
+      } else {
+        document.getElementById('rText').textContent = data.text;
+      }
+    } else {
+      document.getElementById('rText').textContent = card.text;
+      document.getElementById('rReflect').textContent = card.reflect;
+    }
+  } catch {
+    document.getElementById('rText').textContent = card.text;
+    document.getElementById('rReflect').textContent = card.reflect;
+  }
 }
 function applyDailyLock(){
   document.querySelectorAll('.card').forEach((card, i) => {
@@ -1036,12 +1061,37 @@ function closeUpsell(){
   document.getElementById('upsellModal').classList.remove('open');
 }
 
-function showResult2(card, topicLabel){
+async function showResult2(card, topicLabel){
   document.getElementById('r2Topic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
   document.getElementById('r2Name').textContent = card.name;
-  document.getElementById('r2Text').textContent = card.text;
-  document.getElementById('r2Reflect').textContent = card.reflect;
+  document.getElementById('r2Text').textContent = '...';
+  document.getElementById('r2Reflect').textContent = '';
   document.getElementById('result2').classList.add('show');
+
+  try {
+    const res = await fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel })
+    });
+    const data = await res.json();
+    if(data.text){
+      const parts = data.text.split(/\n+/);
+      const question = parts.findIndex(p => p.trim().endsWith('?'));
+      if(question !== -1){
+        document.getElementById('r2Text').textContent = parts.filter((_,i) => i !== question).join(' ').trim();
+        document.getElementById('r2Reflect').textContent = parts[question].trim();
+      } else {
+        document.getElementById('r2Text').textContent = data.text;
+      }
+    } else {
+      document.getElementById('r2Text').textContent = card.text;
+      document.getElementById('r2Reflect').textContent = card.reflect;
+    }
+  } catch {
+    document.getElementById('r2Text').textContent = card.text;
+    document.getElementById('r2Reflect').textContent = card.reflect;
+  }
 }
 function revealSingle(){
   if(loadDaily()) return;
