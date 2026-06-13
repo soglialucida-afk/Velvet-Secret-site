@@ -1224,6 +1224,7 @@ _sb.auth.onAuthStateChange((_event, session) => {
     const pt = localStorage.getItem('vs_pending_topic');
     const pi = localStorage.getItem('vs_pending_intent');
     if(pt){
+      localStorage.removeItem('vs_daily');
       localStorage.removeItem('vs_pending_topic');
       localStorage.removeItem('vs_pending_intent');
       const btn = document.querySelector(`.topic[data-topic="${pt}"]`);
@@ -1396,7 +1397,9 @@ const _daily = loadDaily();
 if(_daily){
   document.querySelectorAll('.card')[0]?.classList.add('flipped');
   applyDailyLock();
-  showResult(_daily.card, _daily.topic);
+  _sb.auth.getSession().then(({ data: { session }}) => {
+    if(session) showResult(_daily.card, _daily.topic);
+  });
 }
 </script>
 </body>
