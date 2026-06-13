@@ -342,7 +342,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-card:nth-child(4) .visual{background-image:url("assets/images/mesecni-krog-gallery.png")}
 .gallery-card:hover .visual{transform:scale(1.04)}
 .gallery-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.85),transparent)}
-.gallery-num{font-family:var(--display);font-size:2.7rem;opacity:.18;line-height:1}
+.gallery-num{position:absolute;top:1.4rem;left:1.7rem;z-index:3;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.22;line-height:1}
 .gallery-content h3{font-family:var(--display);font-size:1.38rem;font-weight:500;margin:.35rem 0}
 .gallery-tagline{display:block;font-size:.8rem;font-style:italic;color:rgba(199,188,228,.75);margin:.2rem 0 .6rem;line-height:1.5}
 .gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}
@@ -352,8 +352,8 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
 
 #cenik{background:#15141d;max-width:100%;padding:7rem 2rem}
-.pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:start}
-.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s}
+.pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:stretch}
+.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
 .pricing-name{font-family:var(--display);font-size:1.35rem;color:#fff;margin-bottom:.35rem}
 .pricing-desc{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}
@@ -362,6 +362,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .pricing-features{list-style:none;margin-bottom:1.6rem}
 .pricing-features li{padding:.45rem 0;color:var(--text);font-size:.93rem;border-bottom:1px solid rgba(199,188,228,.08)}
 .pricing-features li::before{content:"✦";color:var(--violet-light);font-size:.7rem;margin-right:.7rem}
+.pricing-card .pricing-btn{margin-top:auto}
 .pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045));position:relative}
 .pricing-card.featured::before{content:"Naročnina";position:absolute;top:-12px;left:2rem;background:var(--violet-light);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
 .pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid rgba(199,188,228,.5);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s;background:rgba(199,188,228,.08)}
@@ -624,10 +625,10 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <p class="section-desc">Vsako vprašanje ima svojo globino. Včasih je dovolj en simbol. Včasih pa misel potrebuje več prostora, da pokaže, kaj se skriva pod površjem.</p>
   </div>
   <div class="gallery">
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="#cenik" class="gallery-btn">Naroči →</a></div></div></div>
   </div>
 </section>
 
