@@ -311,17 +311,17 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .face-front{
   transform:rotateY(180deg);
   background:
-    radial-gradient(circle at 50% 30%,rgba(216,189,154,.18),transparent 23%),
-    linear-gradient(170deg,#282431,#171620 72%);
+    radial-gradient(circle at 50% 30%,rgba(216,189,154,.22),transparent 28%),
+    linear-gradient(170deg,#2e2840,#1e1a30 72%);
   flex-direction:column;gap:.55rem;padding:1rem;border-color:rgba(216,189,154,.34);
 }
 .face-front::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.28)}
 .face-front::after{content:"";position:absolute;inset:26px;border:1px solid rgba(199,188,228,.13);background:radial-gradient(circle,rgba(199,188,228,.12),transparent 56%)}
 .face-front span{position:relative;z-index:1}
-.face-front .card-kind{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(199,188,228,.85)}
-.face-front .symbol{font-size:2.35rem;color:var(--warm);line-height:1;filter:drop-shadow(0 0 6px rgba(216,189,154,.4))}
-.face-front .card-name{font-family:var(--display);font-size:clamp(.86rem,1.25vw,1.06rem);color:#e8d8b8;letter-spacing:.04em;text-align:center;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.5)}
-.face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:rgba(199,188,228,.72);text-align:center;text-transform:uppercase}
+.face-front .card-kind{font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(216,189,154,.95);font-weight:400}
+.face-front .symbol{font-size:2.35rem;color:var(--warm);line-height:1;filter:drop-shadow(0 0 8px rgba(216,189,154,.5))}
+.face-front .card-name{font-family:var(--display);font-size:clamp(.92rem,1.3vw,1.12rem);color:#fff;letter-spacing:.03em;text-align:center;line-height:1.25;text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 24px rgba(0,0,0,.6);font-weight:500}
+.face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:rgba(216,189,154,.82);text-align:center;text-transform:uppercase}
 .result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
 .daily-notice{display:none;text-align:center;margin:1.6rem auto 0;max-width:480px;font-size:.82rem;letter-spacing:.08em;color:var(--muted);opacity:.7}
 .result.show{display:block;animation:rise .7s ease both}
