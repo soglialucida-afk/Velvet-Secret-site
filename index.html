@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velvet Secret — ko ne veš, kaj pomeni tišina</title>
+<title>Velvet Secret · ko ne veš, kaj pomeni tišina</title>
 <meta name="description" content="Velvet Secret je miren prostor za simbolno branje kart, ko potrebuješ znak, premislek ali naslednji korak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{
   --bg:#111018;
@@ -93,6 +94,11 @@ img,svg{display:block;max-width:100%}
   background:rgba(255,255,255,.04);
   padding:.64rem 1.25rem;
 }
+.nav-user-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem}
+.nav-user{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.nav-user img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
+.nav-signout{background:none;border:0;color:var(--muted);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:color .2s;text-align:right}
+.nav-signout:hover{color:var(--violet-light)}
 .hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}
 .hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}
 .hamb.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
@@ -104,6 +110,10 @@ img,svg{display:block;max-width:100%}
 }
 .mobile.open{display:flex}
 .mobile a,.mobile button{font-family:var(--display);font-size:2rem;color:#fff;background:none;border:0}
+.mobile-user{display:none;flex-direction:column;align-items:center;gap:.75rem;color:#fff}
+.mobile-user .nav-user{font-size:.82rem;letter-spacing:.12em;justify-content:center}
+.mobile-user .nav-user img{width:34px;height:34px}
+.mobile-user .nav-signout{font-size:.78rem;letter-spacing:.18em;text-align:center;color:var(--violet-light)}
 
 .hero{
   position:relative;
@@ -147,7 +157,7 @@ img,svg{display:block;max-width:100%}
     linear-gradient(180deg,rgba(17,16,24,.36),rgba(17,16,24,.78));
 }
 .hero-content{
-  position:relative;z-index:3;text-align:center;max-width:920px;padding:0 2rem;
+  position:relative;z-index:3;text-align:center;max-width:920px;padding:6rem 2rem 8rem;
 }
 .hero-subtitle{
   display:block;margin-bottom:1.5rem;color:var(--violet-light);
@@ -181,7 +191,7 @@ img,svg{display:block;max-width:100%}
   font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;
 }
 .hero-scroll{
-  position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
+  position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);
   z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;
   color:rgba(255,255,255,.55);font-size:.68rem;letter-spacing:2px;text-transform:uppercase;
   animation:bounce 2.4s infinite;
@@ -192,7 +202,24 @@ img,svg{display:block;max-width:100%}
 .fade-in{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
+section:not(.hero){padding:6rem 2rem;max-width:1200px;margin:0 auto}
+section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.08)}
+.section-compact{padding-top:4rem!important;padding-bottom:4rem!important}
+.section-narrow{max-width:760px;text-align:center}
+.section-soft{
+  max-width:100%!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));
+}
+.section-soft > .section-header,
+.section-soft > .intro-grid,
+.section-soft > .gallery,
+.section-soft > .fade-in{
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.legal.section-soft .section-header{max-width:780px}
 .section-header{text-align:center;margin-bottom:4rem}
 .section-label{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block;color:var(--violet-light)}
 .section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff}
@@ -215,8 +242,34 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
 .intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
 
-#branje{background:var(--bg-soft);max-width:100%;padding:7rem 2rem}
+#branje{background:var(--bg-soft);max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 #branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
+/* steps */
+.steps{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 3rem;max-width:480px}
+.step{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-width:80px}
+.step-num{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.78rem;letter-spacing:.1em;color:var(--muted);transition:.4s}
+.step.active .step-num{border-color:var(--violet-light);color:var(--violet-light);background:rgba(199,188,228,.1)}
+.step.done .step-num{border-color:var(--violet-deep);background:var(--violet-deep);color:#fff}
+.step-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.4s}
+.step.active .step-label{color:var(--text)}
+.step-line{flex:1;height:1px;background:var(--line-soft);margin-bottom:1.2rem}
+
+/* crystal ball loading */
+.reading-loading{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.5rem;gap:1.2rem}
+.crystal-wrap{position:relative;width:80px;height:80px}
+.crystal-ball{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(199,188,228,.35),rgba(127,108,175,.18) 50%,rgba(17,16,24,.6));border:1px solid rgba(199,188,228,.3);box-shadow:0 0 30px rgba(127,108,175,.25),inset 0 0 20px rgba(199,188,228,.1);position:relative;overflow:hidden;animation:crystalPulse 2.4s ease-in-out infinite}
+.crystal-glow{position:absolute;top:18%;left:22%;width:28%;height:22%;border-radius:50%;background:rgba(255,255,255,.22);filter:blur(4px)}
+.crystal-swirl{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 60%,rgba(199,188,228,.15) 80%,transparent 100%);animation:crystalSpin 3s linear infinite}
+@keyframes crystalPulse{0%,100%{box-shadow:0 0 20px rgba(127,108,175,.2),inset 0 0 20px rgba(199,188,228,.08)}50%{box-shadow:0 0 45px rgba(127,108,175,.4),inset 0 0 30px rgba(199,188,228,.18)}}
+@keyframes crystalSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2s ease-in-out infinite}
+@keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
+
+.intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s}
+.intent-wrap.visible{opacity:1;visibility:visible;transform:none}
+.intent-label{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.9);margin-bottom:.9rem;text-align:center;font-weight:400}
+.intent-input{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 1.4rem;outline:none;transition:.3s;resize:none;line-height:1.7;border-radius:2px}
+.intent-input:focus{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
 .topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
 .topic{
   border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -225,59 +278,73 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 }
 .topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
 .cards{display:flex;justify-content:center;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
-.card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:transform .35s}
-.card:hover:not(.flipped){transform:translateY(-14px)}
+.card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
+.card.is-ambient{pointer-events:none;animation:ambientFloat 5s ease-in-out infinite}
+.card.is-dealing{pointer-events:none;animation:dealIn 1s cubic-bezier(.22,1,.36,1) both}
+.card.is-shuffling{pointer-events:none;animation:shuffleWig 1.8s ease-out both}
+.card.is-ready{animation:cardReady .6s ease-out both}
+@keyframes ambientFloat{
+  0%,100%{transform:translateY(0) rotate(var(--card-rot))}
+  33%{transform:translateY(-10px) rotate(calc(var(--card-rot)*1.15))}
+  66%{transform:translateY(-5px) rotate(calc(var(--card-rot)*.85))}
+}
+.card:nth-child(1){--card-rot:-9deg;--shuf-dir:-1}
+.card:nth-child(2){--card-rot:4deg;--shuf-dir:1}
+.card:nth-child(3){--card-rot:-6deg;--shuf-dir:-1}
+@keyframes dealIn{
+  0%{opacity:0;transform:translateY(80px) rotate(var(--card-rot)) scale(.85)}
+  65%{opacity:1;transform:translateY(-10px) rotate(calc(var(--card-rot)*.25)) scale(1.03)}
+  82%{transform:translateY(5px) rotate(calc(var(--card-rot)*.08)) scale(.99)}
+  100%{opacity:1;transform:translateY(0) rotate(0) scale(1)}
+}
+@keyframes shuffleWig{
+  0%,100%{transform:translateY(0) rotate(0)}
+  8%{transform:translateX(calc(var(--shuf-dir)*-38px)) translateY(-22px) rotate(calc(var(--shuf-dir)*-9deg))}
+  18%{transform:translateX(calc(var(--shuf-dir)*30px)) translateY(-16px) rotate(calc(var(--shuf-dir)*7deg))}
+  30%{transform:translateX(calc(var(--shuf-dir)*-22px)) translateY(-12px) rotate(calc(var(--shuf-dir)*-5deg))}
+  42%{transform:translateX(calc(var(--shuf-dir)*16px)) translateY(-8px) rotate(calc(var(--shuf-dir)*4deg))}
+  55%{transform:translateX(calc(var(--shuf-dir)*-10px)) translateY(-5px) rotate(calc(var(--shuf-dir)*-3deg))}
+  67%{transform:translateX(calc(var(--shuf-dir)*6px)) translateY(-3px) rotate(calc(var(--shuf-dir)*2deg))}
+  78%{transform:translateX(calc(var(--shuf-dir)*-3px)) translateY(-1px) rotate(calc(var(--shuf-dir)*-1deg))}
+  90%{transform:translateX(calc(var(--shuf-dir)*1px)) rotate(calc(var(--shuf-dir)*.4deg))}
+}
+@keyframes cardReady{
+  0%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-6px) scale(1.025)}
+  100%{transform:translateY(0) scale(1)}
+}
+.shuffle-hint{text-align:center;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:1.4rem;opacity:0;transition:opacity .6s ease}
+.shuffle-hint.visible{opacity:1}
+.card:hover:not(.flipped):not(.dimmed){transform:translateY(-14px)}
+.card.dimmed{opacity:.24;pointer-events:none}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
 .card.flipped .card-inner{transform:rotateY(180deg)}
-.face{
-  position:absolute;inset:0;
-  -webkit-backface-visibility:hidden;backface-visibility:hidden;
-  border:1px solid rgba(199,188,228,.26);
-  background-size:cover;background-position:center;
-  transform:translateZ(0);
-}
-.face-back{background-image:url("cards/oracle-card-back-velvet-secret.png");background-color:#111018}
-.face-front{transform:rotateY(180deg) translateZ(1px);border-color:rgba(216,189,154,.34);background-color:#111018}
+.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border:1px solid rgba(199,188,228,.26);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.face-back{background-image:url("cards/oracle-card-back-velvet-secret.png");background-size:cover;background-position:center;background-color:#111018}
 
-@keyframes vs-shuffle-0{
-  0%   {transform:translateZ(0)}
-  16%  {transform:translateX(112%) rotate(10deg) translateZ(0)}
-  32%  {transform:translateX(-18%) rotate(-8deg) translateZ(0)}
-  48%  {transform:translateX(98%) rotate(13deg) translateZ(0)}
-  64%  {transform:translateX(-16%) rotate(-5deg) translateZ(0)}
-  80%  {transform:translateX(38%) rotate(4deg) translateZ(0)}
-  92%  {transform:translateX(-5%) rotate(-1deg) translateZ(0)}
-  100% {transform:translateZ(0)}
+
+.face-front{
+  transform:rotateY(180deg) translateZ(1px);
+  background:
+    radial-gradient(circle at 50% 30%,rgba(216,189,154,.22),transparent 28%),
+    linear-gradient(170deg,#2e2840,#1e1a30 72%);
+  flex-direction:column;gap:.55rem;padding:1rem;border-color:rgba(216,189,154,.34);
 }
-@keyframes vs-shuffle-1{
-  0%   {transform:translateZ(0)}
-  16%  {transform:translateX(-88%) rotate(-9deg) translateZ(0)}
-  32%  {transform:translateX(68%) rotate(10deg) translateZ(0)}
-  48%  {transform:translateX(-72%) rotate(-12deg) translateZ(0)}
-  64%  {transform:translateX(52%) rotate(8deg) translateZ(0)}
-  80%  {transform:translateX(-24%) rotate(-4deg) translateZ(0)}
-  92%  {transform:translateX(9%) rotate(2deg) translateZ(0)}
-  100% {transform:translateZ(0)}
-}
-@keyframes vs-shuffle-2{
-  0%   {transform:translateZ(0)}
-  16%  {transform:translateX(-108%) rotate(-11deg) translateZ(0)}
-  32%  {transform:translateX(82%) rotate(8deg) translateZ(0)}
-  48%  {transform:translateX(-92%) rotate(-10deg) translateZ(0)}
-  64%  {transform:translateX(76%) rotate(11deg) translateZ(0)}
-  80%  {transform:translateX(-32%) rotate(-5deg) translateZ(0)}
-  92%  {transform:translateX(7%) rotate(3deg) translateZ(0)}
-  100% {transform:translateZ(0)}
-}
-.cards.is-shuffling>.card:nth-child(1){animation:vs-shuffle-0 1.55s ease-in-out both}
-.cards.is-shuffling>.card:nth-child(2){animation:vs-shuffle-1 1.55s ease-in-out both;animation-delay:40ms}
-.cards.is-shuffling>.card:nth-child(3){animation:vs-shuffle-2 1.55s ease-in-out both;animation-delay:80ms}
+.face-front::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.28)}
+.face-front::after{content:"";position:absolute;inset:26px;border:1px solid rgba(199,188,228,.13);background:radial-gradient(circle,rgba(199,188,228,.12),transparent 56%)}
+.face-front span{position:relative;z-index:1}
+.face-front .card-kind{font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(216,189,154,.95);font-weight:400}
+.face-front .symbol{font-size:2.35rem;color:var(--warm);line-height:1;filter:drop-shadow(0 0 8px rgba(216,189,154,.5))}
+.face-front .card-name{font-family:var(--display);font-size:clamp(.92rem,1.3vw,1.12rem);color:#fff;letter-spacing:.03em;text-align:center;line-height:1.25;text-shadow:0 2px 12px rgba(0,0,0,.8),0 0 24px rgba(0,0,0,.6);font-weight:500}
+.face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:rgba(216,189,154,.82);text-align:center;text-transform:uppercase}
 .result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
+.daily-notice{display:none;text-align:center;margin:1.6rem auto 0;max-width:480px;font-size:.82rem;letter-spacing:.08em;color:var(--muted);opacity:.7}
 .result.show{display:block;animation:rise .7s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .result .section-label{text-align:center;color:var(--violet-light)}
 .result h3{font-family:var(--display);font-size:2rem;color:var(--warm);text-align:center;margin:.8rem 0 1.2rem}
 .result p{color:var(--text);font-weight:300;margin-bottom:1rem}
+#rText,#r2Text{white-space:pre-line}
 .result .reflect{border-left:1px solid var(--violet-light);padding:.25rem 0 .25rem 1.1rem;color:var(--violet-light);font-family:var(--display);font-style:italic;font-size:1.16rem;margin:1.4rem 0}
 .result-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
 
@@ -292,14 +359,19 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-card:nth-child(4) .visual{background-image:url("assets/images/mesecni-krog-gallery.png")}
 .gallery-card:hover .visual{transform:scale(1.04)}
 .gallery-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.85),transparent)}
-.gallery-num{font-family:var(--display);font-size:2.7rem;opacity:.18;line-height:1}
+.gallery-num{position:absolute;top:1.4rem;left:1.7rem;z-index:3;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.22;line-height:1}
 .gallery-content h3{font-family:var(--display);font-size:1.38rem;font-weight:500;margin:.35rem 0}
-.gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68);min-height:50px}
+.gallery-tagline{display:block;font-size:.8rem;font-style:italic;color:rgba(199,188,228,.75);margin:.2rem 0 .6rem;line-height:1.5}
+.gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}
+.gallery-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.gallery-price{font-family:var(--display);font-size:1rem;font-weight:500;color:#fff}
+.gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s}
+.gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
+.coming-soon{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans)}
 
-#cenik{background:#15141d;max-width:100%;padding:7rem 2rem}
-.pricing-container{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:start}
-.price-stack{display:grid;gap:1rem}
-.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s}
+#cenik{background:#15141d;max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
+.pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:stretch}
+.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
 .pricing-name{font-family:var(--display);font-size:1.35rem;color:#fff;margin-bottom:.35rem}
 .pricing-desc{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}
@@ -308,13 +380,30 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .pricing-features{list-style:none;margin-bottom:1.6rem}
 .pricing-features li{padding:.45rem 0;color:var(--text);font-size:.93rem;border-bottom:1px solid rgba(199,188,228,.08)}
 .pricing-features li::before{content:"✦";color:var(--violet-light);font-size:.7rem;margin-right:.7rem}
+.pricing-card .pricing-btn{margin-top:auto}
+.features-toggle{background:none;border:none;color:rgba(199,188,228,.7);font-size:.8rem;letter-spacing:.1em;padding:0;cursor:pointer;margin-bottom:.8rem;text-align:left}
+.features-toggle:hover{color:#c9b6d9}
+.features-arrow{display:inline-block;transition:transform .25s}
+.features-toggle[aria-expanded="true"] .features-arrow{transform:rotate(180deg)}
 .pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045));position:relative}
 .pricing-card.featured::before{content:"Naročnina";position:absolute;top:-12px;left:2rem;background:var(--violet-light);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
-.pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid var(--line);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s}
+.pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid rgba(199,188,228,.5);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s;background:rgba(199,188,228,.08)}
 .pricing-btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}
+#confirmBtn{background:var(--violet-deep);border-color:var(--violet-light);color:#fff;font-size:.82rem;padding:1rem 2rem;letter-spacing:.2em}
+#confirmBtn:hover{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 .pricing-card.featured .pricing-btn{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 
-#racun .section-label{color:var(--blue-soft)}
+.reading-meta{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.reading-meta strong{color:rgba(255,255,255,.55);font-weight:400}
+.reading-question{font-family:var(--display);font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:2rem}
+.example-card{width:110px;height:178px;margin:0 auto 2rem;border:1px solid rgba(199,188,228,.35);background:rgba(199,188,228,.05);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem}
+.example-card-symbol{font-size:1.5rem;color:rgba(199,188,228,.45)}
+.example-card-num{font-family:var(--display);font-size:.75rem;letter-spacing:.2em;color:rgba(255,255,255,.3)}
+.example-card-name{font-family:var(--display);font-size:.8rem;color:rgba(255,255,255,.65);text-align:center;padding:0 .6rem;line-height:1.4}
+.reading-body{text-align:left;margin-bottom:2.5rem}
+.reading-body p{color:var(--muted);font-size:.95rem;line-height:1.85;margin-bottom:1rem}
+.insight-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem}
+.insight-text{font-family:var(--display);font-size:1.2rem;font-style:italic;color:#c9b6d9;line-height:1.7}
 .account-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .account-panel{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2.4rem}
 .account-panel h3{font-family:var(--display);font-size:1.45rem;color:#fff;margin-bottom:1rem}
@@ -345,26 +434,62 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 .modal .pricing-btn{width:100%;justify-content:center;background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 .fine{font-size:.7rem;color:var(--muted);text-align:center;margin-top:1rem}
 
-.card.active-reading .face-back{box-shadow:0 0 0 1px rgba(199,188,228,.45),0 0 22px rgba(199,188,228,.18)}
-.card.flipped.active-reading .face-front{box-shadow:0 0 0 1px rgba(216,189,154,.45),0 0 22px rgba(216,189,154,.18)}
-.shuffle-btn{display:block;margin:0 auto 1.8rem;background:transparent;border:1px solid var(--line);color:var(--muted);padding:.52rem 1.2rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.25s}
-.shuffle-btn:hover:not([disabled]){border-color:var(--violet-light);color:var(--violet-light)}
-.shuffle-btn[disabled]{opacity:.35;cursor:default}
-.cards-hint{text-align:center;margin-top:1rem;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-dark);transition:opacity .6s;opacity:0}
-.cards-hint.show{opacity:1}
-
 @media(max-width:900px){
-  .intro-grid,.gallery,.pricing-container,.account-grid{grid-template-columns:1fr}
+  .intro-grid,.gallery,.account-grid{grid-template-columns:1fr}
+  .pricing-container{grid-template-columns:repeat(2,1fr)}
   .gallery-card{aspect-ratio:16/10}
 }
+@media(max-width:540px){
+  .pricing-container{grid-template-columns:1fr}
+}
 @media(max-width:760px){
-  .nav-links{display:none}.hamb{display:flex}.nav{padding:1.1rem 1.5rem}.nav.scrolled{padding:.9rem 1.5rem}
-  section,#branje,#cenik{padding:5rem 1.2rem}
-  .hero-title{font-size:clamp(2.65rem,12vw,4rem)}
-  .hero-second{margin-left:0;margin-top:.75rem}
-  .hero-cta{width:100%;justify-content:center}
+  .nav-links{display:none}.hamb{display:flex}
+  .nav{padding:1rem 1.25rem}.nav.scrolled{padding:.8rem 1.25rem}
+  .nav-logo{font-size:1.18rem}
+  section:not(.hero),#branje,#cenik,#pristop{padding:4rem 1.25rem!important}
+  section.section-compact,#pristop.section-compact{padding-top:3rem!important;padding-bottom:3rem!important}
+  .hero-title{font-size:clamp(2.2rem,10vw,3.4rem)}
+  .hero-desc{font-size:.98rem}
+  .hero-second{margin-left:0;margin-top:.65rem}
+  .hero-cta{width:100%;justify-content:center;display:flex}
+  .hero-scroll{display:none}
   .cards{gap:.5rem}
-  .result{padding:2rem 1.4rem}
+  .result{padding:1.8rem 1.2rem}
+  .topic-row{gap:.45rem}
+  .topic{font-size:.62rem;padding:.45rem .8rem}
+  .intent-wrap{margin-bottom:2rem}
+  .intent-input{font-size:1rem;padding:1rem 1.1rem}
+  #confirmBtn{width:100%;justify-content:center;font-size:.78rem;padding:.95rem 1rem}
+  .steps{gap:0;max-width:100%}
+  .step-label{font-size:.55rem;letter-spacing:.1em}
+  .step-num{width:30px;height:30px;font-size:.72rem}
+  .crystal-ball{width:64px;height:64px}
+  .crystal-wrap{width:64px;height:64px}
+  .pristop-grid{grid-template-columns:1fr!important;gap:2rem!important}
+  .gallery{gap:1.25rem}
+  .gallery-card{aspect-ratio:auto;min-height:0;background:rgba(255,255,255,.035);border:1px solid var(--line-soft)}
+  .gallery-card::before{display:none}
+  .gallery-card .visual{position:relative;inset:auto;height:260px;background-size:cover;background-position:center;opacity:1}
+  .gallery-content{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74));padding:1.45rem 1.35rem 1.55rem}
+  .gallery-num{top:1rem;left:1.1rem;font-size:3.2rem;opacity:.32;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+  .gallery-content p{font-size:.92rem;line-height:1.65}
+  .gallery-footer{gap:1rem}
+  .pricing-container{grid-template-columns:1fr}
+  .section-title{font-size:clamp(1.75rem,7vw,2.6rem)}
+}
+@media(max-width:420px){
+  .nav-logo{font-size:1rem}
+  .hero-title{font-size:clamp(1.95rem,9vw,2.8rem)}
+  section:not(.hero),#branje,#cenik,#pristop{padding:3rem 1rem!important}
+  section.section-compact,#pristop.section-compact{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+}
+@media(max-width:640px){
+  .hero{align-items:flex-start;justify-content:center}
+  .hero-content{padding-top:5.5rem;padding-bottom:5rem}
+  .hero-subtitle{font-size:.72rem;letter-spacing:2.5px;margin-bottom:1rem}
+  .hero-title{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .hero-desc{font-size:.9rem;margin-bottom:1.6rem}
+  .hero-note{font-size:.62rem}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -376,236 +501,360 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <nav class="nav" id="nav">
   <a href="#vrh" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
-    <li><a href="#zgodba" class="nav-link">Občutek</a></li>
-    <li><a href="#branje" class="nav-link">Branje</a></li>
+    <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
-    <li><a href="#racun" class="nav-link">Račun</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile" id="mobile">
-  <a href="#zgodba" class="mobile-link">Občutek</a>
-  <a href="#branje" class="mobile-link">Branje</a>
-  <a href="#cenik" class="mobile-link">Cenik</a>
-  <button onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
+  <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
+  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <div class="mobile-user" id="mobileUser"></div>
 </div>
 
 <section class="hero" id="vrh">
   <div class="hero-video-container">
     <video autoplay muted playsinline preload="auto" id="hero-video" class="hero-video active" poster="assets/images/hero-crystal-ball-fortune-teller.png" data-hero-video>
-      <source src="assets/images/zlata-nit-hero-loop-v2.mp4" type="video/mp4">
+      <source src="assets/images/velvet-secret-hero-loop-v2.mp4" type="video/mp4">
     </video>
-    <video muted playsinline preload="auto" class="hero-video" aria-hidden="true" tabindex="-1" data-hero-video>
-      <source src="assets/images/zlata-nit-hero-loop-v2.mp4" type="video/mp4">
+    <video muted playsinline preload="none" class="hero-video" aria-hidden="true" tabindex="-1" data-hero-video>
+      <source src="assets/images/velvet-secret-hero-loop-v2.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
-      <span class="hero-subtitle">Sodobno branje kart</span>
-      <h1 class="hero-title">Ko ne veš, kaj pomeni tišina,<br>obrni <em>eno karto</em></h1>
-      <p class="hero-desc">Za trenutke, ko čakaš odgovor, te vleče v dve smeri ali čutiš, da nekaj ni več tako kot prej. Karta ne odloči namesto tebe, lahko pa pokaže, kje se nekaj že premika.</p>
+      <h1 class="hero-title">Ko odgovor<br>še nima <em>besed</em></h1>
+      <p class="hero-desc">Jungovski simboli, tarot karte in intuitivno branje za trenutke, ko čutiš, da se nekaj premika, pa še nimaš jasnega odgovora.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
-      <a href="#cenik" class="hero-cta hero-second">Izberi branje</a>
-      <span class="hero-note">Najprej mir, potem odgovor</span>
+      <span class="hero-note">Najprej občutek. Potem pomen.</span>
     </div>
   </div>
   <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
 </section>
 
-<section id="zgodba">
+<section id="branje">
   <div class="section-header fade-in">
-    <span class="section-label">Ko se ustaviš</span>
-    <h2 class="section-title">Vprašanje ponavadi pride prej kot odgovor</h2>
+    <span class="section-label">Prva karta</span>
+    <h2 class="section-title">Trije koraki do odgovora.</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Včasih ne potrebuješ velike napovedi. Potrebuješ samo trenutek, ki razbije krog razmišljanja in ti pomaga slišati, katera misel se ponavlja.</p>
+    <p class="section-desc">Ni treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
+  </div>
+
+  <div class="steps fade-in">
+    <div class="step">
+      <span class="step-num">1</span>
+      <span class="step-label">Izberi področje</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step2">
+      <span class="step-num">2</span>
+      <span class="step-label">Vpiši vprašanje</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step3">
+      <span class="step-num">3</span>
+      <span class="step-label">Obrni karto</span>
+    </div>
+  </div>
+
+  <div class="topic-row fade-in">
+    <button class="topic" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
+    <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
+    <button class="topic" data-topic="Delo" onclick="setTopic(this)">Delo</button>
+    <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
+    <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
+  </div>
+
+  <div class="intent-wrap" id="intent-wrap">
+    <label class="intent-label" for="intent">Zastavi vprašanje</label>
+    <textarea class="intent-input" id="intent" rows="3" placeholder="Zapiši, kar te teži, zanima ali sprašuješ ..."></textarea>
+    <div style="text-align:center;margin-top:1.2rem">
+      <button class="pricing-btn" id="confirmBtn" onclick="confirmIntent()">Pripravi karte →</button>
+    </div>
+  </div>
+
+  <div class="cards fade-in" id="cards"></div>
+  <p class="shuffle-hint" id="shuffle-hint">Izberi svojo karto</p>
+  <p class="daily-notice" id="daily-notice"></p>
+
+  <div class="result" id="result">
+    <span class="section-label" id="rTopic"></span>
+    <h3 id="rName"></h3>
+    <div class="reading-loading" id="rLoading">
+      <div class="crystal-wrap">
+        <div class="crystal-ball">
+          <div class="crystal-glow"></div>
+          <div class="crystal-swirl"></div>
+        </div>
+      </div>
+      <p class="loading-text">Odgovor se oblikuje...</p>
+    </div>
+    <p id="rIntent" class="reading-question" style="display:none"></p>
+    <p id="rText" style="display:none"></p>
+    <div class="reflect" id="rReflect" style="display:none"></div>
+    <div class="result-cta" id="rCta" style="display:none">
+      <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
+      <button class="pricing-btn" onclick="resetCards()">Zapri</button>
+    </div>
+  </div>
+</section>
+
+<section id="zgodba" class="section-soft">
+  <div class="section-header fade-in">
+    <span class="section-label">Kako deluje</span>
+    <h2 class="section-title">Tri preproste stopnice, ki vodijo od vprašanja do uvida.</h2>
+    <div class="section-divider"></div>
   </div>
   <div class="intro-grid">
     <div class="intro-card fade-in">
       <div class="intro-visual"></div>
       <div class="intro-copy">
         <div class="intro-icon">☾</div>
-        <h3>Nežno</h3>
-        <p>Odgovor ni ukaz. Je stavek, ob katerem lahko preveriš, kaj v tebi popusti in kaj se upre.</p>
+        <h3>Občutek</h3>
+        <p>Nekaj te vleče v določeno smer, pa še ne veš zakaj. Vprašanje še nima oblike, občutek pa je že prisoten.</p>
       </div>
     </div>
     <div class="intro-card fade-in">
       <div class="intro-visual"></div>
       <div class="intro-copy">
         <div class="intro-icon">✦</div>
-        <h3>Konkretno</h3>
-        <p>Vprašanja niso abstraktna. Ljubezen, delo, denar, odločitev, čakanje, odhod, nov začetek.</p>
+        <h3>Simbol</h3>
+        <p>Karta ne napoveduje prihodnosti. Pokaže simbol, skozi katerega lahko drugače pogledaš svojo situacijo.</p>
       </div>
     </div>
     <div class="intro-card fade-in">
       <div class="intro-visual"></div>
       <div class="intro-copy">
         <div class="intro-icon">◈</div>
-        <h3>Tvoje</h3>
-        <p>Branje ne vzame odgovornosti iz tvojih rok. Samo osvetli nit, ki je bila morda že tam.</p>
+        <h3>Pomen</h3>
+        <p>Včasih odgovor ni nova informacija. Je trenutek, ko prepoznaš nekaj, kar si že vedel.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="branje">
-  <div class="section-header fade-in">
-    <span class="section-label">Prva karta</span>
-    <h2 class="section-title">Izberi področje, ki te trenutno najbolj vleče</h2>
-    <div class="section-divider"></div>
-    <p class="section-desc">Ne rabiš pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali kje se ne moreš odločiti.</p>
-  </div>
-  <div class="topic-row fade-in">
-    <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
-    <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
-    <button class="topic" data-topic="Delo" onclick="setTopic(this)">Delo</button>
-    <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
-    <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
-  </div>
-  <button id="shuffleBtn" class="shuffle-btn" onclick="newReading()">✦ Zamešaj karte</button>
-  <div class="cards fade-in" id="cards"></div>
-  <p id="cardsHint" class="cards-hint">Klikni karto, da jo odkriješ</p>
-  <div class="result" id="result">
-    <span class="section-label" id="rTopic"></span>
-    <h3 id="rName"></h3>
-    <p id="rText"></p>
-    <div class="reflect" id="rReflect"></div>
-    <div class="result-cta">
-      <a href="#cenik" class="pricing-btn">Nadaljuj branje</a>
-      <button class="pricing-btn" onclick="newReading()">Zamešaj znova</button>
-    </div>
+<section class="section-compact" style="text-align:center;max-width:640px;margin:0 auto">
+  <div class="fade-in">
+    <p style="font-family:var(--display);font-size:1.45rem;color:#fff;margin-bottom:.8rem;font-weight:400">Prva karta je brezplačna.</p>
+    <p style="color:var(--muted);font-size:.95rem;font-weight:300;margin-bottom:2rem;line-height:1.7">Brezplačna karta. Samo vprašanje in karta, ki ti odgovori.</p>
+    <a href="#branje" class="hero-cta">Obrni svojo karto →</a>
   </div>
 </section>
 
-<section>
+<section id="pristop" class="section-compact section-narrow" style="max-width:760px;text-align:center">
+  <div class="section-header fade-in">
+    <span class="section-label">Osnova</span>
+    <h2 class="section-title">Zakaj karte delujejo?</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="fade-in" style="max-width:680px;margin:0 auto">
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.4rem">Tarot je sistem 78 simbolov, ki so del skupne človeške izkušnje. Carl Jung jih je opisal kot ogledala: ne pokažejo, kaj se bo zgodilo, ampak kaj v tebi že poteka.</p>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:2.5rem">Ko obrneš karto, tvoj um naredi pomen. Karta je povabilo, da pogledaš, katera misel se ob njej v tebi premakne.</p>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,.12);margin-bottom:2.5rem">
+    <p style="font-family:var(--display);font-size:1.25rem;font-style:italic;color:#c9b6d9;line-height:1.75;margin-bottom:2.5rem">"Simbol odpre prostor, kjer razum za trenutek obmolkne. V tistem trenutku se pogosto pojavi uvid, ki je bil vse do takrat skrit."</p>
+    <hr style="border:none;border-top:1px solid rgba(255,255,255,.12);margin-bottom:2.5rem">
+    <a href="#branje" class="hero-cta">Obrni svojo karto →</a>
+  </div>
+</section>
+
+<section id="razpleti" class="section-soft">
   <div class="section-header fade-in">
     <span class="section-label">Razpleti</span>
-    <h2 class="section-title">Včasih ena karta ni dovolj</h2>
+    <h2 class="section-title">Od prve iskre do celotnega razpleta.</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ko se ista misel vrača, ko odgovor ni enostaven ali ko želiš videti širšo sliko, lahko izbereš branje, ki gre globlje.</p>
+    <p class="section-desc">Vsako vprašanje ima svojo globino. Včasih je dovolj en simbol. Včasih pa misel potrebuje več prostora, da pokaže, kaj se skriva pod površjem.</p>
   </div>
   <div class="gallery">
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Karta dneva</h3><p>Ko potrebuješ samo en stavek, da se dan malo umiri.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">02</div><h3>Tri karte</h3><p>Za vprašanje, ki ima preteklost, sedanjost in možno smer.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">03</div><h3>Veliki razplet</h3><p>Ko čutiš, da se pod površjem dogaja več, kot znaš povedati.</p></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">04</div><h3>Mesečni krog</h3><p>Za trenutke, ko se želiš k sebi vračati bolj redno.</p></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+  </div>
+</section>
+
+<section id="karta-cta" class="section-compact section-narrow" style="max-width:760px;text-align:center">
+  <div class="section-header fade-in">
+    <span class="section-label">Še nisi obrnil karte?</span>
+    <h2 class="section-title">Ena karta brezplačno vsak dan.</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Preden se odločiš za globlje branje, preizkusi kako to deluje. Karta ne odloči namesto tebe. Pokaže, kje se kaj že premika.</p>
+  </div>
+  <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;gap:1.5rem">
+    <button class="card" id="single-card" onclick="revealSingle()" style="width:130px;height:210px">
+      <span class="card-inner">
+        <span class="face face-back"></span>
+        <span class="face face-front">
+          <span class="card-kind" id="sc-kind"></span>
+          <span class="symbol" id="sc-symbol"></span>
+          <span class="card-num" id="sc-num"></span>
+          <span class="card-name" id="sc-name"></span>
+        </span>
+      </span>
+    </button>
+    <p class="daily-notice" id="daily-notice2"></p>
+    <div class="result" id="result2" style="text-align:left;width:100%;max-width:580px">
+      <span class="section-label" id="r2Topic"></span>
+      <h3 id="r2Name"></h3>
+      <p id="r2Text"></p>
+      <div class="reflect" id="r2Reflect"></div>
+      <div class="result-cta">
+        <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="cenik">
   <div class="section-header fade-in">
-    <span class="section-label">Branja</span>
-    <h2 class="section-title">En znak danes. Več jasnosti, ko jo potrebuješ</h2>
+    <span class="section-label">Branja iz kart</span>
+    <h2 class="section-title">Več jasnosti takrat, ko jo potrebuješ.</h2>
     <div class="section-divider"></div>
     <p class="section-desc">Lahko ostaneš pri eni karti. Če se vprašanje ne zapre, lahko odpreš še več konteksta.</p>
   </div>
   <div class="pricing-container">
-    <div class="price-stack">
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Karta dneva</h3>
-        <p class="pricing-desc">Kratek odgovor za trenutek, ko ne želiš več vrteti iste misli.</p>
-        <div class="pricing-price">0 €</div>
-        <a href="#branje" class="pricing-btn">Obrni</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Tri karte</h3>
-        <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
-        <div class="pricing-price">4,90 €</div>
-        <a href="#racun" class="pricing-btn">Kupi</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Veliki razplet</h3>
-        <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš ujeti z enim stavkom.</p>
-        <div class="pricing-price">14,90 €</div>
-        <a href="#racun" class="pricing-btn">Kupi</a>
-      </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Iskra</h3>
+      <p class="pricing-desc">En simbol za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
+      <div class="pricing-price">0 €</div>
+      <a href="#branje" class="pricing-btn">Naroči</a>
+    </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Pot</h3>
+      <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
+      <div class="pricing-price">4,90 €</div>
+      <span class="coming-soon" style="margin-top:auto">prihaja kmalu</span>
+    </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Razplet</h3>
+      <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš razrešiti z enim stavkom.</p>
+      <div class="pricing-price">14,90 €</div>
+      <span class="coming-soon" style="margin-top:auto">prihaja kmalu</span>
     </div>
     <div class="pricing-card featured fade-in">
-      <h3 class="pricing-name">Krog</h3>
+      <h3 class="pricing-name">Cikel</h3>
       <p class="pricing-desc">Mesečni prostor za vprašanja, ki se vračajo, spreminjajo in zorijo s tabo.</p>
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
-      <ul class="pricing-features">
-        <li>Karta dneva, kadar jo potrebuješ</li>
-        <li>8 branj s tremi kartami mesečno</li>
-        <li>1 veliki razplet mesečno</li>
-        <li>Shranjena branja na enem mestu</li>
-        <li>Ljubezen, delo, denar in osebna rast</li>
+      <button class="features-toggle" onclick="toggleFeatures(this)" aria-expanded="false">Kaj je vključeno <span class="features-arrow">▾</span></button>
+      <ul class="pricing-features" hidden>
+        <li>Iskra, kadar jo potrebuješ</li>
+        <li>8 branj Pot mesečno</li>
+        <li>1 Razplet mesečno</li>
+        <li>Shranjena branja v računu</li>
       </ul>
-      <a href="#racun" class="pricing-btn">Vstopi v Krog</a>
+      <span class="coming-soon">prihaja kmalu</span>
     </div>
   </div>
 </section>
 
-<section id="racun">
+<section id="primer" class="section-compact section-narrow" style="max-width:760px;text-align:center">
   <div class="section-header fade-in">
-    <span class="section-label">Tvoj prostor</span>
-    <h2 class="section-title">Nekateri odgovori se pokažejo šele kasneje</h2>
+    <span class="section-label">Primer branja</span>
+    <h2 class="section-title">Kako je videti vpogled?</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Kar danes zveni nejasno, lahko čez nekaj dni dobi obliko. Zato se lahko vrneš k branjem, ki jih še nisi čisto odložila.</p>
   </div>
-  <div class="account-grid">
-    <div class="account-panel fade-in">
-      <h3>Za kasneje</h3>
-      <p>Ko se vprašanje ponovi ali dobi nov pomen, ti ni treba začeti znova.</p>
-      <ul class="account-list">
-        <li>Shranjena branja</li>
-        <li>Zgodovina vprašanj</li>
-        <li>Odprte teme</li>
-        <li>Izbrana branja</li>
-      </ul>
+  <div class="fade-in" style="max-width:620px;margin:0 auto">
+    <p class="reading-meta">Področje: <strong>Odločitev</strong></p>
+    <p class="reading-question">"Ali ostanem na poti, po kateri hodim zdaj, ali je čas za spremembo?"</p>
+    <div class="example-card">
+      <span class="example-card-symbol">✦</span>
+      <span class="example-card-num">II</span>
+      <span class="example-card-name">Dvojka mečev</span>
     </div>
-    <div class="account-panel fade-in">
-      <h3>Brez pritiska</h3>
-      <p>Ničesar ti ni treba sprejeti, če v tebi ne zveni resnično.</p>
-      <ul class="account-list">
-        <li>Brez absolutnih napovedi</li>
-        <li>Brez strašenja in velikih obljub</li>
-        <li>Prostor za premislek</li>
-        <li>Zadnja beseda ostane tvoja</li>
-      </ul>
+    <div class="reading-body">
+      <p>Ta karta se pogosto pojavi takrat, ko odločitev ni težava. Težava je, da skušamo predolgo živeti brez nje.</p>
+      <p>Dvojka mečev kaže stanje med dvema možnostma. Del tebe želi naprej, drugi del pa še vedno preverja, ali je varno sprejeti odločitev.</p>
+      <p>Karta ne pove, katera izbira je pravilna. Pokaže pa nekaj drugega: trenutno porabljaš več energije za odlašanje, kot bi je potreboval za odločitev samo.</p>
+      <p>Vprašanje zato ni, katera pot je brez tveganja. Vprašanje je, katera pot te že nekaj časa kliče.</p>
     </div>
+    <div class="reading-insight">
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,.12);margin-bottom:1.8rem">
+      <p class="insight-label">Ključna misel</p>
+      <p class="insight-text">"Jasen pogled pogosto ne pride pred odločitvijo. Pride po njej."</p>
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,.12);margin-top:1.8rem;margin-bottom:2.5rem">
+    </div>
+    <a href="#branje" class="hero-cta">Obrni svojo karto →</a>
   </div>
 </section>
 
-<section class="legal">
+<section class="legal section-compact section-soft">
   <div class="section-header fade-in">
     <span class="section-label">Pomembno</span>
-    <h2 class="section-title">Znak ni ukaz</h2>
+    <h2 class="section-title">Zadnja beseda ostane tvoja.</h2>
     <div class="section-divider"></div>
-    <p><strong>Velvet Secret je namenjen simbolnemu premisleku, razvedrilu in osebni refleksiji.</strong></p>
-    <p>Ne nadomešča strokovnega, zdravstvenega, psihološkega, finančnega ali pravnega svetovanja. Pri pomembnih odločitvah ostane zadnja beseda vedno tvoja.</p>
+    <p>Velvet Secret je namenjen simbolnemu premisleku, razvedrilu in osebni refleksiji.</p>
+    <p>Karte ne odločajo namesto tebe. Odprejo drugačen pogled, končna odločitev pa vedno ostane v tvojih rokah.</p>
+    <p>Ne nadomešča strokovnega, zdravstvenega, psihološkega, finančnega ali pravnega svetovanja.</p>
   </div>
 </section>
 
 <footer>
   <div class="footer-logo">Velvet Secret</div>
-  <p class="footer-tagline">„Najprej mir, potem odgovor."</p>
+  <p class="footer-tagline">„Najprej nemir, potem odgovor."</p>
   <ul class="footer-links">
-    <li><a href="#branje">Branje</a></li>
+    <li><a href="#branje">Branje iz kart</a></li>
     <li><a href="#cenik">Cenik</a></li>
-    <li><a href="#racun">Račun</a></li>
+    <li><a href="#primer">Primer</a></li>
     <li><a href="#">Pogoji</a></li>
     <li><a href="#">Zasebnost</a></li>
   </ul>
 </footer>
+
+<div class="modal-bg" id="upsellModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeUpsell()">
+  <div class="modal" style="max-width:540px">
+    <button class="close" onclick="closeUpsell()" aria-label="Zapri">×</button>
+    <span class="section-label" id="upsellCardName"></span>
+    <h3 style="font-family:var(--display);font-size:1.55rem;font-weight:500;color:#fff;margin:.6rem 0 .9rem;line-height:1.3">Karta je odprla vrata.<br>Kaj je za njimi?</h3>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:1.8rem">Ena karta pokaže smer. Včasih pa vprašanje ne čaka. Za takšne situacije pripravljamo globlja branja.</p>
+    <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
+      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default">
+        <span>Pot <span style="font-weight:300;opacity:.7;font-size:.85rem">— tri karte, tri perspektive</span></span>
+        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+      </div>
+      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default">
+        <span>Razplet <span style="font-weight:300;opacity:.7;font-size:.85rem">— za vprašanja, ki so večplastna</span></span>
+        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+      </div>
+      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default;border-color:rgba(199,188,228,.4)">
+        <span>Cikel <span style="font-weight:300;opacity:.7;font-size:.85rem">— mesečni prostor za vprašanja, ki zorijo</span></span>
+        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);opacity:.55;text-align:center">Zadnja beseda ostane vedno tvoja.</p>
+  </div>
+</div>
+
+<div class="modal-bg" id="readingModal" role="dialog" aria-modal="true" aria-labelledby="readingTitle" onclick="if(event.target===this)closeReading()">
+  <div class="modal" style="max-width:520px">
+    <button class="close" onclick="closeReading()" aria-label="Zapri">×</button>
+    <span class="section-label" id="readingLabel"></span>
+    <h3 id="readingTitle" style="font-family:var(--display);font-size:1.6rem;font-weight:500;color:#fff;margin:.6rem 0 1rem"></h3>
+    <p id="readingBody" style="color:var(--muted);font-size:.97rem;line-height:1.75;margin-bottom:1rem"></p>
+    <p id="readingBody2" style="color:var(--muted);font-size:.97rem;line-height:1.75;margin-bottom:1.8rem"></p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+      <a id="readingCta" href="#cenik" class="pricing-btn" onclick="closeReading()"></a>
+      <div id="readingPrice" style="display:flex;align-items:center;font-family:var(--display);font-size:1.3rem;color:var(--warm)"></div>
+    </div>
+  </div>
+</div>
 
 <div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="modal">
     <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
     <h3 id="authTitle">Tvoj prostor</h3>
     <p class="sub-t">Za branja, h katerim se želiš vrniti.</p>
-    <div class="tabs">
-      <button class="active" id="tabLogin" onclick="authTab('login')">Prijava</button>
-      <button id="tabReg" onclick="authTab('reg')">Registracija</button>
-    </div>
-    <form onsubmit="event.preventDefault(); alert('Tvoj prostor bo kmalu pripravljen.');">
-      <div class="field" id="fieldName" style="display:none"><label for="name">Ime</label><input id="name" autocomplete="name"></div>
-      <div class="field"><label for="email">E-pošta</label><input id="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="pass">Geslo</label><input id="pass" type="password" autocomplete="current-password" required></div>
-      <button class="pricing-btn" style="margin-top:.5rem" id="authBtn">Prijavi se</button>
-    </form>
-    <p class="fine">Za vprašanja, h katerim se še vračaš.</p>
+    <button class="pricing-btn" id="googleSignIn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.9rem;margin-top:1.5rem;padding:1rem 1.5rem" onclick="signInWithGoogle()">
+      <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13 17.8 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7.1 5.5c4.1-3.8 6.5-9.4 6.5-16.3z"/>
+        <path fill="#FBBC05" d="M10.5 28.7A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.6 2.7 10.8l7.8-6.1z"/>
+        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.1-5.5c-2.2 1.5-5 2.3-8.8 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z"/>
+      </svg>
+      Prijava z Google računom
+    </button>
+    <p class="fine" style="margin-top:1.2rem">Tvoja branja se shranijo v tvoj prostor in ostanejo dostopna ob naslednjem obisku.</p>
   </div>
 </div>
 
@@ -639,6 +888,7 @@ function initHeroVideoLoop(){
     video.addEventListener('ended', maybeSwap);
   });
 
+  videos.forEach(v => v.playbackRate = 0.45);
   videos[active].play().catch(() => {
     videos[active].loop = true;
   });
@@ -671,184 +921,564 @@ function initHeroVideoLoop(){
 }
 
 const tarotDeck = [
-  {name:'Norček', num:'0', kind:'Velika arkana', img:'cards/labeled-v2/the-fool.png', text:'Danes je pred tabo svež začetek. Ne potrebuješ vseh dokazov, potrebuješ iskren prvi korak.', reflect:'Kje te življenje vabi, da začneš bolj lahkotno?'},
-  {name:'Mag', num:'I', kind:'Velika arkana', img:'cards/labeled-v2/the-magician.png', text:'Kar potrebuješ, je bližje, kot se zdi. Danes uporabi voljo, besedo in jasen namen.', reflect:'Katero moč že imaš v rokah?'},
-  {name:'Visoka svečenica', num:'II', kind:'Velika arkana', img:'cards/labeled-v2/the-high-priestess.png', text:'Odgovor še ni glasen, vendar je prisoten. Poslušaj tišino pred razlago.', reflect:'Kaj veš, pa še nisi povedala na glas?'},
-  {name:'Cesarica', num:'III', kind:'Velika arkana', img:'cards/labeled-v2/the-empress.png', text:'Dan podpira nežnost, telo, ustvarjalnost in sprejemanje. Nekaj raste, če mu daš prostor.', reflect:'Kaj potrebuje več mehkobe, ne več pritiska?'},
-  {name:'Cesar', num:'IV', kind:'Velika arkana', img:'cards/labeled-v2/the-emperor.png', text:'Potrebna je meja, struktura ali jasna odločitev. Mir se vrne, ko nekaj postaviš na svoje mesto.', reflect:'Kje moraš stati bolj trdno?'},
-  {name:'Svečenik', num:'V', kind:'Velika arkana', img:'cards/labeled-v2/the-hierophant.png', text:'Danes pomaga modrost, ki ni nova, ampak preverjena. Obrni se k vrednoti, ki te drži pokonci.', reflect:'Katero notranje pravilo te res varuje?'},
-  {name:'Ljubimca', num:'VI', kind:'Velika arkana', img:'cards/labeled-v2/the-lovers.png', text:'Pred tabo je izbira, ki ni samo razumska. Srce že kaže, kje je več resnice.', reflect:'Kaj izbereš, ko si iskrena do sebe?'},
-  {name:'Voz', num:'VII', kind:'Velika arkana', img:'cards/labeled-v2/the-chariot.png', text:'Energija se premakne, ko jo usmeriš. Ne vleci v dve smeri, izberi eno pot za danes.', reflect:'Kam gre tvoja moč, ko se ne razprši?'},
-  {name:'Moč', num:'VIII', kind:'Velika arkana', img:'cards/labeled-v2/strength.png', text:'Tvoja prava moč danes ni trda. Je mirna, zbrana in nežna do tistega, kar je ranljivo.', reflect:'Kje lahko zmagaš brez boja?'},
-  {name:'Puščavnik', num:'IX', kind:'Velika arkana', img:'cards/labeled-v2/the-hermit.png', text:'Odmakni se od hrupa. En sam miren uvid je danes vreden več kot deset mnenj.', reflect:'Kaj zaslišiš, ko se ne razlagaš nikomur?'},
-  {name:'Kolo sreče', num:'X', kind:'Velika arkana', img:'cards/labeled-v2/wheel-of-fortune.png', text:'Nekaj se obrača. Ne drži za staro obliko, če se življenje že premika naprej.', reflect:'Kje se sprememba dogaja brez tvojega dovoljenja?'},
-  {name:'Pravica', num:'XI', kind:'Velika arkana', img:'cards/labeled-v2/justice.png', text:'Danes šteje resnica brez olepševanja. Jasnost morda ni mehka, je pa osvobajajoča.', reflect:'Kaj bi bilo pošteno do tebe?'},
-  {name:'Obešenec', num:'XII', kind:'Velika arkana', img:'cards/labeled-v2/the-hanged-man.png', text:'Ne sili odgovora. Ko spremeniš pogled, se lahko spremeni tudi pomen situacije.', reflect:'Kaj vidiš drugače, če za trenutek ne ukrepaš?'},
-  {name:'Smrt', num:'XIII', kind:'Velika arkana', img:'cards/labeled-v2/death.png', text:'Nekaj se zaključuje, da energija ne ostane ujeta. Konec ni kazen, lahko je prehod.', reflect:'Kaj je že odšlo, čeprav ga še držiš?'},
-  {name:'Zmernost', num:'XIV', kind:'Velika arkana', img:'cards/labeled-v2/temperance.png', text:'Danes ne potrebuješ skrajnosti. Zdravilna pot je v mešanju, ravnovesju in počasnem vračanju.', reflect:'Kaj se umiri, ko ne pretiravaš?'},
-  {name:'Hudič', num:'XV', kind:'Velika arkana', img:'cards/labeled-v2/the-devil.png', text:'Nekaj te veže, ker obljublja hitro olajšanje. Poglej, kje zamenjuješ željo za svobodo.', reflect:'Kaj ti jemlje energijo, čeprav te privlači?'},
-  {name:'Stolp', num:'XVI', kind:'Velika arkana', img:'cards/labeled-v2/the-tower.png', text:'Kar ni imelo trdnih temeljev, se lahko zamaje. Resnica ruši samo tisto, kar je bilo pretesno.', reflect:'Kje je razpoka pravzaprav izhod?'},
-  {name:'Zvezda', num:'XVII', kind:'Velika arkana', img:'cards/labeled-v2/the-star.png', text:'Upanje se vrača tiho, ne na silo. Danes zaupaj majhnemu znaku svetlobe.', reflect:'Kje se duša spet odpira?'},
-  {name:'Luna', num:'XVIII', kind:'Velika arkana', img:'cards/labeled-v2/the-moon.png', text:'Ni vse takšno, kot se kaže. Ne hiti v sklep, dokler se megla ne razredči.', reflect:'Kaj je občutek, in kaj je strah?'},
-  {name:'Sonce', num:'XIX', kind:'Velika arkana', img:'cards/labeled-v2/the-sun.png', text:'Dan prinaša toplino, preprostost in več življenjske energije. Dovoli si videti dobro.', reflect:'Kaj postane lažje, ko ne skrivaš svoje svetlobe?'},
-  {name:'Sodba', num:'XX', kind:'Velika arkana', img:'cards/labeled-v2/judgement.png', text:'Nekaj v tebi se prebuja. Stari klic se vrača, tokrat z več jasnosti.', reflect:'Katera verzija tebe kliče nazaj?'},
-  {name:'Svet', num:'XXI', kind:'Velika arkana', img:'cards/labeled-v2/the-world.png', text:'Krog se zapira. Danes priznaj, kaj si že prehodila, preden zahtevaš nov začetek.', reflect:'Kaj je dozorelo do zaključka?'},
-  {name:'As kelihov', num:'As', kind:'Kelihi', img:'cards/labeled-v2/ace-of-cups.png', text:'Odpre se nežen čustveni tok. Danes je dobro sprejeti, kar prihaja iz srca.', reflect:'Kje lahko pustiš občutku, da te doseže?'},
-  {name:'Dvojka kelihov', num:'2', kind:'Kelihi', img:'cards/labeled-v2/two-of-cups.png', text:'Povezava se pokaže skozi vzajemnost. Opazuj, kje je energija obojestranska.', reflect:'Kdo ti pride naproti brez prisile?'},
-  {name:'Trojka kelihov', num:'3', kind:'Kelihi', img:'cards/labeled-v2/three-of-cups.png', text:'Dan podpira bližino, radost in podporo ljudi, ki ti dobro denejo.', reflect:'S kom je tvoja energija lažja?'},
-  {name:'Štirica kelihov', num:'4', kind:'Kelihi', img:'cards/labeled-v2/four-of-cups.png', text:'Morda ne vidiš ponudbe, ker gledaš v razočaranje. Danes dvigni pogled počasi.', reflect:'Kaj ti je ponujeno, pa tega še ne sprejemaš?'},
-  {name:'Petica kelihov', num:'5', kind:'Kelihi', img:'cards/labeled-v2/five-of-cups.png', text:'Nekaj boli, a ni vse izgubljeno. Dovoli žalosti prostor, vendar ji ne daj vsega dneva.', reflect:'Kaj še vedno stoji ob tebi?'},
-  {name:'Šestica kelihov', num:'6', kind:'Kelihi', img:'cards/labeled-v2/six-of-cups.png', text:'Spomin prinaša sporočilo. Danes lahko nekaj iz preteklosti vidiš z mehkejšimi očmi.', reflect:'Kateri stari občutek želi ozdraveti?'},
-  {name:'Sedmica kelihov', num:'7', kind:'Kelihi', img:'cards/labeled-v2/seven-of-cups.png', text:'Možnosti je veliko, vse pa niso resnične. Izberi tisto, kjer je mir, ne samo privlak.', reflect:'Katera želja ima tudi korenine?'},
-  {name:'Osmica kelihov', num:'8', kind:'Kelihi', img:'cards/labeled-v2/eight-of-cups.png', text:'Duša se odmika od nečesa, kar je nekoč hranilo. Odhod je lahko dejanje zvestobe sebi.', reflect:'Od česa se tiho poslavljaš?'},
-  {name:'Devetica kelihov', num:'9', kind:'Kelihi', img:'cards/labeled-v2/nine-of-cups.png', text:'Danes opazi izpolnitev, ki je že prisotna. Hvaležnost ti odpre več prostora.', reflect:'Kaj je že dovolj dobro?'},
-  {name:'Desetica kelihov', num:'10', kind:'Kelihi', img:'cards/labeled-v2/ten-of-cups.png', text:'Čustveni mir je mogoč, ko ne iščeš popolnosti. Toplina se gradi iz drobnih gest.', reflect:'Kje lahko izbereš povezanost?'},
-  {name:'Paž kelihov', num:'Paž', kind:'Kelihi', img:'cards/labeled-v2/page-of-cups.png', text:'Nežno sporočilo prihaja skozi intuicijo, sanje ali nepričakovan občutek.', reflect:'Kaj ti srce šepeta brez logike?'},
-  {name:'Vitez kelihov', num:'Vitez', kind:'Kelihi', img:'cards/labeled-v2/knight-of-cups.png', text:'Čustvo želi pot. Izrazi ga lepo, vendar ne obljubi več, kot lahko nosiš.', reflect:'Kaj želiš povedati z odprtim srcem?'},
-  {name:'Kraljica kelihov', num:'Kraljica', kind:'Kelihi', img:'cards/labeled-v2/queen-of-cups.png', text:'Tvoja občutljivost je kompas. Danes jo varuj, ne skrivaj.', reflect:'Kaj čutiš, preden začneš razlagati?'},
-  {name:'Kralj kelihov', num:'Kralj', kind:'Kelihi', img:'cards/labeled-v2/king-of-cups.png', text:'Čustva so močna, a jih lahko vodiš mirno. Zrelost pomeni ostati odprta in stabilna.', reflect:'Kje lahko ostaneš mehka in zbrana hkrati?'},
-  {name:'As palic', num:'As', kind:'Palice', img:'cards/labeled-v2/ace-of-wands.png', text:'Iskra se prižiga. Danes sledi tistemu, kar ti dvigne energijo.', reflect:'Kaj te kliče z živostjo?'},
-  {name:'Dvojka palic', num:'2', kind:'Palice', img:'cards/labeled-v2/two-of-wands.png', text:'Stojiš pred širšim obzorjem. Načrtuj, preden skočiš.', reflect:'Katera pot se odpira, če si dovoliš več?'},
-  {name:'Trojka palic', num:'3', kind:'Palice', img:'cards/labeled-v2/three-of-wands.png', text:'Nekaj, kar si poslala v svet, se začne vračati. Bodi potrpežljiva z razdaljo.', reflect:'Kje že vidiš prve znake premika?'},
-  {name:'Štirica palic', num:'4', kind:'Palice', img:'cards/labeled-v2/four-of-wands.png', text:'Dan podpira praznovanje majhne zmage. Ustvari kotiček varnosti in svetlobe.', reflect:'Kaj si zasluži priznanje?'},
-  {name:'Petica palic', num:'5', kind:'Palice', img:'cards/labeled-v2/five-of-wands.png', text:'Energije se križajo. Ni vsak odpor napad; včasih je samo neurejena moč.', reflect:'Kje se lahko nehaš dokazovati?'},
-  {name:'Šestica palic', num:'6', kind:'Palice', img:'cards/labeled-v2/six-of-wands.png', text:'Priznanje je blizu. Sprejmi uspeh brez zmanjševanja svojega truda.', reflect:'Kaj lahko danes mirno priznaš sebi?'},
-  {name:'Sedmica palic', num:'7', kind:'Palice', img:'cards/labeled-v2/seven-of-wands.png', text:'Varuj svojo pozicijo, a ne izgubljaj srca v obrambi. Stoj za tem, kar je res tvoje.', reflect:'Za kaj se je vredno postaviti?'},
-  {name:'Osmica palic', num:'8', kind:'Palice', img:'cards/labeled-v2/eight-of-wands.png', text:'Stvari se lahko hitro premaknejo. Odgovori jasno, ko pride signal.', reflect:'Kateri premik ne potrebuje več odlašanja?'},
-  {name:'Devetica palic', num:'9', kind:'Palice', img:'cards/labeled-v2/nine-of-wands.png', text:'Utrujenost ne pomeni poraza. Danes varčuj z energijo in dokončaj samo bistveno.', reflect:'Kje potrebuješ mejo, ne še več napora?'},
-  {name:'Desetica palic', num:'10', kind:'Palice', img:'cards/labeled-v2/ten-of-wands.png', text:'Preveč nosiš sama. Odloži vsaj eno stvar, ki ni več tvoja.', reflect:'Kaj lahko danes nehaš vleči za seboj?'},
-  {name:'Paž palic', num:'Paž', kind:'Palice', img:'cards/labeled-v2/page-of-wands.png', text:'Radovednost odpira vrata. Poskusi majhno novo potezo brez velike drame.', reflect:'Kaj bi raziskala, če ne bi moralo uspeti takoj?'},
-  {name:'Vitez palic', num:'Vitez', kind:'Palice', img:'cards/labeled-v2/knight-of-wands.png', text:'Strast se premika hitro. Uporabi ogenj, vendar ne požgi mostu za seboj.', reflect:'Kje potrebuješ pogum z nekaj potrpežljivosti?'},
-  {name:'Kraljica palic', num:'Kraljica', kind:'Palice', img:'cards/labeled-v2/queen-of-wands.png', text:'Tvoja prisotnost ima moč. Danes ne zmanjšuj svoje svetlobe, da bi bila sprejemljiva.', reflect:'Kje lahko zasiješ brez opravičila?'},
-  {name:'Kralj palic', num:'Kralj', kind:'Palice', img:'cards/labeled-v2/king-of-wands.png', text:'Vizija potrebuje odločnost. Vodi z navdihom, ne s pritiskom.', reflect:'Katero smer lahko danes držiš jasno?'},
-  {name:'As mečev', num:'As', kind:'Meči', img:'cards/labeled-v2/ace-of-swords.png', text:'Resnica prereže meglo. Danes poimenuj stvar takšno, kot je.', reflect:'Katera misel prinese olajšanje, ko jo izrečeš?'},
-  {name:'Dvojka mečev', num:'2', kind:'Meči', img:'cards/labeled-v2/two-of-swords.png', text:'Odločitev čaka, ker srce in razum še ne govorita skupaj. Ne odlašaj predolgo.', reflect:'Kaj že veš, če odložiš strah?'},
-  {name:'Trojka mečev', num:'3', kind:'Meči', img:'cards/labeled-v2/three-of-swords.png', text:'Bolečina potrebuje zrak. Ne popravljaj je prehitro; najprej jo priznaj.', reflect:'Kaj boli, ker ti je bilo pomembno?'},
-  {name:'Štirica mečev', num:'4', kind:'Meči', img:'cards/labeled-v2/four-of-swords.png', text:'Počitek je del odgovora. Um se zbistri šele, ko prenehaš pritiskati nanj.', reflect:'Kaj se razjasni, če danes ne siliš?'},
-  {name:'Petica mečev', num:'5', kind:'Meči', img:'cards/labeled-v2/five-of-swords.png', text:'Zmaga brez miru ni prava zmaga. Izberi dostojanstvo pred dokazovanjem.', reflect:'Kje bi bilo bolje odnehati kot zmagati?'},
-  {name:'Šestica mečev', num:'6', kind:'Meči', img:'cards/labeled-v2/six-of-swords.png', text:'Premik stran od nemira se je že začel. Ne glej nazaj za vsako potrditev.', reflect:'Kam te vodi tišja voda?'},
-  {name:'Sedmica mečev', num:'7', kind:'Meči', img:'cards/labeled-v2/seven-of-swords.png', text:'Nekaj ni popolnoma odkrito. Bodi iskrena do sebe, še preden zahtevaš iskrenost od drugih.', reflect:'Kje se izogibaš celotni resnici?'},
-  {name:'Osmica mečev', num:'8', kind:'Meči', img:'cards/labeled-v2/eight-of-swords.png', text:'Omejitev je delno v mislih. Danes poišči eno majhno odprtino.', reflect:'Katera vrata niso zaklenjena, samo nepreizkušena?'},
-  {name:'Devetica mečev', num:'9', kind:'Meči', img:'cards/labeled-v2/nine-of-swords.png', text:'Skrb povečuje senco. Vrni se v telo, v dih, v nekaj oprijemljivega.', reflect:'Kaj je dejstvo, in kaj nočni strah?'},
-  {name:'Desetica mečev', num:'10', kind:'Meči', img:'cards/labeled-v2/ten-of-swords.png', text:'Cikel misli se izčrpava. Naj se konča tam, kjer te ne hrani več.', reflect:'Kaj je dovolj, res dovolj?'},
-  {name:'Paž mečev', num:'Paž', kind:'Meči', img:'cards/labeled-v2/page-of-swords.png', text:'Vprašaj, preveri, opazuj. Danes informacija pride skozi pozornost.', reflect:'Katero vprašanje bi morala postaviti?'},
-  {name:'Vitez mečev', num:'Vitez', kind:'Meči', img:'cards/labeled-v2/knight-of-swords.png', text:'Hitrost je koristna samo, če veš, kam greš. Ne dovoli impulzu, da govori namesto resnice.', reflect:'Kje moraš upočasniti besede?'},
-  {name:'Kraljica mečev', num:'Kraljica', kind:'Meči', img:'cards/labeled-v2/queen-of-swords.png', text:'Jasnost je dar. Danes lahko rečeš ne brez krivde in da brez zmede.', reflect:'Katera meja bi prinesla mir?'},
-  {name:'Kralj mečev', num:'Kralj', kind:'Meči', img:'cards/labeled-v2/king-of-swords.png', text:'Odločitev potrebuje hladno glavo in čisto srce. Ne zapletaj, kar je že jasno.', reflect:'Kaj bi izbral tvoj najbolj miren razum?'},
-  {name:'As pentakljev', num:'As', kind:'Pentaklji', img:'cards/labeled-v2/ace-of-pentacles.png', text:'Majhna konkretna priložnost ima večjo vrednost, kot se zdi. Posadi jo.', reflect:'Kaj lahko danes narediš oprijemljivo?'},
-  {name:'Dvojka pentakljev', num:'2', kind:'Pentaklji', img:'cards/labeled-v2/two-of-pentacles.png', text:'Ravnovesje je gibanje, ne popolna kontrola. Prilagodi ritem.', reflect:'Kaj lahko poenostaviš?'},
-  {name:'Trojka pentakljev', num:'3', kind:'Pentaklji', img:'cards/labeled-v2/three-of-pentacles.png', text:'Podpora in sodelovanje sta danes ključna. Ni ti treba vsega znati sama.', reflect:'Kdo lahko prispeva svoj del?'},
-  {name:'Štirica pentakljev', num:'4', kind:'Pentaklji', img:'cards/labeled-v2/four-of-pentacles.png', text:'Varovanje je dobro, stiskanje pa utrudi. Poglej, kje se bojiš izgubiti nadzor.', reflect:'Kaj lahko držiš bolj mehko?'},
-  {name:'Petica pentakljev', num:'5', kind:'Pentaklji', img:'cards/labeled-v2/five-of-pentacles.png', text:'Občutek pomanjkanja ni celotna resnica. Pomoč je bližje, če jo dovoliš videti.', reflect:'Kje nisi tako sama, kot se zdi?'},
-  {name:'Šestica pentakljev', num:'6', kind:'Pentaklji', img:'cards/labeled-v2/six-of-pentacles.png', text:'Dajanje in prejemanje iščeta ravnovesje. Sprejmi podporo brez dolga v srcu.', reflect:'Kje je izmenjava poštena?'},
-  {name:'Sedmica pentakljev', num:'7', kind:'Pentaklji', img:'cards/labeled-v2/seven-of-pentacles.png', text:'Rezultat še zori. Danes ne izkoplji semena samo zato, ker te skrbi.', reflect:'Kaj potrebuje še malo časa?'},
-  {name:'Osmica pentakljev', num:'8', kind:'Pentaklji', img:'cards/labeled-v2/eight-of-pentacles.png', text:'Majhna ponovljena dejanja gradijo mojstrstvo. Danes šteje praksa, ne popolnost.', reflect:'Katero veščino neguješ z vztrajnostjo?'},
-  {name:'Devetica pentakljev', num:'9', kind:'Pentaklji', img:'cards/labeled-v2/nine-of-pentacles.png', text:'Samostojnost ima lepoto. Danes opazi, kaj si ustvarila s svojo energijo.', reflect:'Kje lahko uživaš sadove svojega dela?'},
-  {name:'Desetica pentakljev', num:'10', kind:'Pentaklji', img:'cards/labeled-v2/ten-of-pentacles.png', text:'V ospredju so korenine, dom, vrednost in dolgoročna varnost. Misli širše od danes.', reflect:'Kaj gradi stabilnost za naprej?'},
-  {name:'Paž pentakljev', num:'Paž', kind:'Pentaklji', img:'cards/labeled-v2/page-of-pentacles.png', text:'Nova možnost potrebuje učenje. Bodi začetnica brez sramu.', reflect:'Kaj bi rada razumela bolj praktično?'},
-  {name:'Vitez pentakljev', num:'Vitez', kind:'Pentaklji', img:'cards/labeled-v2/knight-of-pentacles.png', text:'Počasna pot je še vedno pot. Danes zaupaj koraku, ki ga lahko ponoviš.', reflect:'Kaj napreduje tiho, a zanesljivo?'},
-  {name:'Kraljica pentakljev', num:'Kraljica', kind:'Pentaklji', img:'cards/labeled-v2/queen-of-pentacles.png', text:'Neguj telo, dom in energijo. Duhovno se danes pokaže skozi oprijemljivo skrb.', reflect:'Kaj te prizemlji na dober način?'},
-  {name:'Kralj pentakljev', num:'Kralj', kind:'Pentaklji', img:'cards/labeled-v2/king-of-pentacles.png', text:'Stabilnost pride iz modrega upravljanja. Danes izberi dolgoročno vrednost pred hitrim vtisom.', reflect:'Kaj je res vredno tvoje energije?'}
+  {name:'Norček', num:'0', kind:'Velika arkana', img:'cards/labeled-v2/the-fool.png',symbol:'✧', text:'Danes je pred tabo svež začetek. Ne potrebuješ vseh dokazov, potrebuješ iskren prvi korak.', reflect:'Kje te življenje vabi, da začneš bolj lahkotno?'},
+  {name:'Mag', num:'I', kind:'Velika arkana', img:'cards/labeled-v2/the-magician.png',symbol:'✦', text:'Kar potrebuješ, je bližje, kot se zdi. Danes uporabi voljo, besedo in jasen namen.', reflect:'Katero moč že imaš v rokah?'},
+  {name:'Visoka svečenica', num:'II', kind:'Velika arkana', img:'cards/labeled-v2/the-high-priestess.png',symbol:'☾', text:'Odgovor še ni glasen, vendar je prisoten. Poslušaj tišino pred razlago.', reflect:'Kaj veš, pa še nisi povedala na glas?'},
+  {name:'Cesarica', num:'III', kind:'Velika arkana', img:'cards/labeled-v2/the-empress.png',symbol:'✺', text:'Dan podpira nežnost, telo, ustvarjalnost in sprejemanje. Nekaj raste, če mu daš prostor.', reflect:'Kaj potrebuje več mehkobe, ne več pritiska?'},
+  {name:'Cesar', num:'IV', kind:'Velika arkana', img:'cards/labeled-v2/the-emperor.png',symbol:'◈', text:'Potrebna je meja, struktura ali jasna odločitev. Mir se vrne, ko nekaj postaviš na svoje mesto.', reflect:'Kje moraš stati bolj trdno?'},
+  {name:'Svečenik', num:'V', kind:'Velika arkana', img:'cards/labeled-v2/the-hierophant.png',symbol:'✥', text:'Danes pomaga modrost, ki ni nova, ampak preverjena. Obrni se k vrednoti, ki te drži pokonci.', reflect:'Katero notranje pravilo te res varuje?'},
+  {name:'Ljubimca', num:'VI', kind:'Velika arkana', img:'cards/labeled-v2/the-lovers.png',symbol:'♡', text:'Pred tabo je izbira, ki ni samo razumska. Srce že kaže, kje je več resnice.', reflect:'Kaj izbereš, ko si iskrena do sebe?'},
+  {name:'Voz', num:'VII', kind:'Velika arkana', img:'cards/labeled-v2/the-chariot.png',symbol:'⬦', text:'Energija se premakne, ko jo usmeriš. Ne vleci v dve smeri, izberi eno pot za danes.', reflect:'Kam gre tvoja moč, ko se ne razprši?'},
+  {name:'Moč', num:'VIII', kind:'Velika arkana', img:'cards/labeled-v2/strength.png',symbol:'∞', text:'Tvoja prava moč danes ni trda. Je mirna, zbrana in nežna do tistega, kar je ranljivo.', reflect:'Kje lahko zmagaš brez boja?'},
+  {name:'Puščavnik', num:'IX', kind:'Velika arkana', img:'cards/labeled-v2/the-hermit.png',symbol:'✶', text:'Odmakni se od hrupa. En sam miren uvid je danes vreden več kot deset mnenj.', reflect:'Kaj zaslišiš, ko se ne razlagaš nikomur?'},
+  {name:'Kolo sreče', num:'X', kind:'Velika arkana', img:'cards/labeled-v2/wheel-of-fortune.png',symbol:'◌', text:'Nekaj se obrača. Ne drži za staro obliko, če se življenje že premika naprej.', reflect:'Kje se sprememba dogaja brez tvojega dovoljenja?'},
+  {name:'Pravica', num:'XI', kind:'Velika arkana', img:'cards/labeled-v2/justice.png',symbol:'⚖', text:'Danes šteje resnica brez olepševanja. Jasnost morda ni mehka, je pa osvobajajoča.', reflect:'Kaj bi bilo pošteno do tebe?'},
+  {name:'Obešenec', num:'XII', kind:'Velika arkana', img:'cards/labeled-v2/the-hanged-man.png',symbol:'◇', text:'Ne sili odgovora. Ko spremeniš pogled, se lahko spremeni tudi pomen situacije.', reflect:'Kaj vidiš drugače, če za trenutek ne ukrepaš?'},
+  {name:'Smrt', num:'XIII', kind:'Velika arkana', img:'cards/labeled-v2/death.png',symbol:'✣', text:'Nekaj se zaključuje, da energija ne ostane ujeta. Konec ni kazen, lahko je prehod.', reflect:'Kaj je že odšlo, čeprav ga še držiš?'},
+  {name:'Zmernost', num:'XIV', kind:'Velika arkana', img:'cards/labeled-v2/temperance.png',symbol:'≈', text:'Danes ne potrebuješ skrajnosti. Zdravilna pot je v mešanju, ravnovesju in počasnem vračanju.', reflect:'Kaj se umiri, ko ne pretiravaš?'},
+  {name:'Hudič', num:'XV', kind:'Velika arkana', img:'cards/labeled-v2/the-devil.png',symbol:'⛓', text:'Nekaj te veže, ker obljublja hitro olajšanje. Poglej, kje zamenjuješ željo za svobodo.', reflect:'Kaj ti jemlje energijo, čeprav te privlači?'},
+  {name:'Stolp', num:'XVI', kind:'Velika arkana', img:'cards/labeled-v2/the-tower.png',symbol:'⚡', text:'Kar ni imelo trdnih temeljev, se lahko zamaje. Resnica ruši samo tisto, kar je bilo pretesno.', reflect:'Kje je razpoka pravzaprav izhod?'},
+  {name:'Zvezda', num:'XVII', kind:'Velika arkana', img:'cards/labeled-v2/the-star.png',symbol:'✦', text:'Upanje se vrača tiho, ne na silo. Danes zaupaj majhnemu znaku svetlobe.', reflect:'Kje se duša spet odpira?'},
+  {name:'Luna', num:'XVIII', kind:'Velika arkana', img:'cards/labeled-v2/the-moon.png',symbol:'☾', text:'Ni vse takšno, kot se kaže. Ne hiti v sklep, dokler se megla ne razredči.', reflect:'Kaj je občutek, in kaj je strah?'},
+  {name:'Sonce', num:'XIX', kind:'Velika arkana', img:'cards/labeled-v2/the-sun.png',symbol:'☉', text:'Dan prinaša toplino, preprostost in več življenjske energije. Dovoli si videti dobro.', reflect:'Kaj postane lažje, ko ne skrivaš svoje svetlobe?'},
+  {name:'Sodba', num:'XX', kind:'Velika arkana', img:'cards/labeled-v2/judgement.png',symbol:'✷', text:'Nekaj v tebi se prebuja. Stari klic se vrača, tokrat z več jasnosti.', reflect:'Katera verzija tebe kliče nazaj?'},
+  {name:'Svet', num:'XXI', kind:'Velika arkana', img:'cards/labeled-v2/the-world.png',symbol:'◎', text:'Krog se zapira. Danes priznaj, kaj si že prehodila, preden zahtevaš nov začetek.', reflect:'Kaj je dozorelo do zaključka?'},
+  {name:'As kelihov', num:'As', kind:'Kelihi', img:'cards/labeled-v2/ace-of-cups.png',symbol:'♢', text:'Odpre se nežen čustveni tok. Danes je dobro sprejeti, kar prihaja iz srca.', reflect:'Kje lahko pustiš občutku, da te doseže?'},
+  {name:'Dvojka kelihov', num:'2', kind:'Kelihi', img:'cards/labeled-v2/two-of-cups.png',symbol:'♢', text:'Povezava se pokaže skozi vzajemnost. Opazuj, kje je energija obojestranska.', reflect:'Kdo ti pride naproti brez prisile?'},
+  {name:'Trojka kelihov', num:'3', kind:'Kelihi', img:'cards/labeled-v2/three-of-cups.png',symbol:'♢', text:'Dan podpira bližino, radost in podporo ljudi, ki ti dobro denejo.', reflect:'S kom je tvoja energija lažja?'},
+  {name:'Štirica kelihov', num:'4', kind:'Kelihi', img:'cards/labeled-v2/four-of-cups.png',symbol:'♢', text:'Morda ne vidiš ponudbe, ker gledaš v razočaranje. Danes dvigni pogled počasi.', reflect:'Kaj ti je ponujeno, pa tega še ne sprejemaš?'},
+  {name:'Petica kelihov', num:'5', kind:'Kelihi', img:'cards/labeled-v2/five-of-cups.png',symbol:'♢', text:'Nekaj boli, a ni vse izgubljeno. Dovoli žalosti prostor, vendar ji ne daj vsega dneva.', reflect:'Kaj še vedno stoji ob tebi?'},
+  {name:'Šestica kelihov', num:'6', kind:'Kelihi', img:'cards/labeled-v2/six-of-cups.png',symbol:'♢', text:'Spomin prinaša sporočilo. Danes lahko nekaj iz preteklosti vidiš z mehkejšimi očmi.', reflect:'Kateri stari občutek želi ozdraveti?'},
+  {name:'Sedmica kelihov', num:'7', kind:'Kelihi', img:'cards/labeled-v2/seven-of-cups.png',symbol:'♢', text:'Možnosti je veliko, vse pa niso resnične. Izberi tisto, kjer je mir, ne samo privlak.', reflect:'Katera želja ima tudi korenine?'},
+  {name:'Osmica kelihov', num:'8', kind:'Kelihi', img:'cards/labeled-v2/eight-of-cups.png',symbol:'♢', text:'Duša se odmika od nečesa, kar je nekoč hranilo. Odhod je lahko dejanje zvestobe sebi.', reflect:'Od česa se tiho poslavljaš?'},
+  {name:'Devetica kelihov', num:'9', kind:'Kelihi', img:'cards/labeled-v2/nine-of-cups.png',symbol:'♢', text:'Danes opazi izpolnitev, ki je že prisotna. Hvaležnost ti odpre več prostora.', reflect:'Kaj je že dovolj dobro?'},
+  {name:'Desetica kelihov', num:'10', kind:'Kelihi', img:'cards/labeled-v2/ten-of-cups.png',symbol:'♢', text:'Čustveni mir je mogoč, ko ne iščeš popolnosti. Toplina se gradi iz drobnih gest.', reflect:'Kje lahko izbereš povezanost?'},
+  {name:'Paž kelihov', num:'Paž', kind:'Kelihi', img:'cards/labeled-v2/page-of-cups.png',symbol:'♢', text:'Nežno sporočilo prihaja skozi intuicijo, sanje ali nepričakovan občutek.', reflect:'Kaj ti srce šepeta brez logike?'},
+  {name:'Vitez kelihov', num:'Vitez', kind:'Kelihi', img:'cards/labeled-v2/knight-of-cups.png',symbol:'♢', text:'Čustvo želi pot. Izrazi ga lepo, vendar ne obljubi več, kot lahko nosiš.', reflect:'Kaj želiš povedati z odprtim srcem?'},
+  {name:'Kraljica kelihov', num:'Kraljica', kind:'Kelihi', img:'cards/labeled-v2/queen-of-cups.png',symbol:'♢', text:'Tvoja občutljivost je kompas. Danes jo varuj, ne skrivaj.', reflect:'Kaj čutiš, preden začneš razlagati?'},
+  {name:'Kralj kelihov', num:'Kralj', kind:'Kelihi', img:'cards/labeled-v2/king-of-cups.png',symbol:'♢', text:'Čustva so močna, a jih lahko vodiš mirno. Zrelost pomeni ostati odprta in stabilna.', reflect:'Kje lahko ostaneš mehka in zbrana hkrati?'},
+  {name:'As palic', num:'As', kind:'Palice', img:'cards/labeled-v2/ace-of-wands.png',symbol:'✶', text:'Iskra se prižiga. Danes sledi tistemu, kar ti dvigne energijo.', reflect:'Kaj te kliče z živostjo?'},
+  {name:'Dvojka palic', num:'2', kind:'Palice', img:'cards/labeled-v2/two-of-wands.png',symbol:'✶', text:'Stojiš pred širšim obzorjem. Načrtuj, preden skočiš.', reflect:'Katera pot se odpira, če si dovoliš več?'},
+  {name:'Trojka palic', num:'3', kind:'Palice', img:'cards/labeled-v2/three-of-wands.png',symbol:'✶', text:'Nekaj, kar si poslala v svet, se začne vračati. Bodi potrpežljiva z razdaljo.', reflect:'Kje že vidiš prve znake premika?'},
+  {name:'Štirica palic', num:'4', kind:'Palice', img:'cards/labeled-v2/four-of-wands.png',symbol:'✶', text:'Dan podpira praznovanje majhne zmage. Ustvari kotiček varnosti in svetlobe.', reflect:'Kaj si zasluži priznanje?'},
+  {name:'Petica palic', num:'5', kind:'Palice', img:'cards/labeled-v2/five-of-wands.png',symbol:'✶', text:'Energije se križajo. Ni vsak odpor napad; včasih je samo neurejena moč.', reflect:'Kje se lahko nehaš dokazovati?'},
+  {name:'Šestica palic', num:'6', kind:'Palice', img:'cards/labeled-v2/six-of-wands.png',symbol:'✶', text:'Priznanje je blizu. Sprejmi uspeh brez zmanjševanja svojega truda.', reflect:'Kaj lahko danes mirno priznaš sebi?'},
+  {name:'Sedmica palic', num:'7', kind:'Palice', img:'cards/labeled-v2/seven-of-wands.png',symbol:'✶', text:'Varuj svojo pozicijo, a ne izgubljaj srca v obrambi. Stoj za tem, kar je res tvoje.', reflect:'Za kaj se je vredno postaviti?'},
+  {name:'Osmica palic', num:'8', kind:'Palice', img:'cards/labeled-v2/eight-of-wands.png',symbol:'✶', text:'Stvari se lahko hitro premaknejo. Odgovori jasno, ko pride signal.', reflect:'Kateri premik ne potrebuje več odlašanja?'},
+  {name:'Devetica palic', num:'9', kind:'Palice', img:'cards/labeled-v2/nine-of-wands.png',symbol:'✶', text:'Utrujenost ne pomeni poraza. Danes varčuj z energijo in dokončaj samo bistveno.', reflect:'Kje potrebuješ mejo, ne še več napora?'},
+  {name:'Desetica palic', num:'10', kind:'Palice', img:'cards/labeled-v2/ten-of-wands.png',symbol:'✶', text:'Preveč nosiš sama. Odloži vsaj eno stvar, ki ni več tvoja.', reflect:'Kaj lahko danes nehaš vleči za seboj?'},
+  {name:'Paž palic', num:'Paž', kind:'Palice', img:'cards/labeled-v2/page-of-wands.png',symbol:'✶', text:'Radovednost odpira vrata. Poskusi majhno novo potezo brez velike drame.', reflect:'Kaj bi raziskala, če ne bi moralo uspeti takoj?'},
+  {name:'Vitez palic', num:'Vitez', kind:'Palice', img:'cards/labeled-v2/knight-of-wands.png',symbol:'✶', text:'Strast se premika hitro. Uporabi ogenj, vendar ne požgi mostu za seboj.', reflect:'Kje potrebuješ pogum z nekaj potrpežljivosti?'},
+  {name:'Kraljica palic', num:'Kraljica', kind:'Palice', img:'cards/labeled-v2/queen-of-wands.png',symbol:'✶', text:'Tvoja prisotnost ima moč. Danes ne zmanjšuj svoje svetlobe, da bi bila sprejemljiva.', reflect:'Kje lahko zasiješ brez opravičila?'},
+  {name:'Kralj palic', num:'Kralj', kind:'Palice', img:'cards/labeled-v2/king-of-wands.png',symbol:'✶', text:'Vizija potrebuje odločnost. Vodi z navdihom, ne s pritiskom.', reflect:'Katero smer lahko danes držiš jasno?'},
+  {name:'As mečev', num:'As', kind:'Meči', img:'cards/labeled-v2/ace-of-swords.png',symbol:'⌁', text:'Resnica prereže meglo. Danes poimenuj stvar takšno, kot je.', reflect:'Katera misel prinese olajšanje, ko jo izrečeš?'},
+  {name:'Dvojka mečev', num:'2', kind:'Meči', img:'cards/labeled-v2/two-of-swords.png',symbol:'⌁', text:'Odločitev čaka, ker srce in razum še ne govorita skupaj. Ne odlašaj predolgo.', reflect:'Kaj že veš, če odložiš strah?'},
+  {name:'Trojka mečev', num:'3', kind:'Meči', img:'cards/labeled-v2/three-of-swords.png',symbol:'⌁', text:'Bolečina potrebuje zrak. Ne popravljaj je prehitro; najprej jo priznaj.', reflect:'Kaj boli, ker ti je bilo pomembno?'},
+  {name:'Štirica mečev', num:'4', kind:'Meči', img:'cards/labeled-v2/four-of-swords.png',symbol:'⌁', text:'Počitek je del odgovora. Um se zbistri šele, ko prenehaš pritiskati nanj.', reflect:'Kaj se razjasni, če danes ne siliš?'},
+  {name:'Petica mečev', num:'5', kind:'Meči', img:'cards/labeled-v2/five-of-swords.png',symbol:'⌁', text:'Zmaga brez miru ni prava zmaga. Izberi dostojanstvo pred dokazovanjem.', reflect:'Kje bi bilo bolje odnehati kot zmagati?'},
+  {name:'Šestica mečev', num:'6', kind:'Meči', img:'cards/labeled-v2/six-of-swords.png',symbol:'⌁', text:'Premik stran od nemira se je že začel. Ne glej nazaj za vsako potrditev.', reflect:'Kam te vodi tišja voda?'},
+  {name:'Sedmica mečev', num:'7', kind:'Meči', img:'cards/labeled-v2/seven-of-swords.png',symbol:'⌁', text:'Nekaj ni popolnoma odkrito. Bodi iskrena do sebe, še preden zahtevaš iskrenost od drugih.', reflect:'Kje se izogibaš celotni resnici?'},
+  {name:'Osmica mečev', num:'8', kind:'Meči', img:'cards/labeled-v2/eight-of-swords.png',symbol:'⌁', text:'Omejitev je delno v mislih. Danes poišči eno majhno odprtino.', reflect:'Katera vrata niso zaklenjena, samo nepreizkušena?'},
+  {name:'Devetica mečev', num:'9', kind:'Meči', img:'cards/labeled-v2/nine-of-swords.png',symbol:'⌁', text:'Skrb povečuje senco. Vrni se v telo, v dih, v nekaj oprijemljivega.', reflect:'Kaj je dejstvo, in kaj nočni strah?'},
+  {name:'Desetica mečev', num:'10', kind:'Meči', img:'cards/labeled-v2/ten-of-swords.png',symbol:'⌁', text:'Cikel misli se izčrpava. Naj se konča tam, kjer te ne hrani več.', reflect:'Kaj je dovolj, res dovolj?'},
+  {name:'Paž mečev', num:'Paž', kind:'Meči', img:'cards/labeled-v2/page-of-swords.png',symbol:'⌁', text:'Vprašaj, preveri, opazuj. Danes informacija pride skozi pozornost.', reflect:'Katero vprašanje bi morala postaviti?'},
+  {name:'Vitez mečev', num:'Vitez', kind:'Meči', img:'cards/labeled-v2/knight-of-swords.png',symbol:'⌁', text:'Hitrost je koristna samo, če veš, kam greš. Ne dovoli impulzu, da govori namesto resnice.', reflect:'Kje moraš upočasniti besede?'},
+  {name:'Kraljica mečev', num:'Kraljica', kind:'Meči', img:'cards/labeled-v2/queen-of-swords.png',symbol:'⌁', text:'Jasnost je dar. Danes lahko rečeš ne brez krivde in da brez zmede.', reflect:'Katera meja bi prinesla mir?'},
+  {name:'Kralj mečev', num:'Kralj', kind:'Meči', img:'cards/labeled-v2/king-of-swords.png',symbol:'⌁', text:'Odločitev potrebuje hladno glavo in čisto srce. Ne zapletaj, kar je že jasno.', reflect:'Kaj bi izbral tvoj najbolj miren razum?'},
+  {name:'As pentakljev', num:'As', kind:'Pentaklji', img:'cards/labeled-v2/ace-of-pentacles.png',symbol:'◍', text:'Majhna konkretna priložnost ima večjo vrednost, kot se zdi. Posadi jo.', reflect:'Kaj lahko danes narediš oprijemljivo?'},
+  {name:'Dvojka pentakljev', num:'2', kind:'Pentaklji', img:'cards/labeled-v2/two-of-pentacles.png',symbol:'◍', text:'Ravnovesje je gibanje, ne popolna kontrola. Prilagodi ritem.', reflect:'Kaj lahko poenostaviš?'},
+  {name:'Trojka pentakljev', num:'3', kind:'Pentaklji', img:'cards/labeled-v2/three-of-pentacles.png',symbol:'◍', text:'Podpora in sodelovanje sta danes ključna. Ni ti treba vsega znati sama.', reflect:'Kdo lahko prispeva svoj del?'},
+  {name:'Štirica pentakljev', num:'4', kind:'Pentaklji', img:'cards/labeled-v2/four-of-pentacles.png',symbol:'◍', text:'Varovanje je dobro, stiskanje pa utrudi. Poglej, kje se bojiš izgubiti nadzor.', reflect:'Kaj lahko držiš bolj mehko?'},
+  {name:'Petica pentakljev', num:'5', kind:'Pentaklji', img:'cards/labeled-v2/five-of-pentacles.png',symbol:'◍', text:'Občutek pomanjkanja ni celotna resnica. Pomoč je bližje, če jo dovoliš videti.', reflect:'Kje nisi tako sama, kot se zdi?'},
+  {name:'Šestica pentakljev', num:'6', kind:'Pentaklji', img:'cards/labeled-v2/six-of-pentacles.png',symbol:'◍', text:'Dajanje in prejemanje iščeta ravnovesje. Sprejmi podporo brez dolga v srcu.', reflect:'Kje je izmenjava poštena?'},
+  {name:'Sedmica pentakljev', num:'7', kind:'Pentaklji', img:'cards/labeled-v2/seven-of-pentacles.png',symbol:'◍', text:'Rezultat še zori. Danes ne izkoplji semena samo zato, ker te skrbi.', reflect:'Kaj potrebuje še malo časa?'},
+  {name:'Osmica pentakljev', num:'8', kind:'Pentaklji', img:'cards/labeled-v2/eight-of-pentacles.png',symbol:'◍', text:'Majhna ponovljena dejanja gradijo mojstrstvo. Danes šteje praksa, ne popolnost.', reflect:'Katero veščino neguješ z vztrajnostjo?'},
+  {name:'Devetica pentakljev', num:'9', kind:'Pentaklji', img:'cards/labeled-v2/nine-of-pentacles.png',symbol:'◍', text:'Samostojnost ima lepoto. Danes opazi, kaj si ustvarila s svojo energijo.', reflect:'Kje lahko uživaš sadove svojega dela?'},
+  {name:'Desetica pentakljev', num:'10', kind:'Pentaklji', img:'cards/labeled-v2/ten-of-pentacles.png',symbol:'◍', text:'V ospredju so korenine, dom, vrednost in dolgoročna varnost. Misli širše od danes.', reflect:'Kaj gradi stabilnost za naprej?'},
+  {name:'Paž pentakljev', num:'Paž', kind:'Pentaklji', img:'cards/labeled-v2/page-of-pentacles.png',symbol:'◍', text:'Nova možnost potrebuje učenje. Bodi začetnica brez sramu.', reflect:'Kaj bi rada razumela bolj praktično?'},
+  {name:'Vitez pentakljev', num:'Vitez', kind:'Pentaklji', img:'cards/labeled-v2/knight-of-pentacles.png',symbol:'◍', text:'Počasna pot je še vedno pot. Danes zaupaj koraku, ki ga lahko ponoviš.', reflect:'Kaj napreduje tiho, a zanesljivo?'},
+  {name:'Kraljica pentakljev', num:'Kraljica', kind:'Pentaklji', img:'cards/labeled-v2/queen-of-pentacles.png',symbol:'◍', text:'Neguj telo, dom in energijo. Duhovno se danes pokaže skozi oprijemljivo skrb.', reflect:'Kaj te prizemlji na dober način?'},
+  {name:'Kralj pentakljev', num:'Kralj', kind:'Pentaklji', img:'cards/labeled-v2/king-of-pentacles.png',symbol:'◍', text:'Stabilnost pride iz modrega upravljanja. Danes izberi dolgoročno vrednost pred hitrim vtisom.', reflect:'Kaj je res vredno tvoje energije?'}
 ];
 let currentSpread = [];
-let topic = 'Splošno';
-let isShuffling = false;
-
+let topic = '';
 function shuffleDeck(deck){
   return deck.map(card => ({ card, sort: crypto.getRandomValues(new Uint32Array(1))[0] })).sort((a, b) => a.sort - b.sort).map(item => item.card);
 }
-
-async function animateShuffle(cardEls) {
-  if (!cardEls.length) return;
-  const container = document.getElementById('cards');
-  const done = Promise.all(cardEls.map(c =>
-    new Promise(r => c.addEventListener('animationend', r, {once:true}))
-  ));
-  container.classList.add('is-shuffling');
-  await done;
-  container.classList.remove('is-shuffling');
+function getDailyKey(){ return new Date().toISOString().slice(0,10); }
+function loadDaily(){
+  try {
+    const s = localStorage.getItem('vs_daily');
+    if(!s) return null;
+    const d = JSON.parse(s);
+    return d.date === getDailyKey() ? d : null;
+  } catch { return null; }
 }
+function saveDaily(card, topicLabel){
+  localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
+}
+function renderAmbientCards(){
+  const rots = [-9, 4, -6];
+  const delays = [0, 1.8, 0.9];
+  document.getElementById('cards').innerHTML = rots.map((rot, i) => `
+    <button class="card is-ambient" style="--card-rot:${rot}deg;animation-delay:${delays[i]}s" disabled aria-hidden="true">
+      <span class="card-inner"><span class="face face-back"></span></span>
+    </button>
+  `).join('');
+}
+function fadeInText(el, text, delay = 0){
+  el.textContent = text;
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(10px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, delay);
+}
+function splitReading(text){
+  const parts = (text || '').split(/\n+/).map(p => p.trim()).filter(Boolean);
+  const qi = parts.findIndex(p => p.endsWith('?'));
+  return {
+    main: qi !== -1 ? parts.filter((_, i) => i !== qi).join('\n\n').trim() : (text || '').trim(),
+    reflect: qi !== -1 ? parts[qi] : ''
+  };
+}
+function setStepDone(num){
+  for(let i=1;i<=3;i++){
+    const el = document.getElementById(`step${i}`) || document.querySelector(`.steps .step:nth-child(${i*2-1})`);
+    if(!el) continue;
+    if(i < num){ el.classList.add('done'); el.classList.remove('active'); }
+    else if(i === num){ el.classList.add('active'); el.classList.remove('done'); }
+    else { el.classList.remove('active','done'); }
+  }
+}
+async function showResult(card, topicLabel, intent){
+  setStepDone(3);
+  document.getElementById('rTopic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
+  document.getElementById('rName').textContent = card.name;
+  document.getElementById('rLoading').style.display = 'flex';
+  document.getElementById('rText').style.display = 'none';
+  document.getElementById('rReflect').style.display = 'none';
+  document.getElementById('rCta').style.display = 'none';
+  document.getElementById('result').classList.add('show');
+  // scroll takoj ko je result viden
+  const el = document.getElementById('result');
+  const navH = document.getElementById('nav').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.scrollY - navH - 24;
+  window.scrollTo({ top, behavior: 'smooth' });
 
-async function renderCards(){
-  if (isShuffling) return;
-  isShuffling = true;
-
-  const shuffleBtn = document.getElementById('shuffleBtn');
-  const hint = document.getElementById('cardsHint');
-  if (shuffleBtn) shuffleBtn.disabled = true;
-  if (hint) hint.classList.remove('show');
-
-  currentSpread = shuffleDeck(tarotDeck).slice(0, 3);
-  const container = document.getElementById('cards');
-  container.innerHTML = currentSpread.map((card, index) => `
-    <button class="card" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od 3" disabled>
+  let mainText = card.text, reflectText = card.reflect;
+  try {
+    const { data: { session: sSingle } } = await _sb.auth.getSession();
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(sSingle?.access_token ? { 'Authorization': `Bearer ${sSingle.access_token}` } : {})
+        },
+        body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
+      }),
+      new Promise(r => setTimeout(r, 2500))
+    ]);
+    const data = await res.json();
+    const raw = data.text || '';
+    const parsed = splitReading(raw);
+    if(parsed.reflect){
+      mainText = parsed.main;
+      reflectText = parsed.reflect;
+    } else {
+      mainText = raw || card.text;
+      reflectText = card.reflect;
+    }
+  } catch {
+    mainText = card.text;
+    reflectText = card.reflect;
+  }
+  document.getElementById('rLoading').style.display = 'none';
+  const rIntent = document.getElementById('rIntent');
+  if(intent){ rIntent.textContent = `„${intent}"`; rIntent.style.display = ''; }
+  else { rIntent.style.display = 'none'; }
+  document.getElementById('rText').style.display = '';
+  document.getElementById('rReflect').style.display = '';
+  document.getElementById('rCta').style.display = 'none';
+  fadeInText(document.getElementById('rText'), mainText, 100);
+  setTimeout(() => {
+    document.getElementById('rReflect').style.display = '';
+    fadeInText(document.getElementById('rReflect'), reflectText, 100);
+    setTimeout(() => { document.getElementById('rCta').style.display = ''; }, 900);
+  }, 800);
+}
+function applyDailyLock(){
+  document.querySelectorAll('.card').forEach((card, i) => {
+    if(i !== 0){ card.classList.add('dimmed'); }
+  });
+  const notice = document.getElementById('daily-notice');
+  notice.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  notice.style.display = 'block';
+}
+function renderCards(){
+  const daily = loadDaily();
+  if(daily){
+    const rest = shuffleDeck(tarotDeck.filter(c => c.name !== daily.card.name)).slice(0,2);
+    currentSpread = [daily.card, ...rest];
+  } else {
+    currentSpread = shuffleDeck(tarotDeck).slice(0,3);
+  }
+  const hint = document.getElementById('shuffle-hint');
+  hint.classList.remove('visible');
+  document.getElementById('cards').innerHTML = currentSpread.map((card, index) => `
+    <button class="card is-dealing" style="animation-delay:${index*0.18}s" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
       <span class="card-inner">
         <span class="face face-back"></span>
-        <span class="face face-front" style="background-image:url('${card.img}')"></span>
+        <span class="face face-front" style="background-image:url(\'${card.img}\')"></span>
       </span>
     </button>
   `).join('');
-
-  const cardEls = Array.from(container.querySelectorAll('.card'));
-  await animateShuffle(cardEls);
-
-  cardEls.forEach(c => c.disabled = false);
-  if (shuffleBtn) shuffleBtn.disabled = false;
-  if (hint) hint.classList.add('show');
-  isShuffling = false;
+  if(daily) return;
+  setTimeout(() => {
+    document.querySelectorAll('.card.is-dealing').forEach(c => {
+      c.classList.remove('is-dealing');
+      c.classList.add('is-shuffling');
+      c.style.animationDelay = '0s';
+    });
+  }, 1100);
+  setTimeout(() => {
+    document.querySelectorAll('.card.is-shuffling').forEach(c => {
+      c.classList.remove('is-shuffling');
+      c.classList.add('is-ready');
+    });
+    hint.classList.add('visible');
+  }, 3000);
 }
-
 function setTopic(btn){
   document.querySelectorAll('.topic').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   topic = btn.dataset.topic;
-  document.getElementById('result').classList.remove('show');
-  renderCards();
+  setStepDone(2);
+  if(loadDaily()) return;
+  document.getElementById('shuffle-hint').classList.remove('visible');
+  renderAmbientCards();
+  setTimeout(() => {
+    document.getElementById('intent-wrap').classList.add('visible');
+    document.getElementById('intent').focus();
+  }, 50);
 }
-
-function reveal(index){
-  const cards = document.querySelectorAll('#cards .card');
-  const clicked = cards[index];
-
-  if (!clicked.classList.contains('flipped')) {
-    clicked.classList.add('flipped');
+let pendingConfirm = false;
+async function confirmIntent(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    pendingConfirm = true;
+    localStorage.setItem('vs_pending_topic', topic);
+    localStorage.setItem('vs_pending_intent', document.getElementById('intent')?.value.trim() || '');
+    openAuth();
+    return;
   }
-  cards.forEach(c => c.classList.remove('active-reading'));
-  clicked.classList.add('active-reading');
-
-  const card = currentSpread[index];
-  document.getElementById('rTopic').textContent = `${topic} · ${card.kind}`;
-  document.getElementById('rName').textContent = card.name;
-  document.getElementById('rText').textContent = card.text;
-  document.getElementById('rReflect').textContent = card.reflect;
-  document.getElementById('result').classList.add('show');
-}
-
-function resetCards(){
-  document.querySelectorAll('#cards .card').forEach(card => card.classList.remove('flipped','dimmed','active-reading'));
-  document.getElementById('result').classList.remove('show');
-  const hint = document.getElementById('cardsHint');
-  if (hint) hint.classList.remove('show');
-}
-
-function newReading(){
-  resetCards();
+  pendingConfirm = false;
+  clearPendingReading();
+  document.getElementById('intent-wrap').classList.remove('visible');
+  setStepDone(3);
   renderCards();
 }
+function reveal(index){
+  if(loadDaily()) return;
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.classList.toggle('flipped', i === index);
+    card.classList.toggle('dimmed', i !== index);
+  });
+  const card = currentSpread[index];
+  const intent = document.getElementById('intent')?.value.trim() || '';
+  saveDaily(card, topic);
+  applyDailyLock();
+  // počakamo da se karta obrne (flip traja 0.9s), potem pokažemo branje
+  setTimeout(() => showResult(card, topic, intent), 1000);
+}
+function resetCards(){
+  if(!loadDaily()){
+    document.querySelectorAll('.card').forEach(card => card.classList.remove('flipped','dimmed'));
+  }
+  document.getElementById('result').classList.remove('show');
+}
+// Supabase
+const _sb = supabase.createClient(
+  'https://pdibcrfpqenougebkbse.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkaWJjcmZwcWVub3VnZWJrYnNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyOTM1ODIsImV4cCI6MjA5Njg2OTU4Mn0.dlwDaH4vOdDzOSZCw6LWjNIuQ67NbglPr9_CBY9TmIk'
+);
+
 function openAuth(){document.getElementById('authModal').classList.add('open')}
 function closeAuth(){document.getElementById('authModal').classList.remove('open')}
-function authTab(mode){
-  document.getElementById('tabLogin').classList.toggle('active', mode === 'login');
-  document.getElementById('tabReg').classList.toggle('active', mode === 'reg');
-  document.getElementById('fieldName').style.display = mode === 'reg' ? 'block' : 'none';
-  document.getElementById('authBtn').textContent = mode === 'reg' ? 'Ustvari račun' : 'Prijavi se';
+
+function getAuthRedirectUrl(){
+  const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const origin = isLocal ? window.location.origin : 'https://velvet-secret-site.netlify.app';
+  return `${origin}${window.location.pathname}`;
 }
+
+async function signInWithGoogle(){
+  localStorage.setItem('vs_return_to', '#branje');
+  await _sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: getAuthRedirectUrl() }
+  });
+}
+
+async function signOut(){
+  await _sb.auth.signOut();
+  Object.keys(localStorage)
+    .filter(key => key.startsWith('vs_'))
+    .forEach(key => localStorage.removeItem(key));
+  sessionStorage.clear();
+  updateNavUser(null);
+  showToast('Odjavljena si.');
+  setTimeout(() => window.location.reload(), 1200);
+}
+function showToast(msg){
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#181720;border:1px solid rgba(199,188,228,.3);color:rgba(255,255,255,.75);padding:.7rem 1.5rem;font-size:.82rem;letter-spacing:.08em;z-index:999;opacity:0;transition:opacity .3s';
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.style.opacity = '1');
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
+}
+
+function updateNavUser(user){
+  const loginBtn = document.querySelector('.nav-login');
+  const mobileLoginBtn = document.getElementById('mobileAuthBtn');
+  const mobileUser = document.getElementById('mobileUser');
+  if(user){
+    const name = user.user_metadata?.name || user.email.split('@')[0];
+    const avatar = user.user_metadata?.avatar_url;
+    const chip = `<div class="nav-user-wrap"><span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="signOut()">Odjava</button></div>`;
+    if(loginBtn) loginBtn.outerHTML = chip;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+    if(mobileUser){
+      mobileUser.innerHTML = `<span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="toggleMenu(false);signOut()">Odjava</button>`;
+      mobileUser.style.display = 'flex';
+    }
+  } else {
+    const userEl = document.querySelector('.nav-user-wrap');
+    const desktopSignoutEl = document.querySelector('nav .nav-signout');
+    if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Prijava</button>`;
+    if(desktopSignoutEl) desktopSignoutEl.remove();
+    if(mobileLoginBtn) mobileLoginBtn.style.display = '';
+    if(mobileUser){
+      mobileUser.innerHTML = '';
+      mobileUser.style.display = 'none';
+    }
+  }
+}
+
+let restoredPendingAfterAuth = false;
+function clearPendingReading(){
+  localStorage.removeItem('vs_pending_topic');
+  localStorage.removeItem('vs_pending_intent');
+  localStorage.removeItem('vs_return_to');
+}
+function restorePendingReadingAfterAuth(){
+  if(restoredPendingAfterAuth) return false;
+  const pt = localStorage.getItem('vs_pending_topic');
+  if(!pt) return false;
+
+  restoredPendingAfterAuth = true;
+  pendingConfirm = false;
+  localStorage.removeItem('vs_daily');
+
+  const btn = document.querySelector(`.topic[data-topic="${pt}"]`);
+  if(btn) setTopic(btn);
+
+  const pi = localStorage.getItem('vs_pending_intent') || '';
+  const intentEl = document.getElementById('intent');
+  if(intentEl) intentEl.value = pi;
+
+  document.getElementById('intent-wrap')?.classList.add('visible');
+  setStepDone(2);
+  renderAmbientCards();
+  window.history.replaceState(null, '', '#branje');
+
+  setTimeout(() => {
+    document.getElementById('branje')?.scrollIntoView({ behavior:'smooth', block:'start' });
+    intentEl?.focus();
+  }, 120);
+
+  showToast('Prijava uspešna. Tvoje vprašanje je shranjeno.');
+  return true;
+}
+
+_sb.auth.getSession().then(({ data: { session } }) => {
+  if(session){
+    updateNavUser(session.user);
+    restorePendingReadingAfterAuth();
+  }
+});
+_sb.auth.onAuthStateChange((_event, session) => {
+  updateNavUser(session?.user || null);
+  closeAuth();
+  if(session){
+    if(restorePendingReadingAfterAuth()) return;
+    if(pendingConfirm){
+      confirmIntent();
+    }
+  }
+});
+
+const readingDetails = [
+  {
+    label: 'Brezplačno · vsak dan',
+    title: 'Karta dneva',
+    body: 'Ena karta je včasih ravno dovolj. En stavek, ki prekine krog iste misli in postavi eno vprašanje nazaj v tvoje roke.',
+    body2: 'Včasih pa karta odpre vrata, ki jih prej nisi opazila. In takrat ena ne zadošča, ne zato ker bi bila premajhna, ampak ker je pokazala, da je za njo še prostor.',
+    cta: 'Obrni karto',
+    href: '#branje',
+    price: '0 €'
+  },
+  {
+    label: 'Enkratno branje',
+    title: 'Tri karte',
+    body: 'Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče. Primerno za vprašanja, ki imajo kontekst, ko sama ena karta ni dovolj.',
+    body2: 'Dobiš pisno branje z razlago vseh treh kart in njihovo medsebojno zvezo.',
+    cta: 'Kupi branje',
+    href: '#cenik',
+    price: '4,90 €'
+  },
+  {
+    label: 'Enkratno branje',
+    title: 'Veliki razplet',
+    body: 'Za situacije, ki jih ni mogoče ujeti z enim stavkom. Daljše branje, ki pokrije ozadje, vzorec, notranje in zunanje vplive ter možne smeri.',
+    body2: 'Branje se shrani v tvoj račun. Vrneš se lahko, ko dobijo besede nov pomen.',
+    cta: 'Kupi branje',
+    href: '#cenik',
+    price: '14,90 €'
+  },
+  {
+    label: 'Mesečno · Krog',
+    title: 'Mesečni krog',
+    body: 'Karta dneva kadar jo potrebuješ. Osem branj s tremi kartami in en veliki razplet mesečno. Za tiste, ki se radi redno vračajo k sebi.',
+    body2: 'Vsa branja so shranjena. Vzorci postanejo vidni šele sčasoma.',
+    cta: 'Vstopi v Krog',
+    href: '#cenik',
+    price: '9,90 € / mes'
+  }
+];
+function openReading(i){
+  const d = readingDetails[i];
+  document.getElementById('readingLabel').textContent = d.label;
+  document.getElementById('readingTitle').textContent = d.title;
+  document.getElementById('readingBody').textContent = d.body;
+  document.getElementById('readingBody2').textContent = d.body2;
+  document.getElementById('readingCta').textContent = d.cta;
+  document.getElementById('readingCta').href = d.href;
+  document.getElementById('readingPrice').textContent = d.price;
+  document.getElementById('readingModal').classList.add('open');
+}
+function closeReading(){
+  document.getElementById('readingModal').classList.remove('open');
+}
+function toggleFeatures(btn){
+  const list = btn.nextElementSibling;
+  const open = btn.getAttribute('aria-expanded') === 'true';
+  list.hidden = open;
+  btn.setAttribute('aria-expanded', String(!open));
+}
+function openUpsell(){
+  const name = document.getElementById('rName').textContent;
+  document.getElementById('upsellCardName').textContent = name ? `Tvoja karta: ${name}` : '';
+  document.getElementById('upsellModal').classList.add('open');
+}
+function closeUpsell(){
+  document.getElementById('upsellModal').classList.remove('open');
+}
+
+async function showResult2(card, topicLabel){
+  document.getElementById('r2Topic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
+  document.getElementById('r2Name').textContent = card.name;
+  document.getElementById('r2Text').textContent = '...';
+  document.getElementById('r2Reflect').textContent = '';
+  document.getElementById('result2').classList.add('show');
+
+  try {
+    const { data: { session: s } } = await _sb.auth.getSession();
+    const res = await fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(s?.access_token ? { 'Authorization': `Bearer ${s.access_token}` } : {})
+      },
+      body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel })
+    });
+    const data = await res.json();
+    if(data.error === 'daily_limit'){
+      document.getElementById('r2Text').textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+      document.getElementById('r2Reflect').textContent = '';
+    } else if(data.text){
+      const parsed = splitReading(data.text);
+      if(parsed.reflect){
+        document.getElementById('r2Text').textContent = parsed.main;
+        document.getElementById('r2Reflect').textContent = parsed.reflect;
+      } else {
+        document.getElementById('r2Text').textContent = data.text;
+      }
+    } else {
+      document.getElementById('r2Text').textContent = card.text;
+      document.getElementById('r2Reflect').textContent = card.reflect;
+    }
+  } catch {
+    document.getElementById('r2Text').textContent = card.text;
+    document.getElementById('r2Reflect').textContent = card.reflect;
+  }
+}
+async function revealSingle(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){ openAuth(); return; }
+  if(loadDaily()) return;
+  const card = shuffleDeck(tarotDeck)[0];
+  const sc = document.getElementById('single-card');
+  document.getElementById('sc-kind').textContent = card.kind;
+  document.querySelector('#single-card .face-front').style.backgroundImage = `url('${card.img}')`;document.getElementById('sc-symbol').textContent = '';
+  document.getElementById('sc-num').textContent = card.num;
+  document.getElementById('sc-name').textContent = card.name;
+  sc.classList.add('flipped');
+  saveDaily(card, 'Splošno');
+  showResult2(card, 'Splošno');
+  applyDailyLock();
+  const n = document.getElementById('daily-notice2');
+  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  n.style.display = 'block';
+}
+function initSingleCard(){
+  const daily = loadDaily();
+  if(!daily) return;
+  const sc = document.getElementById('single-card');
+  if(!sc) return;
+  document.getElementById('sc-kind').textContent = daily.card.kind;
+  document.querySelector('#single-card .face-front').style.backgroundImage = `url('${daily.card.img}')`;document.getElementById('sc-symbol').textContent = '';
+  document.getElementById('sc-num').textContent = daily.card.num;
+  document.getElementById('sc-name').textContent = daily.card.name;
+  sc.classList.add('flipped');
+  showResult2(daily.card, daily.topic);
+  const n = document.getElementById('daily-notice2');
+  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  n.style.display = 'block';
+}
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: .1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 initHeroVideoLoop();
-renderCards();
+setStepDone(1);
+if(loadDaily()){
+  renderCards();
+  document.getElementById('intent-wrap').classList.remove('visible');
+} else {
+  renderAmbientCards();
+}
+initSingleCard();
+const _daily = loadDaily();
+if(_daily){
+  document.querySelectorAll('.card')[0]?.classList.add('flipped');
+  applyDailyLock();
+  _sb.auth.getSession().then(({ data: { session }}) => {
+    if(session) showResult(_daily.card, _daily.topic);
+  });
+}
 </script>
 </body>
 </html>
