@@ -1,0 +1,79 @@
+key,group,suit,rank,roman,top_label,bottom_label,filename,image_status,review_status,review_note
+the-fool,major,,,0,0 · VELIKA ARKANA,Norec,the-fool.png,exists,approved,
+the-magician,major,,,I,I · VELIKA ARKANA,Mag,the-magician.png,exists,approved,
+the-high-priestess,major,,,II,II · VELIKA ARKANA,Velika svečenica,the-high-priestess.png,exists,approved,
+the-empress,major,,,III,III · VELIKA ARKANA,Cesarica,the-empress.png,exists,approved,
+the-emperor,major,,,IV,IV · VELIKA ARKANA,Cesar,the-emperor.png,exists,approved,
+the-hierophant,major,,,V,V · VELIKA ARKANA,Hierofant,the-hierophant.png,exists,approved,
+the-lovers,major,,,VI,VI · VELIKA ARKANA,Ljubimca,the-lovers.png,exists,approved,
+the-chariot,major,,,VII,VII · VELIKA ARKANA,Voz,the-chariot.png,exists,approved,
+strength,major,,,VIII,VIII · VELIKA ARKANA,Moč,strength.png,exists,approved,
+the-hermit,major,,,IX,IX · VELIKA ARKANA,Puščavnik,the-hermit.png,exists,approved,
+wheel-of-fortune,major,,,X,X · VELIKA ARKANA,Kolo sreče,wheel-of-fortune.png,exists,approved,
+justice,major,,,XI,XI · VELIKA ARKANA,Pravica,justice.png,exists,approved,
+the-hanged-man,major,,,XII,XII · VELIKA ARKANA,Obešenec,the-hanged-man.png,exists,approved,
+death,major,,,XIII,XIII · VELIKA ARKANA,Smrt,death.png,exists,approved,
+temperance,major,,,XIV,XIV · VELIKA ARKANA,Zmernost,temperance.png,exists,approved,
+the-devil,major,,,XV,XV · VELIKA ARKANA,Hudič,the-devil.png,exists,approved,
+the-tower,major,,,XVI,XVI · VELIKA ARKANA,Stolp,the-tower.png,exists,approved,
+the-star,major,,,XVII,XVII · VELIKA ARKANA,Zvezda,the-star.png,exists,approved,
+the-moon,major,,,XVIII,XVIII · VELIKA ARKANA,Luna,the-moon.png,exists,approved,
+the-sun,major,,,XIX,XIX · VELIKA ARKANA,Sonce,the-sun.png,exists,approved,
+judgement,major,,,XX,XX · VELIKA ARKANA,Sodba,judgement.png,exists,approved,
+the-world,major,,,XXI,XXI · VELIKA ARKANA,Svet,the-world.png,exists,approved,
+ace-of-cups,minor,cups,ace,,AS · KELIHI,As kelihov,ace-of-cups.png,exists,approved,
+two-of-cups,minor,cups,2,,2 · KELIHI,Dvojka kelihov,two-of-cups.png,exists,approved,
+three-of-cups,minor,cups,3,,3 · KELIHI,Trojka kelihov,three-of-cups.png,exists,generated,Regenerated in Velvet-Secret-site on 2026-06-17 to fix chalice structure and intentional over-rim liquid flow; needs visual approval.
+four-of-cups,minor,cups,4,,4 · KELIHI,Štirica kelihov,four-of-cups.png,exists,approved,
+five-of-cups,minor,cups,5,,5 · KELIHI,Petica kelihov,five-of-cups.png,exists,generated,Regenerated in Velvet-Secret-site on 2026-06-17 to fix chalice structure and intentional over-rim liquid flow; needs visual approval.
+six-of-cups,minor,cups,6,,6 · KELIHI,Šestica kelihov,six-of-cups.png,exists,approved,
+seven-of-cups,minor,cups,7,,7 · KELIHI,Sedmica kelihov,seven-of-cups.png,exists,approved,
+eight-of-cups,minor,cups,8,,8 · KELIHI,Osmica kelihov,eight-of-cups.png,exists,approved,
+nine-of-cups,minor,cups,9,,9 · KELIHI,Devetica kelihov,nine-of-cups.png,exists,approved,
+ten-of-cups,minor,cups,10,,10 · KELIHI,Desetica kelihov,ten-of-cups.png,exists,approved,
+page-of-cups,minor,cups,page,,PAŽ · KELIHI,Paž kelihov,page-of-cups.png,exists,approved,
+knight-of-cups,minor,cups,knight,,VITEZ · KELIHI,Vitez kelihov,knight-of-cups.png,exists,approved,
+queen-of-cups,minor,cups,queen,,KRALJICA · KELIHI,Kraljica kelihov,queen-of-cups.png,exists,approved,
+king-of-cups,minor,cups,king,,KRALJ · KELIHI,Kralj kelihov,king-of-cups.png,exists,approved,
+ace-of-wands,minor,wands,ace,,AS · PALICE,As palic,ace-of-wands.png,exists,approved,
+two-of-wands,minor,wands,2,,2 · PALICE,Dvojka palic,two-of-wands.png,exists,approved,
+three-of-wands,minor,wands,3,,3 · PALICE,Trojka palic,three-of-wands.png,exists,approved,
+four-of-wands,minor,wands,4,,4 · PALICE,Štirica palic,four-of-wands.png,exists,approved,
+five-of-wands,minor,wands,5,,5 · PALICE,Petica palic,five-of-wands.png,exists,approved,
+six-of-wands,minor,wands,6,,6 · PALICE,Šestica palic,six-of-wands.png,exists,approved,
+seven-of-wands,minor,wands,7,,7 · PALICE,Sedmica palic,seven-of-wands.png,exists,approved,
+eight-of-wands,minor,wands,8,,8 · PALICE,Osmica palic,eight-of-wands.png,exists,approved,
+nine-of-wands,minor,wands,9,,9 · PALICE,Devetica palic,nine-of-wands.png,exists,approved,
+ten-of-wands,minor,wands,10,,10 · PALICE,Desetica palic,ten-of-wands.png,exists,approved,
+page-of-wands,minor,wands,page,,PAŽ · PALICE,Paž palic,page-of-wands.png,exists,approved,
+knight-of-wands,minor,wands,knight,,VITEZ · PALICE,Vitez palic,knight-of-wands.png,exists,approved,
+queen-of-wands,minor,wands,queen,,KRALJICA · PALICE,Kraljica palic,queen-of-wands.png,exists,approved,
+king-of-wands,minor,wands,king,,KRALJ · PALICE,Kralj palic,king-of-wands.png,exists,approved,
+ace-of-swords,minor,swords,ace,,AS · MEČI,As mečev,ace-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-15 using refreshed deck-consistency rules; needs visual approval.
+two-of-swords,minor,swords,2,,2 · MEČI,Dvojka mečev,two-of-swords.png,exists,approved,
+three-of-swords,minor,swords,3,,3 · MEČI,Trojka mečev,three-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-15 using refreshed deck-consistency rules; needs visual approval.
+four-of-swords,minor,swords,4,,4 · MEČI,Štirica mečev,four-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+five-of-swords,minor,swords,5,,5 · MEČI,Petica mečev,five-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+six-of-swords,minor,swords,6,,6 · MEČI,Šestica mečev,six-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+seven-of-swords,minor,swords,7,,7 · MEČI,Sedmica mečev,seven-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+eight-of-swords,minor,swords,8,,8 · MEČI,Osmica mečev,eight-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+nine-of-swords,minor,swords,9,,9 · MEČI,Devetica mečev,nine-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+ten-of-swords,minor,swords,10,,10 · MEČI,Desetica mečev,ten-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; needs visual approval.
+page-of-swords,minor,swords,page,,PAŽ · MEČI,Paž mečev,page-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; non-figurative court symbol; needs visual approval.
+knight-of-swords,minor,swords,knight,,VITEZ · MEČI,Vitez mečev,knight-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; non-figurative court symbol; needs visual approval.
+queen-of-swords,minor,swords,queen,,KRALJICA · MEČI,Kraljica mečev,queen-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; non-figurative court symbol; needs visual approval.
+king-of-swords,minor,swords,king,,KRALJ · MEČI,Kralj mečev,king-of-swords.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed deck-consistency and border rules; non-figurative court symbol; needs visual approval.
+ace-of-pentacles,minor,pentacles,ace,,AS · PENTAKLJI,As pentakljev,ace-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed pentacles tone and border rules; needs visual approval.
+two-of-pentacles,minor,pentacles,2,,2 · PENTAKLJI,Dvojka pentakljev,two-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed pentacles tone and border rules; needs visual approval.
+three-of-pentacles,minor,pentacles,3,,3 · PENTAKLJI,Trojka pentakljev,three-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed pentacles tone and border rules; needs visual approval.
+four-of-pentacles,minor,pentacles,4,,4 · PENTAKLJI,Štirica pentakljev,four-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-16 using refreshed pentacles tone and border rules; needs visual approval.
+five-of-pentacles,minor,pentacles,5,,5 · PENTAKLJI,Petica pentakljev,five-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+six-of-pentacles,minor,pentacles,6,,6 · PENTAKLJI,Šestica pentakljev,six-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+seven-of-pentacles,minor,pentacles,7,,7 · PENTAKLJI,Sedmica pentakljev,seven-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+eight-of-pentacles,minor,pentacles,8,,8 · PENTAKLJI,Osmica pentakljev,eight-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+nine-of-pentacles,minor,pentacles,9,,9 · PENTAKLJI,Devetica pentakljev,nine-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+ten-of-pentacles,minor,pentacles,10,,10 · PENTAKLJI,Desetica pentakljev,ten-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; needs visual approval.
+page-of-pentacles,minor,pentacles,page,,PAŽ · PENTAKLJI,Paž pentakljev,page-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; non-figurative court symbol; needs visual approval.
+knight-of-pentacles,minor,pentacles,knight,,VITEZ · PENTAKLJI,Vitez pentakljev,knight-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; non-figurative court symbol; needs visual approval.
+queen-of-pentacles,minor,pentacles,queen,,KRALJICA · PENTAKLJI,Kraljica pentakljev,queen-of-pentacles.png,exists,approved,
+king-of-pentacles,minor,pentacles,king,,KRALJ · PENTAKLJI,Kralj pentakljev,king-of-pentacles.png,exists,generated,Generated in Velvet-Secret-site on 2026-06-17 using refreshed pentacles tone and border rules; non-figurative court symbol; needs visual approval.

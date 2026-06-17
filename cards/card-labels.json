@@ -1,0 +1,32 @@
+[
+  {
+    "source": "the-moon.png",
+    "output": "the-moon.png",
+    "top": "XVIII · VELIKA ARKANA",
+    "bottom": "Luna"
+  },
+  {
+    "source": "king-of-cups.png",
+    "output": "king-of-cups.png",
+    "top": "KRALJ · KELIHI",
+    "bottom": "Kralj kelihov"
+  },
+  {
+    "source": "ace-of-wands.png",
+    "output": "ace-of-wands.png",
+    "top": "AS · PALICE",
+    "bottom": "As palic"
+  },
+  {
+    "source": "two-of-swords.png",
+    "output": "two-of-swords.png",
+    "top": "2 · MEČI",
+    "bottom": "Dvojka mečev"
+  },
+  {
+    "source": "queen-of-pentacles-v2.png",
+    "output": "queen-of-pentacles.png",
+    "top": "KRALJICA · PENTAKLJI",
+    "bottom": "Kraljica pentakljev"
+  }
+]
