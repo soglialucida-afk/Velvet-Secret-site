@@ -265,8 +265,8 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2s ease-in-out infinite}
 @keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
 
-.intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s}
-.intent-wrap.visible{opacity:1;visibility:visible;transform:none}
+.intent-wrap{max-width:520px;margin:0 auto;position:relative;opacity:0;visibility:hidden;transform:translateY(14px);max-height:0;overflow:hidden;pointer-events:none;transition:opacity .4s ease,transform .4s ease,visibility .4s,max-height .4s ease,margin-bottom .4s ease}
+.intent-wrap.visible{opacity:1;visibility:visible;transform:none;max-height:360px;margin-bottom:3rem;pointer-events:auto}
 .intent-label{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.9);margin-bottom:.9rem;text-align:center;font-weight:400}
 .intent-input{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 1.4rem;outline:none;transition:.3s;resize:none;line-height:1.7;border-radius:2px}
 .intent-input:focus{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
@@ -277,7 +277,7 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
   transition:.25s;
 }
 .topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
-.cards{display:flex;justify-content:center;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
+.cards{display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
 .card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
 .card.is-ambient{pointer-events:none;animation:ambientFloat 5s ease-in-out infinite}
 .card.is-dealing{pointer-events:none;animation:dealIn 1s cubic-bezier(.22,1,.36,1) both}
@@ -328,6 +328,9 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
   background:
     radial-gradient(circle at 50% 30%,rgba(216,189,154,.22),transparent 28%),
     linear-gradient(170deg,#2e2840,#1e1a30 72%);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
   flex-direction:column;gap:.55rem;padding:1rem;border-color:rgba(216,189,154,.34);
 }
 .face-front::before{content:"";position:absolute;inset:12px;border:1px solid rgba(216,189,154,.28)}
