@@ -270,6 +270,29 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .intent-label{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.9);margin-bottom:.9rem;text-align:center;font-weight:400}
 .intent-input{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 1.4rem;outline:none;transition:.3s;resize:none;line-height:1.7;border-radius:2px}
 .intent-input:focus{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
+select.intent-input,
+.field select{
+  appearance:none;
+  -webkit-appearance:none;
+  background-color:rgba(199,188,228,.07);
+  background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.78) 50%),linear-gradient(135deg,rgba(255,255,255,.78) 50%,transparent 50%);
+  background-position:calc(100% - 18px) calc(50% - 3px),calc(100% - 12px) calc(50% - 3px);
+  background-size:6px 6px,6px 6px;
+  background-repeat:no-repeat;
+  color:#fff;
+  padding-right:2.8rem;
+  cursor:pointer;
+}
+select.intent-input option,
+.field select option{
+  background:#242330;
+  color:#fff;
+}
+select.intent-input option:checked,
+.field select option:checked{
+  background:var(--violet-deep);
+  color:#fff;
+}
 .topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
 .topic{
   border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -359,7 +382,7 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .pot-reading-text{white-space:pre-line;color:var(--text);line-height:1.85}
 .pot-payment-note{font-size:.78rem;color:var(--muted);line-height:1.55;margin:.8rem 0 1.2rem;text-align:center}
 
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.4rem}
 .gallery-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;cursor:pointer}
 .gallery-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08));z-index:1;transition:.45s}
 .gallery-card:hover::before{background:linear-gradient(135deg,rgba(199,188,228,.28),rgba(216,189,154,.12))}
@@ -369,12 +392,12 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .gallery-card:nth-child(3) .visual{background-image:url("assets/images/dark-bohemian-salon.png")}
 .gallery-card:nth-child(4) .visual{background-image:url("assets/images/mesecni-krog-gallery.png")}
 .gallery-card:hover .visual{transform:scale(1.04)}
-.gallery-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.85),transparent)}
-.gallery-num{position:absolute;top:1.4rem;left:1.7rem;z-index:3;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.22;line-height:1}
+.gallery-content{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}
+.gallery-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1;pointer-events:none}
 .gallery-content h3{font-family:var(--display);font-size:1.38rem;font-weight:500;margin:.35rem 0}
 .gallery-tagline{display:block;font-size:.8rem;font-style:italic;color:rgba(199,188,228,.75);margin:.2rem 0 .6rem;line-height:1.5}
 .gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}
-.gallery-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.gallery-footer{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-top:auto}
 .gallery-price{font-family:var(--display);font-size:1rem;font-weight:500;color:#fff}
 .gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
@@ -909,7 +932,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <p class="sub-t">Ozadje, sedanjost in naslednji korak. Plačilo prek Stripe bo priklopljeno v naslednjem koraku, ta verzija pripravi flow za testiranje.</p>
     <div class="field">
       <label for="potTopic">Področje</label>
-      <select id="potTopic" class="intent-input" style="height:auto;resize:none">
+      <select id="potTopic" class="intent-input">
         <option>Splošno</option>
         <option>Ljubezen</option>
         <option>Delo</option>
