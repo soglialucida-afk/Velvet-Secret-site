@@ -1555,6 +1555,7 @@ function renderPotSpread(cards){
 function formatPotReading(text){
   const headings = new Set([
     'Prvi vtis',
+    'Odgovor na tvoje vprašanje',
     'Ozadje',
     'Zdaj',
     'Naslednji korak',
@@ -1597,6 +1598,7 @@ async function preparePotReading(){
   document.getElementById('potResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
   let text = '';
+  let errorMessage = '';
   try {
     const [res] = await Promise.all([
       fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
@@ -1615,18 +1617,21 @@ async function preparePotReading(){
       new Promise(r => setTimeout(r, 1800))
     ]);
     const data = await res.json();
+    if(!res.ok || data.error){
+      throw new Error(data?.detail || data?.error || 'Pot reading failed');
+    }
     text = data.text || '';
-  } catch {
-    text = '';
+    if(!text.trim()){
+      throw new Error('Pot reading returned empty text');
+    }
+  } catch (error) {
+    console.warn('Pot reading failed', error);
+    errorMessage = 'Branja trenutno ni bilo mogoče pripraviti. To ni tvoje branje in tega ne bi smeli prikazati kot plačljiv rezultat. Poskusi znova čez trenutek.';
   }
 
-  if(!text){
-    const [past, present, next] = cards;
-    text = `Ozadje: ${past.text}\n\nZdaj: ${present.text}\n\nNaslednji korak: ${next.text}\n\nKaj se spremeni, če na to vprašanje pogledaš kot na pot, ne kot na en sam odgovor?`;
-  }
   document.getElementById('potLoading').style.display = 'none';
   document.getElementById('potText').style.display = '';
-  document.getElementById('potText').innerHTML = formatPotReading(text);
+  document.getElementById('potText').innerHTML = formatPotReading(errorMessage || text);
   document.getElementById('potCta').style.display = '';
 }
 
