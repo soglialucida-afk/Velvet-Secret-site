@@ -377,9 +377,10 @@ select.intent-input option:checked,
 .pot-spread{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.2rem 0 1.6rem}
 .pot-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.035);padding:1rem;text-align:center}
 .pot-card img{width:86px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .8rem;border:1px solid rgba(199,188,228,.24)}
-.pot-card-role{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.pot-card-role{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.25rem;font-weight:700}
 .pot-card-name{font-family:var(--display);font-size:1rem;color:#fff;line-height:1.25}
 .pot-reading-text{white-space:pre-line;color:var(--text);line-height:1.85}
+.pot-reading-heading{display:block;margin:1.35rem 0 .25rem;font-family:var(--display);font-size:1.25rem;line-height:1.3;color:#fff;font-weight:700}
 .pot-payment-note{font-size:.78rem;color:var(--muted);line-height:1.55;margin:.8rem 0 1.2rem;text-align:center}
 
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.4rem}
@@ -399,7 +400,7 @@ select.intent-input option:checked,
 .gallery-content p{font-size:.9rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}
 .gallery-footer{display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-top:auto}
 .gallery-price{font-family:var(--display);font-size:1rem;font-weight:500;color:#fff}
-.gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s}
+.gallery-btn{font:inherit;font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s;background:transparent;cursor:pointer}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
 .coming-soon{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans)}
 
@@ -745,7 +746,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
   <div class="gallery">
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><button type="button" class="gallery-btn" onclick="startPotFlow()">Naroči →</button></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
   </div>
@@ -1551,6 +1552,32 @@ function renderPotSpread(cards){
     </div>
   `).join('');
 }
+function formatPotReading(text){
+  const headings = new Set([
+    'Prvi vtis',
+    'Ozadje',
+    'Zdaj',
+    'Naslednji korak',
+    'Kako se karte povežejo',
+    'V naslednjih 7 dneh',
+    'Česa ne forsiraj',
+    'Vprašanje za konec'
+  ]);
+  const escapeHtml = value => value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+  return text.split('\n').map(line => {
+    const trimmed = line.trim();
+    if(headings.has(trimmed)){
+      return `<strong class="pot-reading-heading">${escapeHtml(trimmed)}</strong>`;
+    }
+    return escapeHtml(line);
+  }).join('\n');
+}
 async function preparePotReading(){
   const { data: { session } } = await _sb.auth.getSession();
   if(!session){ closePotModal(); openAuth(); return; }
@@ -1599,7 +1626,7 @@ async function preparePotReading(){
   }
   document.getElementById('potLoading').style.display = 'none';
   document.getElementById('potText').style.display = '';
-  document.getElementById('potText').textContent = text;
+  document.getElementById('potText').innerHTML = formatPotReading(text);
   document.getElementById('potCta').style.display = '';
 }
 

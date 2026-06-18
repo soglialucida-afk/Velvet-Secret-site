@@ -125,6 +125,7 @@ Oseba ne sme dobiti občutka, da je prejela tri ločene opise kart.
 Dobiti mora občutek majhne zasebne seanse.
 Branje mora imeti začetek, razvoj in sklep.
 Vsaka karta ima svojo vlogo, vendar je najpomembnejša povezava med njimi.
+Če je odgovor prekratek, preveč splošen ali preveč podoben brezplačnemu branju, naloga ni opravljena.
 
 VLOGE TREH KART
 1. Ozadje
@@ -168,42 +169,48 @@ OBVEZNA STRUKTURA
 Uporabi točno te naslove:
 
 Prvi vtis
-Napiši 3 do 5 stavkov.
+Napiši 5 do 7 stavkov.
 Ujemi celoten občutek branja.
 Povej, kaj je glavna napetost vprašanja.
 Ne omenjaj še posameznih kart.
+Vključi en stavek, ki osebi jasno pove, zakaj je vprašanje zanjo pomembno zdaj.
 
 Ozadje
 Napiši 2 odstavka.
-Vsak odstavek naj ima 3 do 5 stavkov.
+Vsak odstavek naj ima 4 do 6 stavkov.
 Pojasni, kaj je osebo pripeljalo do tega vprašanja.
 Ne opisuj preteklosti kot dejstva.
 Piši kot možnost, ki jo oseba lahko prepozna ali zavrne.
+Vključi en stavek, ki pokaže, kaj se je morda ponavljalo že pred tem vprašanjem.
 
 Zdaj
 Napiši 2 odstavka.
-Vsak odstavek naj ima 3 do 5 stavkov.
+Vsak odstavek naj ima 4 do 6 stavkov.
 Pojasni trenutno notranjo napetost, slepo pego ali razkorak med željo in dejanjem.
 Ta del mora biti najostrejši del branja.
+Vključi en stavek, ki ni samo tolažba, ampak jasno ogledalo.
 
 Naslednji korak
 Napiši 2 odstavka.
-Vsak odstavek naj ima 3 do 5 stavkov.
+Vsak odstavek naj ima 4 do 6 stavkov.
 Povej, kam naj oseba usmeri pozornost v naslednjih dneh.
 Korak naj bo praktičen, vendar ne ukazovalen.
+Vključi en konkreten mikro korak, ki ga lahko oseba naredi brez popolne gotovosti.
 
 Kako se karte povežejo
-Napiši 1 do 2 odstavka.
+Napiši 2 odstavka.
+Vsak odstavek naj ima 4 do 6 stavkov.
 Poveži vse tri karte v eno razvojno linijo.
 Pokaži, zakaj branje ni samo odgovor, ampak pot od ozadja prek sedanjega trenutka do naslednjega premika.
+Ta del naj bo občutek, zaradi katerega je branje vredno plačila: sinteza, ne povzetek.
 
 V naslednjih 7 dneh
-Napiši tri kratke alineje.
+Napiši pet kratkih alinej.
 Vsaka alineja naj bo konkretna in izvedljiva.
 Ne uporabljaj praznih nasvetov, kot so „poslušaj sebe", „zaupaj procesu" ali „sledi srcu".
 
 Česa ne forsiraj
-Napiši 2 do 4 stavke.
+Napiši 4 do 6 stavkov.
 Povej, česa oseba trenutno ne potrebuje potiskati, dokazovati ali izsiljevati.
 
 Vprašanje za konec
@@ -211,8 +218,8 @@ Napiši eno jasno vprašanje.
 Vprašanje mora izhajati iz celotnega branja in naj osebo ustavi.
 
 DOLŽINA
-Skupaj napiši približno 700 do 1000 besed.
-Ne piši manj kot 550 besed.
+Skupaj napiši približno 1000 do 1400 besed.
+Ne piši manj kot 850 besed.
 Če je vprašanje zelo kratko, vseeno naredi polno branje iz področja in kart.
 
 JEZIKOVNA PRAVILA
@@ -338,7 +345,7 @@ Deno.serve(async (req: Request) => {
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: readingType === 'pot' ? 2800 : 850,
+      max_tokens: readingType === 'pot' ? 4200 : 850,
       system: [{
         type: 'text',
         text: readingType === 'pot' ? POT_SYSTEM_PROMPT : SYSTEM_PROMPT,
