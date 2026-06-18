@@ -277,7 +277,8 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
   transition:.25s;
 }
 .topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
-.cards{display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
+.cards{display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,3.4vw,38px);min-height:0;max-height:0;overflow:hidden;perspective:1400px;transition:max-height .45s ease,margin-top .45s ease}
+.cards.cards-visible{min-height:300px;max-height:340px;overflow:visible}
 .card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
 .card.is-ambient{pointer-events:none;animation:ambientFloat 5s ease-in-out infinite}
 .card.is-dealing{pointer-events:none;animation:dealIn 1s cubic-bezier(.22,1,.36,1) both}
@@ -1112,7 +1113,17 @@ function loadDaily(){
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
+function clearCardArea(){
+  const cardsEl = document.getElementById('cards');
+  cardsEl.classList.remove('cards-visible');
+  cardsEl.innerHTML = '';
+  document.getElementById('shuffle-hint').classList.remove('visible');
+}
+function showCardArea(){
+  document.getElementById('cards').classList.add('cards-visible');
+}
 function renderAmbientCards(){
+  showCardArea();
   const rots = [-9, 4, -6];
   const delays = [0, 1.8, 0.9];
   document.getElementById('cards').innerHTML = rots.map((rot, i) => `
@@ -1218,6 +1229,7 @@ function applyDailyLock(mode = 'afterReveal'){
   notice.style.display = 'block';
 }
 function renderCards(){
+  showCardArea();
   const daily = loadDaily();
   if(daily){
     const rest = shuffleDeck(tarotDeck.filter(c => c.name !== daily.card.name)).slice(0,2);
@@ -1257,8 +1269,7 @@ function setTopic(btn){
   topic = btn.dataset.topic;
   setStepDone(2);
   if(loadDaily()) return;
-  document.getElementById('shuffle-hint').classList.remove('visible');
-  renderAmbientCards();
+  clearCardArea();
   setTimeout(() => {
     document.getElementById('intent-wrap').classList.add('visible');
     document.getElementById('intent').focus();
@@ -1392,7 +1403,7 @@ function restorePendingReadingAfterAuth(){
 
   document.getElementById('intent-wrap')?.classList.add('visible');
   setStepDone(2);
-  renderAmbientCards();
+  clearCardArea();
   window.history.replaceState(null, '', '#branje');
 
   setTimeout(() => {
@@ -1650,7 +1661,7 @@ if(loadDaily()){
   document.getElementById('intent-wrap').classList.remove('visible');
   applyDailyLock('restored');
 } else {
-  renderAmbientCards();
+  clearCardArea();
 }
 initSingleCard();
 </script>
