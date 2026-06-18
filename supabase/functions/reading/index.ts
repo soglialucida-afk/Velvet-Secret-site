@@ -159,7 +159,19 @@ Deno.serve(async (req: Request) => {
   const { data: profile } = await admin.from('profiles').select('plan').eq('id', user.id).single();
   const isKrog = profile?.plan === 'krog';
 
-  if (!isKrog) {
+  let body: {
+    readingType?: 'daily' | 'pot';
+    card?: { name: string; kind: string };
+    cards?: Array<{ name: string; kind: string }>;
+    topic?: string;
+    intent?: string;
+  };
+  try { body = await req.json(); }
+  catch { return json({ error: 'Invalid JSON' }, 400); }
+
+  const readingType = body.readingType === 'pot' ? 'pot' : 'daily';
+
+  if (!isKrog && readingType === 'daily') {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
     const { count } = await admin
@@ -174,19 +186,18 @@ Deno.serve(async (req: Request) => {
   const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
   if (!apiKey) return json({ error: 'API key not configured' }, 500);
 
-  let body: { card?: { name: string; kind: string }; topic?: string; intent?: string };
-  try { body = await req.json(); }
-  catch { return json({ error: 'Invalid JSON' }, 400); }
+  const { card, cards, topic, intent } = body;
+  if (!topic) return json({ error: 'Missing topic' }, 400);
+  if (readingType === 'daily' && !card) return json({ error: 'Missing card' }, 400);
+  if (readingType === 'pot' && (!cards || cards.length !== 3)) return json({ error: 'Missing cards' }, 400);
 
-  const { card, topic, intent } = body;
-  if (!card || !topic) return json({ error: 'Missing card or topic' }, 400);
-
-  const suitContext = SUITS[card.kind] ?? '';
   const intentLine = intent?.trim()
     ? `Oseba sprašuje: „${intent.trim()}"`
     : 'Oseba ni zapisala vprašanja.';
 
-  const userMessage = `Karta: ${card.name} (${card.kind})\nKontekst: ${suitContext}\nTema: ${topic}\n${intentLine}\n\nNapiši branje.`;
+  const userMessage = readingType === 'pot'
+    ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\nNapiši strukturirano branje v slovenščini.\nObvezna struktura:\nOzadje\n2 do 3 stavki o ozadju situacije.\n\nZdaj\n2 do 3 stavki o trenutni napetosti ali slepi pegi.\n\nNaslednji korak\n2 do 3 stavki o praktični smeri pozornosti.\n\nSkupni pomen\n2 do 3 stavki, ki povežejo vse tri karte v eno zgodbo.\n\nVprašanje za refleksijo\nEno jasno vprašanje.\n\nNe opisuj simbolike kart. Ne napoveduj prihodnosti. Govori o osebi, ne o kartah.`
+    : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\nNapiši branje.`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -198,7 +209,7 @@ Deno.serve(async (req: Request) => {
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: 850,
+      max_tokens: readingType === 'pot' ? 1600 : 850,
       system: [{
         type: 'text',
         text: SYSTEM_PROMPT,
@@ -223,13 +234,13 @@ Deno.serve(async (req: Request) => {
 
   await admin.from('readings').insert({
     user_id: user.id,
-    card_name: card.name,
-    card_kind: card.kind,
+    card_name: readingType === 'pot' ? cards!.map((c) => c.name).join(' / ') : card!.name,
+    card_kind: readingType === 'pot' ? cards!.map((c) => c.kind).join(' / ') : card!.kind,
     topic,
     intent: intent || null,
     ai_response: aiResponse,
     reflect_question: reflectQuestion,
-    reading_type: 'daily'
+    reading_type: readingType
   });
 
   return json({ text });

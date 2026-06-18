@@ -350,6 +350,13 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 #rText,#r2Text{white-space:pre-line}
 .result .reflect{border-left:1px solid var(--violet-light);padding:.25rem 0 .25rem 1.1rem;color:var(--violet-light);font-family:var(--display);font-style:italic;font-size:1.16rem;margin:1.4rem 0}
 .result-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+.pot-spread{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.2rem 0 1.6rem}
+.pot-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.035);padding:1rem;text-align:center}
+.pot-card img{width:86px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .8rem;border:1px solid rgba(199,188,228,.24)}
+.pot-card-role{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.pot-card-name{font-family:var(--display);font-size:1rem;color:#fff;line-height:1.25}
+.pot-reading-text{white-space:pre-line;color:var(--text);line-height:1.85}
+.pot-payment-note{font-size:.78rem;color:var(--muted);line-height:1.55;margin:.8rem 0 1.2rem;text-align:center}
 
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
 .gallery-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;cursor:pointer}
@@ -422,12 +429,20 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 .footer-links{display:flex;justify-content:center;gap:1.7rem;list-style:none;flex-wrap:wrap}
 .footer-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 
-.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-bg.open{display:flex}
-.modal{width:min(430px,100%);background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative}
+.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative;margin:auto 0}
 .close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem}
 .modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}
 .modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}
+.upsell-options{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem}
+.upsell-option{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border:1px solid rgba(199,188,228,.24);background:rgba(199,188,228,.06);padding:1rem 1.05rem}
+.upsell-option-title{display:block;color:#fff;font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.25rem}
+.upsell-option-desc{display:block;color:var(--muted);font-size:.86rem;line-height:1.45}
+.upsell-option-meta{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
+.upsell-price{font-family:var(--display);font-size:1.1rem;color:var(--blue-soft);white-space:nowrap}
+.upsell-price span{font-family:var(--sans);font-size:.72rem;color:var(--muted)}
+.modal-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
 .tabs{display:flex;border:1px solid var(--line);margin-bottom:1.3rem}
 .tabs button{flex:1;background:none;border:0;color:var(--muted);padding:.75rem;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
 .tabs button.active{background:var(--violet-light);color:#111018}
@@ -478,6 +493,15 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .gallery-content p{font-size:.92rem;line-height:1.65}
   .gallery-footer{gap:1rem}
   .pricing-container{grid-template-columns:1fr}
+  .pot-spread{grid-template-columns:1fr}
+  .pot-card{display:grid;grid-template-columns:64px 1fr;gap:.9rem;text-align:left;align-items:center}
+  .pot-card img{width:64px;margin:0}
+  .modal-bg{padding:12px;align-items:flex-start}
+  .modal{max-height:calc(100dvh - 24px);padding:2.1rem 1.15rem 1.25rem;margin:0;width:100%}
+  .close{top:.65rem;right:.75rem}
+  .upsell-option{grid-template-columns:1fr;gap:.75rem}
+  .upsell-option-meta{text-align:left;align-items:flex-start}
+  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(24,23,32,.82),#181720 28%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem}
   .section-title{font-size:clamp(1.75rem,7vw,2.6rem)}
 }
 @media(max-width:420px){
@@ -601,6 +625,27 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="result-cta" id="rCta" style="display:none">
       <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
       <button class="pricing-btn" onclick="resetCards()">Zapri</button>
+    </div>
+  </div>
+
+  <div class="result" id="potResult">
+    <span class="section-label">Pot · tri karte</span>
+    <h3>Tvoja Pot</h3>
+    <p id="potIntent" class="reading-question" style="display:none"></p>
+    <div class="pot-spread" id="potSpread"></div>
+    <div class="reading-loading" id="potLoading">
+      <div class="crystal-wrap">
+        <div class="crystal-ball">
+          <div class="crystal-glow"></div>
+          <div class="crystal-swirl"></div>
+        </div>
+      </div>
+      <p class="loading-text">Branje se povezuje...</p>
+    </div>
+    <div class="pot-reading-text" id="potText" style="display:none"></div>
+    <div class="result-cta" id="potCta" style="display:none">
+      <button class="pricing-btn" onclick="document.getElementById('potResult').classList.remove('show')">Zapri</button>
+      <a href="#cenik" class="pricing-btn">Nazaj na cenik</a>
     </div>
   </div>
 </section>
@@ -728,7 +773,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <h3 class="pricing-name">Pot</h3>
       <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
       <div class="pricing-price">4,90 €</div>
-      <span class="coming-soon" style="margin-top:auto">prihaja kmalu</span>
+      <button class="pricing-btn" onclick="startPotFlow()">Nadaljuj</button>
     </div>
     <div class="pricing-card fade-in">
       <h3 class="pricing-name">Razplet</h3>
@@ -811,21 +856,68 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <span class="section-label" id="upsellCardName"></span>
     <h3 style="font-family:var(--display);font-size:1.55rem;font-weight:500;color:#fff;margin:.6rem 0 .9rem;line-height:1.3">Karta je odprla vrata.<br>Kaj je za njimi?</h3>
     <p style="color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:1.8rem">Ena karta pokaže smer. Včasih pa vprašanje ne čaka. Za takšne situacije pripravljamo globlja branja.</p>
-    <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
-      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default">
-        <span>Pot <span style="font-weight:300;opacity:.7;font-size:.85rem">— tri karte, tri perspektive</span></span>
-        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+    <div class="upsell-options">
+      <div class="upsell-option">
+        <span>
+          <span class="upsell-option-title">Pot</span>
+          <span class="upsell-option-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</span>
+        </span>
+        <span class="upsell-option-meta">
+          <span class="upsell-price">4,90 €</span>
+          <button class="pricing-btn" onclick="startPotFlow()" style="padding:.55rem .85rem;font-size:.68rem">Nadaljuj</button>
+        </span>
       </div>
-      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default">
-        <span>Razplet <span style="font-weight:300;opacity:.7;font-size:.85rem">— za vprašanja, ki so večplastna</span></span>
-        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+      <div class="upsell-option">
+        <span>
+          <span class="upsell-option-title">Razplet</span>
+          <span class="upsell-option-desc">Daljše branje za situacijo, ki je ne moreš razrešiti z enim stavkom.</span>
+        </span>
+        <span class="upsell-option-meta">
+          <span class="upsell-price">14,90 €</span>
+          <span class="coming-soon">prihaja kmalu</span>
+        </span>
       </div>
-      <div class="pricing-btn" style="display:flex;justify-content:space-between;align-items:center;opacity:.6;cursor:default;border-color:rgba(199,188,228,.4)">
-        <span>Cikel <span style="font-weight:300;opacity:.7;font-size:.85rem">— mesečni prostor za vprašanja, ki zorijo</span></span>
-        <span class="coming-soon" style="margin-left:1rem">prihaja kmalu</span>
+      <div class="upsell-option">
+        <span>
+          <span class="upsell-option-title">Cikel</span>
+          <span class="upsell-option-desc">Mesečni prostor za vprašanja, ki se vračajo, spreminjajo in zorijo s tabo.</span>
+        </span>
+        <span class="upsell-option-meta">
+          <span class="upsell-price">9,90 € <span>/ mesec</span></span>
+          <span class="coming-soon">prihaja kmalu</span>
+        </span>
       </div>
     </div>
     <p style="font-size:.78rem;color:var(--muted);opacity:.55;text-align:center">Zadnja beseda ostane vedno tvoja.</p>
+    <div class="modal-actions">
+      <button class="pricing-btn" onclick="closeUpsell()">Nazaj na stran</button>
+      <a href="#cenik" class="pricing-btn" onclick="closeUpsell()">Poglej cenik</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="potModal" role="dialog" aria-modal="true" aria-labelledby="potTitle" onclick="if(event.target===this)closePotModal()">
+  <div class="modal" style="max-width:540px">
+    <button class="close" onclick="closePotModal()" aria-label="Zapri">×</button>
+    <span class="section-label">Pot · 4,90 €</span>
+    <h3 id="potTitle">Tri karte za isto vprašanje.</h3>
+    <p class="sub-t">Ozadje, sedanjost in naslednji korak. Plačilo prek Stripe bo priklopljeno v naslednjem koraku, ta verzija pripravi flow za testiranje.</p>
+    <div class="field">
+      <label for="potTopic">Področje</label>
+      <select id="potTopic" class="intent-input" style="height:auto;resize:none">
+        <option>Splošno</option>
+        <option>Ljubezen</option>
+        <option>Delo</option>
+        <option>Denar</option>
+        <option>Osebna rast</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="potQuestion">Vprašanje</label>
+      <textarea class="intent-input" id="potQuestion" rows="4" placeholder="Zapiši vprašanje, ki potrebuje več konteksta ..."></textarea>
+    </div>
+    <p class="pot-payment-note">V produkciji bo ta gumb najprej odprl plačilo za 4,90 €, nato pa prikazal branje.</p>
+    <button class="pricing-btn" onclick="preparePotReading()">Pripravi Pot</button>
   </div>
 </div>
 
@@ -874,7 +966,7 @@ function toggleMenu(open){
 }
 hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeReading(); } });
 
 function initHeroVideoLoop(){
   const videos = Array.from(document.querySelectorAll('[data-hero-video]'));
@@ -1110,12 +1202,19 @@ async function showResult(card, topicLabel, intent){
     setTimeout(() => { document.getElementById('rCta').style.display = ''; }, 900);
   }, 800);
 }
-function applyDailyLock(){
+function applyDailyLock(mode = 'afterReveal'){
   document.querySelectorAll('.card').forEach((card, i) => {
-    if(i !== 0){ card.classList.add('dimmed'); }
+    card.disabled = true;
+    card.setAttribute('aria-disabled', 'true');
+    if(mode === 'restored'){
+      card.classList.remove('flipped','is-dealing','is-shuffling','is-ready');
+      card.classList.add('dimmed');
+    } else if(i !== 0){
+      card.classList.add('dimmed');
+    }
   });
   const notice = document.getElementById('daily-notice');
-  notice.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  notice.textContent = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
   notice.style.display = 'block';
 }
 function renderCards(){
@@ -1388,6 +1487,83 @@ function openUpsell(){
 function closeUpsell(){
   document.getElementById('upsellModal').classList.remove('open');
 }
+async function startPotFlow(){
+  closeUpsell();
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){ openAuth(); return; }
+  const selectedTopic = topic || document.querySelector('.topic.active')?.dataset.topic || 'Splošno';
+  const currentIntent = document.getElementById('intent')?.value.trim() || '';
+  document.getElementById('potTopic').value = selectedTopic;
+  document.getElementById('potQuestion').value = currentIntent;
+  document.getElementById('potModal').classList.add('open');
+  setTimeout(() => document.getElementById('potQuestion').focus(), 80);
+}
+function closePotModal(){
+  document.getElementById('potModal').classList.remove('open');
+}
+function renderPotSpread(cards){
+  const roles = ['Ozadje', 'Zdaj', 'Naslednji korak'];
+  document.getElementById('potSpread').innerHTML = cards.map((card, i) => `
+    <div class="pot-card">
+      <img src="${card.img}" alt="">
+      <div>
+        <span class="pot-card-role">${roles[i]}</span>
+        <span class="pot-card-name">${card.name}</span>
+      </div>
+    </div>
+  `).join('');
+}
+async function preparePotReading(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){ closePotModal(); openAuth(); return; }
+
+  const potTopic = document.getElementById('potTopic').value;
+  const intent = document.getElementById('potQuestion').value.trim();
+  const cards = shuffleDeck(tarotDeck).slice(0, 3);
+
+  closePotModal();
+  document.getElementById('potIntent').style.display = intent ? '' : 'none';
+  document.getElementById('potIntent').textContent = intent ? `„${intent}"` : '';
+  renderPotSpread(cards);
+  document.getElementById('potText').style.display = 'none';
+  document.getElementById('potCta').style.display = 'none';
+  document.getElementById('potLoading').style.display = 'flex';
+  document.getElementById('potResult').classList.add('show');
+  document.getElementById('potResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  let text = '';
+  try {
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session?.access_token ? { 'Authorization': `Bearer ${session.access_token}` } : {})
+        },
+        body: JSON.stringify({
+          readingType: 'pot',
+          cards: cards.map(card => ({ name: card.name, kind: card.kind })),
+          topic: potTopic,
+          intent
+        })
+      }),
+      new Promise(r => setTimeout(r, 1800))
+    ]);
+    const data = await res.json();
+    text = data.text || '';
+  } catch {
+    text = '';
+  }
+
+  if(!text){
+    const [past, present, next] = cards;
+    text = `Ozadje: ${past.text}\n\nZdaj: ${present.text}\n\nNaslednji korak: ${next.text}\n\nKaj se spremeni, če na to vprašanje pogledaš kot na pot, ne kot na en sam odgovor?`;
+  }
+  document.getElementById('potLoading').style.display = 'none';
+  document.getElementById('potText').style.display = '';
+  document.getElementById('potText').textContent = text;
+  document.getElementById('potCta').style.display = '';
+}
 
 async function showResult2(card, topicLabel){
   document.getElementById('r2Topic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
@@ -1430,7 +1606,12 @@ async function showResult2(card, topicLabel){
 async function revealSingle(){
   const { data: { session } } = await _sb.auth.getSession();
   if(!session){ openAuth(); return; }
-  if(loadDaily()) return;
+  if(loadDaily()){
+    const n = document.getElementById('daily-notice2');
+    n.textContent = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
+    n.style.display = 'block';
+    return;
+  }
   const card = shuffleDeck(tarotDeck)[0];
   const sc = document.getElementById('single-card');
   document.getElementById('sc-kind').textContent = card.kind;
@@ -1442,7 +1623,7 @@ async function revealSingle(){
   showResult2(card, 'Splošno');
   applyDailyLock();
   const n = document.getElementById('daily-notice2');
-  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  n.textContent = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
   n.style.display = 'block';
 }
 function initSingleCard(){
@@ -1450,14 +1631,11 @@ function initSingleCard(){
   if(!daily) return;
   const sc = document.getElementById('single-card');
   if(!sc) return;
-  document.getElementById('sc-kind').textContent = daily.card.kind;
-  document.querySelector('#single-card .face-front').style.backgroundImage = `url('${daily.card.img}')`;document.getElementById('sc-symbol').textContent = '';
-  document.getElementById('sc-num').textContent = daily.card.num;
-  document.getElementById('sc-name').textContent = daily.card.name;
-  sc.classList.add('flipped');
-  showResult2(daily.card, daily.topic);
+  sc.classList.remove('flipped');
+  sc.disabled = true;
+  sc.setAttribute('aria-disabled', 'true');
   const n = document.getElementById('daily-notice2');
-  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
+  n.textContent = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
   n.style.display = 'block';
 }
 
@@ -1468,20 +1646,13 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 initHeroVideoLoop();
 setStepDone(1);
 if(loadDaily()){
-  renderCards();
+  renderAmbientCards();
   document.getElementById('intent-wrap').classList.remove('visible');
+  applyDailyLock('restored');
 } else {
   renderAmbientCards();
 }
 initSingleCard();
-const _daily = loadDaily();
-if(_daily){
-  document.querySelectorAll('.card')[0]?.classList.add('flipped');
-  applyDailyLock();
-  _sb.auth.getSession().then(({ data: { session }}) => {
-    if(session) showResult(_daily.card, _daily.topic);
-  });
-}
 </script>
 </body>
 </html>
