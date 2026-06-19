@@ -426,8 +426,6 @@ select.intent-input option:checked,
 .gallery-price{font-family:var(--display);font-size:1rem;font-weight:500;color:#fff}
 .gallery-btn{font:inherit;font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s;background:transparent;cursor:pointer}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
-.coming-soon{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans)}
-
 #cenik{background:#15141d;max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 .pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:stretch}
 .pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column;position:relative}
@@ -452,6 +450,39 @@ select.intent-input option:checked,
 #confirmBtn{background:var(--violet-deep);border-color:var(--violet-light);color:#fff;font-size:.82rem;padding:1rem 2rem;letter-spacing:.2em}
 #confirmBtn:hover{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
 .pricing-card.featured .pricing-btn{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+
+.account-panel{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.6fr);gap:1.4rem;align-items:start}
+.account-card{border:1px solid var(--line-soft);background:rgba(255,255,255,.035);padding:1.6rem}
+.account-kicker{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.45rem}
+.account-name{font-family:var(--display);font-size:1.35rem;color:#fff;line-height:1.25;margin-bottom:.65rem}
+.account-muted{color:var(--muted);font-size:.9rem;line-height:1.65}
+.account-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.2rem}
+.account-stat{border:1px solid rgba(199,188,228,.12);background:rgba(199,188,228,.045);padding:.85rem}
+.account-stat strong{display:block;font-family:var(--display);font-size:1.55rem;color:var(--blue-soft);line-height:1}
+.account-stat span{display:block;margin-top:.3rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.history-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.history-list{display:grid;gap:.9rem}
+.history-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem;border:1px solid rgba(199,188,228,.12);background:rgba(255,255,255,.028);padding:1rem;align-items:center}
+.history-meta{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:.45rem}
+.history-pill{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light);border:1px solid rgba(199,188,228,.2);padding:.18rem .45rem}
+.history-title{font-family:var(--display);font-size:1.12rem;color:#fff;margin-bottom:.25rem}
+.history-question{color:var(--muted);font-size:.88rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.history-cards{display:flex;gap:.35rem;margin-top:.75rem;flex-wrap:wrap}
+.history-cards img{width:34px;aspect-ratio:5/8;object-fit:cover;border:1px solid rgba(199,188,228,.22)}
+.history-actions{display:flex;flex-direction:column;gap:.55rem;min-width:132px}
+.history-empty{border:1px solid rgba(199,188,228,.12);padding:1.4rem;text-align:center;color:var(--muted);background:rgba(255,255,255,.025)}
+.report-modal{max-width:780px}
+.report-paper{background:#f7f3ef;color:#25212a;padding:2rem;border:1px solid rgba(216,189,154,.35)}
+.report-paper .section-label{color:#7f6caf;text-align:left}
+.report-title{font-family:var(--display);font-size:2rem;line-height:1.2;color:#181720;margin:.4rem 0 .8rem}
+.report-question{font-family:var(--display);font-style:italic;font-size:1.15rem;color:#4a4052;margin:1rem 0 1.2rem}
+.report-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:.8rem;margin:1.1rem 0 1.6rem}
+.report-card{border:1px solid rgba(127,108,175,.22);padding:.65rem;text-align:center;background:rgba(255,255,255,.48)}
+.report-card img{width:64px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .55rem;border:1px solid rgba(127,108,175,.18)}
+.report-card span{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#7f6caf;margin-bottom:.18rem}
+.report-card strong{display:block;font-family:var(--display);font-size:.92rem;color:#181720;line-height:1.2}
+.report-body{white-space:pre-line;color:#2f2a35;line-height:1.8;font-size:.98rem}
+.report-note{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(127,108,175,.18);font-size:.8rem;color:#696377}
 
 .reading-meta{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
 .reading-meta strong{color:rgba(255,255,255,.55);font-weight:400}
@@ -501,6 +532,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 @media(max-width:900px){
   .intro-grid,.gallery,.account-grid{grid-template-columns:1fr}
+  .account-panel{grid-template-columns:1fr}
+  .history-item{grid-template-columns:1fr}
+  .history-actions{min-width:0;flex-direction:row;flex-wrap:wrap}
   .pricing-container{grid-template-columns:repeat(2,1fr)}
   .gallery-card{aspect-ratio:16/10}
 }
@@ -548,6 +582,18 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .pot-card img{width:64px;margin:0}
   .modal-bg{padding:12px;align-items:flex-start}
   .modal{max-height:calc(100dvh - 24px);padding:2.1rem 1.15rem 1.25rem;margin:0;width:100%}
+  .account-card{padding:1.15rem}
+  .account-stats{grid-template-columns:1fr}
+  .history-head{align-items:flex-start;flex-direction:column}
+  .history-head .pricing-btn,.history-actions .pricing-btn{width:100%;justify-content:center}
+  .history-cards img{width:30px}
+  .report-modal{max-width:100%}
+  .report-paper{padding:1.25rem}
+  .report-title{font-size:1.55rem}
+  .report-question{font-size:1rem}
+  .report-card-grid{grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:.55rem}
+  .report-card img{width:54px}
+  .report-body{font-size:.92rem;line-height:1.72}
   .close{top:.65rem;right:.75rem}
   .upsell-option{grid-template-columns:1fr;gap:.75rem}
   .upsell-option-meta{text-align:left;align-items:flex-start}
@@ -573,6 +619,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .fade-in{opacity:1;transform:none}
 }
+@media print{
+  body *{visibility:hidden!important}
+  #reportPaper,#reportPaper *{visibility:visible!important}
+  #reportPaper{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:0;background:#fff;color:#222}
+  .modal-actions,.close{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -581,6 +633,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <ul class="nav-links">
     <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
+    <li><a href="#moja-branja" class="nav-link">Moja branja</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -588,6 +641,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <div class="mobile" id="mobile">
   <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
   <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
+  <a href="#moja-branja" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
   <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
   <div class="mobile-user" id="mobileUser"></div>
 </div>
@@ -797,7 +851,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><button type="button" class="gallery-btn" onclick="startPotFlow()">Naroči →</button></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><button type="button" class="gallery-btn" onclick="startRazpletFlow()">Naroči →</button></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="#moja-branja" class="gallery-btn">Vstopi →</a></div></div></div>
   </div>
 </section>
 
@@ -870,7 +924,36 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <li>1 Razplet mesečno</li>
         <li>Shranjena branja v računu</li>
       </ul>
-      <span class="coming-soon">prihaja kmalu</span>
+      <a href="#moja-branja" class="pricing-btn">Vstopi</a>
+    </div>
+  </div>
+</section>
+
+<section id="moja-branja" class="section-soft">
+  <div class="section-header fade-in">
+    <span class="section-label">Moj prostor</span>
+    <h2 class="section-title">Moja branja.</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Tukaj se shranijo branja, h katerim se želiš vrniti, ko besede dobijo nov pomen.</p>
+  </div>
+  <div class="account-panel fade-in">
+    <aside class="account-card" id="accountSummary">
+      <span class="account-kicker">Račun</span>
+      <h3 class="account-name">Prijava odpre tvoj prostor.</h3>
+      <p class="account-muted">Po prijavi boš tukaj videl/a svoj paket, zadnja branja in poročila, ki jih lahko odpreš ali natisneš.</p>
+      <button class="pricing-btn" style="margin-top:1.2rem" onclick="openAuth()">Prijavi se</button>
+    </aside>
+    <div class="account-card">
+      <div class="history-head">
+        <div>
+          <span class="account-kicker">Zgodovina</span>
+          <h3 class="account-name">Zadnja branja</h3>
+        </div>
+        <button class="pricing-btn" onclick="loadMyReadings()">Osveži</button>
+      </div>
+      <div class="history-list" id="readingHistory">
+        <div class="history-empty">Ko odpreš karto ali naročiš branje, se bo tukaj shranil tvoj zapis.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -958,7 +1041,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         </span>
         <span class="upsell-option-meta">
           <span class="upsell-price">9,90 € <span>/ mesec</span></span>
-          <span class="coming-soon">prihaja kmalu</span>
+          <a href="#moja-branja" class="pricing-btn" onclick="closeUpsell()" style="padding:.55rem .85rem;font-size:.68rem">Vstopi</a>
         </span>
       </div>
     </div>
@@ -1056,6 +1139,24 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </div>
 
+<div class="modal-bg" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle" onclick="if(event.target===this)closeReport()">
+  <div class="modal report-modal">
+    <button class="close" onclick="closeReport()" aria-label="Zapri">×</button>
+    <div class="report-paper" id="reportPaper">
+      <span class="section-label" id="reportLabel"></span>
+      <h3 class="report-title" id="reportTitle"></h3>
+      <p class="report-question" id="reportQuestion"></p>
+      <div class="report-card-grid" id="reportCards"></div>
+      <div class="report-body" id="reportBody"></div>
+      <p class="report-note">Velvet Secret je simbolno branje za osebni premislek. Ni medicinski, pravni, finančni ali terapevtski nasvet.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="pricing-btn" onclick="printReport()">Natisni / shrani PDF</button>
+      <button class="pricing-btn" onclick="closeReport()">Zapri</button>
+    </div>
+  </div>
+</div>
+
 <div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="modal">
     <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
@@ -1087,7 +1188,7 @@ function toggleMenu(open){
 }
 hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeRazpletModal(); closeReading(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeRazpletModal(); closeReading(); closeReport(); } });
 
 function initHeroVideoLoop(){
   const videos = Array.from(document.querySelectorAll('[data-hero-video]'));
@@ -1332,6 +1433,7 @@ async function showResult(card, topicLabel, intent){
     fadeInText(document.getElementById('rReflect'), reflectText, 100);
     setTimeout(() => { document.getElementById('rCta').style.display = ''; }, 900);
   }, 800);
+  loadMyReadings();
 }
 function applyDailyLock(mode = 'afterReveal'){
   document.querySelectorAll('.card').forEach((card, i) => {
@@ -1460,6 +1562,7 @@ async function signOut(){
     .forEach(key => localStorage.removeItem(key));
   sessionStorage.clear();
   updateNavUser(null);
+  loadMyReadings();
   showToast('Odjavljena si.');
   setTimeout(() => window.location.reload(), 1200);
 }
@@ -1470,6 +1573,146 @@ function showToast(msg){
   document.body.appendChild(t);
   requestAnimationFrame(() => t.style.opacity = '1');
   setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
+}
+
+let accountReadings = [];
+function esc(value = ''){
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+function readingTypeLabel(type){
+  return { daily:'Iskra', pot:'Pot', razplet:'Razplet' }[type] || 'Branje';
+}
+function readingRetention(type){
+  return type === 'daily' ? 'Vidno 7 dni' : 'Vidno 12 mesecev';
+}
+function readingRoles(type, count){
+  if(type === 'pot') return ['Ozadje', 'Zdaj', 'Naslednji korak'];
+  if(type === 'razplet') return ['Jedro', 'Vidno', 'Skrito', 'Tvoja vloga', 'Zunanji vpliv', 'Možna smer', 'Naslednji korak'];
+  return Array.from({ length: count }, () => 'Karta');
+}
+function cardsFromReading(reading){
+  const names = String(reading.card_name || '').split(' / ').filter(Boolean);
+  const kinds = String(reading.card_kind || '').split(' / ');
+  const roles = readingRoles(reading.reading_type, names.length);
+  return names.map((name, i) => {
+    const card = tarotDeck.find(c => c.name === name);
+    return {
+      name,
+      kind: kinds[i] || card?.kind || '',
+      role: roles[i] || 'Karta',
+      img: card?.img || 'cards/oracle-card-back-velvet-secret.png'
+    };
+  });
+}
+function isVisibleReading(reading){
+  const created = new Date(reading.created_at || Date.now()).getTime();
+  const ageDays = (Date.now() - created) / 86400000;
+  return reading.reading_type === 'daily' ? ageDays <= 7 : ageDays <= 365;
+}
+function formatDate(value){
+  if(!value) return '';
+  return new Intl.DateTimeFormat('sl-SI', { day:'2-digit', month:'2-digit', year:'numeric' }).format(new Date(value));
+}
+function fullReadingText(reading){
+  return [reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n');
+}
+function renderAccountSummary(user, profile, readings){
+  const latestPaid = readings.find(r => r.reading_type !== 'daily');
+  const plan = profile?.plan === 'krog' ? 'Krog' : latestPaid ? `Enkratni nakup: ${readingTypeLabel(latestPaid.reading_type)}` : 'Brezplačno';
+  const paidCount = readings.filter(r => r.reading_type !== 'daily').length;
+  const total = readings.length;
+  const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Tvoj prostor';
+  document.getElementById('accountSummary').innerHTML = `
+    <span class="account-kicker">Račun</span>
+    <h3 class="account-name">${esc(name)}</h3>
+    <p class="account-muted">Paket: ${esc(plan)}<br>Brezplačna branja so vidna 7 dni, plačljiva branja 12 mesecev.</p>
+    <div class="account-stats">
+      <div class="account-stat"><strong>${total}</strong><span>shranjenih</span></div>
+      <div class="account-stat"><strong>${paidCount}</strong><span>plačljivih</span></div>
+    </div>
+  `;
+}
+function renderReadingHistory(readings){
+  const wrap = document.getElementById('readingHistory');
+  if(!readings.length){
+    wrap.innerHTML = '<div class="history-empty">Tukaj še ni shranjenih branj. Ko odpreš karto ali naročiš branje, se bo zapis prikazal tukaj.</div>';
+    return;
+  }
+  wrap.innerHTML = readings.map((reading, i) => {
+    const cards = cardsFromReading(reading);
+    const question = reading.intent || fullReadingText(reading).slice(0, 180) || 'Brez zapisanega vprašanja';
+    return `
+      <article class="history-item">
+        <div>
+          <div class="history-meta">
+            <span class="history-pill">${esc(readingTypeLabel(reading.reading_type))}</span>
+            <span class="history-pill">${esc(reading.topic || 'Splošno')}</span>
+            <span class="history-pill">${esc(formatDate(reading.created_at))}</span>
+          </div>
+          <h3 class="history-title">${esc(cards.map(c => c.name).join(' · ') || 'Branje')}</h3>
+          <p class="history-question">${esc(question)}</p>
+          <div class="history-cards">${cards.map(card => `<img src="${esc(card.img)}" alt="${esc(card.name)}">`).join('')}</div>
+        </div>
+        <div class="history-actions">
+          <button class="pricing-btn" onclick="openReadingReport(${i})">Odpri</button>
+          <button class="pricing-btn" onclick="openReadingReport(${i});setTimeout(printReport,120)">Poročilo</button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+async function loadMyReadings(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    accountReadings = [];
+    document.getElementById('accountSummary').innerHTML = `
+      <span class="account-kicker">Račun</span>
+      <h3 class="account-name">Prijava odpre tvoj prostor.</h3>
+      <p class="account-muted">Po prijavi boš tukaj videl/a svoj paket, zadnja branja in poročila.</p>
+      <button class="pricing-btn" style="margin-top:1.2rem" onclick="openAuth()">Prijavi se</button>
+    `;
+    renderReadingHistory([]);
+    return;
+  }
+  const [{ data: readings, error: readingsError }, { data: profile }] = await Promise.all([
+    _sb.from('readings').select('id,created_at,card_name,card_kind,topic,intent,ai_response,reflect_question,reading_type').order('created_at', { ascending:false }).limit(80),
+    _sb.from('profiles').select('plan').eq('id', session.user.id).maybeSingle()
+  ]);
+  if(readingsError){
+    document.getElementById('readingHistory').innerHTML = '<div class="history-empty">Zgodovine trenutno ni mogoče naložiti.</div>';
+    return;
+  }
+  accountReadings = (readings || []).filter(isVisibleReading);
+  renderAccountSummary(session.user, profile, accountReadings);
+  renderReadingHistory(accountReadings);
+}
+function openReadingReport(index){
+  const reading = accountReadings[index];
+  if(!reading) return;
+  const cards = cardsFromReading(reading);
+  document.getElementById('reportLabel').textContent = `${readingTypeLabel(reading.reading_type)} · ${reading.topic || 'Splošno'} · ${formatDate(reading.created_at)} · ${readingRetention(reading.reading_type)}`;
+  document.getElementById('reportTitle').textContent = reading.reading_type === 'daily' ? 'Poročilo o karti' : `Poročilo: ${readingTypeLabel(reading.reading_type)}`;
+  document.getElementById('reportQuestion').textContent = reading.intent ? `„${reading.intent}"` : 'Vprašanje ni bilo zapisano.';
+  document.getElementById('reportCards').innerHTML = cards.map(card => `
+    <div class="report-card">
+      <img src="${esc(card.img)}" alt="${esc(card.name)}">
+      <span>${esc(card.role)}</span>
+      <strong>${esc(card.name)}</strong>
+    </div>
+  `).join('');
+  document.getElementById('reportBody').innerHTML = formatPotReading(fullReadingText(reading) || 'Branje trenutno nima shranjenega besedila.');
+  document.getElementById('reportModal').classList.add('open');
+}
+function closeReport(){
+  document.getElementById('reportModal').classList.remove('open');
+}
+function printReport(){
+  window.print();
 }
 
 function updateNavUser(user){
@@ -1538,11 +1781,15 @@ function restorePendingReadingAfterAuth(){
 _sb.auth.getSession().then(({ data: { session } }) => {
   if(session){
     updateNavUser(session.user);
+    loadMyReadings();
     restorePendingReadingAfterAuth();
+  } else {
+    loadMyReadings();
   }
 });
 _sb.auth.onAuthStateChange((_event, session) => {
   updateNavUser(session?.user || null);
+  loadMyReadings();
   closeAuth();
   if(session){
     if(restorePendingReadingAfterAuth()) return;
@@ -1772,6 +2019,7 @@ async function preparePotReading(){
   document.getElementById('potText').style.display = '';
   document.getElementById('potText').innerHTML = formatPotReading(errorMessage || text);
   document.getElementById('potCta').style.display = '';
+  loadMyReadings();
 }
 async function prepareRazpletReading(){
   const { data: { session } } = await _sb.auth.getSession();
@@ -1829,6 +2077,7 @@ async function prepareRazpletReading(){
   document.getElementById('razpletText').style.display = '';
   document.getElementById('razpletText').innerHTML = formatPotReading(errorMessage || text);
   document.getElementById('razpletCta').style.display = '';
+  loadMyReadings();
 }
 
 async function showResult2(card, topicLabel){
@@ -1868,6 +2117,7 @@ async function showResult2(card, topicLabel){
     document.getElementById('r2Text').textContent = card.text;
     document.getElementById('r2Reflect').textContent = card.reflect;
   }
+  loadMyReadings();
 }
 async function revealSingle(){
   const { data: { session } } = await _sb.auth.getSession();
