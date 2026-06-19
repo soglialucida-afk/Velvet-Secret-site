@@ -312,10 +312,11 @@ KAKO RAZMIŠLJAŠ PREDEN PIŠEŠ
 Tiho si odgovori:
 1. Kaj oseba v resnici sprašuje?
 2. Katera dinamika se v vprašanju ponavlja?
-3. Kaj je osebi verjetno že jasno, pa tega še ne zna uporabiti?
-4. Kje oseba išče gotovost tam, kjer potrebuje odločitev ali mejo?
-5. Kaj lahko poveš jasno, brez napovedovanja prihodnosti?
-6. Ali je iz vprašanja jasno, ali sprašuje ženska ali moški? Če ni jasno, piši brez spolno označenih oblik.
+3. Kaj je oseba izbrala kot glavni fokus branja in kako to spremeni poudarek razpleta?
+4. Kaj je osebi verjetno že jasno, pa tega še ne zna uporabiti?
+5. Kje oseba išče gotovost tam, kjer potrebuje odločitev ali mejo?
+6. Kaj lahko poveš jasno, brez napovedovanja prihodnosti?
+7. Ali je iz vprašanja jasno, ali sprašuje ženska ali moški? Če ni jasno, piši brez spolno označenih oblik.
 
 KAKO PIŠEŠ
 - Piši preprosto, jasno in osebno.
@@ -327,6 +328,7 @@ KAKO PIŠEŠ
 - Ne uporabljaj besed: energija, vibracija, vesolje, arhetip, resonanca, prebujanje.
 - Ne uporabljaj besednih zvez: „ta karta pomeni", „karta ti pravi", „karte kažejo".
 - Na vprašanje odgovori neposredno.
+- Izbrani fokus branja uporabi kot glavno lečo: razdelek „Odgovor na tvoje vprašanje" in zaključek morata jasno odražati ta fokus.
 - Če je vprašanje o odnosu, govori o odnosu in dinamiki, ne samo o osebni rasti.
 - Če je vprašanje o izbiri, jasno poimenuj, kaj je v izbiri ključno.
 - Če spola ne moreš jasno razbrati, piši nevtralno in se izogibaj oblikam, kot so „bila si", „bil si", „naredila si", „naredil si".
@@ -451,6 +453,7 @@ Deno.serve(async (req: Request) => {
     card?: { name: string; kind: string };
     cards?: Array<{ name: string; kind: string }>;
     topic?: string;
+    focus?: string;
     intent?: string;
   };
   try { body = await req.json(); }
@@ -473,7 +476,7 @@ Deno.serve(async (req: Request) => {
   const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
   if (!apiKey) return json({ error: 'API key not configured' }, 500);
 
-  const { card, cards, topic, intent } = body;
+  const { card, cards, topic, focus, intent } = body;
   if (!topic) return json({ error: 'Missing topic' }, 400);
   if (readingType === 'daily' && !card) return json({ error: 'Missing card' }, 400);
   if (readingType === 'pot' && (!cards || cards.length !== 3)) return json({ error: 'Missing cards' }, 400);
@@ -482,9 +485,12 @@ Deno.serve(async (req: Request) => {
   const intentLine = intent?.trim()
     ? `Oseba sprašuje: „${intent.trim()}"`
     : 'Oseba ni zapisala vprašanja.';
+  const focusLine = focus?.trim()
+    ? `Pri tem naj branje najbolj osvetli: ${focus.trim()}.`
+    : '';
 
   const userMessage = readingType === 'razplet'
-    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet". Upoštevaj vse vloge kart, vprašanje osebe in izbrano področje.`
+    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet". Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje in dodatni fokus branja.`
     : readingType === 'pot'
       ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot". Upoštevaj vloge kart, vprašanje osebe in izbrano področje.`
       : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\nNapiši branje.`;

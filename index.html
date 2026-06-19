@@ -1023,6 +1023,20 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <label for="razpletQuestion">Vprašanje</label>
       <textarea class="intent-input" id="razpletQuestion" rows="5" placeholder="Zapiši situacijo, ki ima več plasti ..."></textarea>
     </div>
+    <div class="field">
+      <label for="razpletFocus">Kaj naj Razplet najbolj osvetli?</label>
+      <div class="custom-select" id="razpletFocusSelect">
+        <input type="hidden" id="razpletFocus" value="Širšo sliko situacije">
+        <button type="button" class="cs-trigger"><span>Širšo sliko situacije</span></button>
+        <div class="cs-options">
+          <div class="cs-opt selected" data-value="Širšo sliko situacije">Širšo sliko situacije</div>
+          <div class="cs-opt" data-value="Odnos ali dinamiko z osebo">Odnos ali dinamiko z osebo</div>
+          <div class="cs-opt" data-value="Odločitev pred mano">Odločitev pred mano</div>
+          <div class="cs-opt" data-value="Skriti vzorec, ki se ponavlja">Skriti vzorec, ki se ponavlja</div>
+          <div class="cs-opt" data-value="Naslednjih 30 dni">Naslednjih 30 dni</div>
+        </div>
+      </div>
+    </div>
     <p class="pot-payment-note">V testni fazi ta gumb preskoči plačilo za 14,90 € in pripravi realno AI branje za evalvacijo.</p>
     <button class="pricing-btn" onclick="prepareRazpletReading()">Pripravi Razplet</button>
   </div>
@@ -1627,6 +1641,8 @@ async function startRazpletFlow(){
   const currentIntent = document.getElementById('intent')?.value.trim() || '';
   document.getElementById('razpletTopic').value = selectedTopic;
   syncCustomSelect('razpletTopicSelect', selectedTopic);
+  document.getElementById('razpletFocus').value = 'Širšo sliko situacije';
+  syncCustomSelect('razpletFocusSelect', 'Širšo sliko situacije');
   document.getElementById('razpletQuestion').value = currentIntent;
   document.getElementById('razpletModal').classList.add('open');
   setTimeout(() => document.getElementById('razpletQuestion').focus(), 80);
@@ -1762,6 +1778,7 @@ async function prepareRazpletReading(){
   if(!session){ closeRazpletModal(); openAuth(); return; }
 
   const razpletTopic = document.getElementById('razpletTopic').value;
+  const razpletFocus = document.getElementById('razpletFocus').value;
   const intent = document.getElementById('razpletQuestion').value.trim();
   const cards = shuffleDeck(tarotDeck).slice(0, 7);
 
@@ -1789,6 +1806,7 @@ async function prepareRazpletReading(){
           readingType: 'razplet',
           cards: cards.map(card => ({ name: card.name, kind: card.kind })),
           topic: razpletTopic,
+          focus: razpletFocus,
           intent
         })
       }),
