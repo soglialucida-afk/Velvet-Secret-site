@@ -372,13 +372,13 @@ function cardImage(name){
   const major = {
     'Norček':'the-fool','Norec':'the-fool','Mag':'the-magician','Čarovnik':'the-magician','Visoka svečenica':'the-high-priestess','Cesarica':'the-empress','Cesar':'the-emperor','Svečenik':'the-hierophant','Hierofant':'the-hierophant','Ljubimca':'the-lovers','Voz':'the-chariot','Kočija':'the-chariot','Moč':'strength','Puščavnik':'the-hermit','Kolo sreče':'wheel-of-fortune','Pravica':'justice','Obešenec':'the-hanged-man','Smrt':'death','Zmernost':'temperance','Hudič':'the-devil','Stolp':'the-tower','Zvezda':'the-star','Luna':'the-moon','Sonce':'the-sun','Sodba':'judgement','Svet':'the-world'
   };
-  if(major[name]) return `cards/labeled-v2/${major[name]}.png`;
+  if(major[name]) return `cards/optimized/labeled-v2/${major[name]}.webp`;
   const ranks = {'As':'ace','Dvojka':'two','Trojka':'three','Štirica':'four','Petica':'five','Šestica':'six','Sedmica':'seven','Osmica':'eight','Devetica':'nine','Desetica':'ten','Paž':'page','Vitez':'knight','Kraljica':'queen','Kralj':'king'};
   const suits = {'kelihov':'cups','palic':'wands','mečev':'swords','pentakljev':'pentacles'};
   const parts = String(name || '').split(' ');
   const rank = ranks[parts[0]];
   const suit = suits[parts.slice(1).join(' ')];
-  return rank && suit ? `cards/labeled-v2/${rank}-of-${suit}.png` : 'cards/oracle-card-back-velvet-secret.png';
+  return rank && suit ? `cards/optimized/labeled-v2/${rank}-of-${suit}.webp` : 'cards/optimized/oracle-card-back-velvet-secret.webp';
 }
 function cardsFromReading(reading){
   const names = String(reading.card_name || '').split(' / ').filter(Boolean);
@@ -444,7 +444,7 @@ function renderReadingHistory(readings){
           </div>
           <h3 class="history-title">${esc(cards.map(c => c.name).join(' · ') || 'Branje')}</h3>
           <p class="history-question">${esc(question)}</p>
-          <div class="history-cards">${cards.map(card => `<img src="${esc(card.img)}" alt="${esc(card.name)}">`).join('')}</div>
+          <div class="history-cards">${cards.map(card => `<img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async">`).join('')}</div>
         </div>
         <div class="history-actions">
           <button class="btn" onclick="openReadingReport(${index})">Odpri</button>
@@ -492,7 +492,7 @@ function openReadingReport(index){
   document.getElementById('reportQuestion').textContent = reading.intent ? `„${reading.intent}"` : 'Vprašanje ni bilo zapisano.';
   document.getElementById('reportCards').innerHTML = cards.map(card => `
     <div class="report-card">
-      <img src="${esc(card.img)}" alt="${esc(card.name)}">
+      <img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async">
       <span>${esc(card.role)}</span>
       <strong>${esc(card.name)}</strong>
     </div>
