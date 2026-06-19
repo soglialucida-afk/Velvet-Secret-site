@@ -507,6 +507,45 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 .footer-links{display:flex;justify-content:center;gap:1.7rem;list-style:none;flex-wrap:wrap}
 .footer-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 
+.cookie-consent{
+  position:fixed;
+  left:50%;
+  bottom:1.2rem;
+  z-index:180;
+  width:min(920px,calc(100% - 2rem));
+  transform:translate(-50%,calc(100% + 2rem));
+  opacity:0;
+  pointer-events:none;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:1.25rem;
+  align-items:center;
+  padding:1.15rem 1.25rem;
+  border:1px solid rgba(168,190,223,.26);
+  background:linear-gradient(135deg,rgba(24,23,32,.97),rgba(18,17,27,.96));
+  box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 38px rgba(168,190,223,.08);
+  backdrop-filter:blur(18px);
+  transition:opacity .35s ease,transform .35s ease;
+}
+.cookie-consent.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.cookie-copy strong{display:block;font-family:var(--display);font-size:1.05rem;font-weight:500;color:#fff;margin-bottom:.2rem}
+.cookie-copy p{color:var(--muted);font-size:.86rem;line-height:1.55;max-width:620px}
+.cookie-actions{display:flex;gap:.7rem;align-items:center;justify-content:flex-end}
+.cookie-btn{
+  border:1px solid rgba(199,188,228,.48);
+  background:rgba(199,188,228,.08);
+  color:#fff;
+  padding:.78rem 1.05rem;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  transition:background .25s,border-color .25s,color .25s;
+  white-space:nowrap;
+}
+.cookie-btn:hover{border-color:var(--blue-soft);background:rgba(168,190,223,.12)}
+.cookie-btn.primary{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+.cookie-btn.primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+
 .modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-bg.open{display:flex}
 .modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative;margin:auto 0}
@@ -597,6 +636,11 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .close{top:.65rem;right:.75rem}
   .upsell-option{grid-template-columns:1fr;gap:.75rem}
   .upsell-option-meta{text-align:left;align-items:flex-start}
+  .cookie-consent{grid-template-columns:1fr;bottom:.75rem;width:calc(100% - 1.5rem);padding:1rem}
+  .cookie-copy strong{font-size:.98rem}
+  .cookie-copy p{font-size:.8rem}
+  .cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:.55rem}
+  .cookie-btn{width:100%;padding:.82rem .75rem}
   .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(24,23,32,.82),#181720 28%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem}
   .section-title{font-size:clamp(1.75rem,7vw,2.6rem)}
 }
@@ -1007,6 +1051,17 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </ul>
 </footer>
 
+<div class="cookie-consent" id="cookieConsent" role="region" aria-label="Obvestilo o piškotkih">
+  <div class="cookie-copy">
+    <strong>Piškotki in shranjevanje nastavitev</strong>
+    <p>Stran uporablja nujne piškotke in lokalno shranjevanje za prijavo, branja in osnovno delovanje. Dodatne nastavitve lahko sprejmeš ali ostaneš samo pri nujnih.</p>
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-btn" type="button" onclick="setCookieConsent('necessary')">Samo nujno</button>
+    <button class="cookie-btn primary" type="button" onclick="setCookieConsent('accepted')">Sprejmem</button>
+  </div>
+</div>
+
 <div class="modal-bg" id="upsellModal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeUpsell()">
   <div class="modal" style="max-width:540px">
     <button class="close" onclick="closeUpsell()" aria-label="Zapri">×</button>
@@ -1333,6 +1388,16 @@ function loadDaily(){
 }
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
+}
+function showCookieConsent(){
+  const banner = document.getElementById('cookieConsent');
+  if(!banner) return;
+  const consent = localStorage.getItem('vs_cookie_consent');
+  if(!consent) requestAnimationFrame(() => banner.classList.add('show'));
+}
+function setCookieConsent(value){
+  localStorage.setItem('vs_cookie_consent', JSON.stringify({ value, date: new Date().toISOString() }));
+  document.getElementById('cookieConsent')?.classList.remove('show');
 }
 function clearCardArea(){
   const cardsEl = document.getElementById('cards');
@@ -1777,6 +1842,8 @@ function restorePendingReadingAfterAuth(){
   showToast('Prijava uspešna. Tvoje vprašanje je shranjeno.');
   return true;
 }
+
+showCookieConsent();
 
 _sb.auth.getSession().then(({ data: { session } }) => {
   if(session){
