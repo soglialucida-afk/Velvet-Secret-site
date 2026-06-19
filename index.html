@@ -300,14 +300,19 @@ select.intent-input option:checked,
   color:#fff;
 }
 .custom-select{position:relative;width:100%}
-.cs-trigger{width:100%;background:rgba(199,188,228,.07);border:1.5px solid rgba(199,188,228,.45);color:#fff;font-family:var(--sans);font-size:1rem;font-weight:300;padding:1.1rem 2.8rem 1.1rem 1.4rem;outline:none;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;transition:.3s;border-radius:2px;letter-spacing:.01em}
-.cs-trigger::after{content:'';display:inline-block;width:6px;height:6px;border-right:1.5px solid rgba(255,255,255,.78);border-bottom:1.5px solid rgba(255,255,255,.78);transform:rotate(45deg) translateY(-2px);transition:transform .25s;flex-shrink:0}
+.cs-trigger{width:100%;min-height:56px;background:linear-gradient(180deg,rgba(199,188,228,.1),rgba(199,188,228,.055));border:1.5px solid rgba(199,188,228,.42);color:#fff;font-family:var(--sans);font-size:.98rem;font-weight:300;padding:1rem 2.8rem 1rem 1.25rem;outline:none;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;transition:border-color .25s,background .25s,box-shadow .25s;color-scheme:dark;border-radius:2px;letter-spacing:.03em}
+.cs-trigger span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cs-trigger::after{content:'';display:inline-block;width:7px;height:7px;border-right:1.5px solid rgba(216,189,154,.9);border-bottom:1.5px solid rgba(216,189,154,.9);transform:rotate(45deg) translateY(-2px);transition:transform .25s;flex-shrink:0;margin-left:1rem}
 .custom-select.open .cs-trigger::after{transform:rotate(-135deg) translateY(-2px)}
-.custom-select.open .cs-trigger{border-color:rgba(199,188,228,.8);background:rgba(199,188,228,.11);box-shadow:0 0 0 3px rgba(199,188,228,.08)}
-.cs-options{position:absolute;top:calc(100% + 2px);left:0;right:0;background:#1c1a28;border:1.5px solid rgba(199,188,228,.45);z-index:200;display:none;border-radius:2px;overflow:hidden}
+.custom-select.open .cs-trigger,.cs-trigger:focus-visible{border-color:rgba(199,188,228,.82);background:linear-gradient(180deg,rgba(199,188,228,.15),rgba(199,188,228,.08));box-shadow:0 0 0 3px rgba(199,188,228,.08),0 0 28px rgba(110,130,159,.16)}
+.cs-options{position:absolute;top:calc(100% + 6px);left:0;right:0;background:linear-gradient(180deg,rgba(32,31,44,.98),rgba(24,23,34,.98));border:1px solid rgba(199,188,228,.36);z-index:220;display:none;border-radius:2px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.025)}
 .custom-select.open .cs-options{display:block}
-.cs-opt{padding:.9rem 1.4rem;color:rgba(255,255,255,.8);font-family:var(--sans);font-size:.95rem;cursor:pointer;transition:.2s}
-.cs-opt:hover,.cs-opt.selected{background:var(--violet-deep);color:#fff}
+.cs-opt{position:relative;padding:.88rem 1.2rem .88rem 2.35rem;color:rgba(255,255,255,.76);font-family:var(--sans);font-size:.92rem;font-weight:300;letter-spacing:.03em;cursor:pointer;transition:background .2s,color .2s}
+.cs-opt + .cs-opt{border-top:1px solid rgba(199,188,228,.08)}
+.cs-opt::before{content:'';position:absolute;left:1.05rem;top:50%;width:6px;height:6px;border-radius:50%;background:rgba(216,189,154,.75);opacity:0;transform:translateY(-50%);transition:.2s}
+.cs-opt:hover{background:rgba(199,188,228,.1);color:#fff}
+.cs-opt.selected{background:linear-gradient(90deg,rgba(127,108,175,.68),rgba(110,130,159,.28));color:#fff}
+.cs-opt.selected::before{opacity:1}
 .topic-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-bottom:3rem}
 .topic{
   border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -1744,16 +1749,32 @@ function syncCustomSelect(id, val){
 function initCustomSelect(wrap){
   const trigger = wrap.querySelector('.cs-trigger');
   const hidden = wrap.querySelector('input[type=hidden]');
+  trigger.setAttribute('aria-haspopup', 'listbox');
+  trigger.setAttribute('aria-expanded', 'false');
   wrap.querySelectorAll('.cs-opt').forEach(opt => {
+    opt.setAttribute('role', 'option');
     opt.addEventListener('click', () => {
       const val = opt.dataset.value || opt.textContent;
       syncCustomSelect(wrap.id, val);
       if(hidden) hidden.value = val;
       wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
     });
   });
-  trigger.addEventListener('click', e => { e.stopPropagation(); wrap.classList.toggle('open'); });
-  document.addEventListener('click', () => wrap.classList.remove('open'));
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+    const willOpen = !wrap.classList.contains('open');
+    document.querySelectorAll('.custom-select.open').forEach(open => {
+      open.classList.remove('open');
+      open.querySelector('.cs-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+    wrap.classList.toggle('open', willOpen);
+    trigger.setAttribute('aria-expanded', String(willOpen));
+  });
+  document.addEventListener('click', () => {
+    wrap.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  });
 }
 document.querySelectorAll('.custom-select').forEach(initCustomSelect);
 const observer = new IntersectionObserver(entries => {
