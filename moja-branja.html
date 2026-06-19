@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moja branja · Velvet Secret</title>
+<meta name="description" content="Osebni prostor Velvet Secret za shranjena branja, zgodovino kart in lepo oblikovana poročila.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{
+  --bg:#111018;
+  --bg-soft:#181720;
+  --bg-lift:#20202b;
+  --violet-light:#c7bce4;
+  --violet-medium:#a997cf;
+  --violet-deep:#7f6caf;
+  --blue-soft:#a8bedf;
+  --ink:#f0ecf5;
+  --text:#d7d0df;
+  --muted:#9690a3;
+  --muted-dark:#696377;
+  --line:rgba(199,188,228,.2);
+  --line-soft:rgba(199,188,228,.1);
+  --warm:#d8bd9a;
+  --display:"Playfair Display", Georgia, serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--violet-deep);color:#fff}
+
+.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,16,24,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}
+.nav-logo{font-family:var(--display);font-size:1.58rem;font-weight:500;color:#fff;letter-spacing:.04em}
+.nav-links{display:flex;list-style:none;gap:2rem;align-items:center}
+.nav-link,.nav-login{color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:color .25s}
+.nav-link:hover,.nav-login:hover{color:var(--violet-light)}
+.nav-login{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);padding:.64rem 1.25rem}
+.nav-user-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem}
+.nav-user{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
+.nav-user img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
+.nav-signout{background:none;border:0;color:var(--muted);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;text-align:right}
+.nav-signout:hover{color:var(--violet-light)}
+.hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}
+.hamb.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile{display:none;position:fixed;inset:0;z-index:80;background:rgba(17,16,24,.96);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column;gap:2rem}
+.mobile.open{display:flex}
+.mobile a,.mobile button{font-family:var(--display);font-size:2rem;color:#fff;background:none;border:0}
+.mobile-user{display:none;flex-direction:column;align-items:center;gap:.75rem;color:#fff}
+.mobile-user .nav-user{font-size:.82rem;letter-spacing:.12em;justify-content:center}
+.mobile-user .nav-user img{width:34px;height:34px}
+.mobile-user .nav-signout{font-size:.78rem;letter-spacing:.18em;text-align:center;color:var(--violet-light)}
+
+main{min-height:100vh;padding:8.8rem 2rem 5rem;background:radial-gradient(circle at 18% 12%,rgba(168,190,223,.09),transparent 34%),radial-gradient(circle at 88% 0,rgba(199,188,228,.08),transparent 32%),var(--bg)}
+.shell{width:min(1180px,100%);margin:0 auto}
+.page-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;margin-bottom:2.2rem}
+.section-label{display:block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.85rem}
+h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500;color:#fff;line-height:1.02;letter-spacing:0}
+.lead{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:1rem}
+.primary-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid rgba(199,188,228,.5);background:rgba(199,188,228,.08);color:#fff;padding:.82rem 1.2rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s;white-space:nowrap}
+.btn:hover{background:rgba(168,190,223,.12);border-color:var(--blue-soft)}
+.btn.primary{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+.btn.primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+
+.dashboard{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.65fr);gap:1.4rem;align-items:start}
+.panel{border:1px solid var(--line-soft);background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:1.55rem}
+.panel-title{font-family:var(--display);font-size:1.42rem;color:#fff;line-height:1.25;margin-bottom:.7rem}
+.muted{color:var(--muted);font-size:.92rem;line-height:1.7}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.2rem}
+.stat{border:1px solid rgba(199,188,228,.12);background:rgba(199,188,228,.045);padding:.85rem}
+.stat strong{display:block;font-family:var(--display);font-size:1.6rem;color:var(--blue-soft);line-height:1}
+.stat span{display:block;margin-top:.3rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.account-note{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(199,188,228,.1);font-size:.82rem;color:var(--muted)}
+
+.history-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}
+.filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.15rem}
+.filter-btn{border:1px solid rgba(199,188,228,.22);background:rgba(255,255,255,.025);color:var(--muted);padding:.55rem .75rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;transition:.2s}
+.filter-btn.active,.filter-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.5);color:#fff}
+.history-list{display:flex;flex-direction:column;gap:.95rem}
+.history-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem;align-items:center;border:1px solid rgba(199,188,228,.12);background:rgba(17,16,24,.42);padding:1.15rem}
+.history-meta{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.65rem}
+.pill{display:inline-flex;border:1px solid rgba(199,188,228,.18);background:rgba(199,188,228,.055);color:var(--violet-light);padding:.22rem .48rem;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
+.history-title{font-family:var(--display);font-size:1.25rem;color:#fff;line-height:1.3;margin-bottom:.35rem}
+.history-question{color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:.8rem}
+.history-cards{display:flex;gap:.42rem;flex-wrap:wrap}
+.history-cards img{width:42px;aspect-ratio:5/8;object-fit:cover;border:1px solid rgba(199,188,228,.18);background:#090912}
+.history-actions{display:flex;flex-direction:column;gap:.55rem;min-width:150px}
+.empty{border:1px dashed rgba(199,188,228,.24);background:rgba(255,255,255,.025);padding:1.4rem;color:var(--muted);line-height:1.7}
+
+.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.modal-bg.open{display:flex}
+.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative;margin:auto 0}
+.modal.report-modal{max-width:780px}
+.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem}
+.modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}
+.modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}
+.modal-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
+.report-paper{background:#f6f1eb;color:#2f2a35;padding:2.2rem;border:1px solid rgba(127,108,175,.22)}
+.report-paper .section-label{color:#7f6caf}
+.report-title{font-family:var(--display);font-size:2rem;color:#181720;text-align:center;margin:.5rem 0 .75rem}
+.report-question{font-family:var(--display);font-size:1.12rem;font-style:italic;text-align:center;color:#5b5264;margin-bottom:1.4rem}
+.report-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;margin:1rem 0 1.5rem}
+.report-card{border:1px solid rgba(127,108,175,.22);padding:.65rem;text-align:center;background:rgba(255,255,255,.48)}
+.report-card img{width:64px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .55rem;border:1px solid rgba(127,108,175,.18)}
+.report-card span{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#7f6caf;margin-bottom:.18rem}
+.report-card strong{display:block;font-family:var(--display);font-size:.92rem;color:#181720;line-height:1.2}
+.report-body{color:#2f2a35;line-height:1.8;font-size:.98rem}
+.report-body h4{font-family:var(--display);font-size:1.22rem;color:#181720;margin:1.25rem 0 .45rem}
+.report-body p{margin-bottom:.95rem}
+.report-note{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(127,108,175,.18);font-size:.8rem;color:#696377}
+
+.cookie-consent{position:fixed;left:50%;bottom:1.2rem;z-index:180;width:min(920px,calc(100% - 2rem));transform:translate(-50%,calc(100% + 2rem));opacity:0;pointer-events:none;display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:center;padding:1.15rem 1.25rem;border:1px solid rgba(168,190,223,.26);background:linear-gradient(135deg,rgba(24,23,32,.97),rgba(18,17,27,.96));box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 38px rgba(168,190,223,.08);backdrop-filter:blur(18px);transition:opacity .35s ease,transform .35s ease}
+.cookie-consent.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+.cookie-copy strong{display:block;font-family:var(--display);font-size:1.05rem;font-weight:500;color:#fff;margin-bottom:.2rem}
+.cookie-copy p{color:var(--muted);font-size:.86rem;line-height:1.55;max-width:620px}
+.cookie-actions{display:flex;gap:.7rem;align-items:center;justify-content:flex-end}
+
+@media(max-width:860px){
+  .nav-links{display:none}.hamb{display:flex}
+  .nav{padding:.9rem 1.25rem}
+  .nav-logo{font-size:1.18rem}
+  main{padding:6.8rem 1.15rem 3.5rem}
+  .page-head{grid-template-columns:1fr;gap:1.3rem}
+  .primary-actions{justify-content:flex-start;width:100%}
+  .primary-actions .btn{flex:1}
+  .dashboard{grid-template-columns:1fr}
+  .history-item{grid-template-columns:1fr}
+  .history-actions{min-width:0;flex-direction:row;flex-wrap:wrap}
+  .history-actions .btn{flex:1}
+  .modal-bg{padding:12px}
+  .modal{max-height:calc(100dvh - 24px);padding:2.1rem 1.15rem 1.25rem;margin:0;width:100%}
+  .report-modal{max-width:100%}
+  .report-paper{padding:1.25rem}
+  .report-title{font-size:1.55rem}
+  .report-card-grid{grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:.55rem}
+  .report-card img{width:54px}
+  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(24,23,32,.82),#181720 28%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem}
+  .cookie-consent{grid-template-columns:1fr;bottom:.75rem;width:calc(100% - 1.5rem);padding:1rem}
+  .cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:.55rem}
+  .cookie-actions .btn{width:100%}
+}
+@media(max-width:420px){
+  .nav-logo{font-size:1rem}
+  h1{font-size:clamp(2rem,13vw,3rem)}
+  .stats{grid-template-columns:1fr}
+  .history-top{flex-direction:column}
+}
+@media print{
+  body *{visibility:hidden!important}
+  #reportPaper,#reportPaper *{visibility:visible!important}
+  #reportPaper{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:0;background:#fff;color:#222}
+  .modal-actions,.close{display:none!important}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">Velvet Secret</a>
+  <ul class="nav-links">
+    <li><a href="index.html#branje" class="nav-link">Branje iz kart</a></li>
+    <li><a href="index.html#cenik" class="nav-link">Cenik</a></li>
+    <li><a href="moja-branja.html" class="nav-link">Moja branja</a></li>
+    <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
+  </ul>
+  <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="index.html#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
+  <a href="index.html#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
+  <a href="moja-branja.html" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
+  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <div class="mobile-user" id="mobileUser"></div>
+</div>
+
+<main>
+  <div class="shell">
+    <header class="page-head">
+      <div>
+        <span class="section-label">Moj prostor</span>
+        <h1>Moja branja.</h1>
+        <p class="lead">Tukaj so zbrana branja, h katerim se lahko vrneš, ko se vprašanje premakne ali ko besede dobijo nov pomen.</p>
+      </div>
+      <div class="primary-actions">
+        <a href="index.html#branje" class="btn">Novo branje</a>
+        <button class="btn primary" onclick="loadMyReadings()">Osveži</button>
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <aside class="panel" id="accountSummary">
+        <span class="section-label">Račun</span>
+        <h2 class="panel-title">Prijava odpre tvoj prostor.</h2>
+        <p class="muted">Po prijavi se tukaj pokažejo tvoj paket, shranjena branja, slike kart in poročila.</p>
+        <button class="btn primary" style="margin-top:1.15rem" onclick="openAuth()">Prijavi se</button>
+      </aside>
+
+      <div class="panel">
+        <div class="history-top">
+          <div>
+            <span class="section-label">Zgodovina</span>
+            <h2 class="panel-title">Shranjena branja</h2>
+          </div>
+        </div>
+        <div class="filters" id="readingFilters" aria-label="Filtri branj">
+          <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Vsa</button>
+          <button class="filter-btn" data-filter="daily" onclick="setFilter('daily')">Iskra</button>
+          <button class="filter-btn" data-filter="pot" onclick="setFilter('pot')">Pot</button>
+          <button class="filter-btn" data-filter="razplet" onclick="setFilter('razplet')">Razplet</button>
+          <button class="filter-btn" data-filter="cikel" onclick="setFilter('cikel')">Cikel</button>
+        </div>
+        <div class="history-list" id="readingHistory">
+          <div class="empty">Ko odpreš karto ali naročiš branje, se bo tukaj shranil tvoj zapis.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="cookie-consent" id="cookieConsent" role="region" aria-label="Obvestilo o piškotkih">
+  <div class="cookie-copy">
+    <strong>Piškotki in shranjevanje nastavitev</strong>
+    <p>Stran uporablja nujne piškotke in lokalno shranjevanje za prijavo, branja in osnovno delovanje. Dodatne nastavitve lahko sprejmeš ali ostaneš samo pri nujnih.</p>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn" type="button" onclick="setCookieConsent('necessary')">Samo nujno</button>
+    <button class="btn primary" type="button" onclick="setCookieConsent('accepted')">Sprejmem</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle" onclick="if(event.target===this)closeReport()">
+  <div class="modal report-modal">
+    <button class="close" onclick="closeReport()" aria-label="Zapri">×</button>
+    <div class="report-paper" id="reportPaper">
+      <span class="section-label" id="reportLabel"></span>
+      <h3 class="report-title" id="reportTitle"></h3>
+      <p class="report-question" id="reportQuestion"></p>
+      <div class="report-card-grid" id="reportCards"></div>
+      <div class="report-body" id="reportBody"></div>
+      <p class="report-note">Velvet Secret je simbolno branje za osebni premislek. Ni medicinski, pravni, finančni ali terapevtski nasvet.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn primary" onclick="printReport()">Natisni / shrani PDF</button>
+      <button class="btn" onclick="closeReport()">Zapri</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal">
+    <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
+    <h3 id="authTitle">Tvoj prostor</h3>
+    <p class="sub-t">Prijavi se za zgodovino branj in poročila.</p>
+    <button class="btn primary" id="googleSignIn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.9rem;margin-top:1.5rem;padding:1rem 1.5rem" onclick="signInWithGoogle()">
+      <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13 17.8 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7.1 5.5c4.1-3.8 6.5-9.4 6.5-16.3z"/>
+        <path fill="#FBBC05" d="M10.5 28.7A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.6 2.7 10.8l7.8-6.1z"/>
+        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.1-5.5c-2.2 1.5-5 2.3-8.8 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z"/>
+      </svg>
+      Prijava z Google računom
+    </button>
+  </div>
+</div>
+
+<script>
+const _sb = supabase.createClient(
+  'https://pdibcrfpqenougebkbse.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkaWJjcmZwcWVub3VnZWJrYnNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyOTM1ODIsImV4cCI6MjA5Njg2OTU4Mn0.dlwDaH4vOdDzOSZCw6LWjNIuQ67NbglPr9_CBY9TmIk'
+);
+
+const hamb = document.getElementById('hamb');
+const mobile = document.getElementById('mobile');
+let accountReadings = [];
+let activeFilter = 'all';
+
+function toggleMenu(open){
+  hamb.classList.toggle('open', open);
+  mobile.classList.toggle('open', open);
+  hamb.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
+document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeReport(); } });
+
+function esc(value = ''){
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+function openAuth(){document.getElementById('authModal').classList.add('open')}
+function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+function getAuthRedirectUrl(){
+  const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const origin = isLocal ? window.location.origin : 'https://velvet-secret-site.netlify.app';
+  return `${origin}/moja-branja.html`;
+}
+async function signInWithGoogle(){
+  await _sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: getAuthRedirectUrl() }
+  });
+}
+async function signOut(){
+  await _sb.auth.signOut();
+  updateNavUser(null);
+  accountReadings = [];
+  renderLoggedOut();
+}
+function updateNavUser(user){
+  const loginBtn = document.querySelector('.nav-login');
+  const mobileLoginBtn = document.getElementById('mobileAuthBtn');
+  const mobileUser = document.getElementById('mobileUser');
+  if(user){
+    const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Račun';
+    const avatar = user.user_metadata?.avatar_url;
+    const chip = `<div class="nav-user-wrap"><span class="nav-user">${avatar ? `<img src="${esc(avatar)}" alt="">` : ''}${esc(name)}</span><button class="nav-signout" onclick="signOut()">Odjava</button></div>`;
+    if(loginBtn) loginBtn.outerHTML = chip;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+    if(mobileUser){
+      mobileUser.innerHTML = `<span class="nav-user">${avatar ? `<img src="${esc(avatar)}" alt="">` : ''}${esc(name)}</span><button class="nav-signout" onclick="toggleMenu(false);signOut()">Odjava</button>`;
+      mobileUser.style.display = 'flex';
+    }
+  } else {
+    const userEl = document.querySelector('.nav-user-wrap');
+    if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Prijava</button>`;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = '';
+    if(mobileUser){
+      mobileUser.innerHTML = '';
+      mobileUser.style.display = 'none';
+    }
+  }
+}
+
+function readingTypeLabel(type){
+  return { daily:'Iskra', pot:'Pot', razplet:'Razplet', cikel:'Cikel' }[type] || 'Branje';
+}
+function readingRetention(type){
+  return type === 'daily' ? 'Vidno 7 dni' : 'Vidno 12 mesecev';
+}
+function readingRoles(type, count){
+  if(type === 'pot') return ['Ozadje', 'Zdaj', 'Naslednji korak'];
+  if(type === 'razplet') return ['Jedro', 'Vidno', 'Skrito', 'Tvoja vloga', 'Zunanji vpliv', 'Možna smer', 'Naslednji korak'];
+  return Array.from({ length: count }, () => 'Karta');
+}
+function formatDate(value){
+  if(!value) return '';
+  return new Intl.DateTimeFormat('sl-SI', { day:'2-digit', month:'2-digit', year:'numeric' }).format(new Date(value));
+}
+function isVisibleReading(reading){
+  const created = new Date(reading.created_at || Date.now()).getTime();
+  const ageDays = (Date.now() - created) / 86400000;
+  return reading.reading_type === 'daily' ? ageDays <= 7 : ageDays <= 365;
+}
+function fullReadingText(reading){
+  return [reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n');
+}
+function cardImage(name){
+  const major = {
+    'Norček':'the-fool','Norec':'the-fool','Mag':'the-magician','Čarovnik':'the-magician','Visoka svečenica':'the-high-priestess','Cesarica':'the-empress','Cesar':'the-emperor','Svečenik':'the-hierophant','Hierofant':'the-hierophant','Ljubimca':'the-lovers','Voz':'the-chariot','Kočija':'the-chariot','Moč':'strength','Puščavnik':'the-hermit','Kolo sreče':'wheel-of-fortune','Pravica':'justice','Obešenec':'the-hanged-man','Smrt':'death','Zmernost':'temperance','Hudič':'the-devil','Stolp':'the-tower','Zvezda':'the-star','Luna':'the-moon','Sonce':'the-sun','Sodba':'judgement','Svet':'the-world'
+  };
+  if(major[name]) return `cards/labeled-v2/${major[name]}.png`;
+  const ranks = {'As':'ace','Dvojka':'two','Trojka':'three','Štirica':'four','Petica':'five','Šestica':'six','Sedmica':'seven','Osmica':'eight','Devetica':'nine','Desetica':'ten','Paž':'page','Vitez':'knight','Kraljica':'queen','Kralj':'king'};
+  const suits = {'kelihov':'cups','palic':'wands','mečev':'swords','pentakljev':'pentacles'};
+  const parts = String(name || '').split(' ');
+  const rank = ranks[parts[0]];
+  const suit = suits[parts.slice(1).join(' ')];
+  return rank && suit ? `cards/labeled-v2/${rank}-of-${suit}.png` : 'cards/oracle-card-back-velvet-secret.png';
+}
+function cardsFromReading(reading){
+  const names = String(reading.card_name || '').split(' / ').filter(Boolean);
+  const kinds = String(reading.card_kind || '').split(' / ');
+  const roles = readingRoles(reading.reading_type, names.length);
+  return names.map((name, i) => ({
+    name,
+    kind: kinds[i] || '',
+    role: roles[i] || 'Karta',
+    img: cardImage(name)
+  }));
+}
+function filteredReadings(){
+  return activeFilter === 'all' ? accountReadings : accountReadings.filter(r => r.reading_type === activeFilter);
+}
+function setFilter(filter){
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
+  renderReadingHistory(filteredReadings());
+}
+function renderLoggedOut(){
+  document.getElementById('accountSummary').innerHTML = `
+    <span class="section-label">Račun</span>
+    <h2 class="panel-title">Prijava odpre tvoj prostor.</h2>
+    <p class="muted">Po prijavi se tukaj pokažejo tvoj paket, shranjena branja, slike kart in poročila.</p>
+    <button class="btn primary" style="margin-top:1.15rem" onclick="openAuth()">Prijavi se</button>
+  `;
+  document.getElementById('readingHistory').innerHTML = '<div class="empty">Prijavi se, da odpreš svojo zgodovino branj.</div>';
+}
+function renderAccountSummary(user, profile, readings){
+  const latestPaid = readings.find(r => r.reading_type !== 'daily');
+  const plan = profile?.plan === 'krog' ? 'Krog' : latestPaid ? `Enkratni nakup: ${readingTypeLabel(latestPaid.reading_type)}` : 'Brezplačno';
+  const paidCount = readings.filter(r => r.reading_type !== 'daily').length;
+  const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Tvoj prostor';
+  document.getElementById('accountSummary').innerHTML = `
+    <span class="section-label">Račun</span>
+    <h2 class="panel-title">${esc(name)}</h2>
+    <p class="muted">Paket: ${esc(plan)}<br>Brezplačna branja so vidna 7 dni, plačljiva branja 12 mesecev.</p>
+    <div class="stats">
+      <div class="stat"><strong>${readings.length}</strong><span>shranjenih</span></div>
+      <div class="stat"><strong>${paidCount}</strong><span>plačljivih</span></div>
+    </div>
+    <p class="account-note">Poročilo lahko odpreš, natisneš ali shraniš kot PDF iz posameznega branja.</p>
+  `;
+}
+function renderReadingHistory(readings){
+  const wrap = document.getElementById('readingHistory');
+  if(!readings.length){
+    wrap.innerHTML = `<div class="empty">${activeFilter === 'all' ? 'Tukaj še ni shranjenih branj.' : 'Za ta tip branja trenutno ni shranjenega zapisa.'}</div>`;
+    return;
+  }
+  wrap.innerHTML = readings.map((reading) => {
+    const index = accountReadings.indexOf(reading);
+    const cards = cardsFromReading(reading);
+    const question = reading.intent || fullReadingText(reading).replace(/\s+/g, ' ').slice(0, 180) || 'Brez zapisanega vprašanja';
+    return `
+      <article class="history-item">
+        <div>
+          <div class="history-meta">
+            <span class="pill">${esc(readingTypeLabel(reading.reading_type))}</span>
+            <span class="pill">${esc(reading.topic || 'Splošno')}</span>
+            <span class="pill">${esc(formatDate(reading.created_at))}</span>
+          </div>
+          <h3 class="history-title">${esc(cards.map(c => c.name).join(' · ') || 'Branje')}</h3>
+          <p class="history-question">${esc(question)}</p>
+          <div class="history-cards">${cards.map(card => `<img src="${esc(card.img)}" alt="${esc(card.name)}">`).join('')}</div>
+        </div>
+        <div class="history-actions">
+          <button class="btn" onclick="openReadingReport(${index})">Odpri</button>
+          <button class="btn primary" onclick="openReadingReport(${index});setTimeout(printReport,120)">Poročilo</button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+async function loadMyReadings(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    accountReadings = [];
+    renderLoggedOut();
+    return;
+  }
+  const [{ data: readings, error: readingsError }, { data: profile }] = await Promise.all([
+    _sb.from('readings').select('id,created_at,card_name,card_kind,topic,intent,ai_response,reflect_question,reading_type').order('created_at', { ascending:false }).limit(120),
+    _sb.from('profiles').select('plan').eq('id', session.user.id).maybeSingle()
+  ]);
+  if(readingsError){
+    document.getElementById('readingHistory').innerHTML = '<div class="empty">Zgodovine trenutno ni mogoče naložiti.</div>';
+    return;
+  }
+  accountReadings = (readings || []).filter(isVisibleReading);
+  renderAccountSummary(session.user, profile, accountReadings);
+  renderReadingHistory(filteredReadings());
+}
+function formatReadingText(text){
+  const headings = new Set(['Branje „Pot"','Branje „Razplet"','Tema','Prvi vtis','Odgovor na tvoje vprašanje','Ozadje','Zdaj','Naslednji korak','Jedro vprašanja','Vidna situacija','Skrita napetost','Tvoja vloga','Druga stran ali zunanji vpliv','Če se nič ne spremeni','Če spremeniš pristop','Naslednjih 30 dni','Kako se karte povežejo','V naslednjih 7 dneh','Česa ne forsiraj','Vprašanje za konec']);
+  return String(text || '')
+    .replace(/\r/g, '')
+    .split(/\n+/)
+    .map(line => line.trim().replace(/^#+\s*/, '').replace(/^---+$/, '').replace(/\*\*/g, ''))
+    .filter(Boolean)
+    .map(line => headings.has(line) ? `<h4>${esc(line)}</h4>` : `<p>${esc(line)}</p>`)
+    .join('');
+}
+function openReadingReport(index){
+  const reading = accountReadings[index];
+  if(!reading) return;
+  const cards = cardsFromReading(reading);
+  document.getElementById('reportLabel').textContent = `${readingTypeLabel(reading.reading_type)} · ${reading.topic || 'Splošno'} · ${formatDate(reading.created_at)} · ${readingRetention(reading.reading_type)}`;
+  document.getElementById('reportTitle').textContent = reading.reading_type === 'daily' ? 'Poročilo o karti' : `Poročilo: ${readingTypeLabel(reading.reading_type)}`;
+  document.getElementById('reportQuestion').textContent = reading.intent ? `„${reading.intent}"` : 'Vprašanje ni bilo zapisano.';
+  document.getElementById('reportCards').innerHTML = cards.map(card => `
+    <div class="report-card">
+      <img src="${esc(card.img)}" alt="${esc(card.name)}">
+      <span>${esc(card.role)}</span>
+      <strong>${esc(card.name)}</strong>
+    </div>
+  `).join('');
+  document.getElementById('reportBody').innerHTML = formatReadingText(fullReadingText(reading) || 'Branje trenutno nima shranjenega besedila.');
+  document.getElementById('reportModal').classList.add('open');
+}
+function closeReport(){
+  document.getElementById('reportModal').classList.remove('open');
+}
+function printReport(){
+  window.print();
+}
+function showCookieConsent(){
+  const banner = document.getElementById('cookieConsent');
+  if(!banner) return;
+  const consent = localStorage.getItem('vs_cookie_consent');
+  if(!consent) requestAnimationFrame(() => banner.classList.add('show'));
+}
+function setCookieConsent(value){
+  localStorage.setItem('vs_cookie_consent', JSON.stringify({ value, date: new Date().toISOString() }));
+  document.getElementById('cookieConsent')?.classList.remove('show');
+}
+
+showCookieConsent();
+_sb.auth.getSession().then(({ data: { session } }) => {
+  updateNavUser(session?.user || null);
+  loadMyReadings();
+});
+_sb.auth.onAuthStateChange((_event, session) => {
+  updateNavUser(session?.user || null);
+  closeAuth();
+  loadMyReadings();
+});
+</script>
+</body>
+</html>

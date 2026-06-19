@@ -677,7 +677,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <ul class="nav-links">
     <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
-    <li><a href="#moja-branja" class="nav-link">Moja branja</a></li>
+    <li><a href="moja-branja.html" class="nav-link">Moja branja</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -685,7 +685,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <div class="mobile" id="mobile">
   <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
   <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
-  <a href="#moja-branja" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
+  <a href="moja-branja.html" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
   <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
   <div class="mobile-user" id="mobileUser"></div>
 </div>
@@ -895,7 +895,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><button type="button" class="gallery-btn" onclick="startPotFlow()">Naroči →</button></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><button type="button" class="gallery-btn" onclick="startRazpletFlow()">Naroči →</button></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="#moja-branja" class="gallery-btn">Vstopi →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="moja-branja.html" class="gallery-btn">Vstopi →</a></div></div></div>
   </div>
 </section>
 
@@ -968,36 +968,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <li>1 Razplet mesečno</li>
         <li>Shranjena branja v računu</li>
       </ul>
-      <a href="#moja-branja" class="pricing-btn">Vstopi</a>
-    </div>
-  </div>
-</section>
-
-<section id="moja-branja" class="section-soft">
-  <div class="section-header fade-in">
-    <span class="section-label">Moj prostor</span>
-    <h2 class="section-title">Moja branja.</h2>
-    <div class="section-divider"></div>
-    <p class="section-desc">Tukaj se shranijo branja, h katerim se želiš vrniti, ko besede dobijo nov pomen.</p>
-  </div>
-  <div class="account-panel fade-in">
-    <aside class="account-card" id="accountSummary">
-      <span class="account-kicker">Račun</span>
-      <h3 class="account-name">Prijava odpre tvoj prostor.</h3>
-      <p class="account-muted">Po prijavi boš tukaj videl/a svoj paket, zadnja branja in poročila, ki jih lahko odpreš ali natisneš.</p>
-      <button class="pricing-btn" style="margin-top:1.2rem" onclick="openAuth()">Prijavi se</button>
-    </aside>
-    <div class="account-card">
-      <div class="history-head">
-        <div>
-          <span class="account-kicker">Zgodovina</span>
-          <h3 class="account-name">Zadnja branja</h3>
-        </div>
-        <button class="pricing-btn" onclick="loadMyReadings()">Osveži</button>
-      </div>
-      <div class="history-list" id="readingHistory">
-        <div class="history-empty">Ko odpreš karto ali naročiš branje, se bo tukaj shranil tvoj zapis.</div>
-      </div>
+      <a href="moja-branja.html" class="pricing-btn">Vstopi</a>
     </div>
   </div>
 </section>
@@ -1096,7 +1067,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         </span>
         <span class="upsell-option-meta">
           <span class="upsell-price">9,90 € <span>/ mesec</span></span>
-          <a href="#moja-branja" class="pricing-btn" onclick="closeUpsell()" style="padding:.55rem .85rem;font-size:.68rem">Vstopi</a>
+          <a href="moja-branja.html" class="pricing-btn" onclick="closeUpsell()" style="padding:.55rem .85rem;font-size:.68rem">Vstopi</a>
         </span>
       </div>
     </div>
@@ -1732,6 +1703,7 @@ function renderReadingHistory(readings){
   }).join('');
 }
 async function loadMyReadings(){
+  if(!document.getElementById('readingHistory') || !document.getElementById('accountSummary')) return;
   const { data: { session } } = await _sb.auth.getSession();
   if(!session){
     accountReadings = [];

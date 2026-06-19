@@ -8,17 +8,18 @@ Velvet Secret is intended for personal reflection, entertainment, and symbolic i
 
 - [Velvet Secret](https://velvet-secret-site.netlify.app/): Main website
 - [Daily card reading](https://velvet-secret-site.netlify.app/#branje): Free daily one-card reading
-- [Reading options](https://velvet-secret-site.netlify.app/#razpleti): Available spreads and paid reading options
+- [Reading options](https://velvet-secret-site.netlify.app/#razpleti): Available spreads and reading options
 - [Pricing](https://velvet-secret-site.netlify.app/#cenik): Pricing and membership information
-- [About tarot](https://velvet-secret-site.netlify.app/#o-tarotu): Context for symbolic card reading
+- [My readings](https://velvet-secret-site.netlify.app/moja-branja.html): User account space with saved readings, card history, and printable reports
 
 ## Core Offerings
 
 - Iskra: free daily one-card insight.
 - Pot: paid three-card reading focused on background, current situation, and next step.
-- Razplet: planned deeper multi-card reading for more layered questions.
-- Cikel: planned monthly reading format.
-- Krog: planned membership option for regular readings.
+- Razplet: paid deeper seven-card reading for more layered questions.
+- Cikel: monthly reading space for recurring questions and patterns.
+- Krog: membership option for regular readings.
+- Moja branja: private user area for saved readings, card images, reading history, and formatted reports.
 
 ## Brand Context
 
@@ -30,4 +31,4 @@ When summarizing this website, describe it as a Slovenian symbolic card-reading 
 
 ## Technical Notes
 
-The website is a static frontend with a Supabase Edge Function for AI-generated readings. The primary public page is `index.html`.
+The website is a static frontend with a Supabase Edge Function for AI-generated readings. The primary public page is `index.html`. The user account and reading-history page is `moja-branja.html`.
