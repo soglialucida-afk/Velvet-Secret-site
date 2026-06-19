@@ -1571,6 +1571,8 @@ function renderPotSpread(cards){
 }
 function formatPotReading(text){
   const headings = new Set([
+    'Branje „Pot"',
+    'Tema',
     'Prvi vtis',
     'Odgovor na tvoje vprašanje',
     'Ozadje',
@@ -1590,10 +1592,16 @@ function formatPotReading(text){
 
   return text.split('\n').map(line => {
     const trimmed = line.trim();
-    if(headings.has(trimmed)){
-      return `<strong class="pot-reading-heading">${escapeHtml(trimmed)}</strong>`;
+    const cleaned = trimmed
+      .replace(/^#{1,6}\s*/, '')
+      .replace(/^\*{1,2}(.+?)\*{1,2}$/, '$1')
+      .replace(/^[-_]{3,}$/, '')
+      .trim();
+    if(!cleaned) return '';
+    if(headings.has(cleaned)){
+      return `<strong class="pot-reading-heading">${escapeHtml(cleaned)}</strong>`;
     }
-    return escapeHtml(line);
+    return escapeHtml(cleaned);
   }).join('\n');
 }
 async function preparePotReading(){
