@@ -402,6 +402,10 @@ select.intent-input option:checked,
 .pot-reading-text{white-space:pre-line;color:var(--text);line-height:1.85}
 .pot-reading-heading{display:block;margin:1.35rem 0 .25rem;font-family:var(--display);font-size:1.25rem;line-height:1.3;color:#fff;font-weight:700}
 .pot-payment-note{font-size:.78rem;color:var(--muted);line-height:1.55;margin:.8rem 0 1.2rem;text-align:center}
+.razplet-spread{grid-template-columns:repeat(auto-fit,minmax(116px,1fr))}
+.razplet-spread .pot-card{padding:.85rem}
+.razplet-spread .pot-card img{width:74px}
+.razplet-spread .pot-card-name{font-size:.94rem}
 
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.4rem}
 .gallery-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;cursor:pointer}
@@ -426,7 +430,7 @@ select.intent-input option:checked,
 
 #cenik{background:#15141d;max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 .pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:stretch}
-.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column}
+.pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column;position:relative}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
 .pricing-name{font-family:var(--display);font-size:1.35rem;color:#fff;margin-bottom:.35rem}
 .pricing-desc{font-size:.9rem;color:var(--muted);margin-bottom:1.2rem}
@@ -440,8 +444,9 @@ select.intent-input option:checked,
 .features-toggle:hover{color:#c9b6d9}
 .features-arrow{display:inline-block;transition:transform .25s}
 .features-toggle[aria-expanded="true"] .features-arrow{transform:rotate(180deg)}
-.pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045));position:relative}
-.pricing-card.featured::before{content:"Naročnina";position:absolute;top:-12px;left:2rem;background:var(--violet-light);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.pricing-card.featured{border-color:rgba(199,188,228,.42);background:linear-gradient(160deg,rgba(199,188,228,.1),rgba(168,190,223,.045))}
+.pricing-card[data-badge]::before{content:attr(data-badge);position:absolute;top:-12px;left:2rem;background:rgba(199,188,228,.9);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}
+.pricing-card.featured::before{background:var(--violet-light)}
 .pricing-btn{display:inline-flex;padding:.82rem 1.4rem;border:1px solid rgba(199,188,228,.5);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;transition:.3s;background:rgba(199,188,228,.08)}
 .pricing-btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}
 #confirmBtn{background:var(--violet-deep);border-color:var(--violet-light);color:#fff;font-size:.82rem;padding:1rem 2rem;letter-spacing:.2em}
@@ -698,6 +703,29 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <a href="#cenik" class="pricing-btn">Nazaj na cenik</a>
     </div>
   </div>
+
+  <div class="result" id="razpletResult">
+    <span class="section-label">Razplet · sedem kart</span>
+    <h3>Tvoj Razplet</h3>
+    <p id="razpletIntent" class="reading-question" style="display:none"></p>
+    <div class="pot-spread razplet-spread" id="razpletSpread"></div>
+    <div class="reading-loading" id="razpletLoading">
+      <div class="crystal-wrap">
+        <div class="crystal-ball">
+          <div class="crystal-glow"></div>
+          <div class="crystal-swirl"></div>
+          <div class="crystal-nebula"></div>
+          <div class="crystal-arc"></div>
+        </div>
+      </div>
+      <p class="loading-text">Razplet se sestavlja...</p>
+    </div>
+    <div class="pot-reading-text" id="razpletText" style="display:none"></div>
+    <div class="result-cta" id="razpletCta" style="display:none">
+      <button class="pricing-btn" onclick="document.getElementById('razpletResult').classList.remove('show')">Zapri</button>
+      <a href="#cenik" class="pricing-btn">Nazaj na cenik</a>
+    </div>
+  </div>
 </section>
 
 <section id="zgodba" class="section-soft">
@@ -768,7 +796,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="gallery">
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><button type="button" class="gallery-btn" onclick="startPotFlow()">Naroči →</button></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><button type="button" class="gallery-btn" onclick="startRazpletFlow()">Naroči →</button></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Nekatere zgodbe se ne razkrijejo v enem dnevu.</em><p>Mesečni vpogled v teme, vzorce in premike, ki bodo spremljali tvoje naslednje tedne.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><span class="coming-soon">prihaja kmalu</span></div></div></div>
   </div>
 </section>
@@ -813,25 +841,25 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <p class="section-desc">Lahko ostaneš pri eni karti. Če se vprašanje ne zapre, lahko odpreš še več konteksta.</p>
   </div>
   <div class="pricing-container">
-    <div class="pricing-card fade-in">
+    <div class="pricing-card fade-in" data-badge="Enkratni nakup">
       <h3 class="pricing-name">Iskra</h3>
       <p class="pricing-desc">En simbol za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
       <div class="pricing-price">0 €</div>
       <a href="#branje" class="pricing-btn">Naroči</a>
     </div>
-    <div class="pricing-card fade-in">
+    <div class="pricing-card fade-in" data-badge="Enkratni nakup">
       <h3 class="pricing-name">Pot</h3>
       <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
       <div class="pricing-price">4,90 €</div>
       <button class="pricing-btn" onclick="startPotFlow()">Nadaljuj</button>
     </div>
-    <div class="pricing-card fade-in">
+    <div class="pricing-card fade-in" data-badge="Enkratni nakup">
       <h3 class="pricing-name">Razplet</h3>
       <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš razrešiti z enim stavkom.</p>
       <div class="pricing-price">14,90 €</div>
-      <span class="coming-soon" style="margin-top:auto">prihaja kmalu</span>
+      <button class="pricing-btn" onclick="startRazpletFlow()">Nadaljuj</button>
     </div>
-    <div class="pricing-card featured fade-in">
+    <div class="pricing-card featured fade-in" data-badge="Naročnina">
       <h3 class="pricing-name">Cikel</h3>
       <p class="pricing-desc">Mesečni prostor za vprašanja, ki se vračajo, spreminjajo in zorijo s tabo.</p>
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
@@ -920,7 +948,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         </span>
         <span class="upsell-option-meta">
           <span class="upsell-price">14,90 €</span>
-          <span class="coming-soon">prihaja kmalu</span>
+          <button class="pricing-btn" onclick="startRazpletFlow()" style="padding:.55rem .85rem;font-size:.68rem">Nadaljuj</button>
         </span>
       </div>
       <div class="upsell-option">
@@ -971,6 +999,35 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </div>
 
+<div class="modal-bg" id="razpletModal" role="dialog" aria-modal="true" aria-labelledby="razpletTitle" onclick="if(event.target===this)closeRazpletModal()">
+  <div class="modal" style="max-width:560px">
+    <button class="close" onclick="closeRazpletModal()" aria-label="Zapri">×</button>
+    <span class="section-label">Razplet · 14,90 €</span>
+    <h3 id="razpletTitle">Zemljevid celotne situacije.</h3>
+    <p class="sub-t">Sedem kart za vprašanja, kjer potrebuješ več kot naslednji korak: jedro, skrito napetost, tvojo vlogo, zunanji vpliv in smer za naslednjih 30 dni.</p>
+    <div class="field">
+      <label for="razpletTopic">Področje</label>
+      <div class="custom-select" id="razpletTopicSelect">
+        <input type="hidden" id="razpletTopic" value="Splošno">
+        <button type="button" class="cs-trigger"><span>Splošno</span></button>
+        <div class="cs-options">
+          <div class="cs-opt selected" data-value="Splošno">Splošno</div>
+          <div class="cs-opt" data-value="Ljubezen">Ljubezen</div>
+          <div class="cs-opt" data-value="Delo">Delo</div>
+          <div class="cs-opt" data-value="Denar">Denar</div>
+          <div class="cs-opt" data-value="Osebna rast">Osebna rast</div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="razpletQuestion">Vprašanje</label>
+      <textarea class="intent-input" id="razpletQuestion" rows="5" placeholder="Zapiši situacijo, ki ima več plasti ..."></textarea>
+    </div>
+    <p class="pot-payment-note">V testni fazi ta gumb preskoči plačilo za 14,90 € in pripravi realno AI branje za evalvacijo.</p>
+    <button class="pricing-btn" onclick="prepareRazpletReading()">Pripravi Razplet</button>
+  </div>
+</div>
+
 <div class="modal-bg" id="readingModal" role="dialog" aria-modal="true" aria-labelledby="readingTitle" onclick="if(event.target===this)closeReading()">
   <div class="modal" style="max-width:520px">
     <button class="close" onclick="closeReading()" aria-label="Zapri">×</button>
@@ -1016,7 +1073,7 @@ function toggleMenu(open){
 }
 hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeReading(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeRazpletModal(); closeReading(); } });
 
 function initHeroVideoLoop(){
   const videos = Array.from(document.querySelectorAll('[data-hero-video]'));
@@ -1562,6 +1619,21 @@ async function startPotFlow(){
 function closePotModal(){
   document.getElementById('potModal').classList.remove('open');
 }
+async function startRazpletFlow(){
+  closeUpsell();
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){ openAuth(); return; }
+  const selectedTopic = topic || document.querySelector('.topic.active')?.dataset.topic || 'Splošno';
+  const currentIntent = document.getElementById('intent')?.value.trim() || '';
+  document.getElementById('razpletTopic').value = selectedTopic;
+  syncCustomSelect('razpletTopicSelect', selectedTopic);
+  document.getElementById('razpletQuestion').value = currentIntent;
+  document.getElementById('razpletModal').classList.add('open');
+  setTimeout(() => document.getElementById('razpletQuestion').focus(), 80);
+}
+function closeRazpletModal(){
+  document.getElementById('razpletModal').classList.remove('open');
+}
 function renderPotSpread(cards){
   const roles = ['Ozadje', 'Zdaj', 'Naslednji korak'];
   document.getElementById('potSpread').innerHTML = cards.map((card, i) => `
@@ -1574,15 +1646,36 @@ function renderPotSpread(cards){
     </div>
   `).join('');
 }
+function renderRazpletSpread(cards){
+  const roles = ['Jedro', 'Vidno', 'Skrito', 'Tvoja vloga', 'Zunanji vpliv', 'Možna smer', 'Naslednji korak'];
+  document.getElementById('razpletSpread').innerHTML = cards.map((card, i) => `
+    <div class="pot-card">
+      <img src="${card.img}" alt="">
+      <div>
+        <span class="pot-card-role">${roles[i]}</span>
+        <span class="pot-card-name">${card.name}</span>
+      </div>
+    </div>
+  `).join('');
+}
 function formatPotReading(text){
   const headings = new Set([
     'Branje „Pot"',
+    'Branje „Razplet"',
     'Tema',
     'Prvi vtis',
     'Odgovor na tvoje vprašanje',
     'Ozadje',
     'Zdaj',
     'Naslednji korak',
+    'Jedro vprašanja',
+    'Vidna situacija',
+    'Skrita napetost',
+    'Tvoja vloga',
+    'Druga stran ali zunanji vpliv',
+    'Če se nič ne spremeni',
+    'Če spremeniš pristop',
+    'Naslednjih 30 dni',
     'Kako se karte povežejo',
     'V naslednjih 7 dneh',
     'Česa ne forsiraj',
@@ -1663,6 +1756,61 @@ async function preparePotReading(){
   document.getElementById('potText').style.display = '';
   document.getElementById('potText').innerHTML = formatPotReading(errorMessage || text);
   document.getElementById('potCta').style.display = '';
+}
+async function prepareRazpletReading(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){ closeRazpletModal(); openAuth(); return; }
+
+  const razpletTopic = document.getElementById('razpletTopic').value;
+  const intent = document.getElementById('razpletQuestion').value.trim();
+  const cards = shuffleDeck(tarotDeck).slice(0, 7);
+
+  closeRazpletModal();
+  document.getElementById('razpletIntent').style.display = intent ? '' : 'none';
+  document.getElementById('razpletIntent').textContent = intent ? `„${intent}"` : '';
+  renderRazpletSpread(cards);
+  document.getElementById('razpletText').style.display = 'none';
+  document.getElementById('razpletCta').style.display = 'none';
+  document.getElementById('razpletLoading').style.display = 'flex';
+  document.getElementById('razpletResult').classList.add('show');
+  document.getElementById('razpletResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  let text = '';
+  let errorMessage = '';
+  try {
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session?.access_token ? { 'Authorization': `Bearer ${session.access_token}` } : {})
+        },
+        body: JSON.stringify({
+          readingType: 'razplet',
+          cards: cards.map(card => ({ name: card.name, kind: card.kind })),
+          topic: razpletTopic,
+          intent
+        })
+      }),
+      new Promise(r => setTimeout(r, 2200))
+    ]);
+    const data = await res.json();
+    if(!res.ok || data.error){
+      throw new Error(data?.detail || data?.error || 'Razplet reading failed');
+    }
+    text = data.text || '';
+    if(!text.trim()){
+      throw new Error('Razplet reading returned empty text');
+    }
+  } catch (error) {
+    console.warn('Razplet reading failed', error);
+    errorMessage = 'Razpleta trenutno ni bilo mogoče pripraviti. To ni tvoje branje in tega ne bi smeli prikazati kot plačljiv rezultat. Poskusi znova čez trenutek.';
+  }
+
+  document.getElementById('razpletLoading').style.display = 'none';
+  document.getElementById('razpletText').style.display = '';
+  document.getElementById('razpletText').innerHTML = formatPotReading(errorMessage || text);
+  document.getElementById('razpletCta').style.display = '';
 }
 
 async function showResult2(card, topicLabel){

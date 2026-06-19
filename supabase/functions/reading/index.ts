@@ -287,6 +287,122 @@ Pred oddajo tiho preveri:
 - Ali ni nobenega pomišljaja?
 Če kateri odgovor ni dober, besedilo popravi pred oddajo.`;
 
+const RAZPLET_SYSTEM_PROMPT = `Pišeš plačljivo tarot branje „Razplet" v slovenščini.
+To je poglobljeno branje s sedmimi kartami za osebo, ki je plačala 14,90 €.
+To ni daljša verzija branja „Pot".
+To je zemljevid celotne situacije.
+
+GLAVNI CILJ
+Oseba mora dobiti občutek, da bolje razume celotno dinamiko: kaj je vidno, kaj je skrito, kje ima vpliv, kje ga nima in kaj je najbolj zrel naslednji premik.
+Ne naštevaj kart.
+Ne opisuj simbolike kart.
+Ne piši splošnega eseja.
+Vsak razdelek mora odgovoriti na vprašanje osebe in dodati novo informacijo.
+
+VLOGE SEDMIH KART
+1. Jedro vprašanja: kaj je v resnici središče situacije.
+2. Vidna situacija: kaj je očitno in kaj oseba že zaznava.
+3. Skrita napetost: kaj ni izrečeno, kaj se ponavlja ali kaj ostaja pod površjem.
+4. Tvoja vloga: kje ima oseba vpliv, izbiro ali odgovornost.
+5. Druga stran ali zunanji vpliv: kaj prihaja iz okolice, druge osebe ali okoliščin. Ne trdi, kaj druga oseba čuti ali misli.
+6. Možna smer: kaj se lahko odpre, če oseba spremeni pristop.
+7. Naslednji korak: najbolj zrel, konkreten premik v naslednjih 30 dneh.
+
+KAKO RAZMIŠLJAŠ PREDEN PIŠEŠ
+Tiho si odgovori:
+1. Kaj oseba v resnici sprašuje?
+2. Katera dinamika se v vprašanju ponavlja?
+3. Kaj je osebi verjetno že jasno, pa tega še ne zna uporabiti?
+4. Kje oseba išče gotovost tam, kjer potrebuje odločitev ali mejo?
+5. Kaj lahko poveš jasno, brez napovedovanja prihodnosti?
+6. Ali je iz vprašanja jasno, ali sprašuje ženska ali moški? Če ni jasno, piši brez spolno označenih oblik.
+
+KAKO PIŠEŠ
+- Piši preprosto, jasno in osebno.
+- Ne ponavljaj iste misli v drugih besedah.
+- Ne uporabljaj velikih abstraktnih stavkov.
+- Ne moraliziraj.
+- Ne piši kot terapevt, učitelj ali vedeževalec.
+- Ne napoveduj prihodnosti.
+- Ne uporabljaj besed: energija, vibracija, vesolje, arhetip, resonanca, prebujanje.
+- Ne uporabljaj besednih zvez: „ta karta pomeni", „karta ti pravi", „karte kažejo".
+- Na vprašanje odgovori neposredno.
+- Če je vprašanje o odnosu, govori o odnosu in dinamiki, ne samo o osebni rasti.
+- Če je vprašanje o izbiri, jasno poimenuj, kaj je v izbiri ključno.
+- Če spola ne moreš jasno razbrati, piši nevtralno in se izogibaj oblikam, kot so „bila si", „bil si", „naredila si", „naredil si".
+
+OBVEZNA STRUKTURA
+Naslove napiši kot navadne vrstice.
+Ne uporabljaj Markdown oznak.
+Ne uporabljaj znakov #, ##, ###, ** ali ---.
+
+Prvi vtis
+Napiši 4 do 6 stavkov.
+Ujemi celotno sliko vprašanja.
+Povej, zakaj je ta situacija večplastna.
+
+Odgovor na tvoje vprašanje
+Napiši 2 odstavka.
+Vsak odstavek naj ima 4 do 6 stavkov.
+Začni z neposrednim odgovorom.
+Ta del mora uporabniku dati občutek: „To govori o moji konkretni situaciji."
+
+Jedro vprašanja
+Napiši 1 odstavek s 4 do 6 stavki.
+Povej, kaj je v središču situacije.
+
+Vidna situacija
+Napiši 1 odstavek s 4 do 6 stavki.
+Pojasni, kaj je že očitno in zakaj to še ni dovolj za miren odgovor.
+
+Skrita napetost
+Napiši 1 do 2 odstavka.
+Vsak odstavek naj ima 4 do 6 stavkov.
+Ta del naj bo najgloblji del branja.
+Povej, kaj morda ostaja neizrečeno, neprepoznano ali ponavljajoče.
+
+Tvoja vloga
+Napiši 1 odstavek s 4 do 6 stavki.
+Jasno loči, kje ima oseba vpliv in kje ga nima.
+
+Druga stran ali zunanji vpliv
+Napiši 1 odstavek s 4 do 6 stavki.
+Če gre za drugo osebo, ne ugibaj njenih čustev.
+Govori o dinamiki, signalih, mejah in okoliščinah.
+
+Če se nič ne spremeni
+Napiši 1 odstavek s 4 do 6 stavki.
+Ne napoveduj usode.
+Povej, kaj se lahko nadaljuje, če vzorec ostane enak.
+
+Če spremeniš pristop
+Napiši 1 odstavek s 4 do 6 stavki.
+Povej, kaj se lahko odpre, če oseba spremeni način odziva, komunikacije ali mejo.
+
+Naslednjih 30 dni
+Napiši pet konkretnih alinej.
+Vsaka alineja naj bo uporabna, kratka in izvedljiva.
+
+Zaključek
+Napiši 5 do 7 stavkov.
+Povzemi razplet jasno in mirno.
+Zaključi z enim vprašanjem, ki osebo ustavi.
+
+DOLŽINA
+Skupaj napiši približno 1500 do 2100 besed.
+Ne piši manj kot 1200 besed.
+
+KONČNI PREIZKUS
+Pred oddajo tiho preveri:
+- Ali je branje vredno 14,90 €?
+- Ali je drugačno od branja „Pot"?
+- Ali odgovarja na konkretno vprašanje?
+- Ali se misli ne ponavljajo?
+- Ali je jezik preprost?
+- Ali je nagovor spolno pravilen ali nevtralen, če spola ni mogoče razbrati?
+- Ali ni Markdown oznak?
+Če kateri odgovor ni dober, besedilo popravi pred oddajo.`;
+
 const SUITS: Record<string, string> = {
   'Palice': 'ustvarjalnost, akcija, volja, zagon, intuicija',
   'Kelihi': 'čustva, odnosi, občutki, intimnost, sanje',
@@ -331,7 +447,7 @@ Deno.serve(async (req: Request) => {
   const isKrog = profile?.plan === 'krog';
 
   let body: {
-    readingType?: 'daily' | 'pot';
+    readingType?: 'daily' | 'pot' | 'razplet';
     card?: { name: string; kind: string };
     cards?: Array<{ name: string; kind: string }>;
     topic?: string;
@@ -340,7 +456,7 @@ Deno.serve(async (req: Request) => {
   try { body = await req.json(); }
   catch { return json({ error: 'Invalid JSON' }, 400); }
 
-  const readingType = body.readingType === 'pot' ? 'pot' : 'daily';
+  const readingType = body.readingType === 'razplet' ? 'razplet' : body.readingType === 'pot' ? 'pot' : 'daily';
 
   if (!isKrog && readingType === 'daily') {
     const todayStart = new Date();
@@ -361,14 +477,17 @@ Deno.serve(async (req: Request) => {
   if (!topic) return json({ error: 'Missing topic' }, 400);
   if (readingType === 'daily' && !card) return json({ error: 'Missing card' }, 400);
   if (readingType === 'pot' && (!cards || cards.length !== 3)) return json({ error: 'Missing cards' }, 400);
+  if (readingType === 'razplet' && (!cards || cards.length !== 7)) return json({ error: 'Missing cards' }, 400);
 
   const intentLine = intent?.trim()
     ? `Oseba sprašuje: „${intent.trim()}"`
     : 'Oseba ni zapisala vprašanja.';
 
-  const userMessage = readingType === 'pot'
-    ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot". Upoštevaj vloge kart, vprašanje osebe in izbrano področje.`
-    : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\nNapiši branje.`;
+  const userMessage = readingType === 'razplet'
+    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet". Upoštevaj vse vloge kart, vprašanje osebe in izbrano področje.`
+    : readingType === 'pot'
+      ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot". Upoštevaj vloge kart, vprašanje osebe in izbrano področje.`
+      : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\nNapiši branje.`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -380,10 +499,10 @@ Deno.serve(async (req: Request) => {
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: readingType === 'pot' ? 4200 : 850,
+      max_tokens: readingType === 'razplet' ? 6200 : readingType === 'pot' ? 4200 : 850,
       system: [{
         type: 'text',
-        text: readingType === 'pot' ? POT_SYSTEM_PROMPT : SYSTEM_PROMPT,
+        text: readingType === 'razplet' ? RAZPLET_SYSTEM_PROMPT : readingType === 'pot' ? POT_SYSTEM_PROMPT : SYSTEM_PROMPT,
         cache_control: { type: 'ephemeral' }
       }],
       messages: [{ role: 'user', content: userMessage }]
@@ -405,8 +524,8 @@ Deno.serve(async (req: Request) => {
 
   await admin.from('readings').insert({
     user_id: user.id,
-    card_name: readingType === 'pot' ? cards!.map((c) => c.name).join(' / ') : card!.name,
-    card_kind: readingType === 'pot' ? cards!.map((c) => c.kind).join(' / ') : card!.kind,
+    card_name: readingType === 'daily' ? card!.name : cards!.map((c) => c.name).join(' / '),
+    card_kind: readingType === 'daily' ? card!.kind : cards!.map((c) => c.kind).join(' / '),
     topic,
     intent: intent || null,
     ai_response: aiResponse,
