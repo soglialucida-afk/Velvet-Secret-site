@@ -96,6 +96,20 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
 .history-cards img{width:42px;aspect-ratio:5/8;object-fit:cover;border:1px solid rgba(199,188,228,.18);background:#090912}
 .history-actions{display:flex;flex-direction:column;gap:.55rem;min-width:150px}
 .empty{border:1px dashed rgba(199,188,228,.24);background:rgba(255,255,255,.025);padding:1.4rem;color:var(--muted);line-height:1.7}
+.btn.danger{border-color:rgba(220,80,80,.32);background:rgba(220,80,80,.055);color:rgba(240,140,140,.9)}
+.btn.danger:hover{background:rgba(220,80,80,.14);border-color:rgba(220,80,80,.58);color:#fff}
+.delete-account-zone{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(199,188,228,.08)}
+.delete-account-zone button{background:none;border:0;color:var(--muted-dark);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+.delete-account-zone button:hover{color:rgba(220,100,100,.8)}
+.warn-box{background:rgba(220,80,80,.06);border:1px solid rgba(220,80,80,.18);padding:1rem 1.1rem;margin-bottom:1.2rem}
+.warn-box p{font-size:.87rem;color:var(--text);line-height:1.75}
+.warn-box strong{color:rgba(240,140,140,.9)}
+.check-label{display:flex;gap:.75rem;align-items:flex-start;cursor:pointer;font-size:.88rem;color:var(--text);line-height:1.6;margin-top:.2rem}
+.check-label input{margin-top:.22rem;accent-color:var(--violet-deep);flex-shrink:0}
+.deletion-receipt{border:1px solid var(--line-soft);background:rgba(199,188,228,.03);padding:1.4rem;margin-bottom:2rem}
+.deletion-receipt .receipt-label{display:block;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.85rem}
+.deletion-receipt table{width:100%;border-collapse:collapse;font-size:.9rem;color:var(--text);line-height:2}
+.deletion-receipt td:first-child{color:var(--muted);width:35%;padding-right:.75rem}
 
 .modal-bg{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 28%,rgba(127,108,175,.16),transparent 34%),rgba(17,16,24,.88);backdrop-filter:blur(10px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-bg.open{display:flex}
@@ -279,6 +293,41 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
   </div>
 </div>
 
+<div class="modal-bg" id="deleteAccountModal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle" onclick="if(event.target===this)closeDeleteAccount()">
+  <div class="modal" style="max-width:480px">
+    <button class="close" onclick="closeDeleteAccount()" aria-label="Zapri">×</button>
+    <h3 id="deleteAccountTitle" style="margin-bottom:.45rem">Izbriši račun</h3>
+    <p class="sub-t" style="margin-bottom:1.4rem">Trajno brisanje vseh tvojih podatkov</p>
+    <div class="warn-box">
+      <p><strong>Pozor — tega ni mogoče razveljaviti.</strong><br>
+      Izbrisali bodo se:<br>
+      · vsa shranjena branja in poročila<br>
+      · tvoj profil in nastavitve<br>
+      · tvoj račun (ne boš se mogla več prijaviti z istim računom)</p>
+    </div>
+    <label class="check-label">
+      <input type="checkbox" id="deleteAccountCheck" onchange="document.getElementById('deleteAccountBtn').disabled=!this.checked">
+      Razumem, da bodo vsi moji podatki trajno izbrisani in da tega dejanja ni mogoče razveljaviti.
+    </label>
+    <div class="modal-actions" style="margin-top:1.5rem">
+      <button class="btn danger" id="deleteAccountBtn" onclick="confirmDeleteAccount()" disabled>Izbriši račun in podatke</button>
+      <button class="btn" onclick="closeDeleteAccount()">Prekliči</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle" onclick="if(event.target===this)closeDeleteConfirm()">
+  <div class="modal" style="max-width:420px">
+    <button class="close" onclick="closeDeleteConfirm()" aria-label="Zapri">×</button>
+    <h3 id="deleteTitle" style="margin-bottom:.55rem">Izbriši branje?</h3>
+    <p class="sub-t" style="margin-bottom:1.6rem">Tega dejanja ni mogoče razveljaviti. Branje bo trajno odstranjeno.</p>
+    <div class="modal-actions">
+      <button class="btn danger" id="deleteConfirmBtn" onclick="confirmDelete()">Da, izbriši</button>
+      <button class="btn" onclick="closeDeleteConfirm()">Prekliči</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const _sb = supabase.createClient(
   'https://pdibcrfpqenougebkbse.supabase.co',
@@ -298,7 +347,7 @@ function toggleMenu(open){
 }
 hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeReport(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeReport(); closeDeleteConfirm(); closeDeleteAccount(); } });
 
 function esc(value = ''){
   return String(value)
@@ -446,6 +495,9 @@ function renderAccountSummary(user, profile, readings){
       <div class="stat"><strong>${paidCount}</strong><span>plačljivih</span></div>
     </div>
     <p class="account-note">Poročilo lahko odpreš, natisneš ali shraniš kot PDF iz posameznega branja.</p>
+    <div class="delete-account-zone">
+      <button onclick="openDeleteAccount()">Izbriši račun in vse moje podatke</button>
+    </div>
   `;
 }
 function renderReadingHistory(readings){
@@ -473,6 +525,7 @@ function renderReadingHistory(readings){
         <div class="history-actions">
           <button class="btn" onclick="openReadingReport(${index})">Odpri</button>
           <button class="btn primary" onclick="openReadingReport(${index});setTimeout(printReport,120)">Poročilo</button>
+          <button class="btn danger" onclick="openDeleteConfirm('${esc(reading.id)}')">Izbriši</button>
         </div>
       </article>
     `;
@@ -529,6 +582,114 @@ function closeReport(){
 function printReport(){
   window.print();
 }
+const DELETE_ACCOUNT_URL = 'https://pdibcrfpqenougebkbse.supabase.co/functions/v1/delete-account';
+
+function openDeleteAccount(){
+  const check = document.getElementById('deleteAccountCheck');
+  if(check) check.checked = false;
+  const btn = document.getElementById('deleteAccountBtn');
+  if(btn) btn.disabled = true;
+  document.getElementById('deleteAccountModal').classList.add('open');
+}
+function closeDeleteAccount(){
+  document.getElementById('deleteAccountModal').classList.remove('open');
+}
+async function confirmDeleteAccount(){
+  const btn = document.getElementById('deleteAccountBtn');
+  btn.disabled = true;
+  btn.textContent = 'Brišem…';
+
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    closeDeleteAccount();
+    return;
+  }
+
+  let result;
+  try {
+    const res = await fetch(DELETE_ACCOUNT_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${session.access_token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    result = await res.json();
+    if(!res.ok) throw new Error(result.error || 'Napaka strežnika');
+  } catch(err){
+    btn.disabled = false;
+    btn.textContent = 'Izbriši račun in podatke';
+    closeDeleteAccount();
+    alert('Brisanje računa ni uspelo: ' + (err.message || 'Neznana napaka') + '\nProsimo, poizkusi znova ali nas kontaktiraj na info@velvet-secret.si.');
+    return;
+  }
+
+  closeDeleteAccount();
+  await _sb.auth.signOut({ scope: 'local' });
+  localStorage.removeItem('vs_cookie_consent');
+  showDeletionReceipt(result.email, result.deleted_at, result.reference);
+}
+
+function showDeletionReceipt(email, deletedAt, reference){
+  const formatted = new Intl.DateTimeFormat('sl-SI', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  }).format(new Date(deletedAt));
+
+  document.querySelector('main').innerHTML = `
+    <div class="shell" style="display:flex;align-items:center;justify-content:center;min-height:65vh;padding:2rem 0">
+      <div style="max-width:580px;width:100%">
+        <span class="section-label" style="display:block;margin-bottom:1.2rem">Račun izbrisan</span>
+        <h1 style="font-size:clamp(2rem,5vw,3.4rem);margin-bottom:1.1rem;line-height:1.1">Tvoji podatki so bili trajno izbrisani.</h1>
+        <p style="color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:520px">
+          Vsa tvoja branja, profil in račun so bili odstranjeni iz naše baze podatkov. Ne hranimo nobenega zapisa, ki bi bil povezan s tabo. Tega dejanja ni mogoče razveljaviti.
+        </p>
+        <div class="deletion-receipt">
+          <span class="receipt-label">Potrdilo o izbrisu — priporočamo, da to shranite</span>
+          <table>
+            <tr><td>E-pošta</td><td><strong>${esc(email || '—')}</strong></td></tr>
+            <tr><td>Datum in čas</td><td><strong>${esc(formatted)}</strong></td></tr>
+            <tr><td>Referenca</td><td><strong style="font-size:.82rem;letter-spacing:.04em">${esc(reference || '—')}</strong></td></tr>
+          </table>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+          <button class="btn" onclick="window.print()" style="font-size:.64rem">Natisni potrdilo</button>
+          <a href="index.html" class="btn primary">Nazaj na začetno stran</a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+let _pendingDeleteId = null;
+function openDeleteConfirm(id){
+  _pendingDeleteId = id;
+  document.getElementById('deleteModal').classList.add('open');
+}
+function closeDeleteConfirm(){
+  _pendingDeleteId = null;
+  document.getElementById('deleteModal').classList.remove('open');
+}
+async function confirmDelete(){
+  if(!_pendingDeleteId) return;
+  const id = _pendingDeleteId;
+  const btn = document.getElementById('deleteConfirmBtn');
+  btn.disabled = true;
+  btn.textContent = 'Brišem…';
+  const { error } = await _sb.from('readings').delete().eq('id', id);
+  btn.disabled = false;
+  btn.textContent = 'Da, izbriši';
+  closeDeleteConfirm();
+  if(error){
+    alert('Brisanje ni uspelo. Poskusi znova.');
+    return;
+  }
+  accountReadings = accountReadings.filter(r => String(r.id) !== String(id));
+  const { data: { session } } = await _sb.auth.getSession();
+  if(session) renderAccountSummary(session.user, null, accountReadings);
+  renderReadingHistory(filteredReadings());
+}
+
 function showCookieConsent(){
   const banner = document.getElementById('cookieConsent');
   if(!banner) return;
