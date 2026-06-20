@@ -241,15 +241,11 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .intro-copy{padding:2.4rem 2rem 2.5rem}
 .intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
 .intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
-.blog-teasers{margin-top:4rem;border-top:1px solid rgba(199,188,228,.08);padding-top:3.2rem}
-.blog-teasers .section-header{margin-bottom:2.2rem}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.blog-card{border:1px solid var(--line-soft);background:rgba(255,255,255,.032);padding:1.55rem;display:flex;flex-direction:column;min-height:100%;transition:.35s}
-.blog-card:hover{transform:translateY(-4px);border-color:rgba(199,188,228,.28);background:rgba(255,255,255,.045)}
-.blog-kicker{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.7rem}
-.blog-card h3{font-family:var(--display);font-size:1.28rem;font-weight:500;color:#fff;line-height:1.25;margin-bottom:.75rem}
-.blog-card p{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:1.2rem}
-.blog-card .gallery-btn{align-self:flex-start;margin-top:auto}
+.intro-blog{margin-top:1.6rem;padding-top:1.25rem;border-top:1px solid rgba(199,188,228,.1);text-align:left}
+.intro-blog-label{display:block;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.45rem;text-align:center}
+.intro-blog h4{font-family:var(--display);font-size:1.08rem;font-weight:500;color:#fff;line-height:1.28;text-align:center;margin-bottom:.55rem}
+.intro-blog p{font-size:.84rem;line-height:1.6;text-align:center;margin-bottom:1rem;color:rgba(150,144,163,.92)}
+.intro-blog .gallery-btn{display:inline-flex;margin:0 auto}
 
 #branje{background:var(--bg-soft);max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 #branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
@@ -597,7 +593,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 @keyframes modalOracleIn{from{opacity:0;transform:translateY(16px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 
 @media(max-width:900px){
-  .intro-grid,.blog-grid,.gallery,.account-grid{grid-template-columns:1fr}
+  .intro-grid,.gallery,.account-grid{grid-template-columns:1fr}
   .account-panel{grid-template-columns:1fr}
   .history-item{grid-template-columns:1fr}
   .history-actions{min-width:0;flex-direction:row;flex-wrap:wrap}
@@ -703,6 +699,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <a href="#vrh" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
     <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
+    <li><a href="#zgodba" class="nav-link">Blog</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
     <li><a href="moja-branja.html" class="nav-link">Moja branja</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
@@ -711,6 +708,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 </nav>
 <div class="mobile" id="mobile">
   <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
+  <a href="#zgodba" class="mobile-link" onclick="toggleMenu(false)">Blog</a>
   <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
   <a href="moja-branja.html" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
   <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
@@ -866,6 +864,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <div class="intro-icon">☾</div>
         <h3>Občutek</h3>
         <p>Nekaj te vleče v določeno smer, pa še ne veš zakaj. Vprašanje še nima oblike, občutek pa je že prisoten.</p>
+        <div class="intro-blog">
+          <span class="intro-blog-label">Preberi globlje</span>
+          <h4>Jung in simboli</h4>
+          <p>Zakaj nas nekatere podobe ustavijo, še preden jih znamo razložiti.</p>
+          <a class="gallery-btn" href="jung-in-simboli.html">Preberi več</a>
+        </div>
       </div>
     </div>
     <div class="intro-card fade-in">
@@ -874,6 +878,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <div class="intro-icon">✦</div>
         <h3>Simbol</h3>
         <p>Karta ne napoveduje prihodnosti. Pokaže simbol, skozi katerega lahko drugače pogledaš svojo situacijo.</p>
+        <div class="intro-blog">
+          <span class="intro-blog-label">Preberi globlje</span>
+          <h4>Kako se berejo karte</h4>
+          <p>Karte kot simbolni zemljevid, brez obljube gotovih odgovorov.</p>
+          <a class="gallery-btn" href="kako-se-berejo-karte.html">Preberi več</a>
+        </div>
       </div>
     </div>
     <div class="intro-card fade-in">
@@ -882,36 +892,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <div class="intro-icon">◈</div>
         <h3>Pomen</h3>
         <p>Včasih odgovor ni nova informacija. Je trenutek, ko prepoznaš nekaj, kar si že vedel.</p>
+        <div class="intro-blog">
+          <span class="intro-blog-label">Preberi globlje</span>
+          <h4>Ko se psihologija sreča s kartami</h4>
+          <p>Kje se podoba, vprašanje in notranji vzorec srečajo.</p>
+          <a class="gallery-btn" href="psihologija-in-karte.html">Preberi več</a>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="blog-teasers">
-    <div class="section-header fade-in">
-      <span class="section-label">Preberi globlje</span>
-      <h2 class="section-title">Kjer simbol dobi pomen.</h2>
-      <div class="section-divider"></div>
-      <p class="section-desc">Trije zapisi o simbolih, branju kart in prostoru, kjer se notranji vzorec sreča s podobo.</p>
-    </div>
-    <div class="blog-grid">
-      <article class="blog-card fade-in">
-        <span class="blog-kicker">Jungovski pogled</span>
-        <h3>Jung in simboli</h3>
-        <p>Zakaj nas nekatere podobe ustavijo, še preden jih znamo razložiti, in kako lahko simbol odpre prostor za razmislek.</p>
-        <a class="gallery-btn" href="jung-in-simboli.html">Preberi več</a>
-      </article>
-      <article class="blog-card fade-in">
-        <span class="blog-kicker">Branje kart</span>
-        <h3>Kako se berejo karte</h3>
-        <p>O kartah kot simbolnem zemljevidu: ena karta, tri karte ali širša postavitev, brez obljube gotovih odgovorov.</p>
-        <a class="gallery-btn" href="kako-se-berejo-karte.html">Preberi več</a>
-      </article>
-      <article class="blog-card fade-in">
-        <span class="blog-kicker">Kombinacija</span>
-        <h3>Ko se psihologija sreča s kartami</h3>
-        <p>Kako lahko podoba, vprašanje in postavitev pomagajo prepoznati vzorec, napetost ali naslednji korak.</p>
-        <a class="gallery-btn" href="psihologija-in-karte.html">Preberi več</a>
-      </article>
     </div>
   </div>
 </section>
