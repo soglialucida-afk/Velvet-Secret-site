@@ -256,20 +256,25 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 
 /* crystal ball loading */
 .reading-loading{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.5rem;gap:1.2rem}
-.crystal-wrap{position:relative;width:80px;height:80px}
-.crystal-ball{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 34% 30%,rgba(240,248,255,.78) 0%,rgba(168,190,223,.44) 20%,rgba(110,130,159,.3) 48%,rgba(17,16,24,.78) 78%);border:1px solid rgba(168,190,223,.72);box-shadow:0 0 18px rgba(168,190,223,.55),0 0 42px rgba(110,130,159,.42),0 0 78px rgba(168,190,223,.2),inset 0 0 24px rgba(168,190,223,.25),inset 0 -12px 26px rgba(8,12,22,.72);position:relative;overflow:hidden;animation:crystalPulse 2.4s ease-in-out infinite}
-.crystal-glow{position:absolute;top:15%;left:20%;width:32%;height:24%;border-radius:50%;background:rgba(235,246,255,.62);filter:blur(3px);box-shadow:0 0 18px rgba(168,190,223,.75)}
-.crystal-swirl{position:absolute;inset:-8%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 42%,rgba(168,190,223,.06) 48%,rgba(168,190,223,.78) 58%,rgba(240,248,255,.58) 62%,rgba(110,130,159,.22) 70%,transparent 82% 100%);filter:drop-shadow(0 0 8px rgba(168,190,223,.52));animation:crystalSpin 2.5s linear infinite}
-.crystal-nebula{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 62% 70%,rgba(110,130,159,.58) 0%,transparent 56%),radial-gradient(ellipse at 30% 42%,rgba(168,190,223,.36) 0%,transparent 48%),radial-gradient(circle at 50% 54%,rgba(240,248,255,.2),transparent 38%);animation:nebulaShift 4s ease-in-out infinite}
-.crystal-arc{position:absolute;inset:0;border-radius:50%;overflow:hidden;animation:lightningArc 2.8s ease-in-out infinite}
-.crystal-arc::before{content:'';position:absolute;top:20%;left:35%;width:2px;height:45%;background:linear-gradient(to bottom,transparent,rgba(168,190,223,.85),rgba(200,230,255,.6),transparent);transform:rotate(-18deg);filter:blur(.8px);border-radius:2px}
-.crystal-arc::after{content:'';position:absolute;top:30%;left:55%;width:1px;height:30%;background:linear-gradient(to bottom,transparent,rgba(168,190,223,.6),transparent);transform:rotate(12deg);filter:blur(.5px);border-radius:1px}
-@keyframes crystalPulse{0%,100%{box-shadow:0 0 18px rgba(168,190,223,.5),0 0 42px rgba(110,130,159,.34),0 0 70px rgba(168,190,223,.16),inset 0 0 22px rgba(168,190,223,.2),inset 0 -12px 26px rgba(8,12,22,.72)}50%{box-shadow:0 0 28px rgba(210,230,255,.72),0 0 62px rgba(168,190,223,.46),0 0 100px rgba(110,130,159,.28),inset 0 0 34px rgba(168,190,223,.36),inset 0 -10px 22px rgba(8,12,22,.62)}}
-@keyframes crystalSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes nebulaShift{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes lightningArc{0%,100%{opacity:.2}45%{opacity:.8}50%{opacity:1}55%{opacity:.7}60%{opacity:.3}70%{opacity:.8}75%{opacity:.5}}
-.loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2s ease-in-out infinite}
-@keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
+.crystal-wrap{position:relative;width:84px;height:84px}
+.crystal-wrap::before{content:"";position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(circle,rgba(216,189,154,.12),rgba(199,188,228,.08) 38%,transparent 68%);filter:blur(5px);animation:oracleHalo 4.8s ease-in-out infinite}
+.crystal-ball{width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 34% 27%,rgba(246,240,231,.74) 0 8%,rgba(216,189,154,.34) 15%,rgba(199,188,228,.28) 32%,rgba(76,64,96,.5) 58%,rgba(13,12,20,.92) 82%);border:1px solid rgba(216,189,154,.34);box-shadow:0 0 22px rgba(216,189,154,.18),0 0 48px rgba(199,188,228,.16),0 18px 50px rgba(0,0,0,.36),inset 0 0 20px rgba(246,240,231,.16),inset 0 -18px 28px rgba(9,8,14,.82);position:relative;overflow:hidden;animation:oraclePulse 4.2s ease-in-out infinite}
+.crystal-ball::after{content:"";position:absolute;left:18%;right:18%;bottom:8%;height:14%;border-radius:50%;background:radial-gradient(ellipse,rgba(216,189,154,.34),transparent 70%);filter:blur(4px);opacity:.58}
+.crystal-glow{position:absolute;top:18%;left:22%;width:30%;height:20%;border-radius:50%;background:rgba(246,240,231,.46);filter:blur(4px);box-shadow:0 0 18px rgba(216,189,154,.36);animation:softGlint 4.6s ease-in-out infinite}
+.crystal-swirl{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 135deg,transparent 0 28%,rgba(216,189,154,.18) 36%,rgba(199,188,228,.22) 46%,transparent 62% 100%);filter:blur(2px);opacity:.72;animation:veilTurn 8s ease-in-out infinite}
+.crystal-nebula{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 64% 66%,rgba(127,108,175,.34),transparent 54%),radial-gradient(ellipse at 28% 44%,rgba(216,189,154,.2),transparent 46%),radial-gradient(circle at 56% 45%,rgba(168,190,223,.14),transparent 36%);animation:mistBreath 5.8s ease-in-out infinite}
+.crystal-arc{position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(216,189,154,.14);box-shadow:inset 0 0 18px rgba(199,188,228,.08);animation:oracleRing 6.4s ease-in-out infinite}
+.crystal-arc::before{content:"";position:absolute;left:20%;top:19%;width:56%;height:56%;border-radius:50%;border-top:1px solid rgba(216,189,154,.24);border-left:1px solid rgba(199,188,228,.16);transform:rotate(-18deg);filter:blur(.2px)}
+.crystal-arc::after{content:"";position:absolute;left:48%;top:43%;width:5px;height:5px;border-radius:50%;background:rgba(216,189,154,.56);box-shadow:0 0 16px rgba(216,189,154,.5);animation:emberBlink 3.8s ease-in-out infinite}
+@keyframes oraclePulse{0%,100%{transform:translateY(0) scale(1);box-shadow:0 0 22px rgba(216,189,154,.16),0 0 48px rgba(199,188,228,.14),0 18px 50px rgba(0,0,0,.36),inset 0 0 20px rgba(246,240,231,.14),inset 0 -18px 28px rgba(9,8,14,.82)}50%{transform:translateY(-3px) scale(1.015);box-shadow:0 0 30px rgba(216,189,154,.24),0 0 62px rgba(199,188,228,.2),0 18px 54px rgba(0,0,0,.42),inset 0 0 26px rgba(246,240,231,.18),inset 0 -16px 26px rgba(9,8,14,.74)}}
+@keyframes oracleHalo{0%,100%{opacity:.44;transform:scale(.96)}50%{opacity:.82;transform:scale(1.08)}}
+@keyframes softGlint{0%,100%{opacity:.42;transform:translate(0,0) scale(.95)}50%{opacity:.74;transform:translate(4px,3px) scale(1.05)}}
+@keyframes veilTurn{0%,100%{transform:rotate(-8deg) scale(.96);opacity:.42}50%{transform:rotate(18deg) scale(1.06);opacity:.78}}
+@keyframes mistBreath{0%,100%{opacity:.5;transform:scale(.98)}50%{opacity:.86;transform:scale(1.04)}}
+@keyframes oracleRing{0%,100%{opacity:.32;transform:rotate(-12deg) scale(.96)}50%{opacity:.68;transform:rotate(8deg) scale(1.02)}}
+@keyframes emberBlink{0%,100%{opacity:.28;transform:scale(.8)}42%,58%{opacity:.9;transform:scale(1.16)}}
+.loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2.8s ease-in-out infinite}
+@keyframes fadeOsc{0%,100%{opacity:.42}50%{opacity:.86}}
 
 .intent-wrap{max-width:520px;margin:0 auto;position:relative;opacity:0;visibility:hidden;transform:translateY(14px);max-height:0;overflow:hidden;pointer-events:none;transition:opacity .4s ease,transform .4s ease,visibility .4s,max-height .4s ease,margin-bottom .4s ease}
 .intent-wrap.visible{opacity:1;visibility:visible;transform:none;max-height:360px;margin-bottom:3rem;pointer-events:auto}
@@ -396,6 +401,11 @@ select.intent-input option:checked,
 .result-cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
 .pot-spread{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.2rem 0 1.6rem}
 .pot-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.035);padding:1rem;text-align:center}
+.pot-card.spread-card{opacity:0;transform:translateY(18px) rotate(var(--spread-rot,0deg)) scale(.96);filter:blur(5px);transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1),filter .8s ease,border-color .8s ease,box-shadow .8s ease}
+.pot-card.spread-card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(216,189,154,.08);pointer-events:none;opacity:0;transition:opacity .7s ease}
+.pot-card.spread-card{position:relative;overflow:hidden}
+.pot-card.spread-card.is-revealed{opacity:1;transform:translateY(0) rotate(0deg) scale(1);filter:none;border-color:rgba(199,188,228,.28);box-shadow:0 14px 34px rgba(0,0,0,.18)}
+.pot-card.spread-card.is-revealed::before{opacity:1}
 .pot-card img{width:86px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .8rem;border:1px solid rgba(199,188,228,.24)}
 .pot-card-role{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.25rem;font-weight:700}
 .pot-card-name{font-family:var(--display);font-size:1rem;color:#fff;line-height:1.25}
@@ -521,9 +531,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   gap:1.25rem;
   align-items:center;
   padding:1.15rem 1.25rem;
-  border:1px solid rgba(168,190,223,.26);
-  background:linear-gradient(135deg,rgba(24,23,32,.97),rgba(18,17,27,.96));
-  box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 38px rgba(168,190,223,.08);
+  border:1px solid rgba(216,189,154,.2);
+  background:radial-gradient(circle at 12% 0,rgba(216,189,154,.08),transparent 36%),linear-gradient(135deg,rgba(28,27,39,.98),rgba(18,17,27,.98));
+  box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 42px rgba(127,108,175,.12);
   backdrop-filter:blur(18px);
   transition:opacity .35s ease,transform .35s ease;
 }
@@ -542,22 +552,26 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   transition:background .25s,border-color .25s,color .25s;
   white-space:nowrap;
 }
-.cookie-btn:hover{border-color:var(--blue-soft);background:rgba(168,190,223,.12)}
-.cookie-btn.primary{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
-.cookie-btn.primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+.cookie-btn:hover{border-color:rgba(216,189,154,.55);background:rgba(216,189,154,.08)}
+.cookie-btn.primary{background:linear-gradient(90deg,var(--violet-light),rgba(216,189,154,.92));border-color:rgba(216,189,154,.48);color:#111018}
+.cookie-btn.primary:hover{background:linear-gradient(90deg,rgba(216,189,154,.96),var(--violet-light));border-color:rgba(216,189,154,.72)}
 
-.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.modal-bg{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 28%,rgba(127,108,175,.16),transparent 34%),rgba(17,16,24,.88);backdrop-filter:blur(10px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-bg.open{display:flex}
-.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative;margin:auto 0}
-.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem}
+.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:linear-gradient(165deg,rgba(28,27,39,.98),rgba(18,17,27,.98));border:1px solid rgba(216,189,154,.18);padding:2.5rem;position:relative;margin:auto 0;box-shadow:0 28px 90px rgba(0,0,0,.48),0 0 0 1px rgba(199,188,228,.04),0 0 44px rgba(127,108,175,.12)}
+.modal::before{content:"";position:absolute;inset:10px;border:1px solid rgba(199,188,228,.08);pointer-events:none}
+.modal-bg.open .modal{animation:modalOracleIn .42s ease both}
+.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem;z-index:2;transition:color .2s,transform .2s}
+.close:hover{color:var(--warm);transform:rotate(8deg)}
 .modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}
 .modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}
 .upsell-options{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem}
-.upsell-option{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border:1px solid rgba(199,188,228,.24);background:rgba(199,188,228,.06);padding:1rem 1.05rem}
+.upsell-option{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;border:1px solid rgba(216,189,154,.16);background:linear-gradient(135deg,rgba(199,188,228,.065),rgba(216,189,154,.035));padding:1rem 1.05rem;position:relative}
+.upsell-option::before{content:"";position:absolute;left:.75rem;top:.75rem;width:5px;height:5px;border-radius:50%;background:rgba(216,189,154,.58);box-shadow:0 0 12px rgba(216,189,154,.28)}
 .upsell-option-title{display:block;color:#fff;font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.25rem}
 .upsell-option-desc{display:block;color:var(--muted);font-size:.86rem;line-height:1.45}
 .upsell-option-meta{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:.35rem}
-.upsell-price{font-family:var(--display);font-size:1.1rem;color:var(--blue-soft);white-space:nowrap}
+.upsell-price{font-family:var(--display);font-size:1.1rem;color:var(--warm);white-space:nowrap}
 .upsell-price span{font-family:var(--sans);font-size:.72rem;color:var(--muted)}
 .modal-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
 .tabs{display:flex;border:1px solid var(--line);margin-bottom:1.3rem}
@@ -566,8 +580,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 .field{margin-bottom:1rem}
 .field label{display:block;color:var(--muted);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.45rem}
 .field input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#fff;padding:.9rem}
-.modal .pricing-btn{width:100%;justify-content:center;background:var(--violet-light);border-color:var(--violet-light);color:#111018}
+.modal .pricing-btn{width:100%;justify-content:center;background:linear-gradient(90deg,var(--violet-light),rgba(216,189,154,.92));border-color:rgba(216,189,154,.48);color:#111018}
 .fine{font-size:.7rem;color:var(--muted);text-align:center;margin-top:1rem}
+@keyframes modalOracleIn{from{opacity:0;transform:translateY(16px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 
 @media(max-width:900px){
   .intro-grid,.gallery,.account-grid{grid-template-columns:1fr}
@@ -641,7 +656,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .cookie-copy p{font-size:.8rem}
   .cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:.55rem}
   .cookie-btn{width:100%;padding:.82rem .75rem}
-  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(24,23,32,.82),#181720 28%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem}
+  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(28,27,39,.72),rgba(18,17,27,.98) 30%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem;border-top:1px solid rgba(216,189,154,.1)}
   .section-title{font-size:clamp(1.75rem,7vw,2.6rem)}
 }
 @media(max-width:420px){
@@ -1012,7 +1027,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 <footer>
   <div class="footer-logo">Velvet Secret</div>
-  <p class="footer-tagline">„Najprej nemir, potem odgovor."</p>
+  <p class="footer-tagline">„Najprej nemir, potem odgovor.“</p>
   <ul class="footer-links">
     <li><a href="#branje">Branje iz kart</a></li>
     <li><a href="#cenik">Cenik</a></li>
@@ -1461,7 +1476,7 @@ async function showResult(card, topicLabel, intent){
   }
   document.getElementById('rLoading').style.display = 'none';
   const rIntent = document.getElementById('rIntent');
-  if(intent){ rIntent.textContent = `„${intent}"`; rIntent.style.display = ''; }
+  if(intent){ rIntent.textContent = `„${slovenianTypography(intent)}“`; rIntent.style.display = ''; }
   else { rIntent.style.display = 'none'; }
   document.getElementById('rText').style.display = '';
   document.getElementById('rReflect').style.display = '';
@@ -1501,8 +1516,9 @@ function renderCards(){
   }
   const hint = document.getElementById('shuffle-hint');
   hint.classList.remove('visible');
+  const dealOrder = spreadRevealOrder(currentSpread.length);
   document.getElementById('cards').innerHTML = currentSpread.map((card, index) => `
-    <button class="card is-dealing" style="animation-delay:${index*0.18}s" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
+    <button class="card is-dealing" style="--card-rot:${(Math.random() * 18 - 9).toFixed(2)}deg;--shuf-dir:${Math.random() > .5 ? 1 : -1};animation-delay:${dealOrder.indexOf(index)*0.18}s" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
       <span class="card-inner">
         <span class="face face-back"></span>
         <span class="face face-front" style="background-image:url(\'${card.img}\')"></span>
@@ -1609,7 +1625,7 @@ async function signOut(){
 function showToast(msg){
   const t = document.createElement('div');
   t.textContent = msg;
-  t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#181720;border:1px solid rgba(199,188,228,.3);color:rgba(255,255,255,.75);padding:.7rem 1.5rem;font-size:.82rem;letter-spacing:.08em;z-index:999;opacity:0;transition:opacity .3s';
+  t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,rgba(28,27,39,.98),rgba(18,17,27,.98));border:1px solid rgba(216,189,154,.22);box-shadow:0 18px 48px rgba(0,0,0,.4),0 0 32px rgba(127,108,175,.12);color:rgba(255,255,255,.78);padding:.7rem 1.5rem;font-size:.82rem;letter-spacing:.08em;z-index:999;opacity:0;transition:opacity .3s';
   document.body.appendChild(t);
   requestAnimationFrame(() => t.style.opacity = '1');
   setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
@@ -1623,6 +1639,23 @@ function esc(value = ''){
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+function slovenianTypography(value = ''){
+  return String(value)
+    .replace(/\r/g, '')
+    .replace(/[“”]/g, '"')
+    .replace(/„([^"\n]+)"/g, '„$1“')
+    .replace(/"([^"\n]+)"/g, '„$1“')
+    .replace(/'([^'\n]{2,})'/g, '„$1“')
+    .replace(/[ \t]+[—–][ \t]+/g, '. ')
+    .replace(/[—–]/g, '-')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^\s*---+\s*$/gm, '')
+    .replace(/\*\*/g, '')
+    .replace(/([.!?]\s+)([a-zčšž])/g, (_, punctuation, letter) => punctuation + letter.toUpperCase())
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
 }
 function readingTypeLabel(type){
   return { daily:'Iskra', pot:'Pot', razplet:'Razplet' }[type] || 'Branje';
@@ -1659,7 +1692,7 @@ function formatDate(value){
   return new Intl.DateTimeFormat('sl-SI', { day:'2-digit', month:'2-digit', year:'numeric' }).format(new Date(value));
 }
 function fullReadingText(reading){
-  return [reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n');
+  return slovenianTypography([reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n'));
 }
 function renderAccountSummary(user, profile, readings){
   const latestPaid = readings.find(r => r.reading_type !== 'daily');
@@ -1685,7 +1718,7 @@ function renderReadingHistory(readings){
   }
   wrap.innerHTML = readings.map((reading, i) => {
     const cards = cardsFromReading(reading);
-    const question = reading.intent || fullReadingText(reading).slice(0, 180) || 'Brez zapisanega vprašanja';
+    const question = slovenianTypography(reading.intent || fullReadingText(reading).slice(0, 180)) || 'Brez zapisanega vprašanja';
     return `
       <article class="history-item">
         <div>
@@ -1738,7 +1771,7 @@ function openReadingReport(index){
   const cards = cardsFromReading(reading);
   document.getElementById('reportLabel').textContent = `${readingTypeLabel(reading.reading_type)} · ${reading.topic || 'Splošno'} · ${formatDate(reading.created_at)} · ${readingRetention(reading.reading_type)}`;
   document.getElementById('reportTitle').textContent = reading.reading_type === 'daily' ? 'Poročilo o karti' : `Poročilo: ${readingTypeLabel(reading.reading_type)}`;
-  document.getElementById('reportQuestion').textContent = reading.intent ? `„${reading.intent}"` : 'Vprašanje ni bilo zapisano.';
+  document.getElementById('reportQuestion').textContent = reading.intent ? `„${slovenianTypography(reading.intent)}“` : 'Vprašanje ni bilo zapisano.';
   document.getElementById('reportCards').innerHTML = cards.map(card => `
     <div class="report-card">
       <img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async">
@@ -1940,10 +1973,23 @@ async function startRazpletFlow(){
 function closeRazpletModal(){
   document.getElementById('razpletModal').classList.remove('open');
 }
+function spreadRevealOrder(count){
+  return Array.from({ length: count }, (_, i) => i)
+    .map(i => ({ i, sort: crypto.getRandomValues(new Uint32Array(1))[0] }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(item => item.i);
+}
+function revealSpreadCards(containerId, baseDelay = 160){
+  const cards = Array.from(document.querySelectorAll(`#${containerId} .spread-card`));
+  spreadRevealOrder(cards.length).forEach((cardIndex, orderIndex) => {
+    const card = cards[cardIndex];
+    setTimeout(() => card.classList.add('is-revealed'), baseDelay + orderIndex * 210 + Math.random() * 180);
+  });
+}
 function renderPotSpread(cards){
   const roles = ['Ozadje', 'Zdaj', 'Naslednji korak'];
   document.getElementById('potSpread').innerHTML = cards.map((card, i) => `
-    <div class="pot-card">
+    <div class="pot-card spread-card" style="--spread-rot:${(Math.random() * 8 - 4).toFixed(2)}deg">
       <img src="${card.img}" alt="" loading="lazy" decoding="async">
       <div>
         <span class="pot-card-role">${roles[i]}</span>
@@ -1955,7 +2001,7 @@ function renderPotSpread(cards){
 function renderRazpletSpread(cards){
   const roles = ['Jedro', 'Vidno', 'Skrito', 'Tvoja vloga', 'Zunanji vpliv', 'Možna smer', 'Naslednji korak'];
   document.getElementById('razpletSpread').innerHTML = cards.map((card, i) => `
-    <div class="pot-card">
+    <div class="pot-card spread-card" style="--spread-rot:${(Math.random() * 8 - 4).toFixed(2)}deg">
       <img src="${card.img}" alt="" loading="lazy" decoding="async">
       <div>
         <span class="pot-card-role">${roles[i]}</span>
@@ -1966,8 +2012,8 @@ function renderRazpletSpread(cards){
 }
 function formatPotReading(text){
   const headings = new Set([
-    'Branje „Pot"',
-    'Branje „Razplet"',
+    'Branje „Pot“',
+    'Branje „Razplet“',
     'Tema',
     'Prvi vtis',
     'Odgovor na tvoje vprašanje',
@@ -1994,7 +2040,7 @@ function formatPotReading(text){
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-  return text.split('\n').map(line => {
+  return slovenianTypography(text).split('\n').map(line => {
     const trimmed = line.trim();
     const cleaned = trimmed
       .replace(/^#{1,6}\s*/, '')
@@ -2018,8 +2064,9 @@ async function preparePotReading(){
 
   closePotModal();
   document.getElementById('potIntent').style.display = intent ? '' : 'none';
-  document.getElementById('potIntent').textContent = intent ? `„${intent}"` : '';
+  document.getElementById('potIntent').textContent = intent ? `„${slovenianTypography(intent)}“` : '';
   renderPotSpread(cards);
+  revealSpreadCards('potSpread');
   document.getElementById('potText').style.display = 'none';
   document.getElementById('potCta').style.display = 'none';
   document.getElementById('potLoading').style.display = 'flex';
@@ -2075,8 +2122,9 @@ async function prepareRazpletReading(){
 
   closeRazpletModal();
   document.getElementById('razpletIntent').style.display = intent ? '' : 'none';
-  document.getElementById('razpletIntent').textContent = intent ? `„${intent}"` : '';
+  document.getElementById('razpletIntent').textContent = intent ? `„${slovenianTypography(intent)}“` : '';
   renderRazpletSpread(cards);
+  revealSpreadCards('razpletSpread', 220);
   document.getElementById('razpletText').style.display = 'none';
   document.getElementById('razpletCta').style.display = 'none';
   document.getElementById('razpletLoading').style.display = 'flex';

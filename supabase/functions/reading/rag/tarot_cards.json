@@ -1,0 +1,2011 @@
+[
+  {
+    "id": "major_00",
+    "name": "Norec",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "začetek",
+      "svoboda",
+      "zaupanje"
+    ],
+    "jung_archetypes": [
+      "Notranji otrok"
+    ],
+    "symbolic_meaning": "Norec odpira temo: začetek, svoboda, zaupanje.",
+    "shadow_aspect": "naivnost, beg pred odgovornostjo",
+    "love": "V odnosih karta Norec kaže na temo: začetek, svoboda, zaupanje. Senca se lahko pokaže kot naivnost, beg pred odgovornostjo.",
+    "career": "Pri delu karta Norec opozori na vzorec: začetek, svoboda, zaupanje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Norec govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Norec vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: začetek?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: naivnost?"
+    ]
+  },
+  {
+    "id": "major_01",
+    "name": "Čarovnik",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "volja",
+      "spretnost",
+      "začetek dejanja"
+    ],
+    "jung_archetypes": [
+      "Ustvarjalec"
+    ],
+    "symbolic_meaning": "Čarovnik odpira temo: volja, spretnost, začetek dejanja.",
+    "shadow_aspect": "manipulacija, razpršenost",
+    "love": "V odnosih karta Čarovnik kaže na temo: volja, spretnost, začetek dejanja. Senca se lahko pokaže kot manipulacija, razpršenost.",
+    "career": "Pri delu karta Čarovnik opozori na vzorec: volja, spretnost, začetek dejanja. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Čarovnik govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Čarovnik vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: volja?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: manipulacija?"
+    ]
+  },
+  {
+    "id": "major_02",
+    "name": "Visoka svečenica",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "intuicija",
+      "tišina",
+      "skrito znanje"
+    ],
+    "jung_archetypes": [
+      "Anima"
+    ],
+    "symbolic_meaning": "Visoka svečenica odpira temo: intuicija, tišina, skrito znanje.",
+    "shadow_aspect": "pasivnost, skrivnosti",
+    "love": "V odnosih karta Visoka svečenica kaže na temo: intuicija, tišina, skrito znanje. Senca se lahko pokaže kot pasivnost, skrivnosti.",
+    "career": "Pri delu karta Visoka svečenica opozori na vzorec: intuicija, tišina, skrito znanje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Visoka svečenica govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Visoka svečenica vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: intuicija?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: pasivnost?"
+    ]
+  },
+  {
+    "id": "major_03",
+    "name": "Cesarica",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "plodnost",
+      "skrb",
+      "ustvarjanje"
+    ],
+    "jung_archetypes": [
+      "Velika mati"
+    ],
+    "symbolic_meaning": "Cesarica odpira temo: plodnost, skrb, ustvarjanje.",
+    "shadow_aspect": "pretirana navezanost, udobje",
+    "love": "V odnosih karta Cesarica kaže na temo: plodnost, skrb, ustvarjanje. Senca se lahko pokaže kot pretirana navezanost, udobje.",
+    "career": "Pri delu karta Cesarica opozori na vzorec: plodnost, skrb, ustvarjanje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Cesarica govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Cesarica vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: plodnost?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: pretirana navezanost?"
+    ]
+  },
+  {
+    "id": "major_04",
+    "name": "Cesar",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "struktura",
+      "meja",
+      "red"
+    ],
+    "jung_archetypes": [
+      "Oče"
+    ],
+    "symbolic_meaning": "Cesar odpira temo: struktura, meja, red.",
+    "shadow_aspect": "nadzor, togost",
+    "love": "V odnosih karta Cesar kaže na temo: struktura, meja, red. Senca se lahko pokaže kot nadzor, togost.",
+    "career": "Pri delu karta Cesar opozori na vzorec: struktura, meja, red. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Cesar govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Cesar vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: struktura?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: nadzor?"
+    ]
+  },
+  {
+    "id": "major_05",
+    "name": "Svečenik",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "tradicija",
+      "učenje",
+      "vrednote"
+    ],
+    "jung_archetypes": [
+      "Modrec"
+    ],
+    "symbolic_meaning": "Svečenik odpira temo: tradicija, učenje, vrednote.",
+    "shadow_aspect": "dogma, potreba po dovoljenju",
+    "love": "V odnosih karta Svečenik kaže na temo: tradicija, učenje, vrednote. Senca se lahko pokaže kot dogma, potreba po dovoljenju.",
+    "career": "Pri delu karta Svečenik opozori na vzorec: tradicija, učenje, vrednote. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Svečenik govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Svečenik vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: tradicija?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: dogma?"
+    ]
+  },
+  {
+    "id": "major_06",
+    "name": "Ljubimca",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "izbira",
+      "odnos",
+      "vrednote"
+    ],
+    "jung_archetypes": [
+      "Anima/Animus"
+    ],
+    "symbolic_meaning": "Ljubimca odpira temo: izbira, odnos, vrednote.",
+    "shadow_aspect": "odvisnost, neodločnost",
+    "love": "V odnosih karta Ljubimca kaže na temo: izbira, odnos, vrednote. Senca se lahko pokaže kot odvisnost, neodločnost.",
+    "career": "Pri delu karta Ljubimca opozori na vzorec: izbira, odnos, vrednote. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Ljubimca govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Ljubimca vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: izbira?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: odvisnost?"
+    ]
+  },
+  {
+    "id": "major_07",
+    "name": "Voz",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "smer",
+      "disciplina",
+      "napredek"
+    ],
+    "jung_archetypes": [
+      "Junak"
+    ],
+    "symbolic_meaning": "Voz odpira temo: smer, disciplina, napredek.",
+    "shadow_aspect": "sila, notranji razkol",
+    "love": "V odnosih karta Voz kaže na temo: smer, disciplina, napredek. Senca se lahko pokaže kot sila, notranji razkol.",
+    "career": "Pri delu karta Voz opozori na vzorec: smer, disciplina, napredek. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Voz govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Voz vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: smer?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: sila?"
+    ]
+  },
+  {
+    "id": "major_08",
+    "name": "Moč",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "notranja moč",
+      "nežna vztrajnost"
+    ],
+    "jung_archetypes": [
+      "Junak"
+    ],
+    "symbolic_meaning": "Moč odpira temo: notranja moč, nežna vztrajnost.",
+    "shadow_aspect": "potlačena jeza, dokazovanje",
+    "love": "V odnosih karta Moč kaže na temo: notranja moč, nežna vztrajnost. Senca se lahko pokaže kot potlačena jeza, dokazovanje.",
+    "career": "Pri delu karta Moč opozori na vzorec: notranja moč, nežna vztrajnost. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Moč govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Moč vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: notranja moč?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: potlačena jeza?"
+    ]
+  },
+  {
+    "id": "major_09",
+    "name": "Puščavnik",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "umik",
+      "modrost",
+      "notranji glas"
+    ],
+    "jung_archetypes": [
+      "Modrec"
+    ],
+    "symbolic_meaning": "Puščavnik odpira temo: umik, modrost, notranji glas.",
+    "shadow_aspect": "osama, zapiranje",
+    "love": "V odnosih karta Puščavnik kaže na temo: umik, modrost, notranji glas. Senca se lahko pokaže kot osama, zapiranje.",
+    "career": "Pri delu karta Puščavnik opozori na vzorec: umik, modrost, notranji glas. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Puščavnik govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Puščavnik vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: umik?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: osama?"
+    ]
+  },
+  {
+    "id": "major_10",
+    "name": "Kolo sreče",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "cikel",
+      "sprememba",
+      "obrat"
+    ],
+    "jung_archetypes": [
+      "Usoda"
+    ],
+    "symbolic_meaning": "Kolo sreče odpira temo: cikel, sprememba, obrat.",
+    "shadow_aspect": "pasivnost, občutek nemoči",
+    "love": "V odnosih karta Kolo sreče kaže na temo: cikel, sprememba, obrat. Senca se lahko pokaže kot pasivnost, občutek nemoči.",
+    "career": "Pri delu karta Kolo sreče opozori na vzorec: cikel, sprememba, obrat. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Kolo sreče govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Kolo sreče vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: cikel?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: pasivnost?"
+    ]
+  },
+  {
+    "id": "major_11",
+    "name": "Pravičnost",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "resnica",
+      "posledice",
+      "ravnovesje"
+    ],
+    "jung_archetypes": [
+      "Sodnik"
+    ],
+    "symbolic_meaning": "Pravičnost odpira temo: resnica, posledice, ravnovesje.",
+    "shadow_aspect": "sodba, krivda",
+    "love": "V odnosih karta Pravičnost kaže na temo: resnica, posledice, ravnovesje. Senca se lahko pokaže kot sodba, krivda.",
+    "career": "Pri delu karta Pravičnost opozori na vzorec: resnica, posledice, ravnovesje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Pravičnost govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Pravičnost vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: resnica?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: sodba?"
+    ]
+  },
+  {
+    "id": "major_12",
+    "name": "Obešenec",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "premor",
+      "drugačen pogled",
+      "predaja"
+    ],
+    "jung_archetypes": [
+      "Žrtvovani"
+    ],
+    "symbolic_meaning": "Obešenec odpira temo: premor, drugačen pogled, predaja.",
+    "shadow_aspect": "zastoj, žrtev",
+    "love": "V odnosih karta Obešenec kaže na temo: premor, drugačen pogled, predaja. Senca se lahko pokaže kot zastoj, žrtev.",
+    "career": "Pri delu karta Obešenec opozori na vzorec: premor, drugačen pogled, predaja. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Obešenec govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Obešenec vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: premor?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: zastoj?"
+    ]
+  },
+  {
+    "id": "major_13",
+    "name": "Smrt",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "zaključek",
+      "preobrazba",
+      "rez"
+    ],
+    "jung_archetypes": [
+      "Preobrazba"
+    ],
+    "symbolic_meaning": "Smrt odpira temo: zaključek, preobrazba, rez.",
+    "shadow_aspect": "oklepanje starega",
+    "love": "V odnosih karta Smrt kaže na temo: zaključek, preobrazba, rez. Senca se lahko pokaže kot oklepanje starega.",
+    "career": "Pri delu karta Smrt opozori na vzorec: zaključek, preobrazba, rez. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Smrt govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Smrt vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: zaključek?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: oklepanje starega?"
+    ]
+  },
+  {
+    "id": "major_14",
+    "name": "Zmernost",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "ravnovesje",
+      "zdravljenje",
+      "potrpežljivost"
+    ],
+    "jung_archetypes": [
+      "Zdravilec"
+    ],
+    "symbolic_meaning": "Zmernost odpira temo: ravnovesje, zdravljenje, potrpežljivost.",
+    "shadow_aspect": "odlašanje, mlačnost",
+    "love": "V odnosih karta Zmernost kaže na temo: ravnovesje, zdravljenje, potrpežljivost. Senca se lahko pokaže kot odlašanje, mlačnost.",
+    "career": "Pri delu karta Zmernost opozori na vzorec: ravnovesje, zdravljenje, potrpežljivost. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Zmernost govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Zmernost vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: ravnovesje?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: odlašanje?"
+    ]
+  },
+  {
+    "id": "major_15",
+    "name": "Hudič",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "navezanost",
+      "skušnjava",
+      "senca"
+    ],
+    "jung_archetypes": [
+      "Senca"
+    ],
+    "symbolic_meaning": "Hudič odpira temo: navezanost, skušnjava, senca.",
+    "shadow_aspect": "ujetost, zasvojenost",
+    "love": "V odnosih karta Hudič kaže na temo: navezanost, skušnjava, senca. Senca se lahko pokaže kot ujetost, zasvojenost.",
+    "career": "Pri delu karta Hudič opozori na vzorec: navezanost, skušnjava, senca. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Hudič govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Hudič vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: navezanost?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: ujetost?"
+    ]
+  },
+  {
+    "id": "major_16",
+    "name": "Stolp",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "prelom",
+      "resnica",
+      "razpad iluzije"
+    ],
+    "jung_archetypes": [
+      "Razdiralec"
+    ],
+    "symbolic_meaning": "Stolp odpira temo: prelom, resnica, razpad iluzije.",
+    "shadow_aspect": "šok, odpor do spremembe",
+    "love": "V odnosih karta Stolp kaže na temo: prelom, resnica, razpad iluzije. Senca se lahko pokaže kot šok, odpor do spremembe.",
+    "career": "Pri delu karta Stolp opozori na vzorec: prelom, resnica, razpad iluzije. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Stolp govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Stolp vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: prelom?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: šok?"
+    ]
+  },
+  {
+    "id": "major_17",
+    "name": "Zvezda",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "upanje",
+      "obnova",
+      "zaupanje"
+    ],
+    "jung_archetypes": [
+      "Self"
+    ],
+    "symbolic_meaning": "Zvezda odpira temo: upanje, obnova, zaupanje.",
+    "shadow_aspect": "pasivno čakanje, idealizacija",
+    "love": "V odnosih karta Zvezda kaže na temo: upanje, obnova, zaupanje. Senca se lahko pokaže kot pasivno čakanje, idealizacija.",
+    "career": "Pri delu karta Zvezda opozori na vzorec: upanje, obnova, zaupanje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Zvezda govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Zvezda vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: upanje?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: pasivno čakanje?"
+    ]
+  },
+  {
+    "id": "major_18",
+    "name": "Luna",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "nezavedno",
+      "strahovi",
+      "sanje"
+    ],
+    "jung_archetypes": [
+      "Senca"
+    ],
+    "symbolic_meaning": "Luna odpira temo: nezavedno, strahovi, sanje.",
+    "shadow_aspect": "iluzija, projekcija",
+    "love": "V odnosih karta Luna kaže na temo: nezavedno, strahovi, sanje. Senca se lahko pokaže kot iluzija, projekcija.",
+    "career": "Pri delu karta Luna opozori na vzorec: nezavedno, strahovi, sanje. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Luna govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Luna vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: nezavedno?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: iluzija?"
+    ]
+  },
+  {
+    "id": "major_19",
+    "name": "Sonce",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "jasnost",
+      "veselje",
+      "vitalnost"
+    ],
+    "jung_archetypes": [
+      "Otrok"
+    ],
+    "symbolic_meaning": "Sonce odpira temo: jasnost, veselje, vitalnost.",
+    "shadow_aspect": "ego, slepa gotovost",
+    "love": "V odnosih karta Sonce kaže na temo: jasnost, veselje, vitalnost. Senca se lahko pokaže kot ego, slepa gotovost.",
+    "career": "Pri delu karta Sonce opozori na vzorec: jasnost, veselje, vitalnost. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Sonce govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Sonce vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: jasnost?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: ego?"
+    ]
+  },
+  {
+    "id": "major_20",
+    "name": "Sodba",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "prebujenje",
+      "klic",
+      "odločitev"
+    ],
+    "jung_archetypes": [
+      "Klic"
+    ],
+    "symbolic_meaning": "Sodba odpira temo: prebujenje, klic, odločitev.",
+    "shadow_aspect": "samoobsojanje, beg pred klicem",
+    "love": "V odnosih karta Sodba kaže na temo: prebujenje, klic, odločitev. Senca se lahko pokaže kot samoobsojanje, beg pred klicem.",
+    "career": "Pri delu karta Sodba opozori na vzorec: prebujenje, klic, odločitev. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Sodba govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Sodba vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: prebujenje?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: samoobsojanje?"
+    ]
+  },
+  {
+    "id": "major_21",
+    "name": "Svet",
+    "arcana": "Velika arkana",
+    "keywords": [
+      "celota",
+      "zaključek",
+      "integracija"
+    ],
+    "jung_archetypes": [
+      "Self"
+    ],
+    "symbolic_meaning": "Svet odpira temo: celota, zaključek, integracija.",
+    "shadow_aspect": "strah pred novim ciklom",
+    "love": "V odnosih karta Svet kaže na temo: celota, zaključek, integracija. Senca se lahko pokaže kot strah pred novim ciklom.",
+    "career": "Pri delu karta Svet opozori na vzorec: celota, zaključek, integracija. Priložnost je bolj zavestna drža.",
+    "money": "Pri denarju karta Svet govori o odnosu do varnosti, izbire in posledic.",
+    "personal_growth": "Za osebno rast karta Svet vabi k prepoznavanju vzorca in njegove sence.",
+    "reflection_questions": [
+      "Kje se v tvojem vprašanju kaže tema: celota?",
+      "Kaj bi se spremenilo, če bi pogledala tudi senco: strah pred novim ciklom?"
+    ]
+  },
+  {
+    "id": "palice_as",
+    "name": "As Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "seme",
+      "začetek",
+      "potencial",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "As Palice poveže temo seme, začetek, potencial s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "potencial brez dejanja",
+    "love": "V odnosih As Palice pokaže, kako se seme, začetek, potencial izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu As Palice pokaže, kako se seme, začetek, potencial izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju As Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast As Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš seme?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_dvojka",
+    "name": "Dvojka Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "izbira",
+      "ravnovesje",
+      "dvojnost",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Dvojka Palice poveže temo izbira, ravnovesje, dvojnost s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "neodločnost",
+    "love": "V odnosih Dvojka Palice pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Dvojka Palice pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Dvojka Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Dvojka Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izbira?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_trojka",
+    "name": "Trojka Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "rast",
+      "sodelovanje",
+      "prvi rezultat",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Trojka Palice poveže temo rast, sodelovanje, prvi rezultat s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "razpršenost",
+    "love": "V odnosih Trojka Palice pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Trojka Palice pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Trojka Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Trojka Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš rast?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_štirica",
+    "name": "Štirica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "stabilnost",
+      "meja",
+      "struktura",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Štirica Palice poveže temo stabilnost, meja, struktura s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "zaprtost",
+    "love": "V odnosih Štirica Palice pokaže, kako se stabilnost, meja, struktura izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Štirica Palice pokaže, kako se stabilnost, meja, struktura izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Štirica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Štirica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš stabilnost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_petica",
+    "name": "Petica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "izziv",
+      "konflikt",
+      "sprememba",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Petica Palice poveže temo izziv, konflikt, sprememba s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "drama",
+    "love": "V odnosih Petica Palice pokaže, kako se izziv, konflikt, sprememba izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Petica Palice pokaže, kako se izziv, konflikt, sprememba izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Petica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Petica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izziv?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_šestica",
+    "name": "Šestica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "prehod",
+      "pomoč",
+      "spomin",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Šestica Palice poveže temo prehod, pomoč, spomin s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "nostalgija",
+    "love": "V odnosih Šestica Palice pokaže, kako se prehod, pomoč, spomin izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Šestica Palice pokaže, kako se prehod, pomoč, spomin izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Šestica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Šestica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš prehod?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_sedmica",
+    "name": "Sedmica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "preizkus",
+      "obramba",
+      "notranji kriterij",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Sedmica Palice poveže temo preizkus, obramba, notranji kriterij s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "sumničavost",
+    "love": "V odnosih Sedmica Palice pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Sedmica Palice pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Sedmica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Sedmica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš preizkus?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_osmica",
+    "name": "Osmica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "gibanje",
+      "praksa",
+      "fokus",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Osmica Palice poveže temo gibanje, praksa, fokus s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "rutina brez smisla",
+    "love": "V odnosih Osmica Palice pokaže, kako se gibanje, praksa, fokus izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Osmica Palice pokaže, kako se gibanje, praksa, fokus izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Osmica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Osmica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_devetka",
+    "name": "Devetka Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "zrelost",
+      "samostojnost",
+      "posledica",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Devetka Palice poveže temo zrelost, samostojnost, posledica s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "izolacija",
+    "love": "V odnosih Devetka Palice pokaže, kako se zrelost, samostojnost, posledica izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Devetka Palice pokaže, kako se zrelost, samostojnost, posledica izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Devetka Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Devetka Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrelost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_desetka",
+    "name": "Desetka Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "zaključek cikla",
+      "polnost",
+      "breme",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Desetka Palice poveže temo zaključek cikla, polnost, breme s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "preobremenitev",
+    "love": "V odnosih Desetka Palice pokaže, kako se zaključek cikla, polnost, breme izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Desetka Palice pokaže, kako se zaključek cikla, polnost, breme izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Desetka Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Desetka Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zaključek cikla?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_paž",
+    "name": "Paž Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "učenje",
+      "radovednost",
+      "sporočilo",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Paž Palice poveže temo učenje, radovednost, sporočilo s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "nezrelost",
+    "love": "V odnosih Paž Palice pokaže, kako se učenje, radovednost, sporočilo izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Paž Palice pokaže, kako se učenje, radovednost, sporočilo izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Paž Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Paž Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš učenje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_vitez",
+    "name": "Vitez Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "gibanje",
+      "impulz",
+      "iskanje",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Vitez Palice poveže temo gibanje, impulz, iskanje s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "nepremišljenost",
+    "love": "V odnosih Vitez Palice pokaže, kako se gibanje, impulz, iskanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Vitez Palice pokaže, kako se gibanje, impulz, iskanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Vitez Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Vitez Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_kraljica",
+    "name": "Kraljica Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "zrela notranja drža",
+      "sprejemanje",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kraljica Palice poveže temo zrela notranja drža, sprejemanje s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "pasivni nadzor",
+    "love": "V odnosih Kraljica Palice pokaže, kako se zrela notranja drža, sprejemanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kraljica Palice pokaže, kako se zrela notranja drža, sprejemanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kraljica Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kraljica Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrela notranja drža?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "palice_kralj",
+    "name": "Kralj Palice",
+    "arcana": "Mala arkana",
+    "suit": "Palice",
+    "element": "ogenj",
+    "keywords": [
+      "zunanja avtoriteta",
+      "odgovornost",
+      "volja"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kralj Palice poveže temo zunanja avtoriteta, odgovornost s področjem: volja, ustvarjalnost, akcija.",
+    "shadow_aspect": "dominacija",
+    "love": "V odnosih Kralj Palice pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kralj Palice pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kralj Palice pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kralj Palice odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zunanja avtoriteta?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_as",
+    "name": "As Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "seme",
+      "začetek",
+      "potencial",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "As Kelihi poveže temo seme, začetek, potencial s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "potencial brez dejanja",
+    "love": "V odnosih As Kelihi pokaže, kako se seme, začetek, potencial izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu As Kelihi pokaže, kako se seme, začetek, potencial izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju As Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast As Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš seme?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_dvojka",
+    "name": "Dvojka Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "izbira",
+      "ravnovesje",
+      "dvojnost",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Dvojka Kelihi poveže temo izbira, ravnovesje, dvojnost s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "neodločnost",
+    "love": "V odnosih Dvojka Kelihi pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Dvojka Kelihi pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Dvojka Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Dvojka Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izbira?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_trojka",
+    "name": "Trojka Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "rast",
+      "sodelovanje",
+      "prvi rezultat",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Trojka Kelihi poveže temo rast, sodelovanje, prvi rezultat s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "razpršenost",
+    "love": "V odnosih Trojka Kelihi pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Trojka Kelihi pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Trojka Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Trojka Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš rast?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_štirica",
+    "name": "Štirica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "stabilnost",
+      "meja",
+      "struktura",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Štirica Kelihi poveže temo stabilnost, meja, struktura s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "zaprtost",
+    "love": "V odnosih Štirica Kelihi pokaže, kako se stabilnost, meja, struktura izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Štirica Kelihi pokaže, kako se stabilnost, meja, struktura izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Štirica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Štirica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš stabilnost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_petica",
+    "name": "Petica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "izziv",
+      "konflikt",
+      "sprememba",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Petica Kelihi poveže temo izziv, konflikt, sprememba s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "drama",
+    "love": "V odnosih Petica Kelihi pokaže, kako se izziv, konflikt, sprememba izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Petica Kelihi pokaže, kako se izziv, konflikt, sprememba izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Petica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Petica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izziv?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_šestica",
+    "name": "Šestica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "prehod",
+      "pomoč",
+      "spomin",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Šestica Kelihi poveže temo prehod, pomoč, spomin s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "nostalgija",
+    "love": "V odnosih Šestica Kelihi pokaže, kako se prehod, pomoč, spomin izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Šestica Kelihi pokaže, kako se prehod, pomoč, spomin izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Šestica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Šestica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš prehod?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_sedmica",
+    "name": "Sedmica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "preizkus",
+      "obramba",
+      "notranji kriterij",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Sedmica Kelihi poveže temo preizkus, obramba, notranji kriterij s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "sumničavost",
+    "love": "V odnosih Sedmica Kelihi pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Sedmica Kelihi pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Sedmica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Sedmica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš preizkus?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_osmica",
+    "name": "Osmica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "gibanje",
+      "praksa",
+      "fokus",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Osmica Kelihi poveže temo gibanje, praksa, fokus s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "rutina brez smisla",
+    "love": "V odnosih Osmica Kelihi pokaže, kako se gibanje, praksa, fokus izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Osmica Kelihi pokaže, kako se gibanje, praksa, fokus izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Osmica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Osmica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_devetka",
+    "name": "Devetka Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "zrelost",
+      "samostojnost",
+      "posledica",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Devetka Kelihi poveže temo zrelost, samostojnost, posledica s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "izolacija",
+    "love": "V odnosih Devetka Kelihi pokaže, kako se zrelost, samostojnost, posledica izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Devetka Kelihi pokaže, kako se zrelost, samostojnost, posledica izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Devetka Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Devetka Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrelost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_desetka",
+    "name": "Desetka Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "zaključek cikla",
+      "polnost",
+      "breme",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Desetka Kelihi poveže temo zaključek cikla, polnost, breme s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "preobremenitev",
+    "love": "V odnosih Desetka Kelihi pokaže, kako se zaključek cikla, polnost, breme izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Desetka Kelihi pokaže, kako se zaključek cikla, polnost, breme izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Desetka Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Desetka Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zaključek cikla?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_paž",
+    "name": "Paž Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "učenje",
+      "radovednost",
+      "sporočilo",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Paž Kelihi poveže temo učenje, radovednost, sporočilo s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "nezrelost",
+    "love": "V odnosih Paž Kelihi pokaže, kako se učenje, radovednost, sporočilo izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Paž Kelihi pokaže, kako se učenje, radovednost, sporočilo izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Paž Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Paž Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš učenje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_vitez",
+    "name": "Vitez Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "gibanje",
+      "impulz",
+      "iskanje",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Vitez Kelihi poveže temo gibanje, impulz, iskanje s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "nepremišljenost",
+    "love": "V odnosih Vitez Kelihi pokaže, kako se gibanje, impulz, iskanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Vitez Kelihi pokaže, kako se gibanje, impulz, iskanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Vitez Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Vitez Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_kraljica",
+    "name": "Kraljica Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "zrela notranja drža",
+      "sprejemanje",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kraljica Kelihi poveže temo zrela notranja drža, sprejemanje s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "pasivni nadzor",
+    "love": "V odnosih Kraljica Kelihi pokaže, kako se zrela notranja drža, sprejemanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kraljica Kelihi pokaže, kako se zrela notranja drža, sprejemanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kraljica Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kraljica Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrela notranja drža?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kelihi_kralj",
+    "name": "Kralj Kelihi",
+    "arcana": "Mala arkana",
+    "suit": "Kelihi",
+    "element": "voda",
+    "keywords": [
+      "zunanja avtoriteta",
+      "odgovornost",
+      "čustva"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kralj Kelihi poveže temo zunanja avtoriteta, odgovornost s področjem: čustva, odnosi, intuicija.",
+    "shadow_aspect": "dominacija",
+    "love": "V odnosih Kralj Kelihi pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kralj Kelihi pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kralj Kelihi pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kralj Kelihi odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zunanja avtoriteta?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_as",
+    "name": "As Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "seme",
+      "začetek",
+      "potencial",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "As Meči poveže temo seme, začetek, potencial s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "potencial brez dejanja",
+    "love": "V odnosih As Meči pokaže, kako se seme, začetek, potencial izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu As Meči pokaže, kako se seme, začetek, potencial izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju As Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast As Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš seme?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_dvojka",
+    "name": "Dvojka Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "izbira",
+      "ravnovesje",
+      "dvojnost",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Dvojka Meči poveže temo izbira, ravnovesje, dvojnost s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "neodločnost",
+    "love": "V odnosih Dvojka Meči pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Dvojka Meči pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Dvojka Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Dvojka Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izbira?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_trojka",
+    "name": "Trojka Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "rast",
+      "sodelovanje",
+      "prvi rezultat",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Trojka Meči poveže temo rast, sodelovanje, prvi rezultat s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "razpršenost",
+    "love": "V odnosih Trojka Meči pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Trojka Meči pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Trojka Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Trojka Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš rast?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_štirica",
+    "name": "Štirica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "stabilnost",
+      "meja",
+      "struktura",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Štirica Meči poveže temo stabilnost, meja, struktura s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "zaprtost",
+    "love": "V odnosih Štirica Meči pokaže, kako se stabilnost, meja, struktura izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Štirica Meči pokaže, kako se stabilnost, meja, struktura izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Štirica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Štirica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš stabilnost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_petica",
+    "name": "Petica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "izziv",
+      "konflikt",
+      "sprememba",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Petica Meči poveže temo izziv, konflikt, sprememba s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "drama",
+    "love": "V odnosih Petica Meči pokaže, kako se izziv, konflikt, sprememba izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Petica Meči pokaže, kako se izziv, konflikt, sprememba izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Petica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Petica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izziv?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_šestica",
+    "name": "Šestica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "prehod",
+      "pomoč",
+      "spomin",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Šestica Meči poveže temo prehod, pomoč, spomin s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "nostalgija",
+    "love": "V odnosih Šestica Meči pokaže, kako se prehod, pomoč, spomin izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Šestica Meči pokaže, kako se prehod, pomoč, spomin izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Šestica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Šestica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš prehod?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_sedmica",
+    "name": "Sedmica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "preizkus",
+      "obramba",
+      "notranji kriterij",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Sedmica Meči poveže temo preizkus, obramba, notranji kriterij s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "sumničavost",
+    "love": "V odnosih Sedmica Meči pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Sedmica Meči pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Sedmica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Sedmica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš preizkus?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_osmica",
+    "name": "Osmica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "gibanje",
+      "praksa",
+      "fokus",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Osmica Meči poveže temo gibanje, praksa, fokus s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "rutina brez smisla",
+    "love": "V odnosih Osmica Meči pokaže, kako se gibanje, praksa, fokus izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Osmica Meči pokaže, kako se gibanje, praksa, fokus izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Osmica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Osmica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_devetka",
+    "name": "Devetka Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "zrelost",
+      "samostojnost",
+      "posledica",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Devetka Meči poveže temo zrelost, samostojnost, posledica s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "izolacija",
+    "love": "V odnosih Devetka Meči pokaže, kako se zrelost, samostojnost, posledica izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Devetka Meči pokaže, kako se zrelost, samostojnost, posledica izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Devetka Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Devetka Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrelost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_desetka",
+    "name": "Desetka Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "zaključek cikla",
+      "polnost",
+      "breme",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Desetka Meči poveže temo zaključek cikla, polnost, breme s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "preobremenitev",
+    "love": "V odnosih Desetka Meči pokaže, kako se zaključek cikla, polnost, breme izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Desetka Meči pokaže, kako se zaključek cikla, polnost, breme izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Desetka Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Desetka Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zaključek cikla?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_paž",
+    "name": "Paž Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "učenje",
+      "radovednost",
+      "sporočilo",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Paž Meči poveže temo učenje, radovednost, sporočilo s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "nezrelost",
+    "love": "V odnosih Paž Meči pokaže, kako se učenje, radovednost, sporočilo izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Paž Meči pokaže, kako se učenje, radovednost, sporočilo izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Paž Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Paž Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš učenje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_vitez",
+    "name": "Vitez Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "gibanje",
+      "impulz",
+      "iskanje",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Vitez Meči poveže temo gibanje, impulz, iskanje s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "nepremišljenost",
+    "love": "V odnosih Vitez Meči pokaže, kako se gibanje, impulz, iskanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Vitez Meči pokaže, kako se gibanje, impulz, iskanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Vitez Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Vitez Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_kraljica",
+    "name": "Kraljica Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "zrela notranja drža",
+      "sprejemanje",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kraljica Meči poveže temo zrela notranja drža, sprejemanje s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "pasivni nadzor",
+    "love": "V odnosih Kraljica Meči pokaže, kako se zrela notranja drža, sprejemanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kraljica Meči pokaže, kako se zrela notranja drža, sprejemanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kraljica Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kraljica Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrela notranja drža?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "meči_kralj",
+    "name": "Kralj Meči",
+    "arcana": "Mala arkana",
+    "suit": "Meči",
+    "element": "zrak",
+    "keywords": [
+      "zunanja avtoriteta",
+      "odgovornost",
+      "misel"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kralj Meči poveže temo zunanja avtoriteta, odgovornost s področjem: misel, resnica, odločitev.",
+    "shadow_aspect": "dominacija",
+    "love": "V odnosih Kralj Meči pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kralj Meči pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kralj Meči pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kralj Meči odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zunanja avtoriteta?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_as",
+    "name": "As Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "seme",
+      "začetek",
+      "potencial",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "As Kovanci poveže temo seme, začetek, potencial s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "potencial brez dejanja",
+    "love": "V odnosih As Kovanci pokaže, kako se seme, začetek, potencial izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu As Kovanci pokaže, kako se seme, začetek, potencial izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju As Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast As Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš seme?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_dvojka",
+    "name": "Dvojka Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "izbira",
+      "ravnovesje",
+      "dvojnost",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Dvojka Kovanci poveže temo izbira, ravnovesje, dvojnost s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "neodločnost",
+    "love": "V odnosih Dvojka Kovanci pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Dvojka Kovanci pokaže, kako se izbira, ravnovesje, dvojnost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Dvojka Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Dvojka Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izbira?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_trojka",
+    "name": "Trojka Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "rast",
+      "sodelovanje",
+      "prvi rezultat",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Trojka Kovanci poveže temo rast, sodelovanje, prvi rezultat s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "razpršenost",
+    "love": "V odnosih Trojka Kovanci pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Trojka Kovanci pokaže, kako se rast, sodelovanje, prvi rezultat izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Trojka Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Trojka Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš rast?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_štirica",
+    "name": "Štirica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "stabilnost",
+      "meja",
+      "struktura",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Štirica Kovanci poveže temo stabilnost, meja, struktura s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "zaprtost",
+    "love": "V odnosih Štirica Kovanci pokaže, kako se stabilnost, meja, struktura izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Štirica Kovanci pokaže, kako se stabilnost, meja, struktura izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Štirica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Štirica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš stabilnost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_petica",
+    "name": "Petica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "izziv",
+      "konflikt",
+      "sprememba",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Petica Kovanci poveže temo izziv, konflikt, sprememba s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "drama",
+    "love": "V odnosih Petica Kovanci pokaže, kako se izziv, konflikt, sprememba izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Petica Kovanci pokaže, kako se izziv, konflikt, sprememba izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Petica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Petica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš izziv?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_šestica",
+    "name": "Šestica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "prehod",
+      "pomoč",
+      "spomin",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Šestica Kovanci poveže temo prehod, pomoč, spomin s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "nostalgija",
+    "love": "V odnosih Šestica Kovanci pokaže, kako se prehod, pomoč, spomin izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Šestica Kovanci pokaže, kako se prehod, pomoč, spomin izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Šestica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Šestica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš prehod?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_sedmica",
+    "name": "Sedmica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "preizkus",
+      "obramba",
+      "notranji kriterij",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Sedmica Kovanci poveže temo preizkus, obramba, notranji kriterij s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "sumničavost",
+    "love": "V odnosih Sedmica Kovanci pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Sedmica Kovanci pokaže, kako se preizkus, obramba, notranji kriterij izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Sedmica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Sedmica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš preizkus?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_osmica",
+    "name": "Osmica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "gibanje",
+      "praksa",
+      "fokus",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Osmica Kovanci poveže temo gibanje, praksa, fokus s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "rutina brez smisla",
+    "love": "V odnosih Osmica Kovanci pokaže, kako se gibanje, praksa, fokus izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Osmica Kovanci pokaže, kako se gibanje, praksa, fokus izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Osmica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Osmica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_devetka",
+    "name": "Devetka Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "zrelost",
+      "samostojnost",
+      "posledica",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Devetka Kovanci poveže temo zrelost, samostojnost, posledica s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "izolacija",
+    "love": "V odnosih Devetka Kovanci pokaže, kako se zrelost, samostojnost, posledica izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Devetka Kovanci pokaže, kako se zrelost, samostojnost, posledica izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Devetka Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Devetka Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrelost?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_desetka",
+    "name": "Desetka Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "zaključek cikla",
+      "polnost",
+      "breme",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Desetka Kovanci poveže temo zaključek cikla, polnost, breme s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "preobremenitev",
+    "love": "V odnosih Desetka Kovanci pokaže, kako se zaključek cikla, polnost, breme izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Desetka Kovanci pokaže, kako se zaključek cikla, polnost, breme izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Desetka Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Desetka Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zaključek cikla?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_paž",
+    "name": "Paž Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "učenje",
+      "radovednost",
+      "sporočilo",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Paž Kovanci poveže temo učenje, radovednost, sporočilo s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "nezrelost",
+    "love": "V odnosih Paž Kovanci pokaže, kako se učenje, radovednost, sporočilo izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Paž Kovanci pokaže, kako se učenje, radovednost, sporočilo izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Paž Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Paž Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš učenje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_vitez",
+    "name": "Vitez Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "gibanje",
+      "impulz",
+      "iskanje",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Vitez Kovanci poveže temo gibanje, impulz, iskanje s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "nepremišljenost",
+    "love": "V odnosih Vitez Kovanci pokaže, kako se gibanje, impulz, iskanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Vitez Kovanci pokaže, kako se gibanje, impulz, iskanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Vitez Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Vitez Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš gibanje?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_kraljica",
+    "name": "Kraljica Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "zrela notranja drža",
+      "sprejemanje",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kraljica Kovanci poveže temo zrela notranja drža, sprejemanje s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "pasivni nadzor",
+    "love": "V odnosih Kraljica Kovanci pokaže, kako se zrela notranja drža, sprejemanje izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kraljica Kovanci pokaže, kako se zrela notranja drža, sprejemanje izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kraljica Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kraljica Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zrela notranja drža?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  },
+  {
+    "id": "kovanci_kralj",
+    "name": "Kralj Kovanci",
+    "arcana": "Mala arkana",
+    "suit": "Kovanci",
+    "element": "zemlja",
+    "keywords": [
+      "zunanja avtoriteta",
+      "odgovornost",
+      "materialno"
+    ],
+    "jung_archetypes": [
+      "Vsakdanji jaz",
+      "Senca"
+    ],
+    "symbolic_meaning": "Kralj Kovanci poveže temo zunanja avtoriteta, odgovornost s področjem: materialno, telo, delo, varnost.",
+    "shadow_aspect": "dominacija",
+    "love": "V odnosih Kralj Kovanci pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi bližino, zaupanje ali meje.",
+    "career": "Pri delu Kralj Kovanci pokaže, kako se zunanja avtoriteta, odgovornost izraža skozi naloge, sodelovanje ali odločanje.",
+    "money": "Pri denarju Kralj Kovanci pokaže odnos do vrednosti, varnosti, tveganja ali odgovornosti.",
+    "personal_growth": "Za osebno rast Kralj Kovanci odpira vprašanje, kje je potreben bolj zavesten odziv.",
+    "reflection_questions": [
+      "Kje v tej situaciji prepoznavaš zunanja avtoriteta?",
+      "Kaj bi bila bolj zrela oblika te energije?"
+    ]
+  }
+]

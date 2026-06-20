@@ -68,9 +68,9 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
 .lead{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:1rem}
 .primary-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid rgba(199,188,228,.5);background:rgba(199,188,228,.08);color:#fff;padding:.82rem 1.2rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s;white-space:nowrap}
-.btn:hover{background:rgba(168,190,223,.12);border-color:var(--blue-soft)}
-.btn.primary{background:var(--violet-light);border-color:var(--violet-light);color:#111018}
-.btn.primary:hover{background:var(--blue-soft);border-color:var(--blue-soft)}
+.btn:hover{background:rgba(216,189,154,.08);border-color:rgba(216,189,154,.55)}
+.btn.primary{background:linear-gradient(90deg,var(--violet-light),rgba(216,189,154,.92));border-color:rgba(216,189,154,.48);color:#111018}
+.btn.primary:hover{background:linear-gradient(90deg,rgba(216,189,154,.96),var(--violet-light));border-color:rgba(216,189,154,.72)}
 
 .dashboard{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.65fr);gap:1.4rem;align-items:start}
 .panel{border:1px solid var(--line-soft);background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:1.55rem}
@@ -97,11 +97,14 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
 .history-actions{display:flex;flex-direction:column;gap:.55rem;min-width:150px}
 .empty{border:1px dashed rgba(199,188,228,.24);background:rgba(255,255,255,.025);padding:1.4rem;color:var(--muted);line-height:1.7}
 
-.modal-bg{position:fixed;inset:0;z-index:200;background:rgba(17,16,24,.84);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.modal-bg{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 28%,rgba(127,108,175,.16),transparent 34%),rgba(17,16,24,.88);backdrop-filter:blur(10px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
 .modal-bg.open{display:flex}
-.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:#181720;border:1px solid var(--line);padding:2.5rem;position:relative;margin:auto 0}
+.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:linear-gradient(165deg,rgba(28,27,39,.98),rgba(18,17,27,.98));border:1px solid rgba(216,189,154,.18);padding:2.5rem;position:relative;margin:auto 0;box-shadow:0 28px 90px rgba(0,0,0,.48),0 0 0 1px rgba(199,188,228,.04),0 0 44px rgba(127,108,175,.12)}
+.modal::before{content:"";position:absolute;inset:10px;border:1px solid rgba(199,188,228,.08);pointer-events:none}
+.modal-bg.open .modal{animation:modalOracleIn .42s ease both}
 .modal.report-modal{max-width:780px}
-.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem}
+.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem;z-index:2;transition:color .2s,transform .2s}
+.close:hover{color:var(--warm);transform:rotate(8deg)}
 .modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}
 .modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}
 .modal-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}
@@ -119,11 +122,12 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
 .report-body p{margin-bottom:.95rem}
 .report-note{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(127,108,175,.18);font-size:.8rem;color:#696377}
 
-.cookie-consent{position:fixed;left:50%;bottom:1.2rem;z-index:180;width:min(920px,calc(100% - 2rem));transform:translate(-50%,calc(100% + 2rem));opacity:0;pointer-events:none;display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:center;padding:1.15rem 1.25rem;border:1px solid rgba(168,190,223,.26);background:linear-gradient(135deg,rgba(24,23,32,.97),rgba(18,17,27,.96));box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 38px rgba(168,190,223,.08);backdrop-filter:blur(18px);transition:opacity .35s ease,transform .35s ease}
+.cookie-consent{position:fixed;left:50%;bottom:1.2rem;z-index:180;width:min(920px,calc(100% - 2rem));transform:translate(-50%,calc(100% + 2rem));opacity:0;pointer-events:none;display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:center;padding:1.15rem 1.25rem;border:1px solid rgba(216,189,154,.2);background:radial-gradient(circle at 12% 0,rgba(216,189,154,.08),transparent 36%),linear-gradient(135deg,rgba(28,27,39,.98),rgba(18,17,27,.98));box-shadow:0 22px 70px rgba(0,0,0,.45),0 0 42px rgba(127,108,175,.12);backdrop-filter:blur(18px);transition:opacity .35s ease,transform .35s ease}
 .cookie-consent.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 .cookie-copy strong{display:block;font-family:var(--display);font-size:1.05rem;font-weight:500;color:#fff;margin-bottom:.2rem}
 .cookie-copy p{color:var(--muted);font-size:.86rem;line-height:1.55;max-width:620px}
 .cookie-actions{display:flex;gap:.7rem;align-items:center;justify-content:flex-end}
+@keyframes modalOracleIn{from{opacity:0;transform:translateY(16px) scale(.985);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 
 @media(max-width:860px){
   .nav-links{display:none}.hamb{display:flex}
@@ -144,7 +148,7 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
   .report-title{font-size:1.55rem}
   .report-card-grid{grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:.55rem}
   .report-card img{width:54px}
-  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(24,23,32,.82),#181720 28%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem}
+  .modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(28,27,39,.72),rgba(18,17,27,.98) 30%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem;border-top:1px solid rgba(216,189,154,.1)}
   .cookie-consent{grid-template-columns:1fr;bottom:.75rem;width:calc(100% - 1.5rem);padding:1rem}
   .cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:.55rem}
   .cookie-actions .btn{width:100%}
@@ -301,6 +305,23 @@ function esc(value = ''){
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+function slovenianTypography(value = ''){
+  return String(value)
+    .replace(/\r/g, '')
+    .replace(/[“”]/g, '"')
+    .replace(/„([^"\n]+)"/g, '„$1“')
+    .replace(/"([^"\n]+)"/g, '„$1“')
+    .replace(/'([^'\n]{2,})'/g, '„$1“')
+    .replace(/[ \t]+[—–][ \t]+/g, '. ')
+    .replace(/[—–]/g, '-')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^\s*---+\s*$/gm, '')
+    .replace(/\*\*/g, '')
+    .replace(/([.!?]\s+)([a-zčšž])/g, (_, punctuation, letter) => punctuation + letter.toUpperCase())
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
 function openAuth(){document.getElementById('authModal').classList.add('open')}
 function closeAuth(){document.getElementById('authModal').classList.remove('open')}
 function getAuthRedirectUrl(){
@@ -366,7 +387,7 @@ function isVisibleReading(reading){
   return reading.reading_type === 'daily' ? ageDays <= 7 : ageDays <= 365;
 }
 function fullReadingText(reading){
-  return [reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n');
+  return slovenianTypography([reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n'));
 }
 function cardImage(name){
   const major = {
@@ -433,7 +454,7 @@ function renderReadingHistory(readings){
   wrap.innerHTML = readings.map((reading) => {
     const index = accountReadings.indexOf(reading);
     const cards = cardsFromReading(reading);
-    const question = reading.intent || fullReadingText(reading).replace(/\s+/g, ' ').slice(0, 180) || 'Brez zapisanega vprašanja';
+    const question = slovenianTypography(reading.intent || fullReadingText(reading).replace(/\s+/g, ' ').slice(0, 180)) || 'Brez zapisanega vprašanja';
     return `
       <article class="history-item">
         <div>
@@ -474,9 +495,8 @@ async function loadMyReadings(){
   renderReadingHistory(filteredReadings());
 }
 function formatReadingText(text){
-  const headings = new Set(['Branje „Pot"','Branje „Razplet"','Tema','Prvi vtis','Odgovor na tvoje vprašanje','Ozadje','Zdaj','Naslednji korak','Jedro vprašanja','Vidna situacija','Skrita napetost','Tvoja vloga','Druga stran ali zunanji vpliv','Če se nič ne spremeni','Če spremeniš pristop','Naslednjih 30 dni','Kako se karte povežejo','V naslednjih 7 dneh','Česa ne forsiraj','Vprašanje za konec']);
-  return String(text || '')
-    .replace(/\r/g, '')
+  const headings = new Set(['Branje „Pot“','Branje „Razplet“','Tema','Prvi vtis','Odgovor na tvoje vprašanje','Ozadje','Zdaj','Naslednji korak','Jedro vprašanja','Vidna situacija','Skrita napetost','Tvoja vloga','Druga stran ali zunanji vpliv','Če se nič ne spremeni','Če spremeniš pristop','Naslednjih 30 dni','Kako se karte povežejo','V naslednjih 7 dneh','Česa ne forsiraj','Vprašanje za konec']);
+  return slovenianTypography(text)
     .split(/\n+/)
     .map(line => line.trim().replace(/^#+\s*/, '').replace(/^---+$/, '').replace(/\*\*/g, ''))
     .filter(Boolean)
@@ -489,7 +509,7 @@ function openReadingReport(index){
   const cards = cardsFromReading(reading);
   document.getElementById('reportLabel').textContent = `${readingTypeLabel(reading.reading_type)} · ${reading.topic || 'Splošno'} · ${formatDate(reading.created_at)} · ${readingRetention(reading.reading_type)}`;
   document.getElementById('reportTitle').textContent = reading.reading_type === 'daily' ? 'Poročilo o karti' : `Poročilo: ${readingTypeLabel(reading.reading_type)}`;
-  document.getElementById('reportQuestion').textContent = reading.intent ? `„${reading.intent}"` : 'Vprašanje ni bilo zapisano.';
+  document.getElementById('reportQuestion').textContent = reading.intent ? `„${slovenianTypography(reading.intent)}“` : 'Vprašanje ni bilo zapisano.';
   document.getElementById('reportCards').innerHTML = cards.map(card => `
     <div class="report-card">
       <img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async">

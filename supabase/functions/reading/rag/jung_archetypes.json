@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Senca",
+    "description": "Potisnjeni del osebnosti, ki ga pogosto vidimo v drugih prej kot v sebi.",
+    "signals": [
+      "močne reakcije",
+      "ponavljajoči konflikti",
+      "sram",
+      "pretirana sodba"
+    ],
+    "question": "Kaj pri tej temi najtežje priznam sebi?"
+  },
+  {
+    "name": "Persona",
+    "description": "Družbena maska, s katero se prilagodimo okolju.",
+    "signals": [
+      "ugajanje",
+      "vloga",
+      "nadzor vtisa"
+    ],
+    "question": "Kje igram vlogo, ki me utesnjuje?"
+  },
+  {
+    "name": "Self",
+    "description": "Simbol celote in povezovanja zavestnega z nezavednim.",
+    "signals": [
+      "mir",
+      "integracija",
+      "notranji kompas"
+    ],
+    "question": "Kaj bi bila bolj celovita izbira?"
+  },
+  {
+    "name": "Anima",
+    "description": "Notranja podoba ženskega principa pri moškem oziroma simbol občutljivosti in sprejemanja.",
+    "signals": [
+      "intuicija",
+      "projekcija",
+      "idealizacija"
+    ],
+    "question": "Kaj projiciram v drugo osebo?"
+  },
+  {
+    "name": "Animus",
+    "description": "Notranja podoba moškega principa pri ženski oziroma simbol presoje, smeri in volje.",
+    "signals": [
+      "notranji glas",
+      "stališče",
+      "kritika"
+    ],
+    "question": "Ali me vodi jasnost ali notranji pritisk?"
+  },
+  {
+    "name": "Modrec",
+    "description": "Arhetip znanja, uvida in zrelosti.",
+    "signals": [
+      "iskanje smisla",
+      "učenje",
+      "opazovanje"
+    ],
+    "question": "Kaj že vem, pa še ne upoštevam?"
+  },
+  {
+    "name": "Junak",
+    "description": "Arhetip poguma, preizkušnje in premika.",
+    "signals": [
+      "izziv",
+      "boj",
+      "dokazovanje"
+    ],
+    "question": "Ali se borim za pravo stvar?"
+  },
+  {
+    "name": "Velika mati",
+    "description": "Arhetip nege, varnosti in ustvarjanja.",
+    "signals": [
+      "skrb",
+      "plodnost",
+      "zaščita"
+    ],
+    "question": "Kje skrb postaja nadzor?"
+  },
+  {
+    "name": "Trickster",
+    "description": "Arhetip preobrata, paradoksa in razbitja togih pravil.",
+    "signals": [
+      "kaos",
+      "humor",
+      "presenečenje"
+    ],
+    "question": "Kaj ta zmeda razkriva?"
+  },
+  {
+    "name": "Notranji otrok",
+    "description": "Živi del osebnosti, povezan z igro, ranljivostjo in spontanim odzivom.",
+    "signals": [
+      "veselje",
+      "strah",
+      "potreba po varnosti"
+    ],
+    "question": "Kaj v meni potrebuje varnost, ne kritike?"
+  }
+]

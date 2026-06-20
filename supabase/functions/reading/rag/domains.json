@@ -1,0 +1,26 @@
+[
+  {
+    "domain": "ljubezen",
+    "focus": "odnosi, bližina, navezanost, zaupanje, meja",
+    "avoid": "ne trdi, da nekdo vara, ljubi ali se bo vrnil",
+    "preferred_language": "v kartah se odpira tema odnosa, ne gotova sodba o drugi osebi"
+  },
+  {
+    "domain": "delo",
+    "focus": "smer, vloga, odgovornost, sodelovanje, premik",
+    "avoid": "ne obljubljaj napredovanja ali izgube službe",
+    "preferred_language": "karta kaže delovni vzorec, izbiro ali pritisk"
+  },
+  {
+    "domain": "denar",
+    "focus": "varnost, vrednost, tveganje, odgovornost",
+    "avoid": "ne dajaj finančnih napovedi ali investicijskih navodil",
+    "preferred_language": "govori o odnosu do denarja in odločanja"
+  },
+  {
+    "domain": "osebna rast",
+    "focus": "notranji vzorci, senca, zrelost, integracija",
+    "avoid": "ne patologiziraj uporabnika",
+    "preferred_language": "uporabljaj refleksijo in simbolni okvir"
+  }
+]

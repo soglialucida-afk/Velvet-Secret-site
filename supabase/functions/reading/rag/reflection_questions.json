@@ -1,0 +1,2502 @@
+[
+  {
+    "id": 1,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 2,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 3,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 4,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 5,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 6,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 7,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 8,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 9,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 10,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 11,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 12,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 13,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 14,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 15,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 16,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 17,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 18,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 19,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 20,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 21,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 22,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 23,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 24,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 25,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 26,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 27,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 28,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 29,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 30,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 31,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 32,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 33,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 34,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 35,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 36,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 37,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 38,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 39,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 40,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 41,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 42,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 43,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 44,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 45,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 46,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 47,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 48,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 49,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 50,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 51,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 52,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 53,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 54,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 55,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 56,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 57,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 58,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 59,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 60,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 61,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 62,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 63,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 64,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 65,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 66,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 67,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 68,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 69,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 70,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 71,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 72,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 73,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 74,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 75,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 76,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 77,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 78,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 79,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 80,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 81,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 82,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 83,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 84,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 85,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 86,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 87,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 88,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 89,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 90,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 91,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 92,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 93,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 94,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 95,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 96,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 97,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 98,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 99,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 100,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 101,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 102,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 103,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 104,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 105,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 106,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 107,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 108,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 109,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 110,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 111,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 112,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 113,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 114,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 115,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 116,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 117,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 118,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 119,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 120,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 121,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 122,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 123,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 124,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 125,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 126,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 127,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 128,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 129,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 130,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 131,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 132,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 133,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 134,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 135,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 136,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 137,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 138,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 139,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 140,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 141,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 142,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 143,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 144,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 145,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 146,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 147,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 148,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 149,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 150,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 151,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 152,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 153,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 154,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 155,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 156,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 157,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 158,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 159,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 160,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 161,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 162,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 163,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 164,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 165,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 166,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 167,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 168,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 169,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 170,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 171,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 172,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 173,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 174,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 175,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 176,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 177,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 178,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 179,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 180,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 181,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 182,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 183,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 184,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 185,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 186,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 187,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 188,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 189,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 190,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 191,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 192,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 193,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 194,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 195,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 196,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 197,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 198,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 199,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 200,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 201,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 202,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 203,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 204,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 205,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 206,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 207,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 208,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 209,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 210,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 211,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 212,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 213,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 214,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 215,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 216,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 217,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 218,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 219,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 220,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 221,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 222,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 223,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 224,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 225,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 226,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 227,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 228,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 229,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 230,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 231,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 232,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 233,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 234,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 235,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 236,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 237,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 238,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 239,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 240,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 241,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 242,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 243,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 244,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 245,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 246,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 247,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 248,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 249,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 250,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 251,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 252,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 253,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 254,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 255,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 256,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 257,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 258,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 259,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 260,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 261,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 262,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 263,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 264,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 265,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 266,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 267,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 268,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 269,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 270,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 271,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 272,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 273,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 274,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 275,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 276,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 277,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 278,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 279,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 280,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 281,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 282,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 283,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 284,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 285,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 286,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 287,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 288,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 289,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 290,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 291,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 292,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 293,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 294,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 295,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 296,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 297,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 298,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 299,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 300,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 301,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 302,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 303,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 304,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 305,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 306,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 307,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 308,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 309,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 310,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 311,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 312,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 313,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 314,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 315,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 316,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 317,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 318,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 319,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 320,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 321,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 322,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 323,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 324,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 325,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 326,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 327,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 328,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 329,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 330,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 331,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 332,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 333,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 334,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 335,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 336,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 337,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 338,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 339,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 340,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 341,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 342,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 343,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 344,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 345,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 346,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 347,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 348,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 349,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 350,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 351,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 352,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 353,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 354,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 355,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 356,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 357,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 358,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 359,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 360,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 361,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 362,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 363,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 364,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 365,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 366,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 367,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 368,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 369,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 370,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 371,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 372,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 373,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 374,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 375,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 376,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 377,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 378,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 379,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 380,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 381,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 382,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 383,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 384,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 385,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 386,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 387,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 388,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 389,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 390,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 391,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 392,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 393,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 394,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 395,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 396,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 397,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 398,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 399,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 400,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 401,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 402,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 403,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 404,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 405,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 406,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 407,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 408,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 409,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 410,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 411,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 412,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 413,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 414,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 415,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 416,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 417,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 418,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 419,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 420,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 421,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 422,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 423,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 424,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 425,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 426,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 427,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 428,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 429,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 430,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 431,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 432,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 433,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 434,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 435,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 436,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 437,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 438,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 439,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 440,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 441,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 442,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 443,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 444,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 445,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 446,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 447,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 448,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 449,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 450,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 451,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 452,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 453,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 454,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 455,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 456,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 457,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 458,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 459,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 460,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 461,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 462,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 463,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 464,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 465,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 466,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 467,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 468,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 469,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 470,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 471,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 472,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 473,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 474,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 475,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 476,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 477,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 478,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 479,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 480,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 481,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 482,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 483,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 484,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 485,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 486,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 487,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 488,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 489,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 490,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  },
+  {
+    "id": 491,
+    "type": "odločitev",
+    "question": "Kje si zamenjala potrpežljivost za odlašanje?"
+  },
+  {
+    "id": 492,
+    "type": "odnos",
+    "question": "Kaj bi se pokazalo, če bi nehala nadzorovati izid?"
+  },
+  {
+    "id": 493,
+    "type": "prehod",
+    "question": "Katera resnica je neprijetna, a koristna?"
+  },
+  {
+    "id": 494,
+    "type": "integracija",
+    "question": "Kaj v tej situaciji hrani strah?"
+  },
+  {
+    "id": 495,
+    "type": "senca",
+    "question": "Kje je meja med upanjem in čakanjem?"
+  },
+  {
+    "id": 496,
+    "type": "odločitev",
+    "question": "Kaj želi biti končano?"
+  },
+  {
+    "id": 497,
+    "type": "odnos",
+    "question": "Kaj potrebuje manj dokazovanja in več jasnosti?"
+  },
+  {
+    "id": 498,
+    "type": "prehod",
+    "question": "Kje ponavljaš star vzorec?"
+  },
+  {
+    "id": 499,
+    "type": "integracija",
+    "question": "Kaj bi naredila, če ne bi iskala dovoljenja?"
+  },
+  {
+    "id": 500,
+    "type": "senca",
+    "question": "Kateri del tebe že pozna odgovor?"
+  }
+]

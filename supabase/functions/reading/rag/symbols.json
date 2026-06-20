@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "voda",
+    "meaning": "nezavedno, čustva, intuicija",
+    "shadow": "preplavljenost",
+    "growth": "sprejemanje občutkov"
+  },
+  {
+    "symbol": "ogenj",
+    "meaning": "volja, strast, akcija",
+    "shadow": "impulzivnost",
+    "growth": "usmerjena energija"
+  },
+  {
+    "symbol": "gora",
+    "meaning": "izziv, pot, vztrajnost",
+    "shadow": "nedosegljiv ideal",
+    "growth": "korak za korakom"
+  },
+  {
+    "symbol": "most",
+    "meaning": "prehod, povezava, sprememba",
+    "shadow": "strah pred prehodom",
+    "growth": "prestop na novo raven"
+  },
+  {
+    "symbol": "luna",
+    "meaning": "nezavedno, iluzije, sanje",
+    "shadow": "projekcija",
+    "growth": "razločevanje strahu od intuicije"
+  },
+  {
+    "symbol": "sonce",
+    "meaning": "jasnost, vitalnost, zavest",
+    "shadow": "ego",
+    "growth": "preprosta resnica"
+  },
+  {
+    "symbol": "meč",
+    "meaning": "misel, rez, odločitev",
+    "shadow": "krutost",
+    "growth": "jasna meja"
+  },
+  {
+    "symbol": "kelih",
+    "meaning": "čustva, sprejemanje, bližina",
+    "shadow": "odvisnost",
+    "growth": "čustvena zrelost"
+  },
+  {
+    "symbol": "krona",
+    "meaning": "odgovornost, avtoriteta",
+    "shadow": "nadzor",
+    "growth": "zrela drža"
+  },
+  {
+    "symbol": "vrata",
+    "meaning": "prag, možnost, odločitev",
+    "shadow": "odlašanje",
+    "growth": "vstop v novo fazo"
+  }
+]
