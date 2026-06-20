@@ -246,14 +246,15 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
   overflow:hidden;transition:.4s ease;
 }
 .intro-card:hover{transform:translateY(-8px);border-color:var(--line);box-shadow:0 20px 60px rgba(0,0,0,.18)}
-.intro-visual{position:relative;aspect-ratio:16/11;background-size:cover;background-position:center;overflow:hidden}
-.intro-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,16,24,.12),rgba(17,16,24,.72)),linear-gradient(135deg,rgba(199,188,228,.18),rgba(216,189,154,.08))}
+.intro-visual{position:relative;aspect-ratio:16/11;background-size:cover;background-position:center;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding:1.45rem}
+.intro-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,16,24,.08),rgba(17,16,24,.76)),linear-gradient(135deg,rgba(199,188,228,.18),rgba(216,189,154,.08))}
 .intro-card:nth-child(1) .intro-visual{background-image:url("assets/images/optimized/intro-nezno.webp")}
 .intro-card:nth-child(2) .intro-visual{background-image:url("assets/images/optimized/intro-konkretno.webp")}
 .intro-card:nth-child(3) .intro-visual{background-image:url("assets/images/optimized/intro-tvoje.webp")}
-.intro-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;background:rgba(199,188,228,.12);border:1px solid rgba(199,188,228,.18);color:var(--violet-light);font-size:1.22rem}
-.intro-copy{padding:2.4rem 2rem 2.5rem}
-.intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
+.intro-visual-title{position:relative;z-index:1;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.72)}
+.intro-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;background:rgba(25,23,35,.5);border:1px solid rgba(199,188,228,.26);color:var(--violet-light);font-size:1.22rem;backdrop-filter:blur(8px)}
+.intro-copy{padding:1.7rem 2rem 2rem}
+.intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:0}
 .intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
 .intro-blog{margin-top:1.35rem;padding-top:1.05rem;border-top:1px solid rgba(199,188,228,.08);display:flex;justify-content:center}
 .intro-blog-link{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,188,228,.78);border:1px solid rgba(199,188,228,.24);padding:.46rem .9rem;transition:.25s}
@@ -871,10 +872,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
   <div class="intro-grid">
     <div class="intro-card fade-in">
-      <div class="intro-visual"></div>
+      <div class="intro-visual">
+        <div class="intro-visual-title">
+          <div class="intro-icon">☾</div>
+          <h3>Občutek</h3>
+        </div>
+      </div>
       <div class="intro-copy">
-        <div class="intro-icon">☾</div>
-        <h3>Občutek</h3>
         <p>Nekaj te vleče v določeno smer, pa še ne veš zakaj. Vprašanje še nima oblike, občutek pa je že prisoten.</p>
         <div class="intro-blog">
           <a class="intro-blog-link" href="jung-in-simboli.html">Preberi globlje</a>
@@ -882,10 +886,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       </div>
     </div>
     <div class="intro-card fade-in">
-      <div class="intro-visual"></div>
+      <div class="intro-visual">
+        <div class="intro-visual-title">
+          <div class="intro-icon">✦</div>
+          <h3>Simbol</h3>
+        </div>
+      </div>
       <div class="intro-copy">
-        <div class="intro-icon">✦</div>
-        <h3>Simbol</h3>
         <p>Karta ne napoveduje prihodnosti. Pokaže simbol, skozi katerega lahko drugače pogledaš svojo situacijo.</p>
         <div class="intro-blog">
           <a class="intro-blog-link" href="kako-se-berejo-karte.html">Preberi globlje</a>
@@ -893,10 +900,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       </div>
     </div>
     <div class="intro-card fade-in">
-      <div class="intro-visual"></div>
+      <div class="intro-visual">
+        <div class="intro-visual-title">
+          <div class="intro-icon">◈</div>
+          <h3>Pomen</h3>
+        </div>
+      </div>
       <div class="intro-copy">
-        <div class="intro-icon">◈</div>
-        <h3>Pomen</h3>
         <p>Včasih odgovor ni nova informacija. Je trenutek, ko prepoznaš nekaj, kar si že vedel.</p>
         <div class="intro-blog">
           <a class="intro-blog-link" href="psihologija-in-karte.html">Preberi globlje</a>
