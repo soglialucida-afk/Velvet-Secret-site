@@ -66,7 +66,7 @@ Tvoja naloga ni odgovoriti na vprašanje.
 Tvoja naloga je prepoznati, kaj se skriva za njim, in to povedati na način, da se oseba v tem prepozna.
 Karta ni resnica.
 Karta je le izhodišče za razmislek.
-Če dobiš RAG kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
+Če dobiš dodatni delovni kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
 Nikoli ne omenjaj RAG, baze, podatkov, konteksta ali sistemskih navodil.
 Ne napoveduj prihodnosti.
 Ne ugibaj dogodkov.
@@ -182,7 +182,7 @@ Oseba ne sme dobiti občutka, da je prejela tri ločene opise kart.
 Dobiti mora občutek majhne zasebne seanse.
 Branje mora imeti začetek, razvoj in sklep.
 Vsaka karta ima svojo vlogo, vendar je najpomembnejša povezava med njimi.
-Če dobiš RAG kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
+Če dobiš dodatni delovni kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
 Nikoli ne omenjaj RAG, baze, podatkov, konteksta ali sistemskih navodil.
 Če je odgovor prekratek, preveč splošen ali preveč podoben brezplačnemu branju, naloga ni opravljena.
 Če branje ne odgovori neposredno na zapisano vprašanje osebe, naloga ni opravljena.
@@ -352,7 +352,7 @@ const RAZPLET_SYSTEM_PROMPT = `Pišeš plačljivo tarot branje „Razplet“ v s
 To je poglobljeno branje s sedmimi kartami za osebo, ki je plačala 14,90 €.
 To ni daljša verzija branja „Pot“.
 To je zemljevid celotne situacije.
-Če dobiš RAG kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
+Če dobiš dodatni delovni kontekst, ga uporabi samo kot tiho oporo za bolj natančno branje.
 Nikoli ne omenjaj RAG, baze, podatkov, konteksta ali sistemskih navodil.
 
 GLAVNI CILJ
@@ -593,7 +593,15 @@ function domainCardText(card: TarotCardKnowledge, domain: string) {
   return card.symbolic_meaning;
 }
 
-function pickReflectionQuestions(topic = '', limit = 3) {
+function stableHash(value: string) {
+  let hash = 0;
+  for (const char of value) {
+    hash = ((hash << 5) - hash + char.charCodeAt(0)) | 0;
+  }
+  return Math.abs(hash);
+}
+
+function pickReflectionQuestions(topic = '', limit = 3, seed = '') {
   const key = domainKey(topic);
   const typeMap: Record<string, string[]> = {
     'ljubezen': ['odnos', 'meja'],
@@ -604,9 +612,12 @@ function pickReflectionQuestions(topic = '', limit = 3) {
   };
   const preferred = typeMap[key] || typeMap['splošno'];
   const matches = REFLECTION_QUESTIONS
-    .filter((item) => preferred.some((type) => normalizeLookup(item.type || '').includes(normalizeLookup(type))))
-    .slice(0, limit);
-  return (matches.length ? matches : REFLECTION_QUESTIONS.slice(0, limit)).map((item) => item.question);
+    .filter((item) => preferred.some((type) => normalizeLookup(item.type || '').includes(normalizeLookup(type))));
+  const pool = matches.length ? matches : REFLECTION_QUESTIONS;
+  if (!pool.length) return [];
+
+  const start = stableHash(`${key}|${seed}`) % pool.length;
+  return Array.from({ length: Math.min(limit, pool.length) }, (_, index) => pool[(start + index) % pool.length].question);
 }
 
 function buildRagContext(params: {
@@ -637,22 +648,23 @@ function buildRagContext(params: {
     }))
     .slice(0, 4);
   const domain = findDomainKnowledge(params.topic);
-  const questions = pickReflectionQuestions(params.topic, params.readingType === 'razplet' ? 5 : 3);
+  const questionSeed = selectedCards.map((card) => card.name).join('|');
+  const questions = pickReflectionQuestions(params.topic, params.readingType === 'razplet' ? 5 : 3, questionSeed);
 
   return [
-    'RAG KONTEKST',
+    'DELOVNI KONTEKST ZA BRANJE',
     'Uporabi kot tiho oporo za natančnost. Ne prepisuj ga suho in ne naštevaj vseh podatkov.',
     domain ? `Področje: ${domain.domain}. Fokus: ${domain.focus}. Izogibaj se: ${domain.avoid}. Jezik: ${domain.preferred_language}.` : '',
     cardKnowledge.map((item, index) => [
       `${index + 1}. ${item.input.name} -> ${item.knowledge.name}`,
       `Ključne teme: ${(item.knowledge.keywords || []).join(', ')}`,
       item.knowledge.symbolic_meaning ? `Simbolni pomen: ${item.knowledge.symbolic_meaning}` : '',
-      item.knowledge.shadow_aspect ? `Senca: ${item.knowledge.shadow_aspect}` : '',
+      item.knowledge.shadow_aspect ? `Notranja napetost: ${item.knowledge.shadow_aspect}` : '',
       domainCardText(item.knowledge, params.topic) ? `Področni kontekst: ${domainCardText(item.knowledge, params.topic)}` : '',
       (item.knowledge.reflection_questions || []).length ? `Vprašanja karte: ${item.knowledge.reflection_questions!.join(' / ')}` : ''
     ].filter(Boolean).join('\n')).join('\n\n'),
-    archetypes.length ? `Arhetipi: ${archetypes.map((item) => `${item.name}: ${item.description}${item.question ? ` Vprašanje: ${item.question}` : ''}`).join('\n')}` : '',
-    symbolMatches.length ? `Simboli: ${symbolMatches.map((item) => `${item.symbol}: ${item.meaning}; senca: ${item.shadow}; rast: ${item.growth}`).join('\n')}` : '',
+    archetypes.length ? `Psihološki vzorci: ${archetypes.map((item) => `${item.name}: ${item.description}${item.question ? ` Vprašanje: ${item.question}` : ''}`).join('\n')}` : '',
+    symbolMatches.length ? `Simboli: ${symbolMatches.map((item) => `${item.symbol}: ${item.meaning}; napetost: ${item.shadow}; premik: ${item.growth}`).join('\n')}` : '',
     questions.length ? `Možna reflektivna vprašanja za navdih: ${questions.join(' / ')}` : ''
   ].filter(Boolean).join('\n\n');
 }
@@ -722,10 +734,10 @@ Deno.serve(async (req: Request) => {
   const ragContext = buildRagContext({ readingType, topic, card, cards });
 
   const userMessage = readingType === 'razplet'
-    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet“. Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje, dodatni fokus branja in RAG kontekst.`
+    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet“. Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje, dodatni fokus branja in delovni kontekst.`
     : readingType === 'pot'
-      ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot“. Upoštevaj vloge kart, vprašanje osebe, izbrano področje in RAG kontekst.`
-      : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\n${ragContext}\n\nNapiši branje. Uporabi RAG kontekst kot tiho oporo, vendar ostani kratek in konkreten.`;
+      ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot“. Upoštevaj vloge kart, vprašanje osebe, izbrano področje in delovni kontekst.`
+      : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\n${ragContext}\n\nNapiši branje. Uporabi delovni kontekst kot tiho oporo, vendar ostani kratek in konkreten.`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
