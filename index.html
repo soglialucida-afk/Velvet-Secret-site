@@ -241,8 +241,8 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .section-desc{max-width:630px;margin:0 auto;color:var(--muted);font-weight:300}
 
 .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.intro-card{position:relative;min-height:520px;aspect-ratio:3/4;overflow:hidden;background:#181720;border:1px solid var(--line-soft);transition:.4s ease;color:#fff}
-.intro-card:hover{transform:translateY(-6px);border-color:var(--line);box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.intro-card{position:relative;aspect-ratio:3/4;overflow:hidden;background:#181720;transition:.4s ease;color:#fff}
+.intro-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.18)}
 .intro-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08));transition:.45s}
 .intro-card:hover::before{background:linear-gradient(135deg,rgba(199,188,228,.28),rgba(216,189,154,.12))}
 .intro-visual{position:absolute;inset:0;background-size:cover;background-position:center;transition:.45s}
@@ -251,12 +251,11 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .intro-card:nth-child(2) .intro-visual{background-image:url("assets/images/optimized/intro-konkretno.webp")}
 .intro-card:nth-child(3) .intro-visual{background-image:url("assets/images/optimized/intro-tvoje.webp")}
 .intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1;pointer-events:none}
-.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.92),rgba(17,16,24,.34) 72%,transparent)}
-.intro-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 0 .85rem;background:rgba(25,23,35,.48);border:1px solid rgba(199,188,228,.24);color:var(--violet-light);font-size:1rem;backdrop-filter:blur(8px)}
-.intro-card h3{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.25rem 0 .45rem;text-shadow:0 2px 18px rgba(0,0,0,.65)}
-.intro-card p{font-size:.9rem;color:rgba(255,255,255,.68);font-weight:300;margin-bottom:1.1rem;line-height:1.7}
-.intro-blog{display:flex;justify-content:flex-start}
-.intro-blog-link{font:inherit;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.4rem .9rem;transition:.25s;background:rgba(17,16,24,.16)}
+.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}
+.intro-card h3{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0;text-shadow:0 2px 18px rgba(0,0,0,.65)}
+.intro-card p{font-size:.9rem;color:rgba(255,255,255,.68);font-weight:300;margin-bottom:1.1rem}
+.intro-blog{display:flex;align-items:center;justify-content:flex-end;gap:.8rem;flex-wrap:wrap;margin-top:auto}
+.intro-blog-link{font:inherit;font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem;text-decoration:none;transition:.25s;background:transparent;cursor:pointer}
 .intro-blog-link:hover{color:#fff;border-color:rgba(199,188,228,.6);background:rgba(199,188,228,.12)}
 
 #branje{background:var(--bg-soft);max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
@@ -643,9 +642,11 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .crystal-wrap{width:64px;height:64px}
   .pristop-grid{grid-template-columns:1fr!important;gap:2rem!important}
   .intro-grid{gap:1.25rem}
-  .intro-card{aspect-ratio:auto;min-height:430px}
-  .intro-copy{padding:1.45rem 1.35rem 1.55rem}
-  .intro-num{top:1rem;left:1.1rem;font-size:3.2rem;opacity:.28;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+  .intro-card{aspect-ratio:auto;min-height:0;background:rgba(255,255,255,.035);border:1px solid var(--line-soft)}
+  .intro-card::before{display:none}
+  .intro-card .intro-visual{position:relative;inset:auto;height:260px;background-size:cover;background-position:center;opacity:1}
+  .intro-copy{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74));padding:1.45rem 1.35rem 1.55rem}
+  .intro-num{top:1rem;left:1.1rem;font-size:3.2rem;opacity:.32;text-shadow:0 2px 18px rgba(0,0,0,.7)}
   .intro-card p{font-size:.92rem;line-height:1.65}
   .gallery{gap:1.25rem}
   .gallery-card{aspect-ratio:auto;min-height:0;background:rgba(255,255,255,.035);border:1px solid var(--line-soft)}
@@ -879,7 +880,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <div class="intro-visual" aria-hidden="true"></div>
       <div class="intro-num">01</div>
       <div class="intro-copy">
-        <div class="intro-icon">☾</div>
         <h3>Občutek</h3>
         <p>Nekaj te vleče v določeno smer, pa še ne veš zakaj. Vprašanje še nima oblike, občutek pa je že prisoten.</p>
         <div class="intro-blog">
@@ -891,7 +891,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <div class="intro-visual" aria-hidden="true"></div>
       <div class="intro-num">02</div>
       <div class="intro-copy">
-        <div class="intro-icon">✦</div>
         <h3>Simbol</h3>
         <p>Karta ne napoveduje prihodnosti. Pokaže simbol, skozi katerega lahko drugače pogledaš svojo situacijo.</p>
         <div class="intro-blog">
@@ -903,7 +902,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <div class="intro-visual" aria-hidden="true"></div>
       <div class="intro-num">03</div>
       <div class="intro-copy">
-        <div class="intro-icon">◈</div>
         <h3>Pomen</h3>
         <p>Včasih odgovor ni nova informacija. Je trenutek, ko prepoznaš nekaj, kar si že vedel.</p>
         <div class="intro-blog">
