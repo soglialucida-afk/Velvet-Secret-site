@@ -1837,24 +1837,25 @@ function restorePendingReadingAfterAuth(){
   pendingConfirm = false;
   localStorage.removeItem('vs_daily');
 
-  const btn = document.querySelector(`.topic[data-topic="${pt}"]`);
-  if(btn) setTopic(btn);
+  topic = pt;
+  document.querySelectorAll('.topic').forEach(b => b.classList.toggle('active', b.dataset.topic === pt));
 
   const pi = localStorage.getItem('vs_pending_intent') || '';
   const intentEl = document.getElementById('intent');
   if(intentEl) intentEl.value = pi;
 
-  document.getElementById('intent-wrap')?.classList.add('visible');
-  setStepDone(2);
+  document.getElementById('intent-wrap')?.classList.remove('visible');
+  clearPendingReading();
+  setStepDone(3);
   clearCardArea();
+  renderCards();
   window.history.replaceState(null, '', '#branje');
 
   setTimeout(() => {
     document.getElementById('branje')?.scrollIntoView({ behavior:'smooth', block:'start' });
-    intentEl?.focus();
   }, 120);
 
-  showToast('Prijava uspešna. Tvoje vprašanje je shranjeno.');
+  showToast('Prijava uspešna. Karte so pripravljene.');
   return true;
 }
 
