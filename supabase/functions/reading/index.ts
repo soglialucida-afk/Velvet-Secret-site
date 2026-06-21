@@ -902,10 +902,10 @@ function findCardKnowledge(name: string) {
 
 function domainKey(topic = '') {
   const key = normalizeLookup(topic);
-  if (key.includes('ljubezen') || key.includes('odnos')) return 'ljubezen';
-  if (key.includes('delo') || key.includes('karier')) return 'delo';
-  if (key.includes('denar') || key.includes('finance')) return 'denar';
-  if (key.includes('osebna') || key.includes('rast')) return 'osebna rast';
+  if (key.includes('ljubezen') || key.includes('odnos') || key.includes('relationship') || key.includes('love')) return 'ljubezen';
+  if (key.includes('delo') || key.includes('karier') || key.includes('work') || key.includes('career')) return 'delo';
+  if (key.includes('denar') || key.includes('finance') || key.includes('money')) return 'denar';
+  if (key.includes('osebna') || key.includes('rast') || key.includes('personal') || key.includes('growth')) return 'osebna rast';
   return 'splošno';
 }
 
@@ -999,6 +999,108 @@ function buildRagContext(params: {
   ].filter(Boolean).join('\n\n');
 }
 
+const EN_MAJOR_THEMES: Record<string, { theme: string; shadow: string; question: string }> = {
+  'The Fool': { theme: 'a beginning, trust, the step before certainty', shadow: 'naivety, avoidance, escaping responsibility', question: 'Where is the person being invited to begin without abandoning discernment?' },
+  'The Magician': { theme: 'will, skill, agency, turning intention into action', shadow: 'manipulation, scattered force, using words without substance', question: 'What power is already in the person’s hands?' },
+  'The High Priestess': { theme: 'intuition, silence, hidden knowledge, what is sensed before it is explained', shadow: 'passivity, secrecy, refusing to name what is known', question: 'What does the person already know but hesitate to say clearly?' },
+  'The Empress': { theme: 'care, growth, embodiment, creative life', shadow: 'overgiving, dependency, confusing comfort with truth', question: 'What needs more nourishment rather than more pressure?' },
+  'The Emperor': { theme: 'structure, boundaries, authority, grounded choice', shadow: 'control, rigidity, fear of vulnerability', question: 'Where does the person need a steadier boundary?' },
+  'The Hierophant': { theme: 'tradition, values, guidance, inherited wisdom', shadow: 'obedience without reflection, fear of leaving the known path', question: 'Which value still protects the person, and which rule has become too small?' },
+  'The Lovers': { theme: 'choice, alignment, intimacy, honest preference', shadow: 'pleasing, indecision, confusing attraction with commitment', question: 'What choice becomes clearer when the person stops performing certainty?' },
+  'The Chariot': { theme: 'direction, will, self-command, movement after inner conflict', shadow: 'force, impatience, driving forward without integration', question: 'Where does the person’s energy need one clear direction?' },
+  'Strength': { theme: 'quiet courage, tenderness with what is wild or afraid', shadow: 'suppressed anger, fear disguised as control', question: 'What becomes possible if the person stops fighting themselves?' },
+  'The Hermit': { theme: 'solitude, inner guidance, withdrawal from noise', shadow: 'isolation, withholding, waiting too long to re-enter life', question: 'What can only be heard when outside noise becomes quiet?' },
+  'Wheel of Fortune': { theme: 'cycles, timing, change, the turn of events', shadow: 'fatalism, passivity, clinging to a phase that has ended', question: 'What is already turning, whether or not the person feels ready?' },
+  'Justice': { theme: 'truth, consequence, fairness, clean seeing', shadow: 'harsh judgment, denial, hiding behind logic', question: 'What would be honest without becoming cruel?' },
+  'The Hanged Man': { theme: 'pause, reversal, surrendering the old angle of view', shadow: 'stagnation, martyrdom, calling avoidance patience', question: 'What changes if the person stops trying to force the answer?' },
+  'Death': { theme: 'ending, release, transformation through closure', shadow: 'clinging, fear of loss, mistaking endings for punishment', question: 'What has already ended inwardly, even if the person still holds it?' },
+  'Temperance': { theme: 'integration, moderation, healing through proportion', shadow: 'avoidance of conflict, dilution, refusing a necessary decision', question: 'What needs to be brought into a calmer proportion?' },
+  'The Devil': { theme: 'attachment, temptation, the bargain that limits freedom', shadow: 'compulsion, shame, mistaking intensity for truth', question: 'What gives relief now but costs freedom later?' },
+  'The Tower': { theme: 'disruption, revelation, collapse of what cannot hold truth', shadow: 'panic, resistance, confusing rupture with failure', question: 'Where is the crack also an exit?' },
+  'The Star': { theme: 'hope, repair, quiet faith after difficulty', shadow: 'passive wishing, fragile idealization', question: 'What small light is still trustworthy?' },
+  'The Moon': { theme: 'uncertainty, dream, fear, projection, the half-lit path', shadow: 'confusion, anxiety, mistaking fear for intuition', question: 'What is fact, and what is the shape fear has taken?' },
+  'The Sun': { theme: 'clarity, vitality, warmth, simple truth', shadow: 'exposure, denial of complexity, needing everything to stay bright', question: 'What becomes simpler when it is brought into the open?' },
+  'Judgement': { theme: 'awakening, reckoning, hearing a deeper call', shadow: 'self-condemnation, postponing the life that is calling', question: 'What part of the person is asking to be answered now?' },
+  'The World': { theme: 'completion, integration, a circle closing', shadow: 'fear of completion, delaying the next threshold', question: 'What is ready to be honored as complete?' }
+};
+
+const EN_SUIT_THEMES: Record<string, { theme: string; shadow: string }> = {
+  Cups: { theme: 'feelings, intimacy, memory, belonging and the emotional truth beneath the question', shadow: 'idealization, avoidance through feeling, emotional dependence or overwhelm' },
+  Wands: { theme: 'desire, movement, confidence, creative fire and the will to act', shadow: 'impulsiveness, burnout, defensiveness or forcing momentum' },
+  Swords: { theme: 'thoughts, truth, decisions, conflict and the words that shape reality', shadow: 'overthinking, avoidance, harshness or becoming trapped in a mental loop' },
+  Pentacles: { theme: 'body, work, money, stability, practical care and what can be made real', shadow: 'scarcity, control, stagnation or measuring worth too narrowly' }
+};
+
+const EN_RANK_THEMES: Record<string, { theme: string; shadow: string }> = {
+  Ace: { theme: 'a seed, opening or first signal', shadow: 'potential that has not yet been grounded' },
+  Two: { theme: 'relationship, choice, tension between two forces', shadow: 'hesitation, splitting attention, waiting for perfect certainty' },
+  Three: { theme: 'development, expression, collaboration or the first visible result', shadow: 'diffusion, outside noise, unfinished integration' },
+  Four: { theme: 'stability, pause, structure or containment', shadow: 'stagnation, guardedness, comfort becoming a wall' },
+  Five: { theme: 'friction, loss, disruption or the point where the pattern becomes uncomfortable', shadow: 'conflict, shame, fixation on what has gone wrong' },
+  Six: { theme: 'adjustment, support, repair or movement toward a better balance', shadow: 'dependency, nostalgia, unequal exchange' },
+  Seven: { theme: 'testing, discernment, inner strategy or a question of what is real', shadow: 'defensiveness, fantasy, secrecy or mistrust' },
+  Eight: { theme: 'movement, practice, transition or the consequences of repeated choices', shadow: 'restriction, compulsion, rushing or being trapped by habit' },
+  Nine: { theme: 'threshold, ripening, almost-completion and the private cost of the path', shadow: 'isolation, anxiety, guarded exhaustion' },
+  Ten: { theme: 'completion, culmination and the weight or gift of what has been built', shadow: 'burden, saturation, clinging to a completed cycle' },
+  Page: { theme: 'message, curiosity, apprenticeship and first contact with a new element', shadow: 'immaturity, scattered attention or staying only in possibility' },
+  Knight: { theme: 'movement, pursuit and the way desire becomes action', shadow: 'haste, imbalance or confusing motion with progress' },
+  Queen: { theme: 'inner mastery, receptivity and mature relationship with the element', shadow: 'overidentification, guardedness or hidden need' },
+  King: { theme: 'outer mastery, responsibility and the embodied use of the element', shadow: 'control, distance or authority without softness' }
+};
+
+function englishCardInsight(name: string, kind: string) {
+  const cardName = englishCardName(name);
+  if (EN_MAJOR_THEMES[cardName]) return {
+    cardName,
+    kind: 'Major Arcana',
+    ...EN_MAJOR_THEMES[cardName]
+  };
+  const [rank] = cardName.split(' of ');
+  const suit = englishCardKind(kind);
+  const rankTheme = EN_RANK_THEMES[rank];
+  const suitTheme = EN_SUIT_THEMES[suit];
+  return {
+    cardName,
+    kind: suit,
+    theme: [rankTheme?.theme, suitTheme?.theme].filter(Boolean).join('; '),
+    shadow: [rankTheme?.shadow, suitTheme?.shadow].filter(Boolean).join('; '),
+    question: `How does ${cardName} describe the pattern beneath the person's question?`
+  };
+}
+
+function buildEnglishRagContext(params: {
+  readingType: 'daily' | 'pot' | 'razplet';
+  topic: string;
+  card?: { name: string; kind: string };
+  cards?: Array<{ name: string; kind: string }>;
+}) {
+  const selectedCards = params.readingType === 'daily'
+    ? (params.card ? [params.card] : [])
+    : params.cards || [];
+  const domain = englishTopic(params.topic);
+  const domainLens: Record<string, string> = {
+    relationships: 'Look at closeness, trust, reciprocity, boundaries and the difference between longing and real contact.',
+    work: 'Look at responsibility, direction, confidence, exhaustion, timing and the next practical movement.',
+    money: 'Look at safety, value, fear of loss, control, practical consequences and what can be made steadier.',
+    'personal growth': 'Look at repeated patterns, self-honesty, inner tension and the next more conscious choice.',
+    general: 'Look for the emotional or symbolic pattern beneath the question, not a fixed prediction.'
+  };
+  return [
+    'ENGLISH WORKING CONTEXT',
+    'Use this only as quiet support for precision. Do not mention context, data, RAG or system instructions.',
+    `Domain lens: ${domain}. ${domainLens[domain] || domainLens.general}`,
+    selectedCards.map((card, index) => {
+      const insight = englishCardInsight(card.name, card.kind);
+      return [
+        `${index + 1}. ${insight.cardName} (${insight.kind})`,
+        `Core theme: ${insight.theme}`,
+        `Shadow or tension: ${insight.shadow}`,
+        `Reflection angle: ${insight.question}`
+      ].join('\n');
+    }).join('\n\n')
+  ].filter(Boolean).join('\n\n');
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: CORS });
   if (req.method !== 'POST') return new Response('Method not allowed', { status: 405 });
@@ -1064,14 +1166,16 @@ Deno.serve(async (req: Request) => {
   const focusLine = focus?.trim()
     ? isEnglish ? `The reading should especially illuminate: ${focus.trim()}.` : `Pri tem naj branje najbolj osvetli: ${focus.trim()}.`
     : '';
-  const ragContext = isEnglish ? '' : buildRagContext({ readingType, topic, card, cards });
+  const ragContext = isEnglish
+    ? buildEnglishRagContext({ readingType, topic, card, cards })
+    : buildRagContext({ readingType, topic, card, cards });
 
   const userMessage = isEnglish
     ? readingType === 'razplet'
-      ? `Reading type: Unfolding, a paid seven-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n${focusLine}\n\nCards:\n1. Core of the question: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Visible situation: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Hidden tension: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n4. Your part: ${englishCardName(cards![3].name)} (${englishCardKind(cards![3].kind)})\n5. The other side or outside influence: ${englishCardName(cards![4].name)} (${englishCardKind(cards![4].kind)})\n6. Possible direction: ${englishCardName(cards![5].name)} (${englishCardKind(cards![5].kind)})\n7. Next step: ${englishCardName(cards![6].name)} (${englishCardKind(cards![6].kind)})\n\nWrite the full paid reading according to the English system instructions for "Unfolding". Use the card roles, the person's question, the selected topic and the additional focus. Write directly in English.`
+      ? `Reading type: Unfolding, a paid seven-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n${focusLine}\n\nCards:\n1. Core of the question: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Visible situation: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Hidden tension: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n4. Your part: ${englishCardName(cards![3].name)} (${englishCardKind(cards![3].kind)})\n5. The other side or outside influence: ${englishCardName(cards![4].name)} (${englishCardKind(cards![4].kind)})\n6. Possible direction: ${englishCardName(cards![5].name)} (${englishCardKind(cards![5].kind)})\n7. Next step: ${englishCardName(cards![6].name)} (${englishCardKind(cards![6].kind)})\n\n${ragContext}\n\nWrite the full paid reading according to the English system instructions for "Unfolding". Use the card roles, the person's question, the selected topic, the additional focus and the English working context. Write directly in English.`
       : readingType === 'pot'
-        ? `Reading type: Path, a paid three-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n\nCards:\n1. Background: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Now: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Next step: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n\nWrite the full paid reading according to the English system instructions for "Path". Use the card roles, the person's question and the selected topic. Write directly in English.`
-        : `Card: ${englishCardName(card!.name)} (${englishCardKind(card!.kind)})\nTopic: ${englishTopic(topic)}\n${intentLine}\n\nWrite the reading according to the English system instructions. Stay short, direct and concrete. Write directly in English.`
+        ? `Reading type: Path, a paid three-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n\nCards:\n1. Background: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Now: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Next step: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n\n${ragContext}\n\nWrite the full paid reading according to the English system instructions for "Path". Use the card roles, the person's question, the selected topic and the English working context. Write directly in English.`
+        : `Card: ${englishCardName(card!.name)} (${englishCardKind(card!.kind)})\nTopic: ${englishTopic(topic)}\n${intentLine}\n\n${ragContext}\n\nWrite the reading according to the English system instructions. Use the English working context as quiet support, but stay short, direct and concrete. Write directly in English.`
     : readingType === 'razplet'
       ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet“. Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje, dodatni fokus branja in delovni kontekst.`
       : readingType === 'pot'

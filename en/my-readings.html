@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Space · Velvet Secret</title>
+<meta name="description" content="Your private Velvet Secret space for saved symbolic readings, card history and printable reports.">
+<link rel="canonical" href="https://velvet-secret-site.netlify.app/en/my-readings.html">
+<link rel="alternate" hreflang="sl" href="https://velvet-secret-site.netlify.app/moja-branja.html">
+<link rel="alternate" hreflang="en" href="https://velvet-secret-site.netlify.app/en/my-readings.html">
+<link rel="alternate" hreflang="x-default" href="https://velvet-secret-site.netlify.app/en/my-readings.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Velvet Secret">
+<meta property="og:title" content="My Space · Velvet Secret">
+<meta property="og:description" content="Your private space for saved symbolic readings and printable reports.">
+<meta property="og:url" content="https://velvet-secret-site.netlify.app/en/my-readings.html">
+<meta property="og:image" content="https://velvet-secret-site.netlify.app/assets/images/velvet-secret-share.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="My Space · Velvet Secret">
+<meta name="twitter:description" content="Your private space for saved symbolic readings and printable reports.">
+<meta name="twitter:image" content="https://velvet-secret-site.netlify.app/assets/images/velvet-secret-share.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--bg:#111018;--bg-soft:#181720;--violet-light:#c7bce4;--violet-medium:#a997cf;--violet-deep:#7f6caf;--blue-soft:#a8bedf;--text:#d7d0df;--muted:#9690a3;--muted-dark:#696377;--line:rgba(199,188,228,.2);--line-soft:rgba(199,188,228,.1);--warm:#d8bd9a;--display:"Playfair Display",Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--bg)}body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer}.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,16,24,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}.nav-logo{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.04em}.nav-links{display:flex;list-style:none;gap:1.7rem;align-items:center}.nav-link,.nav-login{color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}.nav-link:hover,.nav-login:hover{color:var(--violet-light)}.nav-login{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.04);padding:.62rem 1.1rem}.nav-user-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem}.nav-user{display:flex;align-items:center;gap:.55rem;color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}.nav-user img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}.nav-signout{background:none;border:0;color:var(--muted);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}.nav-signout:hover{color:var(--violet-light)}.hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}.hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}.hamb.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.hamb.open span:nth-child(2){opacity:0}.hamb.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}.mobile{display:none;position:fixed;inset:0;z-index:80;background:rgba(17,16,24,.96);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column;gap:2rem}.mobile.open{display:flex}.mobile a,.mobile button{font-family:var(--display);font-size:2rem;color:#fff;background:none;border:0}.mobile-user{display:none;flex-direction:column;align-items:center;gap:.75rem;color:#fff}
+main{min-height:100vh;padding:8.8rem 2rem 5rem;background:radial-gradient(circle at 18% 12%,rgba(168,190,223,.09),transparent 34%),radial-gradient(circle at 88% 0,rgba(199,188,228,.08),transparent 32%),var(--bg)}.shell{width:min(1180px,100%);margin:0 auto}.page-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:end;margin-bottom:2.2rem}.section-label{display:block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.85rem}h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500;color:#fff;line-height:1.02}.lead{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:1rem}.primary-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:46px;border:1px solid rgba(199,188,228,.42);background:rgba(199,188,228,.055);color:#fff;padding:.82rem 1.18rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;transition:.25s;white-space:nowrap}.btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.64);transform:translateY(-1px)}.btn.primary{background:linear-gradient(90deg,rgba(199,188,228,.94),rgba(168,190,223,.82));border-color:rgba(199,188,228,.62);color:#111018}.btn.danger{border-color:rgba(220,80,80,.32);background:rgba(220,80,80,.055);color:rgba(240,140,140,.9)}.btn.danger:hover{background:rgba(220,80,80,.14);border-color:rgba(220,80,80,.58);color:#fff}
+.dashboard{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(0,1.65fr);gap:1.4rem;align-items:start}.panel{border:1px solid var(--line-soft);background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.025));padding:1.55rem}.panel-title{font-family:var(--display);font-size:1.42rem;color:#fff;line-height:1.25;margin-bottom:.7rem}.muted{color:var(--muted);font-size:.92rem;line-height:1.7}.stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:1.2rem}.stat{border:1px solid rgba(199,188,228,.12);background:rgba(199,188,228,.045);padding:.85rem}.stat strong{display:block;font-family:var(--display);font-size:1.6rem;color:var(--blue-soft);line-height:1}.stat span{display:block;margin-top:.3rem;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.account-note{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(199,188,228,.1);font-size:.82rem;color:var(--muted)}.delete-account-zone{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(199,188,228,.08)}.delete-account-zone button{background:none;border:0;color:var(--muted-dark);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+.history-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}.filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.15rem}.filter-btn{min-height:34px;border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.018);color:var(--muted);padding:.52rem .76rem;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase}.filter-btn.active,.filter-btn:hover{background:rgba(199,188,228,.11);border-color:rgba(199,188,228,.48);color:#fff}.history-list{display:flex;flex-direction:column;gap:.95rem}.history-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem;align-items:center;border:1px solid rgba(199,188,228,.12);background:rgba(17,16,24,.42);padding:1.15rem}.history-meta{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:.65rem}.pill{display:inline-flex;border:1px solid rgba(199,188,228,.18);background:rgba(199,188,228,.055);color:var(--violet-light);padding:.22rem .48rem;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}.history-title{font-family:var(--display);font-size:1.25rem;color:#fff;line-height:1.3;margin-bottom:.35rem}.history-question{color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:.8rem}.history-cards{display:flex;gap:.42rem;flex-wrap:wrap}.history-cards img{width:42px;aspect-ratio:5/8;object-fit:cover;border:1px solid rgba(199,188,228,.18);background:#090912}.history-actions{display:flex;flex-direction:column;gap:.55rem;min-width:150px}.empty{border:1px dashed rgba(199,188,228,.24);background:rgba(255,255,255,.025);padding:1.4rem;color:var(--muted);line-height:1.7}
+.modal-bg{position:fixed;inset:0;z-index:200;background:radial-gradient(circle at 50% 28%,rgba(127,108,175,.16),transparent 34%),rgba(17,16,24,.88);backdrop-filter:blur(10px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}.modal-bg.open{display:flex}.modal{width:min(430px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;background:linear-gradient(165deg,rgba(28,27,39,.98),rgba(18,17,27,.98));border:1px solid rgba(216,189,154,.18);padding:2.5rem;position:relative;margin:auto 0;box-shadow:0 28px 90px rgba(0,0,0,.48)}.modal.report-modal{max-width:780px}.close{position:absolute;top:1rem;right:1rem;border:0;background:transparent;color:var(--muted);font-size:1.4rem;z-index:2}.modal h3{font-family:var(--display);font-size:1.8rem;color:#fff;text-align:center;margin-bottom:.4rem}.modal .sub-t{text-align:center;color:var(--muted);margin-bottom:1.4rem}.modal-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem}.google-auth-btn{width:100%;margin-top:1.5rem}.warn-box{background:rgba(220,80,80,.06);border:1px solid rgba(220,80,80,.18);padding:1rem 1.1rem;margin-bottom:1.2rem}.warn-box p{font-size:.87rem;color:var(--text);line-height:1.75}.check-label{display:flex;gap:.75rem;align-items:flex-start;cursor:pointer;font-size:.88rem;color:var(--text);line-height:1.6;margin-top:.2rem}.check-label input{margin-top:.22rem;accent-color:var(--violet-deep);flex-shrink:0}
+.report-paper{background:#f6f1eb;color:#2f2a35;padding:2.2rem;border:1px solid rgba(127,108,175,.22)}.report-paper .section-label{color:#7f6caf}.report-title{font-family:var(--display);font-size:2rem;color:#181720;text-align:center;margin:.5rem 0 .75rem}.report-question{font-family:var(--display);font-size:1.12rem;font-style:italic;text-align:center;color:#5b5264;margin-bottom:1.4rem}.report-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;margin:1rem 0 1.5rem}.report-card{border:1px solid rgba(127,108,175,.22);padding:.65rem;text-align:center;background:rgba(255,255,255,.48)}.report-card img{width:64px;aspect-ratio:5/8;object-fit:cover;margin:0 auto .55rem;border:1px solid rgba(127,108,175,.18)}.report-card span{display:block;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#7f6caf;margin-bottom:.18rem}.report-card strong{display:block;font-family:var(--display);font-size:.92rem;color:#181720;line-height:1.2}.report-body{color:#2f2a35;line-height:1.8;font-size:.98rem}.report-body h4{font-family:var(--display);font-size:1.22rem;color:#181720;margin:1.25rem 0 .45rem}.report-body p{margin-bottom:.95rem}.report-note{margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(127,108,175,.18);font-size:.8rem;color:#696377}.deletion-receipt{border:1px solid var(--line-soft);background:rgba(199,188,228,.03);padding:1.4rem;margin-bottom:2rem}.deletion-receipt table{width:100%;border-collapse:collapse;font-size:.9rem;color:var(--text);line-height:2}.deletion-receipt td:first-child{color:var(--muted);width:35%;padding-right:.75rem}
+.cookie-consent{position:fixed;left:50%;bottom:1.2rem;z-index:180;width:min(920px,calc(100% - 2rem));transform:translate(-50%,calc(100% + 2rem));opacity:0;pointer-events:none;display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:center;padding:1.15rem 1.25rem;border:1px solid rgba(216,189,154,.2);background:linear-gradient(135deg,rgba(28,27,39,.98),rgba(18,17,27,.98));box-shadow:0 22px 70px rgba(0,0,0,.45);transition:.35s}.cookie-consent.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}.cookie-copy strong{display:block;font-family:var(--display);font-size:1.05rem;font-weight:500;color:#fff;margin-bottom:.2rem}.cookie-copy p{color:var(--muted);font-size:.86rem;line-height:1.55;max-width:620px}.cookie-actions{display:flex;gap:.7rem;align-items:center;justify-content:flex-end}
+@media(max-width:860px){.nav-links{display:none}.hamb{display:flex}.nav{padding:.9rem 1.25rem}.nav-logo{font-size:1.18rem}main{padding:6.8rem 1.15rem 3.5rem}.page-head{grid-template-columns:1fr;gap:1.3rem}.primary-actions{justify-content:flex-start;width:100%}.primary-actions .btn{flex:1}.dashboard{grid-template-columns:1fr}.history-item{grid-template-columns:1fr}.history-actions{min-width:0;flex-direction:row;flex-wrap:wrap}.history-actions .btn{flex:1}.modal-bg{padding:12px}.modal{max-height:calc(100dvh - 24px);padding:2.1rem 1.15rem 1.25rem;margin:0;width:100%}.report-paper{padding:1.25rem}.report-title{font-size:1.55rem}.report-card-grid{grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:.55rem}.report-card img{width:54px}.modal-actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(28,27,39,.72),rgba(18,17,27,.98) 30%);margin-left:-1.15rem;margin-right:-1.15rem;padding:.9rem 1.15rem .15rem;border-top:1px solid rgba(216,189,154,.1)}.cookie-consent{grid-template-columns:1fr;bottom:.75rem;width:calc(100% - 1.5rem);padding:1rem}.cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:.55rem}.cookie-actions .btn{width:100%}}@media(max-width:420px){.nav-logo{font-size:1rem}h1{font-size:clamp(2rem,13vw,3rem)}.stats{grid-template-columns:1fr}.history-top{flex-direction:column}}@media print{body *{visibility:hidden!important}#reportPaper,#reportPaper *{visibility:visible!important}#reportPaper{position:absolute;left:0;top:0;width:100%;box-shadow:none;border:0;background:#fff;color:#222}.modal-actions,.close{display:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="/en/" class="nav-logo">Velvet Secret</a>
+  <ul class="nav-links">
+    <li><a href="/en/#reading" class="nav-link">Reading</a></li>
+    <li><a href="/en/#pricing" class="nav-link">Readings</a></li>
+    <li><a href="/en/#journal" class="nav-link">Journal</a></li>
+    <li><a href="/" class="nav-link">SL</a></li>
+    <li><button class="nav-login" onclick="openAuth()">Sign in</button></li>
+  </ul>
+  <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="/en/#reading" class="mobile-link" onclick="toggleMenu(false)">Reading</a>
+  <a href="/en/#pricing" class="mobile-link" onclick="toggleMenu(false)">Readings</a>
+  <a href="/en/#journal" class="mobile-link" onclick="toggleMenu(false)">Journal</a>
+  <a href="/" class="mobile-link" onclick="toggleMenu(false)">SL</a>
+  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Sign in</button>
+  <div class="mobile-user" id="mobileUser"></div>
+</div>
+<main>
+  <div class="shell">
+    <header class="page-head">
+      <div>
+        <span class="section-label">My space</span>
+        <h1>My readings.</h1>
+        <p class="lead">This is where your readings gather quietly, so you can return when the question changes, or when the same words begin to mean something else.</p>
+      </div>
+      <div class="primary-actions">
+        <a href="/en/#reading" class="btn primary">New reading</a>
+        <button class="btn" onclick="loadMyReadings()">Refresh</button>
+      </div>
+    </header>
+    <section class="dashboard">
+      <aside class="panel" id="accountSummary">
+        <span class="section-label">Account</span>
+        <h2 class="panel-title">Sign in to open your space.</h2>
+        <p class="muted">After sign-in, your plan, saved readings, card images and printable reports will appear here.</p>
+        <button class="btn primary" style="margin-top:1.15rem" onclick="openAuth()">Sign in</button>
+      </aside>
+      <div class="panel">
+        <div class="history-top">
+          <div>
+            <span class="section-label">History</span>
+            <h2 class="panel-title">Saved readings</h2>
+          </div>
+        </div>
+        <div class="filters" id="readingFilters" aria-label="Reading filters">
+          <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+          <button class="filter-btn" data-filter="daily" onclick="setFilter('daily')">Spark</button>
+          <button class="filter-btn" data-filter="pot" onclick="setFilter('pot')">Path</button>
+          <button class="filter-btn" data-filter="razplet" onclick="setFilter('razplet')">Unfolding</button>
+          <button class="filter-btn" data-filter="cikel" onclick="setFilter('cikel')">Cycle</button>
+        </div>
+        <div class="history-list" id="readingHistory">
+          <div class="empty">When you open a card or prepare a reading, it will appear here.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="cookie-consent" id="cookieConsent" role="region" aria-label="Cookie notice">
+  <div class="cookie-copy">
+    <strong>Cookies and saved settings</strong>
+    <p>Velvet Secret uses essential cookies and local storage for sign-in, readings and core functionality. You can accept additional settings or keep only what is necessary.</p>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn" type="button" onclick="setCookieConsent('necessary')">Necessary only</button>
+    <button class="btn primary" type="button" onclick="setCookieConsent('accepted')">Accept</button>
+  </div>
+</div>
+<div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal">
+    <button class="close" onclick="closeAuth()" aria-label="Close">×</button>
+    <h3 id="authTitle">Your space</h3>
+    <p class="sub-t">For readings you may want to return to.</p>
+    <button class="btn google-auth-btn primary" onclick="signInWithGoogle()">Continue with Google</button>
+    <p class="muted" style="margin-top:1rem;text-align:center">Your readings are saved in your account and remain available on your next visit.</p>
+  </div>
+</div>
+<div class="modal-bg" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle" onclick="if(event.target===this)closeReport()">
+  <div class="modal report-modal">
+    <button class="close" onclick="closeReport()" aria-label="Close">×</button>
+    <div class="report-paper" id="reportPaper">
+      <span class="section-label" id="reportLabel"></span>
+      <h3 class="report-title" id="reportTitle"></h3>
+      <p class="report-question" id="reportQuestion"></p>
+      <div class="report-card-grid" id="reportCards"></div>
+      <div class="report-body" id="reportBody"></div>
+      <p class="report-note">Velvet Secret is a symbolic reading for personal reflection. It is not medical, legal, financial or mental-health advice.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn primary" onclick="printReport()">Print / save PDF</button>
+      <button class="btn" onclick="closeReport()">Close</button>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+  <div class="modal">
+    <button class="close" onclick="closeDeleteConfirm()" aria-label="Close">×</button>
+    <h3 id="deleteTitle">Delete this reading?</h3>
+    <p class="sub-t">This removes the selected report from your history. The action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn danger" id="deleteConfirmBtn" onclick="confirmDelete()">Yes, delete</button>
+      <button class="btn" onclick="closeDeleteConfirm()">Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="deleteAccountModal" role="dialog" aria-modal="true" aria-labelledby="deleteAccountTitle">
+  <div class="modal">
+    <button class="close" onclick="closeDeleteAccount()" aria-label="Close">×</button>
+    <h3 id="deleteAccountTitle">Delete account?</h3>
+    <div class="warn-box">
+      <p><strong>This permanently deletes your account, profile and all saved readings.</strong><br>This action cannot be undone.</p>
+    </div>
+    <label class="check-label">
+      <input type="checkbox" id="deleteAccountCheck" onchange="document.getElementById('deleteAccountBtn').disabled = !this.checked">
+      I understand that my account and all saved readings will be permanently deleted.
+    </label>
+    <div class="modal-actions">
+      <button class="btn danger" id="deleteAccountBtn" onclick="confirmDeleteAccount()" disabled>Delete account and data</button>
+      <button class="btn" onclick="closeDeleteAccount()">Cancel</button>
+    </div>
+  </div>
+</div>
+<script>
+const SUPABASE_URL = 'https://pdibcrfpqenougebkbse.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkaWJjcmZwcWVub3VnZWJrYnNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyOTM1ODIsImV4cCI6MjA5Njg2OTU4Mn0.dlwDaH4vOdDzOSZCw6LWjNIuQ67NbglPr9_CBY9TmIk';
+const DELETE_ACCOUNT_URL = `${SUPABASE_URL}/functions/v1/delete-account`;
+const _sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+let accountReadings = [];
+let activeFilter = 'all';
+let pendingDeleteId = null;
+
+const hamb = document.getElementById('hamb');
+const mobile = document.getElementById('mobile');
+function esc(value){return String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+function toggleMenu(open){hamb.classList.toggle('open',open);mobile.classList.toggle('open',open);hamb.setAttribute('aria-expanded',open);document.body.style.overflow=open?'hidden':''}
+hamb.addEventListener('click',()=>toggleMenu(!hamb.classList.contains('open')));
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ toggleMenu(false); closeAuth(); closeReport(); closeDeleteConfirm(); closeDeleteAccount(); } });
+function openAuth(){document.getElementById('authModal').classList.add('open')}
+function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+function getAuthRedirectUrl(){const isLocal=['localhost','127.0.0.1'].includes(window.location.hostname);const origin=isLocal?window.location.origin:'https://velvet-secret-site.netlify.app';return `${origin}/en/my-readings.html`}
+async function signInWithGoogle(){await _sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:getAuthRedirectUrl()}})}
+async function signOut(){await _sb.auth.signOut();Object.keys(localStorage).filter(key=>key.startsWith('vs_')).forEach(key=>localStorage.removeItem(key));updateNavUser(null);loadMyReadings()}
+function updateNavUser(user){
+  const loginBtn = document.querySelector('.nav-login');
+  const mobileLoginBtn = document.getElementById('mobileAuthBtn');
+  const mobileUser = document.getElementById('mobileUser');
+  if(user){
+    const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Account';
+    const avatar = user.user_metadata?.avatar_url;
+    const chip = `<div class="nav-user-wrap"><span class="nav-user">${avatar ? `<img src="${esc(avatar)}" alt="">` : ''}${esc(name)}</span><button class="nav-signout" onclick="signOut()">Sign out</button></div>`;
+    if(loginBtn) loginBtn.outerHTML = chip;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+    if(mobileUser){mobileUser.innerHTML = `<span class="nav-user">${avatar ? `<img src="${esc(avatar)}" alt="">` : ''}${esc(name)}</span><button class="nav-signout" onclick="toggleMenu(false);signOut()">Sign out</button>`;mobileUser.style.display = 'flex'}
+  } else {
+    const userEl = document.querySelector('.nav-user-wrap');
+    if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Sign in</button>`;
+    if(mobileLoginBtn) mobileLoginBtn.style.display = '';
+    if(mobileUser){mobileUser.innerHTML = '';mobileUser.style.display = 'none'}
+  }
+}
+function readingTypeLabel(type){return {daily:'Spark',pot:'Path',razplet:'Unfolding',cikel:'Cycle'}[type] || 'Reading'}
+function readingRetention(type){return type === 'daily' ? 'Visible for 7 days' : 'Visible for 12 months'}
+function readingRoles(type, count){
+  if(type === 'pot') return ['Background','Now','Next step'];
+  if(type === 'razplet') return ['Core','Visible','Hidden','Your part','Outside influence','Possible direction','Next step'];
+  return Array.from({length: count}, () => 'Card');
+}
+function formatDate(value){return value ? new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(value)) : ''}
+function isVisibleReading(reading){const ageDays=(Date.now()-new Date(reading.created_at||Date.now()).getTime())/86400000;return reading.reading_type === 'daily' ? ageDays <= 7 : ageDays <= 365}
+function englishCardName(name){
+  const major = {'Norček':'The Fool','Norec':'The Fool','Mag':'The Magician','Čarovnik':'The Magician','Visoka svečenica':'The High Priestess','Cesarica':'The Empress','Cesar':'The Emperor','Svečenik':'The Hierophant','Ljubimca':'The Lovers','Voz':'The Chariot','Moč':'Strength','Puščavnik':'The Hermit','Kolo sreče':'Wheel of Fortune','Pravica':'Justice','Pravičnost':'Justice','Obešenec':'The Hanged Man','Smrt':'Death','Zmernost':'Temperance','Hudič':'The Devil','Stolp':'The Tower','Zvezda':'The Star','Luna':'The Moon','Sonce':'The Sun','Sodba':'Judgement','Svet':'The World'};
+  if(major[name]) return major[name];
+  const ranks = {'As':'Ace','Dvojka':'Two','Trojka':'Three','Štirica':'Four','Petica':'Five','Šestica':'Six','Sedmica':'Seven','Osmica':'Eight','Devetica':'Nine','Devetka':'Nine','Desetica':'Ten','Desetka':'Ten','Paž':'Page','Vitez':'Knight','Kraljica':'Queen','Kralj':'King'};
+  const suits = {'kelihov':'Cups','kelihi':'Cups','palic':'Wands','palice':'Wands','mečev':'Swords','meči':'Swords','pentakljev':'Pentacles','pentaklji':'Pentacles','kovancev':'Pentacles','kovanci':'Pentacles'};
+  const parts = String(name || '').split(' ');
+  const rank = ranks[parts[0]];
+  const suit = suits[parts.slice(1).join(' ').toLowerCase()];
+  return rank && suit ? `${rank} of ${suit}` : name;
+}
+function englishTopic(topic){const key=String(topic||'').toLowerCase();if(key.includes('ljubezen')||key.includes('odnos'))return 'Relationships';if(key.includes('delo')||key.includes('karier'))return 'Work';if(key.includes('denar')||key.includes('finance'))return 'Money';if(key.includes('osebna')||key.includes('rast'))return 'Personal growth';return topic || 'General'}
+function cardImage(name){
+  const major = {'Norček':'the-fool','Norec':'the-fool','Mag':'the-magician','Čarovnik':'the-magician','Visoka svečenica':'the-high-priestess','Cesarica':'the-empress','Cesar':'the-emperor','Svečenik':'the-hierophant','Ljubimca':'the-lovers','Voz':'the-chariot','Moč':'strength','Puščavnik':'the-hermit','Kolo sreče':'wheel-of-fortune','Pravica':'justice','Pravičnost':'justice','Obešenec':'the-hanged-man','Smrt':'death','Zmernost':'temperance','Hudič':'the-devil','Stolp':'the-tower','Zvezda':'the-star','Luna':'the-moon','Sonce':'the-sun','Sodba':'judgement','Svet':'the-world'};
+  if(major[name]) return `../cards/optimized/labeled-v2/${major[name]}.webp`;
+  const ranks = {'As':'ace','Dvojka':'two','Trojka':'three','Štirica':'four','Petica':'five','Šestica':'six','Sedmica':'seven','Osmica':'eight','Devetica':'nine','Devetka':'nine','Desetica':'ten','Desetka':'ten','Paž':'page','Vitez':'knight','Kraljica':'queen','Kralj':'king'};
+  const suits = {'kelihov':'cups','kelihi':'cups','palic':'wands','palice':'wands','mečev':'swords','meči':'swords','pentakljev':'pentacles','pentaklji':'pentacles','kovancev':'pentacles','kovanci':'pentacles'};
+  const parts = String(name || '').split(' ');
+  const rank = ranks[parts[0]];
+  const suit = suits[parts.slice(1).join(' ').toLowerCase()];
+  return rank && suit ? `../cards/optimized/labeled-v2/${rank}-of-${suit}.webp` : '../cards/optimized/oracle-card-back-velvet-secret.webp';
+}
+function cardsFromReading(reading){
+  const names = String(reading.card_name || '').split(' / ').filter(Boolean);
+  const kinds = String(reading.card_kind || '').split(' / ');
+  const roles = readingRoles(reading.reading_type, names.length);
+  return names.map((name, i) => ({name: englishCardName(name), originalName:name, kind:kinds[i] || '', role:roles[i] || 'Card', img:cardImage(name)}));
+}
+function fullReadingText(reading){return [reading.ai_response, reading.reflect_question].filter(Boolean).join('\n\n').trim()}
+function filteredReadings(){return activeFilter === 'all' ? accountReadings : accountReadings.filter(r => r.reading_type === activeFilter)}
+function setFilter(filter){activeFilter=filter;document.querySelectorAll('.filter-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.filter===filter));renderReadingHistory(filteredReadings())}
+function renderLoggedOut(){
+  document.getElementById('accountSummary').innerHTML = `<span class="section-label">Account</span><h2 class="panel-title">Sign in to open your space.</h2><p class="muted">After sign-in, your plan, saved readings, card images and printable reports will appear here.</p><button class="btn primary" style="margin-top:1.15rem" onclick="openAuth()">Sign in</button>`;
+  document.getElementById('readingHistory').innerHTML = '<div class="empty">Sign in to open your reading history.</div>';
+}
+function renderAccountSummary(user, profile, readings){
+  const latestPaid = readings.find(r => r.reading_type !== 'daily');
+  const plan = profile?.plan === 'krog' ? 'Cycle' : latestPaid ? `Single reading: ${readingTypeLabel(latestPaid.reading_type)}` : 'Free';
+  const paidCount = readings.filter(r => r.reading_type !== 'daily').length;
+  const name = user.user_metadata?.name || user.email?.split('@')[0] || 'Your space';
+  document.getElementById('accountSummary').innerHTML = `<span class="section-label">Account</span><h2 class="panel-title">${esc(name)}</h2><p class="muted">Plan: ${esc(plan)}<br>Free readings are visible for 7 days. Paid readings are visible for 12 months.</p><div class="stats"><div class="stat"><strong>${readings.length}</strong><span>saved</span></div><div class="stat"><strong>${paidCount}</strong><span>paid</span></div></div><p class="account-note">Open a report to print it or save it as PDF.</p><div class="delete-account-zone"><button onclick="openDeleteAccount()">Delete account and all my data</button></div>`;
+}
+function renderReadingHistory(readings){
+  const wrap = document.getElementById('readingHistory');
+  if(!readings.length){wrap.innerHTML = `<div class="empty">${activeFilter === 'all' ? 'There are no saved readings yet.' : 'There are no saved readings of this type.'}</div>`;return}
+  wrap.innerHTML = readings.map(reading => {
+    const index = accountReadings.indexOf(reading);
+    const cards = cardsFromReading(reading);
+    const question = reading.intent || fullReadingText(reading).replace(/\s+/g,' ').slice(0,180) || 'No written question';
+    return `<article class="history-item"><div><div class="history-meta"><span class="pill">${esc(readingTypeLabel(reading.reading_type))}</span><span class="pill">${esc(englishTopic(reading.topic || 'General'))}</span><span class="pill">${esc(formatDate(reading.created_at))}</span></div><h3 class="history-title">${esc(cards.map(c => c.name).join(' · ') || 'Reading')}</h3><p class="history-question">${esc(question)}</p><div class="history-cards">${cards.map(card => `<img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async">`).join('')}</div></div><div class="history-actions"><button class="btn" onclick="openReadingReport(${index})">Open</button><button class="btn primary" onclick="openReadingReport(${index})">Report</button><button class="btn danger" onclick="openDeleteConfirm('${esc(reading.id)}')">Delete</button></div></article>`;
+  }).join('');
+}
+async function loadMyReadings(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){accountReadings=[];renderLoggedOut();return}
+  const [{ data: readings, error: readingsError }, { data: profile }] = await Promise.all([
+    _sb.from('readings').select('id,created_at,card_name,card_kind,topic,intent,ai_response,reflect_question,reading_type').order('created_at',{ascending:false}).limit(120),
+    _sb.from('profiles').select('plan').eq('id',session.user.id).maybeSingle()
+  ]);
+  if(readingsError){document.getElementById('readingHistory').innerHTML = '<div class="empty">Your history cannot be loaded right now.</div>';return}
+  accountReadings = (readings || []).filter(isVisibleReading);
+  renderAccountSummary(session.user, profile, accountReadings);
+  renderReadingHistory(filteredReadings());
+}
+function formatReadingText(text){
+  const headings = new Set(['First impression','Answer to your question','Background','Now','Next step','How the cards connect','In the next 7 days','What not to force','Question to close','Core of the question','Visible situation','Hidden tension','Your part','The other side or outside influence','If nothing changes','If you change your approach','The next 30 days','Closing']);
+  return String(text || '').split(/\n+/).map(line=>line.trim().replace(/^#+\s*/,'').replace(/^---+$/,'').replace(/\*\*/g,'')).filter(Boolean).map(line=>headings.has(line)?`<h4>${esc(line)}</h4>`:`<p>${esc(line)}</p>`).join('');
+}
+function openReadingReport(index){
+  const reading = accountReadings[index];
+  if(!reading) return;
+  const cards = cardsFromReading(reading);
+  document.getElementById('reportLabel').textContent = `${readingTypeLabel(reading.reading_type)} · ${englishTopic(reading.topic || 'General')} · ${formatDate(reading.created_at)} · ${readingRetention(reading.reading_type)}`;
+  document.getElementById('reportTitle').textContent = reading.reading_type === 'daily' ? 'Card report' : `Report: ${readingTypeLabel(reading.reading_type)}`;
+  document.getElementById('reportQuestion').textContent = reading.intent ? `"${reading.intent}"` : 'No question was written.';
+  document.getElementById('reportCards').innerHTML = cards.map(card => `<div class="report-card"><img src="${esc(card.img)}" alt="${esc(card.name)}" loading="lazy" decoding="async"><span>${esc(card.role)}</span><strong>${esc(card.name)}</strong></div>`).join('');
+  document.getElementById('reportBody').innerHTML = formatReadingText(fullReadingText(reading) || 'This reading does not have saved text.');
+  document.getElementById('reportModal').classList.add('open');
+}
+function closeReport(){document.getElementById('reportModal').classList.remove('open')}
+function printReport(){window.print()}
+function openDeleteConfirm(id){pendingDeleteId=id;document.getElementById('deleteModal').classList.add('open')}
+function closeDeleteConfirm(){pendingDeleteId=null;document.getElementById('deleteModal').classList.remove('open')}
+async function confirmDelete(){
+  if(!pendingDeleteId) return;
+  const btn = document.getElementById('deleteConfirmBtn');
+  btn.disabled = true; btn.textContent = 'Deleting...';
+  const { error } = await _sb.from('readings').delete().eq('id', pendingDeleteId);
+  btn.disabled = false; btn.textContent = 'Yes, delete';
+  const deletedId = pendingDeleteId;
+  closeDeleteConfirm();
+  if(error){alert('The reading could not be deleted. Please try again.');return}
+  accountReadings = accountReadings.filter(r => String(r.id) !== String(deletedId));
+  const { data: { session } } = await _sb.auth.getSession();
+  if(session) renderAccountSummary(session.user, null, accountReadings);
+  renderReadingHistory(filteredReadings());
+}
+function openDeleteAccount(){const check=document.getElementById('deleteAccountCheck');if(check)check.checked=false;const btn=document.getElementById('deleteAccountBtn');if(btn)btn.disabled=true;document.getElementById('deleteAccountModal').classList.add('open')}
+function closeDeleteAccount(){document.getElementById('deleteAccountModal').classList.remove('open')}
+async function confirmDeleteAccount(){
+  const btn = document.getElementById('deleteAccountBtn');
+  btn.disabled = true; btn.textContent = 'Deleting...';
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){closeDeleteAccount();return}
+  let result;
+  try {
+    const res = await fetch(DELETE_ACCOUNT_URL,{method:'POST',headers:{'Authorization':`Bearer ${session.access_token}`,'Content-Type':'application/json'}});
+    result = await res.json();
+    if(!res.ok) throw new Error(result.error || 'Server error');
+  } catch(err) {
+    btn.disabled = false; btn.textContent = 'Delete account and data'; closeDeleteAccount();
+    alert('Account deletion failed: ' + (err.message || 'Unknown error') + '. Please try again or contact info@velvet-secret.si.');
+    return;
+  }
+  closeDeleteAccount();
+  await _sb.auth.signOut({scope:'local'});
+  localStorage.removeItem('vs_cookie_consent');
+  showDeletionReceipt(result.email, result.deleted_at, result.reference);
+}
+function showDeletionReceipt(email, deletedAt, reference){
+  const formatted = new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date(deletedAt));
+  document.querySelector('main').innerHTML = `<div class="shell" style="display:flex;align-items:center;justify-content:center;min-height:65vh;padding:2rem 0"><div style="max-width:580px;width:100%"><span class="section-label">Account deleted</span><h1 style="font-size:clamp(2rem,5vw,3.4rem);margin-bottom:1.1rem;line-height:1.1">Your data has been permanently deleted.</h1><p style="color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:520px">Your readings, profile and account have been removed from our database. This action cannot be undone.</p><div class="deletion-receipt"><table><tr><td>Email</td><td><strong>${esc(email || '-')}</strong></td></tr><tr><td>Date and time</td><td><strong>${esc(formatted)}</strong></td></tr><tr><td>Reference</td><td><strong style="font-size:.82rem;letter-spacing:.04em">${esc(reference || '-')}</strong></td></tr></table></div><div style="display:flex;gap:.75rem;flex-wrap:wrap"><button class="btn" onclick="window.print()">Print receipt</button><a href="/en/" class="btn primary">Back home</a></div></div></div>`;
+}
+function showCookieConsent(){const banner=document.getElementById('cookieConsent');if(!banner)return;const consent=localStorage.getItem('vs_cookie_consent');if(!consent)requestAnimationFrame(()=>banner.classList.add('show'))}
+function setCookieConsent(value){localStorage.setItem('vs_cookie_consent',JSON.stringify({value,date:new Date().toISOString()}));document.getElementById('cookieConsent')?.classList.remove('show')}
+showCookieConsent();
+_sb.auth.getSession().then(({ data: { session } }) => {updateNavUser(session?.user || null);loadMyReadings()});
+_sb.auth.onAuthStateChange((_event, session) => {updateNavUser(session?.user || null);closeAuth();loadMyReadings()});
+</script>
+</body>
+</html>

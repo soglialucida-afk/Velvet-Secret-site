@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://velvet-secret-site.netlify.app/en/">
 <link rel="alternate" hreflang="sl" href="https://velvet-secret-site.netlify.app/">
 <link rel="alternate" hreflang="en" href="https://velvet-secret-site.netlify.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://velvet-secret-site.netlify.app/en/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Velvet Secret">
 <meta property="og:title" content="Velvet Secret · When answers have not yet found words">
@@ -22,16 +23,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#111018;--bg-soft:#181720;--violet-light:#c7bce4;--violet-medium:#a997cf;--violet-deep:#7f6caf;--blue-soft:#a8bedf;--text:#d7d0df;--muted:#9690a3;--line:rgba(199,188,228,.2);--line-soft:rgba(199,188,228,.1);--warm:#d8bd9a;--display:"Playfair Display",Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--bg)}body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,16,24,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}.nav-logo{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.04em}.nav-links{display:flex;list-style:none;gap:2rem;align-items:center}.nav-link{color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}.nav-link:hover{color:var(--violet-light)}.lang{border:1px solid rgba(199,188,228,.34);padding:.48rem .72rem}.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#111018}.hero::before{content:"";position:absolute;inset:0;background:url('../assets/images/optimized/hero-crystal-ball-fortune-teller.webp') center/cover;filter:saturate(.9);transform:scale(1.02)}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,16,24,.9),rgba(17,16,24,.48) 48%,rgba(17,16,24,.22)),linear-gradient(180deg,rgba(17,16,24,.2),rgba(17,16,24,.86))}.hero-content{position:relative;z-index:2;width:min(760px,100%);padding:8rem 3rem 5rem}.hero-kicker,.section-label{display:block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-light);margin-bottom:1rem}.hero-title{font-family:var(--display);font-size:clamp(3rem,7vw,6.4rem);line-height:.98;font-weight:500;color:#fff;margin-bottom:1.25rem}.hero-title em{font-style:italic;color:var(--violet-light)}.hero-desc{max-width:620px;color:rgba(240,236,245,.82);font-size:1.08rem;line-height:1.85;margin-bottom:2rem}.hero-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(199,188,228,.48);background:rgba(199,188,228,.08);color:#fff;padding:.86rem 1.35rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s}.hero-cta:hover,.btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}section:not(.hero){padding:6rem 2rem}.section-soft{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}.section-header{max-width:820px;margin:0 auto 3.5rem;text-align:center}.section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.18;color:#fff;margin-bottom:1rem}.section-divider{width:60px;height:1px;background:var(--violet-medium);margin:1.5rem auto}.section-desc{max-width:640px;margin:0 auto;color:var(--muted)}.intro-grid,.pricing-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}.intro-card,.pricing-card{border:1px solid var(--line-soft);background:rgba(255,255,255,.035)}.intro-card{position:relative;aspect-ratio:3/4;overflow:hidden}.intro-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08))}.intro-visual{position:absolute;inset:0;background-size:cover;background-position:center;transition:.45s}.intro-card:hover .intro-visual{transform:scale(1.04)}.intro-card:nth-child(1) .intro-visual{background-image:url('../assets/images/optimized/intro-nezno.webp')}.intro-card:nth-child(2) .intro-visual{background-image:url('../assets/images/optimized/intro-konkretno.webp')}.intro-card:nth-child(3) .intro-visual{background-image:url('../assets/images/optimized/intro-tvoje.webp')}.intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1}.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-card h3,.pricing-name{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0}.intro-card p,.pricing-desc{font-size:.92rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}.intro-blog{display:flex;justify-content:flex-end}.intro-blog-link,.gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem}.pricing-container{grid-template-columns:repeat(4,1fr);align-items:stretch}.pricing-card{padding:2rem;display:flex;flex-direction:column;position:relative}.pricing-card[data-badge]::before{content:attr(data-badge);position:absolute;top:-12px;left:2rem;background:rgba(199,188,228,.9);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}.pricing-price{font-family:var(--display);font-size:2.1rem;color:var(--blue-soft);margin:1.1rem 0}.pricing-price span{font-family:var(--sans);font-size:.82rem;color:var(--muted)}.pricing-card .btn{margin-top:auto}.copy-band{max-width:760px;margin:0 auto;text-align:center}.copy-band p{color:var(--muted);font-size:1rem;line-height:1.95;margin-bottom:1.35rem}.quote{font-family:var(--display);font-size:1.35rem;font-style:italic;color:#c9b6d9;line-height:1.75;margin:2.5rem 0}.footer{padding:3rem 2rem;text-align:center;color:var(--muted);border-top:1px solid rgba(199,188,228,.08)}.footer-logo{font-family:var(--display);font-size:1.5rem;color:#fff;margin-bottom:.75rem}@media(max-width:900px){.nav{padding:1rem 1.2rem}.nav-links{gap:.8rem}.nav-link{font-size:.62rem;letter-spacing:.1em}.hero-content{padding:7rem 1.3rem 4rem}.intro-grid,.pricing-container{grid-template-columns:1fr}.intro-card{aspect-ratio:auto;min-height:0}.intro-card .intro-visual{position:relative;height:260px}.intro-copy{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74))}.intro-card::before{display:none}section:not(.hero){padding:4rem 1.2rem}}@media(max-width:620px){.nav-links{gap:.55rem}.nav-link.hide-sm{display:none}.nav-logo{font-size:1.08rem}.hero-title{font-size:clamp(2.55rem,12vw,4rem)}}
+:root{--bg:#111018;--bg-soft:#181720;--violet-light:#c7bce4;--violet-medium:#a997cf;--violet-deep:#7f6caf;--blue-soft:#a8bedf;--text:#d7d0df;--muted:#9690a3;--line:rgba(199,188,228,.2);--line-soft:rgba(199,188,228,.1);--warm:#d8bd9a;--display:"Playfair Display",Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--bg)}body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,16,24,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}.nav-logo{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.04em}.nav-links{display:flex;list-style:none;gap:2rem;align-items:center}.nav-link{color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}.nav-link:hover{color:var(--violet-light)}.lang{border:1px solid rgba(199,188,228,.34);padding:.48rem .72rem}.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#111018}.hero::before{content:"";position:absolute;inset:0;background:url('../assets/images/optimized/hero-crystal-ball-fortune-teller.webp') center/cover;filter:saturate(.9);transform:scale(1.02)}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,16,24,.9),rgba(17,16,24,.48) 48%,rgba(17,16,24,.22)),linear-gradient(180deg,rgba(17,16,24,.2),rgba(17,16,24,.86))}.hero-content{position:relative;z-index:2;width:min(760px,100%);padding:8rem 3rem 5rem}.hero-kicker,.section-label{display:block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-light);margin-bottom:1rem}.hero-title{font-family:var(--display);font-size:clamp(3rem,7vw,6.4rem);line-height:.98;font-weight:500;color:#fff;margin-bottom:1.25rem}.hero-title em{font-style:italic;color:var(--violet-light)}.hero-desc{max-width:620px;color:rgba(240,236,245,.82);font-size:1.08rem;line-height:1.85;margin-bottom:2rem}.hero-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(199,188,228,.48);background:rgba(199,188,228,.08);color:#fff;padding:.86rem 1.35rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s}.hero-cta:hover,.btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}section:not(.hero){padding:6rem 2rem}.section-soft{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}.section-header{max-width:820px;margin:0 auto 3.5rem;text-align:center}.section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.18;color:#fff;margin-bottom:1rem}.section-divider{width:60px;height:1px;background:var(--violet-medium);margin:1.5rem auto}.section-desc{max-width:640px;margin:0 auto;color:var(--muted)}.intro-grid,.pricing-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}.intro-card,.pricing-card{border:1px solid var(--line-soft);background:rgba(255,255,255,.035)}.intro-card{position:relative;aspect-ratio:3/4;overflow:hidden}.intro-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08))}.intro-visual{position:absolute;inset:0;background-size:cover;background-position:center;transition:.45s}.intro-card:hover .intro-visual{transform:scale(1.04)}.intro-card:nth-child(1) .intro-visual{background-image:url('../assets/images/optimized/intro-nezno.webp')}.intro-card:nth-child(2) .intro-visual{background-image:url('../assets/images/optimized/intro-konkretno.webp')}.intro-card:nth-child(3) .intro-visual{background-image:url('../assets/images/optimized/intro-tvoje.webp')}.intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1}.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-card h3,.pricing-name{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0}.intro-card p,.pricing-desc{font-size:.92rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}.intro-blog{display:flex;justify-content:flex-end}.intro-blog-link,.gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem}.spark-shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:2rem;align-items:start}.spark-panel{border:1px solid var(--line-soft);background:rgba(255,255,255,.035);padding:2rem}.topic-row{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.5rem 0}.topic{border:1px solid rgba(199,188,228,.28);background:rgba(199,188,228,.06);color:var(--text);padding:.62rem .95rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.2s}.topic.active,.topic:hover{background:rgba(127,108,175,.45);border-color:rgba(199,188,228,.55);color:#fff}.question-input{width:100%;min-height:118px;resize:vertical;border:1px solid rgba(199,188,228,.24);background:rgba(9,8,14,.48);color:#fff;padding:1rem;font:300 .98rem/1.7 var(--sans);outline:none}.question-input:focus{border-color:rgba(199,188,228,.58)}.spark-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:1rem}.spark-status{color:var(--muted);font-size:.86rem}.spark-result{display:none;border:1px solid rgba(199,188,228,.16);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));padding:1.4rem}.spark-result.show{display:block}.spark-card{width:min(260px,70vw);margin:0 auto 1.3rem;aspect-ratio:2/3;border:1px solid rgba(199,188,228,.22);background:#0f0e16;box-shadow:0 26px 70px rgba(0,0,0,.38);overflow:hidden}.spark-card img{width:100%;height:100%;object-fit:cover;display:block}.spark-meta{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.45rem}.spark-name{font-family:var(--display);font-size:1.6rem;color:#fff;margin-bottom:.8rem}.spark-text{color:var(--text);font-size:1rem;line-height:1.85;white-space:pre-line}.spark-question{margin-top:1rem;color:#c9b6d9;font-family:var(--display);font-size:1.15rem;font-style:italic;line-height:1.65}.modal-bg{position:fixed;inset:0;background:rgba(10,9,14,.78);backdrop-filter:blur(12px);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem}.modal-bg.open{display:flex}.modal{width:min(460px,100%);border:1px solid rgba(199,188,228,.22);background:#181720;padding:2rem;position:relative}.close{position:absolute;top:.8rem;right:.9rem;border:0;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer}.google-auth-btn{width:100%;margin-top:1.4rem}.fine{font-size:.82rem;color:var(--muted);margin-top:1rem}.pricing-container{grid-template-columns:repeat(4,1fr);align-items:stretch}.pricing-card{padding:2rem;display:flex;flex-direction:column;position:relative}.pricing-card[data-badge]::before{content:attr(data-badge);position:absolute;top:-12px;left:2rem;background:rgba(199,188,228,.9);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}.pricing-price{font-family:var(--display);font-size:2.1rem;color:var(--blue-soft);margin:1.1rem 0}.pricing-price span{font-family:var(--sans);font-size:.82rem;color:var(--muted)}.pricing-card .btn{margin-top:auto}.copy-band{max-width:760px;margin:0 auto;text-align:center}.copy-band p{color:var(--muted);font-size:1rem;line-height:1.95;margin-bottom:1.35rem}.quote{font-family:var(--display);font-size:1.35rem;font-style:italic;color:#c9b6d9;line-height:1.75;margin:2.5rem 0}.footer{padding:3rem 2rem;text-align:center;color:var(--muted);border-top:1px solid rgba(199,188,228,.08)}.footer-logo{font-family:var(--display);font-size:1.5rem;color:#fff;margin-bottom:.75rem}@media(max-width:900px){.nav{padding:1rem 1.2rem}.nav-links{gap:.8rem}.nav-link{font-size:.62rem;letter-spacing:.1em}.hero-content{padding:7rem 1.3rem 4rem}.intro-grid,.pricing-container,.spark-shell{grid-template-columns:1fr}.intro-card{aspect-ratio:auto;min-height:0}.intro-card .intro-visual{position:relative;height:260px}.intro-copy{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74))}.intro-card::before{display:none}section:not(.hero){padding:4rem 1.2rem}.spark-panel{padding:1.35rem}}@media(max-width:620px){.nav-links{gap:.55rem}.nav-link.hide-sm{display:none}.nav-logo{font-size:1.08rem}.hero-title{font-size:clamp(2.55rem,12vw,4rem)}.spark-actions .btn{width:100%}.topic{font-size:.62rem;padding:.52rem .72rem}}
+.paid-reading{max-width:980px;margin:3rem auto 0;padding:2rem}.paid-reading-text{color:var(--text);font-size:1rem;line-height:1.9;white-space:pre-line}.paid-reading-text strong{display:block;margin:1.4rem 0 .35rem;font-family:var(--display);font-size:1.3rem;color:#fff;font-weight:500}.mini-spread{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin:0 0 1.5rem}.mini-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.025);padding:.65rem}.mini-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;margin-bottom:.55rem}.mini-card span{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light)}.mini-card strong{display:block;font-family:var(--display);font-size:1rem;color:#fff;font-weight:500}.field-label{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin:1rem 0 .45rem}.field-select{width:100%;border:1px solid rgba(199,188,228,.24);background:#111018;color:#fff;padding:.85rem;font:300 .95rem var(--sans)}.paid-status{color:var(--muted);font-size:.86rem;margin-top:1rem}@media(max-width:900px){.paid-reading{padding:1.35rem}.mini-spread{grid-template-columns:repeat(3,minmax(80px,1fr))}}@media(max-width:620px){.mini-spread{gap:.45rem}.mini-card{padding:.45rem}.mini-card strong{font-size:.82rem}.mini-card span{font-size:.54rem}}
 </style>
 </head>
 <body>
 <nav class="nav">
   <a href="/en/" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
-    <li><a href="#pricing" class="nav-link hide-sm">Reading</a></li>
+    <li><a href="#reading" class="nav-link hide-sm">Reading</a></li>
     <li><a href="#journal" class="nav-link hide-sm">Journal</a></li>
     <li><a href="#pricing" class="nav-link">Readings</a></li>
+    <li><a href="/en/my-readings.html" class="nav-link hide-sm">My space</a></li>
     <li><a href="/" class="nav-link lang">SL</a></li>
   </ul>
 </nav>
@@ -40,7 +43,41 @@
     <span class="hero-kicker">Symbolic card readings</span>
     <h1 class="hero-title">When answers<br>have not yet found <em>words</em></h1>
     <p class="hero-desc">A quiet place for tarot, symbols and inner perspective, for moments when something in you moves before it can be explained. Not prediction. Not certainty. A way to listen more closely to the question that keeps returning.</p>
-    <a href="#pricing" class="hero-cta">Enter the space</a>
+    <a href="#reading" class="hero-cta">Enter the space</a>
+  </div>
+</section>
+<section id="reading" class="section-soft">
+  <div class="section-header">
+    <span class="section-label">Spark</span>
+    <h2 class="section-title">Ask softly. Turn one card.</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">One symbol, one quiet shift in perspective. The reading is written directly in English.</p>
+  </div>
+  <div class="spark-shell">
+    <div class="spark-panel">
+      <span class="section-label">Choose a field</span>
+      <div class="topic-row" id="topicRow">
+        <button class="topic active" data-topic="General">General</button>
+        <button class="topic" data-topic="Relationships">Relationships</button>
+        <button class="topic" data-topic="Work">Work</button>
+        <button class="topic" data-topic="Money">Money</button>
+        <button class="topic" data-topic="Personal growth">Personal growth</button>
+      </div>
+      <label class="section-label" for="sparkQuestion">Your question</label>
+      <textarea class="question-input" id="sparkQuestion" placeholder="Write what keeps returning. You can keep it simple."></textarea>
+      <div class="spark-actions">
+        <button class="btn" id="sparkButton" type="button">Turn a card</button>
+        <span class="spark-status" id="sparkStatus"></span>
+      </div>
+      <p class="fine">One free card is available each day. Velvet Secret is for symbolic reflection and does not replace medical, legal, financial or mental-health advice.</p>
+    </div>
+    <div class="spark-result" id="sparkResult">
+      <div class="spark-card"><img id="sparkImage" src="../cards/optimized/labeled-v2/the-moon.webp" alt=""></div>
+      <div class="spark-meta" id="sparkMeta">Your card</div>
+      <h3 class="spark-name" id="sparkName"></h3>
+      <p class="spark-text" id="sparkText"></p>
+      <p class="spark-question" id="sparkReflect"></p>
+    </div>
   </div>
 </section>
 <section id="journal">
@@ -71,15 +108,480 @@
     <span class="section-label">Readings</span>
     <h2 class="section-title">Choose the depth your question is asking for.</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">English readings are being prepared with the same care. Until then, the Slovenian reading space remains open on the main site.</p>
+    <p class="section-desc">Spark is available in English. Path and Unfolding are the next spaces to open.</p>
   </div>
   <div class="pricing-container">
-    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Spark</h3><p class="pricing-desc">One symbol for a small shift in perspective.</p><div class="pricing-price">0 €</div><a href="/" class="btn">Continue in Slovenian</a></article>
-    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Path</h3><p class="pricing-desc">Three cards. Three perspectives. One thread through the question.</p><div class="pricing-price">4.90 €</div><a href="/" class="btn">Continue in Slovenian</a></article>
-    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Unfolding</h3><p class="pricing-desc">A deeper reading for questions that do not unfold in a single sentence.</p><div class="pricing-price">14.90 €</div><a href="/" class="btn">Continue in Slovenian</a></article>
-    <article class="pricing-card" data-badge="Subscription"><h3 class="pricing-name">Cycle</h3><p class="pricing-desc">A monthly space for questions that return, change and slowly reveal their pattern.</p><div class="pricing-price">9.90 € <span>/ month</span></div><a href="/moja-branja.html" class="btn">My space</a></article>
+    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Spark</h3><p class="pricing-desc">One symbol for a small shift in perspective.</p><div class="pricing-price">0 €</div><a href="#reading" class="btn">Turn a card</a></article>
+    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Path</h3><p class="pricing-desc">Three cards. Three perspectives. One thread through the question.</p><div class="pricing-price">4.90 €</div><button class="btn" type="button" onclick="openPathModal()">Prepare Path</button></article>
+    <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Unfolding</h3><p class="pricing-desc">A deeper reading for questions that do not unfold in a single sentence.</p><div class="pricing-price">14.90 €</div><button class="btn" type="button" onclick="openUnfoldingModal()">Prepare Unfolding</button></article>
+    <article class="pricing-card" data-badge="Subscription"><h3 class="pricing-name">Cycle</h3><p class="pricing-desc">A monthly space for questions that return, change and slowly reveal their pattern.</p><div class="pricing-price">9.90 € <span>/ month</span></div><a href="/en/my-readings.html" class="btn">My space</a></article>
+  </div>
+  <div class="spark-result paid-reading" id="pathResult">
+    <div class="spark-meta">Path · three-card reading</div>
+    <h3 class="spark-name">Your Path</h3>
+    <div class="mini-spread" id="pathSpread"></div>
+    <div class="paid-reading-text" id="pathText"></div>
+  </div>
+  <div class="spark-result paid-reading" id="unfoldingResult">
+    <div class="spark-meta">Unfolding · seven-card reading</div>
+    <h3 class="spark-name">Your Unfolding</h3>
+    <div class="mini-spread" id="unfoldingSpread"></div>
+    <div class="paid-reading-text" id="unfoldingText"></div>
   </div>
 </section>
+<div class="modal-bg" id="pathModal" role="dialog" aria-modal="true" aria-labelledby="pathTitle">
+  <div class="modal">
+    <button class="close" type="button" onclick="closePathModal()" aria-label="Close">×</button>
+    <span class="section-label">Path</span>
+    <h3 id="pathTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">Three cards. One thread.</h3>
+    <p class="section-desc" style="text-align:left;margin:0">Write the question as simply as you can. The reading will look at what stands behind it, what is alive now and what next step is asking for attention.</p>
+    <label class="field-label" for="pathTopic">Field</label>
+    <select class="field-select" id="pathTopic">
+      <option>General</option>
+      <option>Relationships</option>
+      <option>Work</option>
+      <option>Money</option>
+      <option>Personal growth</option>
+    </select>
+    <label class="field-label" for="pathQuestion">Your question</label>
+    <textarea class="question-input" id="pathQuestion" placeholder="What do you want the three cards to illuminate?"></textarea>
+    <button class="btn google-auth-btn" id="pathButton" type="button" onclick="preparePathReading()">Prepare Path</button>
+    <p class="paid-status" id="pathStatus"></p>
+    <p class="fine">Test phase: this prepares the real AI reading without opening payment.</p>
+  </div>
+</div>
+
+<div class="modal-bg" id="unfoldingModal" role="dialog" aria-modal="true" aria-labelledby="unfoldingTitle">
+  <div class="modal">
+    <button class="close" type="button" onclick="closeUnfoldingModal()" aria-label="Close">×</button>
+    <span class="section-label">Unfolding</span>
+    <h3 id="unfoldingTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">A wider map of the question.</h3>
+    <p class="section-desc" style="text-align:left;margin:0">Seven cards look at the visible situation, the hidden tension, your part, the outside influence and the next mature movement.</p>
+    <label class="field-label" for="unfoldingTopic">Field</label>
+    <select class="field-select" id="unfoldingTopic">
+      <option>General</option>
+      <option>Relationships</option>
+      <option>Work</option>
+      <option>Money</option>
+      <option>Personal growth</option>
+    </select>
+    <label class="field-label" for="unfoldingFocus">Focus</label>
+    <select class="field-select" id="unfoldingFocus">
+      <option>The whole situation</option>
+      <option>The hidden pattern</option>
+      <option>The other side or outside influence</option>
+      <option>The next 30 days</option>
+    </select>
+    <label class="field-label" for="unfoldingQuestion">Your question</label>
+    <textarea class="question-input" id="unfoldingQuestion" placeholder="What situation needs a wider view?"></textarea>
+    <button class="btn google-auth-btn" id="unfoldingButton" type="button" onclick="prepareUnfoldingReading()">Prepare Unfolding</button>
+    <p class="paid-status" id="unfoldingStatus"></p>
+    <p class="fine">Test phase: this prepares the real AI reading without opening payment.</p>
+  </div>
+</div>
+
+<div class="modal-bg" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal">
+    <button class="close" type="button" onclick="closeAuth()" aria-label="Close">×</button>
+    <h3 id="authTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">Your space</h3>
+    <p class="section-desc" style="text-align:left;margin:0">Sign in to open your card and keep your readings connected to your account.</p>
+    <button class="btn google-auth-btn" type="button" onclick="signInWithGoogle()">Continue with Google</button>
+    <p class="fine">Your reading is saved privately in your Velvet Secret space.</p>
+  </div>
+</div>
 <footer class="footer"><div class="footer-logo">Velvet Secret</div><p>Symbolic readings for reflection, clarity and the quieter next step.</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const _sb = supabase.createClient(
+  'https://pdibcrfpqenougebkbse.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkaWJjcmZwcWVub3VnZWJrYnNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyOTM1ODIsImV4cCI6MjA5Njg2OTU4Mn0.dlwDaH4vOdDzOSZCw6LWjNIuQ67NbglPr9_CBY9TmIk'
+);
+
+const tarotDeck = [
+  {name:'Norček', label:'The Fool', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-fool.webp'},
+  {name:'Mag', label:'The Magician', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-magician.webp'},
+  {name:'Visoka svečenica', label:'The High Priestess', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-high-priestess.webp'},
+  {name:'Cesarica', label:'The Empress', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-empress.webp'},
+  {name:'Cesar', label:'The Emperor', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-emperor.webp'},
+  {name:'Svečenik', label:'The Hierophant', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-hierophant.webp'},
+  {name:'Ljubimca', label:'The Lovers', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-lovers.webp'},
+  {name:'Voz', label:'The Chariot', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-chariot.webp'},
+  {name:'Moč', label:'Strength', kind:'Velika arkana', labelKind:'Major Arcana', img:'strength.webp'},
+  {name:'Puščavnik', label:'The Hermit', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-hermit.webp'},
+  {name:'Kolo sreče', label:'Wheel of Fortune', kind:'Velika arkana', labelKind:'Major Arcana', img:'wheel-of-fortune.webp'},
+  {name:'Pravica', label:'Justice', kind:'Velika arkana', labelKind:'Major Arcana', img:'justice.webp'},
+  {name:'Obešenec', label:'The Hanged Man', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-hanged-man.webp'},
+  {name:'Smrt', label:'Death', kind:'Velika arkana', labelKind:'Major Arcana', img:'death.webp'},
+  {name:'Zmernost', label:'Temperance', kind:'Velika arkana', labelKind:'Major Arcana', img:'temperance.webp'},
+  {name:'Hudič', label:'The Devil', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-devil.webp'},
+  {name:'Stolp', label:'The Tower', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-tower.webp'},
+  {name:'Zvezda', label:'The Star', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-star.webp'},
+  {name:'Luna', label:'The Moon', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-moon.webp'},
+  {name:'Sonce', label:'The Sun', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-sun.webp'},
+  {name:'Sodba', label:'Judgement', kind:'Velika arkana', labelKind:'Major Arcana', img:'judgement.webp'},
+  {name:'Svet', label:'The World', kind:'Velika arkana', labelKind:'Major Arcana', img:'the-world.webp'},
+  {name:'As kelihov', label:'Ace of Cups', kind:'Kelihi', labelKind:'Cups', img:'ace-of-cups.webp'},
+  {name:'Dvojka kelihov', label:'Two of Cups', kind:'Kelihi', labelKind:'Cups', img:'two-of-cups.webp'},
+  {name:'Trojka kelihov', label:'Three of Cups', kind:'Kelihi', labelKind:'Cups', img:'three-of-cups.webp'},
+  {name:'Štirica kelihov', label:'Four of Cups', kind:'Kelihi', labelKind:'Cups', img:'four-of-cups.webp'},
+  {name:'Petica kelihov', label:'Five of Cups', kind:'Kelihi', labelKind:'Cups', img:'five-of-cups.webp'},
+  {name:'Šestica kelihov', label:'Six of Cups', kind:'Kelihi', labelKind:'Cups', img:'six-of-cups.webp'},
+  {name:'Sedmica kelihov', label:'Seven of Cups', kind:'Kelihi', labelKind:'Cups', img:'seven-of-cups.webp'},
+  {name:'Osmica kelihov', label:'Eight of Cups', kind:'Kelihi', labelKind:'Cups', img:'eight-of-cups.webp'},
+  {name:'Devetica kelihov', label:'Nine of Cups', kind:'Kelihi', labelKind:'Cups', img:'nine-of-cups.webp'},
+  {name:'Desetica kelihov', label:'Ten of Cups', kind:'Kelihi', labelKind:'Cups', img:'ten-of-cups.webp'},
+  {name:'Paž kelihov', label:'Page of Cups', kind:'Kelihi', labelKind:'Cups', img:'page-of-cups.webp'},
+  {name:'Vitez kelihov', label:'Knight of Cups', kind:'Kelihi', labelKind:'Cups', img:'knight-of-cups.webp'},
+  {name:'Kraljica kelihov', label:'Queen of Cups', kind:'Kelihi', labelKind:'Cups', img:'queen-of-cups.webp'},
+  {name:'Kralj kelihov', label:'King of Cups', kind:'Kelihi', labelKind:'Cups', img:'king-of-cups.webp'},
+  {name:'As palic', label:'Ace of Wands', kind:'Palice', labelKind:'Wands', img:'ace-of-wands.webp'},
+  {name:'Dvojka palic', label:'Two of Wands', kind:'Palice', labelKind:'Wands', img:'two-of-wands.webp'},
+  {name:'Trojka palic', label:'Three of Wands', kind:'Palice', labelKind:'Wands', img:'three-of-wands.webp'},
+  {name:'Štirica palic', label:'Four of Wands', kind:'Palice', labelKind:'Wands', img:'four-of-wands.webp'},
+  {name:'Petica palic', label:'Five of Wands', kind:'Palice', labelKind:'Wands', img:'five-of-wands.webp'},
+  {name:'Šestica palic', label:'Six of Wands', kind:'Palice', labelKind:'Wands', img:'six-of-wands.webp'},
+  {name:'Sedmica palic', label:'Seven of Wands', kind:'Palice', labelKind:'Wands', img:'seven-of-wands.webp'},
+  {name:'Osmica palic', label:'Eight of Wands', kind:'Palice', labelKind:'Wands', img:'eight-of-wands.webp'},
+  {name:'Devetica palic', label:'Nine of Wands', kind:'Palice', labelKind:'Wands', img:'nine-of-wands.webp'},
+  {name:'Desetica palic', label:'Ten of Wands', kind:'Palice', labelKind:'Wands', img:'ten-of-wands.webp'},
+  {name:'Paž palic', label:'Page of Wands', kind:'Palice', labelKind:'Wands', img:'page-of-wands.webp'},
+  {name:'Vitez palic', label:'Knight of Wands', kind:'Palice', labelKind:'Wands', img:'knight-of-wands.webp'},
+  {name:'Kraljica palic', label:'Queen of Wands', kind:'Palice', labelKind:'Wands', img:'queen-of-wands.webp'},
+  {name:'Kralj palic', label:'King of Wands', kind:'Palice', labelKind:'Wands', img:'king-of-wands.webp'},
+  {name:'As mečev', label:'Ace of Swords', kind:'Meči', labelKind:'Swords', img:'ace-of-swords.webp'},
+  {name:'Dvojka mečev', label:'Two of Swords', kind:'Meči', labelKind:'Swords', img:'two-of-swords.webp'},
+  {name:'Trojka mečev', label:'Three of Swords', kind:'Meči', labelKind:'Swords', img:'three-of-swords.webp'},
+  {name:'Štirica mečev', label:'Four of Swords', kind:'Meči', labelKind:'Swords', img:'four-of-swords.webp'},
+  {name:'Petica mečev', label:'Five of Swords', kind:'Meči', labelKind:'Swords', img:'five-of-swords.webp'},
+  {name:'Šestica mečev', label:'Six of Swords', kind:'Meči', labelKind:'Swords', img:'six-of-swords.webp'},
+  {name:'Sedmica mečev', label:'Seven of Swords', kind:'Meči', labelKind:'Swords', img:'seven-of-swords.webp'},
+  {name:'Osmica mečev', label:'Eight of Swords', kind:'Meči', labelKind:'Swords', img:'eight-of-swords.webp'},
+  {name:'Devetica mečev', label:'Nine of Swords', kind:'Meči', labelKind:'Swords', img:'nine-of-swords.webp'},
+  {name:'Desetica mečev', label:'Ten of Swords', kind:'Meči', labelKind:'Swords', img:'ten-of-swords.webp'},
+  {name:'Paž mečev', label:'Page of Swords', kind:'Meči', labelKind:'Swords', img:'page-of-swords.webp'},
+  {name:'Vitez mečev', label:'Knight of Swords', kind:'Meči', labelKind:'Swords', img:'knight-of-swords.webp'},
+  {name:'Kraljica mečev', label:'Queen of Swords', kind:'Meči', labelKind:'Swords', img:'queen-of-swords.webp'},
+  {name:'Kralj mečev', label:'King of Swords', kind:'Meči', labelKind:'Swords', img:'king-of-swords.webp'},
+  {name:'As pentakljev', label:'Ace of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'ace-of-pentacles.webp'},
+  {name:'Dvojka pentakljev', label:'Two of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'two-of-pentacles.webp'},
+  {name:'Trojka pentakljev', label:'Three of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'three-of-pentacles.webp'},
+  {name:'Štirica pentakljev', label:'Four of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'four-of-pentacles.webp'},
+  {name:'Petica pentakljev', label:'Five of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'five-of-pentacles.webp'},
+  {name:'Šestica pentakljev', label:'Six of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'six-of-pentacles.webp'},
+  {name:'Sedmica pentakljev', label:'Seven of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'seven-of-pentacles.webp'},
+  {name:'Osmica pentakljev', label:'Eight of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'eight-of-pentacles.webp'},
+  {name:'Devetica pentakljev', label:'Nine of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'nine-of-pentacles.webp'},
+  {name:'Desetica pentakljev', label:'Ten of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'ten-of-pentacles.webp'},
+  {name:'Paž pentakljev', label:'Page of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'page-of-pentacles.webp'},
+  {name:'Vitez pentakljev', label:'Knight of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'knight-of-pentacles.webp'},
+  {name:'Kraljica pentakljev', label:'Queen of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'queen-of-pentacles.webp'},
+  {name:'Kralj pentakljev', label:'King of Pentacles', kind:'Pentaklji', labelKind:'Pentacles', img:'king-of-pentacles.webp'}
+];
+
+let selectedTopic = 'General';
+const statusEl = document.getElementById('sparkStatus');
+const buttonEl = document.getElementById('sparkButton');
+
+function shuffleDeck(deck){
+  return deck.map(card => ({ card, sort: crypto.getRandomValues(new Uint32Array(1))[0] }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(item => item.card);
+}
+function splitReading(text){
+  const parts = (text || '').split(/\n+/).map(p => p.trim()).filter(Boolean);
+  const qi = parts.findIndex(p => p.endsWith('?'));
+  return {
+    main: qi !== -1 ? parts.filter((_, i) => i !== qi).join('\n\n').trim() : (text || '').trim(),
+    reflect: qi !== -1 ? parts[qi] : ''
+  };
+}
+function openAuth(){document.getElementById('authModal').classList.add('open')}
+function closeAuth(){document.getElementById('authModal').classList.remove('open')}
+function getAuthRedirectUrl(){
+  const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const origin = isLocal ? window.location.origin : 'https://velvet-secret-site.netlify.app';
+  return `${origin}/en/`;
+}
+async function signInWithGoogle(){
+  localStorage.setItem('vs_en_pending_topic', selectedTopic);
+  localStorage.setItem('vs_en_pending_question', document.getElementById('sparkQuestion').value.trim());
+  await _sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: getAuthRedirectUrl() }
+  });
+}
+function restorePending(){
+  const topic = localStorage.getItem('vs_en_pending_topic');
+  const question = localStorage.getItem('vs_en_pending_question');
+  const pathTopic = localStorage.getItem('vs_en_pending_path_topic');
+  const pathQuestion = localStorage.getItem('vs_en_pending_path_question');
+  const unfoldingTopic = localStorage.getItem('vs_en_pending_unfolding_topic');
+  const unfoldingFocus = localStorage.getItem('vs_en_pending_unfolding_focus');
+  const unfoldingQuestion = localStorage.getItem('vs_en_pending_unfolding_question');
+  if(topic){
+    selectedTopic = topic;
+    document.querySelectorAll('.topic').forEach(btn => btn.classList.toggle('active', btn.dataset.topic === topic));
+  }
+  if(question) document.getElementById('sparkQuestion').value = question;
+  if(pathTopic) document.getElementById('pathTopic').value = pathTopic;
+  if(pathQuestion) document.getElementById('pathQuestion').value = pathQuestion;
+  if(unfoldingTopic) document.getElementById('unfoldingTopic').value = unfoldingTopic;
+  if(unfoldingFocus) document.getElementById('unfoldingFocus').value = unfoldingFocus;
+  if(unfoldingQuestion) document.getElementById('unfoldingQuestion').value = unfoldingQuestion;
+  localStorage.removeItem('vs_en_pending_topic');
+  localStorage.removeItem('vs_en_pending_question');
+  localStorage.removeItem('vs_en_pending_path_topic');
+  localStorage.removeItem('vs_en_pending_path_question');
+  localStorage.removeItem('vs_en_pending_unfolding_topic');
+  localStorage.removeItem('vs_en_pending_unfolding_focus');
+  localStorage.removeItem('vs_en_pending_unfolding_question');
+}
+function renderResult(card, text){
+  const parsed = splitReading(text);
+  document.getElementById('sparkImage').src = `../cards/optimized/labeled-v2/${card.img}`;
+  document.getElementById('sparkImage').alt = card.label;
+  document.getElementById('sparkMeta').textContent = `${selectedTopic} · ${card.labelKind}`;
+  document.getElementById('sparkName').textContent = card.label;
+  document.getElementById('sparkText').textContent = parsed.main || text;
+  document.getElementById('sparkReflect').textContent = parsed.reflect || '';
+  document.getElementById('sparkResult').classList.add('show');
+  document.getElementById('sparkResult').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function openPathModal(){
+  document.getElementById('pathModal').classList.add('open');
+}
+function closePathModal(){
+  document.getElementById('pathModal').classList.remove('open');
+}
+function openUnfoldingModal(){
+  document.getElementById('unfoldingModal').classList.add('open');
+}
+function closeUnfoldingModal(){
+  document.getElementById('unfoldingModal').classList.remove('open');
+}
+function escapeHtml(value){
+  return String(value || '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
+}
+function formatPaidReading(text){
+  const headings = new Set([
+    'First impression',
+    'Answer to your question',
+    'Background',
+    'Now',
+    'Next step',
+    'How the cards connect',
+    'In the next 7 days',
+    'What not to force',
+    'Question to close',
+    'Core of the question',
+    'Visible situation',
+    'Hidden tension',
+    'Your part',
+    'The other side or outside influence',
+    'If nothing changes',
+    'If you change your approach',
+    'The next 30 days',
+    'Closing'
+  ]);
+  return String(text || '')
+    .split(/\n+/)
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => headings.has(line) ? `<strong>${escapeHtml(line)}</strong>` : escapeHtml(line))
+    .join('\n\n');
+}
+function renderPathSpread(cards){
+  document.getElementById('pathSpread').innerHTML = cards.map((card, index) => {
+    const roles = ['Background', 'Now', 'Next step'];
+    return `<div class="mini-card"><img src="../cards/optimized/labeled-v2/${card.img}" alt="${escapeHtml(card.label)}"><span>${roles[index]}</span><strong>${escapeHtml(card.label)}</strong></div>`;
+  }).join('');
+}
+async function preparePathReading(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    localStorage.setItem('vs_en_pending_path_topic', document.getElementById('pathTopic').value);
+    localStorage.setItem('vs_en_pending_path_question', document.getElementById('pathQuestion').value.trim());
+    closePathModal();
+    openAuth();
+    return;
+  }
+
+  const cards = shuffleDeck(tarotDeck).slice(0, 3);
+  const pathButton = document.getElementById('pathButton');
+  const pathStatus = document.getElementById('pathStatus');
+  const topic = document.getElementById('pathTopic').value;
+  const intent = document.getElementById('pathQuestion').value.trim();
+
+  pathButton.disabled = true;
+  pathStatus.textContent = 'The three cards are finding their thread...';
+  document.getElementById('pathResult').classList.remove('show');
+
+  try {
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+          language: 'en',
+          readingType: 'pot',
+          cards: cards.map(card => ({ name: card.name, kind: card.kind })),
+          topic,
+          intent
+        })
+      }),
+      new Promise(resolve => setTimeout(resolve, 1600))
+    ]);
+    const data = await res.json();
+    if(!res.ok || data.error) throw new Error('The Path reading could not be prepared right now.');
+    renderPathSpread(cards);
+    document.getElementById('pathText').innerHTML = formatPaidReading(data.text || '');
+    closePathModal();
+    document.getElementById('pathResult').classList.add('show');
+    document.getElementById('pathResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pathStatus.textContent = '';
+  } catch (error) {
+    pathStatus.textContent = error.message || 'The Path reading could not be prepared right now.';
+  } finally {
+    pathButton.disabled = false;
+  }
+}
+function renderUnfoldingSpread(cards){
+  const roles = ['Core', 'Visible', 'Hidden', 'Your part', 'Outside', 'Direction', 'Next step'];
+  document.getElementById('unfoldingSpread').innerHTML = cards.map((card, index) => (
+    `<div class="mini-card"><img src="../cards/optimized/labeled-v2/${card.img}" alt="${escapeHtml(card.label)}"><span>${roles[index]}</span><strong>${escapeHtml(card.label)}</strong></div>`
+  )).join('');
+}
+async function prepareUnfoldingReading(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    localStorage.setItem('vs_en_pending_unfolding_topic', document.getElementById('unfoldingTopic').value);
+    localStorage.setItem('vs_en_pending_unfolding_focus', document.getElementById('unfoldingFocus').value);
+    localStorage.setItem('vs_en_pending_unfolding_question', document.getElementById('unfoldingQuestion').value.trim());
+    closeUnfoldingModal();
+    openAuth();
+    return;
+  }
+
+  const cards = shuffleDeck(tarotDeck).slice(0, 7);
+  const unfoldingButton = document.getElementById('unfoldingButton');
+  const unfoldingStatus = document.getElementById('unfoldingStatus');
+  const topic = document.getElementById('unfoldingTopic').value;
+  const focus = document.getElementById('unfoldingFocus').value;
+  const intent = document.getElementById('unfoldingQuestion').value.trim();
+
+  unfoldingButton.disabled = true;
+  unfoldingStatus.textContent = 'The seven cards are opening the map...';
+  document.getElementById('unfoldingResult').classList.remove('show');
+
+  try {
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+          language: 'en',
+          readingType: 'razplet',
+          cards: cards.map(card => ({ name: card.name, kind: card.kind })),
+          topic,
+          focus,
+          intent
+        })
+      }),
+      new Promise(resolve => setTimeout(resolve, 1900))
+    ]);
+    const data = await res.json();
+    if(!res.ok || data.error) throw new Error('The Unfolding reading could not be prepared right now.');
+    renderUnfoldingSpread(cards);
+    document.getElementById('unfoldingText').innerHTML = formatPaidReading(data.text || '');
+    closeUnfoldingModal();
+    document.getElementById('unfoldingResult').classList.add('show');
+    document.getElementById('unfoldingResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    unfoldingStatus.textContent = '';
+  } catch (error) {
+    unfoldingStatus.textContent = error.message || 'The Unfolding reading could not be prepared right now.';
+  } finally {
+    unfoldingButton.disabled = false;
+  }
+}
+async function turnSparkCard(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    localStorage.setItem('vs_en_pending_topic', selectedTopic);
+    localStorage.setItem('vs_en_pending_question', document.getElementById('sparkQuestion').value.trim());
+    openAuth();
+    return;
+  }
+
+  const card = shuffleDeck(tarotDeck)[0];
+  const intent = document.getElementById('sparkQuestion').value.trim();
+  buttonEl.disabled = true;
+  statusEl.textContent = 'The card is turning...';
+  document.getElementById('sparkResult').classList.remove('show');
+
+  try {
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({
+          language: 'en',
+          card: { name: card.name, kind: card.kind },
+          topic: selectedTopic,
+          intent
+        })
+      }),
+      new Promise(resolve => setTimeout(resolve, 1400))
+    ]);
+    const data = await res.json();
+    if(data.error === 'daily_limit') throw new Error('Your free card for today has already been opened.');
+    if(!res.ok || data.error) throw new Error('The reading could not be prepared right now.');
+    renderResult(card, data.text || '');
+    statusEl.textContent = '';
+  } catch (error) {
+    statusEl.textContent = error.message || 'The reading could not be prepared right now.';
+  } finally {
+    buttonEl.disabled = false;
+  }
+}
+
+document.getElementById('topicRow').addEventListener('click', event => {
+  const btn = event.target.closest('.topic');
+  if(!btn) return;
+  selectedTopic = btn.dataset.topic;
+  document.querySelectorAll('.topic').forEach(item => item.classList.toggle('active', item === btn));
+});
+buttonEl.addEventListener('click', turnSparkCard);
+document.addEventListener('keydown', event => {
+  if(event.key === 'Escape'){
+    closeAuth();
+    closePathModal();
+    closeUnfoldingModal();
+  }
+});
+_sb.auth.getSession().then(({ data: { session } }) => {
+  if(session) restorePending();
+});
+_sb.auth.onAuthStateChange((_event, session) => {
+  if(session){
+    closeAuth();
+    restorePending();
+  }
+});
+</script>
 </body>
 </html>
