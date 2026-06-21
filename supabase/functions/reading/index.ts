@@ -1142,13 +1142,19 @@ Deno.serve(async (req: Request) => {
   if (!isKrog && readingType === 'daily') {
     const todayStart = new Date();
     todayStart.setHours(0, 0, 0, 0);
-    const { count } = await admin
+    const englishDailyTopics = new Set(['General', 'Relationships', 'Work', 'Money', 'Personal growth']);
+    const { data: dailyReadings } = await admin
       .from('readings')
-      .select('*', { count: 'exact', head: true })
+      .select('topic')
       .eq('user_id', user.id)
       .eq('reading_type', 'daily')
       .gte('created_at', todayStart.toISOString());
-    if (count && count >= 1) return json({ error: 'daily_limit' }, 429);
+    const sameLanguageCount = (dailyReadings || []).filter((reading) => {
+      const topicValue = typeof reading.topic === 'string' ? reading.topic : '';
+      const isEnglishTopic = englishDailyTopics.has(topicValue);
+      return isEnglish ? isEnglishTopic : !isEnglishTopic;
+    }).length;
+    if (sameLanguageCount >= 1) return json({ error: 'daily_limit' }, 429);
   }
 
   const apiKey = Deno.env.get('ANTHROPIC_API_KEY');
