@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#111018;--bg-soft:#181720;--violet-light:#c7bce4;--violet-medium:#a997cf;--violet-deep:#7f6caf;--blue-soft:#a8bedf;--text:#d7d0df;--muted:#9690a3;--line:rgba(199,188,228,.2);--line-soft:rgba(199,188,228,.1);--warm:#d8bd9a;--display:"Playfair Display",Georgia,serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;background:var(--bg)}body{font-family:var(--sans);font-weight:300;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,16,24,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--line-soft)}.nav-logo{font-family:var(--display);font-size:1.5rem;color:#fff;letter-spacing:.04em}.nav-links{display:flex;list-style:none;gap:2rem;align-items:center}.nav-link{color:rgba(255,255,255,.82);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}.nav-link:hover{color:var(--violet-light)}.lang{border:1px solid rgba(199,188,228,.34);padding:.48rem .72rem}.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#111018}.hero::before{content:"";position:absolute;inset:0;background:url('../assets/images/optimized/hero-crystal-ball-fortune-teller.webp') center/cover;filter:saturate(.9);transform:scale(1.02)}.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,16,24,.9),rgba(17,16,24,.48) 48%,rgba(17,16,24,.22)),linear-gradient(180deg,rgba(17,16,24,.2),rgba(17,16,24,.86))}.hero-content{position:relative;z-index:2;width:min(760px,100%);padding:8rem 3rem 5rem}.hero-kicker,.section-label{display:block;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--violet-light);margin-bottom:1rem}.hero-title{font-family:var(--display);font-size:clamp(3rem,7vw,6.4rem);line-height:.98;font-weight:500;color:#fff;margin-bottom:1.25rem}.hero-title em{font-style:italic;color:var(--violet-light)}.hero-desc{max-width:620px;color:rgba(240,236,245,.82);font-size:1.08rem;line-height:1.85;margin-bottom:2rem}.hero-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(199,188,228,.48);background:rgba(199,188,228,.08);color:#fff;padding:.86rem 1.35rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s}.hero-cta:hover,.btn:hover{background:var(--violet-deep);border-color:var(--violet-deep)}section:not(.hero){padding:6rem 2rem}.section-soft{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}.section-header{max-width:820px;margin:0 auto 3.5rem;text-align:center}.section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.18;color:#fff;margin-bottom:1rem}.section-divider{width:60px;height:1px;background:var(--violet-medium);margin:1.5rem auto}.section-desc{max-width:640px;margin:0 auto;color:var(--muted)}.intro-grid,.pricing-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}.intro-card,.pricing-card{border:1px solid var(--line-soft);background:rgba(255,255,255,.035)}.intro-card{position:relative;aspect-ratio:3/4;overflow:hidden}.intro-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(199,188,228,.18),rgba(168,190,223,.08))}.intro-visual{position:absolute;inset:0;background-size:cover;background-position:center;transition:.45s}.intro-card:hover .intro-visual{transform:scale(1.04)}.intro-card:nth-child(1) .intro-visual{background-image:url('../assets/images/optimized/intro-nezno.webp')}.intro-card:nth-child(2) .intro-visual{background-image:url('../assets/images/optimized/intro-konkretno.webp')}.intro-card:nth-child(3) .intro-visual{background-image:url('../assets/images/optimized/intro-tvoje.webp')}.intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1}.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-card h3,.pricing-name{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0}.intro-card p,.pricing-desc{font-size:.92rem;color:rgba(255,255,255,.68);margin-bottom:1.1rem}.intro-blog{display:flex;justify-content:flex-end}.intro-blog-link,.gallery-btn{font-size:.8rem;color:#c9b6d9;border:1px solid rgba(199,188,228,.35);padding:.3rem .9rem}.spark-shell{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:2rem;align-items:start}.spark-panel{border:1px solid var(--line-soft);background:rgba(255,255,255,.035);padding:2rem}.topic-row{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.5rem 0}.topic{border:1px solid rgba(199,188,228,.28);background:rgba(199,188,228,.06);color:var(--text);padding:.62rem .95rem;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.2s}.topic.active,.topic:hover{background:rgba(127,108,175,.45);border-color:rgba(199,188,228,.55);color:#fff}.question-input{width:100%;min-height:118px;resize:vertical;border:1px solid rgba(199,188,228,.24);background:rgba(9,8,14,.48);color:#fff;padding:1rem;font:300 .98rem/1.7 var(--sans);outline:none}.question-input:focus{border-color:rgba(199,188,228,.58)}.spark-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:1rem}.spark-status{color:var(--muted);font-size:.86rem}.spark-result{display:none;border:1px solid rgba(199,188,228,.16);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));padding:1.4rem}.spark-result.show{display:block}.spark-card{width:min(260px,70vw);margin:0 auto 1.3rem;aspect-ratio:2/3;border:1px solid rgba(199,188,228,.22);background:#0f0e16;box-shadow:0 26px 70px rgba(0,0,0,.38);overflow:hidden}.spark-card img{width:100%;height:100%;object-fit:cover;display:block}.spark-meta{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.45rem}.spark-name{font-family:var(--display);font-size:1.6rem;color:#fff;margin-bottom:.8rem}.spark-text{color:var(--text);font-size:1rem;line-height:1.85;white-space:pre-line}.spark-question{margin-top:1rem;color:#c9b6d9;font-family:var(--display);font-size:1.15rem;font-style:italic;line-height:1.65}.modal-bg{position:fixed;inset:0;background:rgba(10,9,14,.78);backdrop-filter:blur(12px);z-index:200;display:none;align-items:center;justify-content:center;padding:1rem}.modal-bg.open{display:flex}.modal{width:min(460px,100%);border:1px solid rgba(199,188,228,.22);background:#181720;padding:2rem;position:relative}.close{position:absolute;top:.8rem;right:.9rem;border:0;background:transparent;color:#fff;font-size:1.6rem;cursor:pointer}.google-auth-btn{width:100%;margin-top:1.4rem}.fine{font-size:.82rem;color:var(--muted);margin-top:1rem}.pricing-container{grid-template-columns:repeat(4,1fr);align-items:stretch}.pricing-card{padding:2rem;display:flex;flex-direction:column;position:relative}.pricing-card[data-badge]::before{content:attr(data-badge);position:absolute;top:-12px;left:2rem;background:rgba(199,188,228,.9);color:#111018;padding:.38rem 1rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase}.pricing-price{font-family:var(--display);font-size:2.1rem;color:var(--blue-soft);margin:1.1rem 0}.pricing-price span{font-family:var(--sans);font-size:.82rem;color:var(--muted)}.pricing-card .btn{margin-top:auto}.copy-band{max-width:760px;margin:0 auto;text-align:center}.copy-band p{color:var(--muted);font-size:1rem;line-height:1.95;margin-bottom:1.35rem}.quote{font-family:var(--display);font-size:1.35rem;font-style:italic;color:#c9b6d9;line-height:1.75;margin:2.5rem 0}.footer{padding:3rem 2rem;text-align:center;color:var(--muted);border-top:1px solid rgba(199,188,228,.08)}.footer-logo{font-family:var(--display);font-size:1.5rem;color:#fff;margin-bottom:.75rem}@media(max-width:900px){.nav{padding:1rem 1.2rem}.nav-links{gap:.8rem}.nav-link{font-size:.62rem;letter-spacing:.1em}.hero-content{padding:7rem 1.3rem 4rem}.intro-grid,.pricing-container,.spark-shell{grid-template-columns:1fr}.intro-card{aspect-ratio:auto;min-height:0}.intro-card .intro-visual{position:relative;height:260px}.intro-copy{position:relative;background:linear-gradient(180deg,rgba(17,16,24,.94),rgba(17,16,24,.74))}.intro-card::before{display:none}section:not(.hero){padding:4rem 1.2rem}.spark-panel{padding:1.35rem}}@media(max-width:620px){.nav-links{gap:.55rem}.nav-link.hide-sm{display:none}.nav-logo{font-size:1.08rem}.hero-title{font-size:clamp(2.55rem,12vw,4rem)}.spark-actions .btn{width:100%}.topic{font-size:.62rem;padding:.52rem .72rem}}
-.paid-reading{max-width:980px;margin:3rem auto 0;padding:2rem}.paid-reading-text{color:var(--text);font-size:1rem;line-height:1.9;white-space:pre-line}.paid-reading-text strong{display:block;margin:1.4rem 0 .35rem;font-family:var(--display);font-size:1.3rem;color:#fff;font-weight:500}.mini-spread{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin:0 0 1.5rem}.mini-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.025);padding:.65rem}.mini-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;margin-bottom:.55rem}.mini-card span{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light)}.mini-card strong{display:block;font-family:var(--display);font-size:1rem;color:#fff;font-weight:500}.field-label{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin:1rem 0 .45rem}.field-select{width:100%;border:1px solid rgba(199,188,228,.24);background:#111018;color:#fff;padding:.85rem;font:300 .95rem var(--sans)}.paid-status{color:var(--muted);font-size:.86rem;margin-top:1rem}@media(max-width:900px){.paid-reading{padding:1.35rem}.mini-spread{grid-template-columns:repeat(3,minmax(80px,1fr))}}@media(max-width:620px){.mini-spread{gap:.45rem}.mini-card{padding:.45rem}.mini-card strong{font-size:.82rem}.mini-card span{font-size:.54rem}}
+.paid-reading{max-width:980px;margin:3rem auto 0;padding:2rem}.paid-reading-text{color:var(--text);font-size:1rem;line-height:1.9;white-space:pre-line}.paid-reading-text strong{display:block;margin:1.4rem 0 .35rem;font-family:var(--display);font-size:1.3rem;color:#fff;font-weight:500}.mini-spread{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin:0 0 1.5rem}.mini-card{border:1px solid rgba(199,188,228,.18);background:rgba(255,255,255,.025);padding:.65rem}.mini-card img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;margin-bottom:.55rem}.mini-card span{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-light)}.mini-card strong{display:block;font-family:var(--display);font-size:1rem;color:#fff;font-weight:500}.field-label{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin:1rem 0 .45rem}.field-select{width:100%;border:1px solid rgba(199,188,228,.24);background:#111018;color:#fff;padding:.85rem;font:300 .95rem var(--sans)}.custom-select{position:relative;width:100%}.cs-trigger{width:100%;min-height:56px;background:linear-gradient(180deg,rgba(199,188,228,.1),rgba(199,188,228,.055));border:1.5px solid rgba(199,188,228,.42);color:#fff;font-family:var(--sans);font-size:.98rem;font-weight:300;padding:1rem 2.8rem 1rem 1.25rem;outline:none;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;transition:border-color .25s,background .25s,box-shadow .25s;color-scheme:dark;border-radius:2px;letter-spacing:.03em}.cs-trigger span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cs-trigger::after{content:'';display:inline-block;width:7px;height:7px;border-right:1.5px solid rgba(216,189,154,.9);border-bottom:1.5px solid rgba(216,189,154,.9);transform:rotate(45deg) translateY(-2px);transition:transform .25s;flex-shrink:0;margin-left:1rem}.custom-select.open .cs-trigger::after{transform:rotate(-135deg) translateY(-2px)}.custom-select.open .cs-trigger,.cs-trigger:focus-visible{border-color:rgba(199,188,228,.82);background:linear-gradient(180deg,rgba(199,188,228,.15),rgba(199,188,228,.08));box-shadow:0 0 0 3px rgba(199,188,228,.08),0 0 28px rgba(110,130,159,.16)}.cs-options{position:absolute;top:calc(100% + 6px);left:0;right:0;background:linear-gradient(180deg,rgba(32,31,44,.98),rgba(24,23,34,.98));border:1px solid rgba(199,188,228,.36);z-index:220;display:none;border-radius:2px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.025)}.custom-select.open .cs-options{display:block}.cs-opt{position:relative;padding:.88rem 1.2rem .88rem 2.35rem;color:rgba(255,255,255,.76);font-family:var(--sans);font-size:.92rem;font-weight:300;letter-spacing:.03em;cursor:pointer;transition:background .2s,color .2s}.cs-opt + .cs-opt{border-top:1px solid rgba(199,188,228,.08)}.cs-opt::before{content:'';position:absolute;left:1.05rem;top:50%;width:6px;height:6px;border-radius:50%;background:rgba(216,189,154,.75);opacity:0;transform:translateY(-50%);transition:.2s}.cs-opt:hover{background:rgba(199,188,228,.1);color:#fff}.cs-opt.selected{background:linear-gradient(90deg,rgba(127,108,175,.68),rgba(110,130,159,.28));color:#fff}.cs-opt.selected::before{opacity:1}.paid-status{color:var(--muted);font-size:.86rem;margin-top:1rem}@media(max-width:900px){.paid-reading{padding:1.35rem}.mini-spread{grid-template-columns:repeat(3,minmax(80px,1fr))}}@media(max-width:620px){.mini-spread{gap:.45rem}.mini-card{padding:.45rem}.mini-card strong{font-size:.82rem}.mini-card span{font-size:.54rem}}
 .hero::before{display:none}.hero-video-container{position:absolute;inset:0;z-index:1;background:#0f0e15 url("../assets/images/optimized/hero-crystal-ball-fortune-teller.webp") center/cover no-repeat}.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;filter:saturate(.82) contrast(.95) brightness(.72);transition:opacity .9s ease}.hero-video.active{opacity:.74}.hero-video-container::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,16,24,.88),rgba(17,16,24,.54) 48%,rgba(17,16,24,.24)),linear-gradient(180deg,rgba(17,16,24,.18),rgba(17,16,24,.86))}.spark-result{display:block}.spark-result.is-empty .spark-meta,.spark-result.is-empty .spark-name,.spark-result.is-empty .spark-text,.spark-result.is-empty .spark-question{display:none}.spark-result.is-loading .spark-card{animation:cardPulse 1.8s ease-in-out infinite}.spark-card img{transition:opacity .35s ease}.spark-card-backdrop{position:relative}.spark-card-backdrop::after{content:"";position:absolute;inset:-18%;z-index:-1;background:radial-gradient(circle,rgba(199,188,228,.18),transparent 62%);filter:blur(10px)}@keyframes cardPulse{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-8px) rotate(1deg)}}@media(max-width:900px){.spark-shell{grid-template-columns:1fr}.spark-result{max-width:430px;margin:0 auto;width:100%}}
 </style>
 </head>
@@ -145,13 +145,17 @@
     <h3 id="pathTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">Three cards. One thread.</h3>
     <p class="section-desc" style="text-align:left;margin:0">Write the question as simply as you can. The reading will look at what stands behind it, what is alive now and what next step is asking for attention.</p>
     <label class="field-label" for="pathTopic">Field</label>
-    <select class="field-select" id="pathTopic">
-      <option>General</option>
-      <option>Relationships</option>
-      <option>Work</option>
-      <option>Money</option>
-      <option>Personal growth</option>
-    </select>
+    <div class="custom-select" id="pathTopicSelect">
+      <input type="hidden" id="pathTopic" value="General">
+      <button type="button" class="cs-trigger"><span>General</span></button>
+      <div class="cs-options">
+        <div class="cs-opt selected" data-value="General">General</div>
+        <div class="cs-opt" data-value="Relationships">Relationships</div>
+        <div class="cs-opt" data-value="Work">Work</div>
+        <div class="cs-opt" data-value="Money">Money</div>
+        <div class="cs-opt" data-value="Personal growth">Personal growth</div>
+      </div>
+    </div>
     <label class="field-label" for="pathQuestion">Your question</label>
     <textarea class="question-input" id="pathQuestion" placeholder="What do you want the three cards to illuminate?"></textarea>
     <button class="btn google-auth-btn" id="pathButton" type="button" onclick="preparePathReading()">Prepare Path</button>
@@ -167,20 +171,28 @@
     <h3 id="unfoldingTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">A wider map of the question.</h3>
     <p class="section-desc" style="text-align:left;margin:0">Seven cards look at the visible situation, the hidden tension, your part, the outside influence and the next mature movement.</p>
     <label class="field-label" for="unfoldingTopic">Field</label>
-    <select class="field-select" id="unfoldingTopic">
-      <option>General</option>
-      <option>Relationships</option>
-      <option>Work</option>
-      <option>Money</option>
-      <option>Personal growth</option>
-    </select>
+    <div class="custom-select" id="unfoldingTopicSelect">
+      <input type="hidden" id="unfoldingTopic" value="General">
+      <button type="button" class="cs-trigger"><span>General</span></button>
+      <div class="cs-options">
+        <div class="cs-opt selected" data-value="General">General</div>
+        <div class="cs-opt" data-value="Relationships">Relationships</div>
+        <div class="cs-opt" data-value="Work">Work</div>
+        <div class="cs-opt" data-value="Money">Money</div>
+        <div class="cs-opt" data-value="Personal growth">Personal growth</div>
+      </div>
+    </div>
     <label class="field-label" for="unfoldingFocus">Focus</label>
-    <select class="field-select" id="unfoldingFocus">
-      <option>The whole situation</option>
-      <option>The hidden pattern</option>
-      <option>The other side or outside influence</option>
-      <option>The next 30 days</option>
-    </select>
+    <div class="custom-select" id="unfoldingFocusSelect">
+      <input type="hidden" id="unfoldingFocus" value="The whole situation">
+      <button type="button" class="cs-trigger"><span>The whole situation</span></button>
+      <div class="cs-options">
+        <div class="cs-opt selected" data-value="The whole situation">The whole situation</div>
+        <div class="cs-opt" data-value="The hidden pattern">The hidden pattern</div>
+        <div class="cs-opt" data-value="The other side or outside influence">The other side or outside influence</div>
+        <div class="cs-opt" data-value="The next 30 days">The next 30 days</div>
+      </div>
+    </div>
     <label class="field-label" for="unfoldingQuestion">Your question</label>
     <textarea class="question-input" id="unfoldingQuestion" placeholder="What situation needs a wider view?"></textarea>
     <button class="btn google-auth-btn" id="unfoldingButton" type="button" onclick="prepareUnfoldingReading()">Prepare Unfolding</button>
@@ -370,10 +382,19 @@ function restorePending(){
     document.querySelectorAll('.topic').forEach(btn => btn.classList.toggle('active', btn.dataset.topic === topic));
   }
   if(question) document.getElementById('sparkQuestion').value = question;
-  if(pathTopic) document.getElementById('pathTopic').value = pathTopic;
+  if(pathTopic){
+    document.getElementById('pathTopic').value = pathTopic;
+    syncCustomSelect('pathTopicSelect', pathTopic);
+  }
   if(pathQuestion) document.getElementById('pathQuestion').value = pathQuestion;
-  if(unfoldingTopic) document.getElementById('unfoldingTopic').value = unfoldingTopic;
-  if(unfoldingFocus) document.getElementById('unfoldingFocus').value = unfoldingFocus;
+  if(unfoldingTopic){
+    document.getElementById('unfoldingTopic').value = unfoldingTopic;
+    syncCustomSelect('unfoldingTopicSelect', unfoldingTopic);
+  }
+  if(unfoldingFocus){
+    document.getElementById('unfoldingFocus').value = unfoldingFocus;
+    syncCustomSelect('unfoldingFocusSelect', unfoldingFocus);
+  }
   if(unfoldingQuestion) document.getElementById('unfoldingQuestion').value = unfoldingQuestion;
   localStorage.removeItem('vs_en_pending_topic');
   localStorage.removeItem('vs_en_pending_question');
@@ -610,6 +631,45 @@ async function turnSparkCard(){
 }
 
 initHeroVideoLoop();
+function syncCustomSelect(id, val){
+  const wrap = document.getElementById(id);
+  if(!wrap) return;
+  const span = wrap.querySelector('.cs-trigger span');
+  if(span) span.textContent = val;
+  wrap.querySelectorAll('.cs-opt').forEach(opt => opt.classList.toggle('selected', (opt.dataset.value || opt.textContent) === val));
+}
+function initCustomSelect(wrap){
+  const trigger = wrap.querySelector('.cs-trigger');
+  const hidden = wrap.querySelector('input[type=hidden]');
+  if(!trigger) return;
+  trigger.setAttribute('aria-haspopup', 'listbox');
+  trigger.setAttribute('aria-expanded', 'false');
+  wrap.querySelectorAll('.cs-opt').forEach(opt => {
+    opt.setAttribute('role', 'option');
+    opt.addEventListener('click', () => {
+      const val = opt.dataset.value || opt.textContent;
+      syncCustomSelect(wrap.id, val);
+      if(hidden) hidden.value = val;
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
+  trigger.addEventListener('click', event => {
+    event.stopPropagation();
+    const willOpen = !wrap.classList.contains('open');
+    document.querySelectorAll('.custom-select.open').forEach(open => {
+      open.classList.remove('open');
+      open.querySelector('.cs-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+    wrap.classList.toggle('open', willOpen);
+    trigger.setAttribute('aria-expanded', String(willOpen));
+  });
+  document.addEventListener('click', () => {
+    wrap.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  });
+}
+document.querySelectorAll('.custom-select').forEach(initCustomSelect);
 document.getElementById('topicRow').addEventListener('click', event => {
   const btn = event.target.closest('.topic');
   if(!btn) return;
