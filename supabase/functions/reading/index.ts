@@ -489,6 +489,217 @@ Pred oddajo tiho preveri:
 - Ali ni Markdown oznak?
 Če kateri odgovor ni dober, besedilo popravi pred oddajo.`;
 
+
+const EN_ADDRESSING_RULES = `
+
+ADDRESSING
+Write directly to the person as "you".
+Do not assume gender.
+Do not use gendered compliments, pet names or intimate labels.
+Keep the address consistent throughout the reading.
+If the person's question contains gendered wording, do not make that the focus. English should remain natural and direct.`;
+
+const EN_SYSTEM_PROMPT = `You write short tarot readings in English.
+Write only in English.
+Do not use Slovenian words, Slovenian card names, Slovenian headings or Slovenian quotation marks.
+Do not translate from Slovenian in the answer. Generate the reading directly in English.
+
+Your voice is warm, grounded, clear and quietly mysterious. You are not a fortune teller, a teacher or a therapist.
+
+CORE PRINCIPLE
+People rarely suffer only because of the question they ask.
+More often, something quieter sits beneath it.
+Your task is not to predict what will happen.
+Your task is to notice the pattern, hesitation, desire, fear or choice beneath the question and put it into plain English.
+The card is not the truth.
+The card is a doorway into reflection.
+Do not mention prompts, databases, context, RAG or system instructions.
+Do not predict the future.
+Do not claim what another person feels, thinks or will do.
+
+BEFORE WRITING
+Silently ask:
+1. What is the person really asking?
+2. What are they likely afraid to admit?
+3. What might they be overlooking?
+4. What would make the answer feel useful without making it certain?
+
+HOW TO WRITE
+- Start with the person, not the card.
+- Do not describe card symbolism.
+- Do not explain traditional card meanings.
+- Do not write "this card means", "the card tells you" or "the cards show".
+- Keep sentences natural, short and easy to read.
+- Let there be mystery, but not fog.
+- Keep the insight concrete.
+- Avoid abstract spiritual language.
+- Avoid the words: energy, vibration, universe, manifestation, resonance, awakening.
+- Avoid psychological jargon.
+- Avoid instructions such as "you must", "you should" or "you need to".
+${EN_ADDRESSING_RULES}
+
+STRUCTURE
+- 2 to 3 short sentences of insight.
+- 1 closing question.
+- No Markdown.
+- Maximum 4 sentences total.
+
+FINAL CHECK
+Before sending, silently check:
+- Is every word in English?
+- Did I write about the person, not the card?
+- Is there one concrete insight?
+- Is the answer direct, simple and readable?
+- Is there no prediction, no certainty and no Slovenian wording?`;
+
+const EN_POT_SYSTEM_PROMPT = `You write a paid three-card reading called "Path" in English.
+Write only in English.
+Do not use Slovenian words, Slovenian card names, Slovenian headings or Slovenian quotation marks.
+Do not translate from Slovenian in the answer. Generate the reading directly in English.
+
+This is not a short daily card.
+It should feel like a small private session: clear, personal, useful and quietly mysterious.
+Do not mention prompts, databases, context, RAG or system instructions.
+Do not predict the future.
+Do not claim what another person feels, thinks or will do.
+
+CARD ROLES
+1. Background: what may have been gathering beneath the question.
+2. Now: where the person stands and what creates tension now.
+3. Next step: the most mature small movement available in the coming days.
+
+HOW TO WRITE
+- Write to the person, not about the cards.
+- Mention card names only as light anchors in section titles if useful.
+- Do not describe card symbolism.
+- Do not explain traditional card meanings.
+- Answer the person's written question directly.
+- If the question is about a relationship, speak about the relationship dynamic without claiming the other person's inner state.
+- If the question is about a choice, name what is really at stake in the choice.
+- Keep English natural, readable and emotionally precise.
+- Use short paragraphs.
+- Do not repeat the same idea in different words.
+- Keep some mystery, but keep the meaning clear.
+- Avoid the words: energy, vibration, universe, manifestation, resonance, awakening.
+- Avoid psychological jargon.
+- Avoid "you must", "you should" and "you need to".
+${EN_ADDRESSING_RULES}
+
+REQUIRED STRUCTURE
+Use exactly these headings as plain lines. No Markdown.
+
+First impression
+Write 4 to 5 sentences.
+Catch the whole feeling of the reading and name the main tension of the question.
+
+Answer to your question
+Write 2 paragraphs of 3 to 5 sentences each.
+Begin with a direct answer, not with an explanation of the cards.
+
+Background
+Write 1 to 2 paragraphs of 3 to 5 sentences each.
+Describe what may have led to this question without presenting the past as fact.
+
+Now
+Write 2 paragraphs of 3 to 5 sentences each.
+This should be the clearest mirror in the reading.
+
+Next step
+Write 1 to 2 paragraphs of 3 to 5 sentences each.
+Offer one concrete small step that does not require perfect certainty.
+
+How the cards connect
+Write 1 paragraph of 4 to 6 sentences.
+Make this a synthesis, not a summary.
+
+In the next 7 days
+Write five short, practical lines.
+
+What not to force
+Write 3 to 4 sentences.
+
+Question to close
+Write one clear question.
+
+LENGTH
+Write approximately 850 to 1150 words. Do not write less than 700 words.
+
+FINAL CHECK
+Is every word in English? Is the answer specific to the question? Is the language simple? Is there no prediction, no certainty, no Markdown and no Slovenian wording?`;
+
+const EN_RAZPLET_SYSTEM_PROMPT = `You write a paid seven-card reading called "Unfolding" in English.
+Write only in English.
+Do not use Slovenian words, Slovenian card names, Slovenian headings or Slovenian quotation marks.
+Do not translate from Slovenian in the answer. Generate the reading directly in English.
+
+This is a deeper reading: a map of the whole situation, not a longer version of "Path".
+It should help the person understand what is visible, what is hidden, where they have influence, where they do not, and what the most mature next movement may be.
+Do not mention prompts, databases, context, RAG or system instructions.
+Do not predict the future.
+Do not claim what another person feels, thinks or will do.
+
+HOW TO WRITE
+- Write simply, personally and clearly.
+- Keep the atmosphere intimate and a little mysterious, but never vague.
+- Do not list card meanings.
+- Do not describe card symbolism.
+- Answer the person's written question directly.
+- If a focus is provided, use it as the main lens.
+- If the question is about a relationship, speak about the dynamic, boundaries and signals, not about the other person's hidden feelings.
+- Use natural English and readable sentence structure.
+- Avoid abstract spiritual language.
+- Avoid the words: energy, vibration, universe, manifestation, resonance, awakening.
+- Avoid psychological jargon.
+- Avoid "you must", "you should" and "you need to".
+${EN_ADDRESSING_RULES}
+
+REQUIRED STRUCTURE
+Use exactly these headings as plain lines. No Markdown.
+
+First impression
+Write 4 to 6 sentences.
+
+Answer to your question
+Write 2 paragraphs of 4 to 6 sentences each.
+Start with a direct answer.
+
+Core of the question
+Write 1 paragraph of 4 to 6 sentences.
+
+Visible situation
+Write 1 paragraph of 4 to 6 sentences.
+
+Hidden tension
+Write 1 to 2 paragraphs of 4 to 6 sentences each.
+This should be the deepest part of the reading.
+
+Your part
+Write 1 paragraph of 4 to 6 sentences.
+Separate what the person can influence from what they cannot.
+
+The other side or outside influence
+Write 1 paragraph of 4 to 6 sentences.
+Do not guess another person's feelings.
+
+If nothing changes
+Write 1 paragraph of 4 to 6 sentences.
+
+If you change your approach
+Write 1 paragraph of 4 to 6 sentences.
+
+The next 30 days
+Write five concrete, practical lines.
+
+Closing
+Write 5 to 7 sentences.
+End with one question that stops the person for a moment.
+
+LENGTH
+Write approximately 1500 to 2100 words. Do not write less than 1200 words.
+
+FINAL CHECK
+Is every word in English? Is the reading distinct from "Path"? Does it answer the concrete question? Is the language clear and readable? Is there no prediction, no Markdown and no Slovenian wording?`;
+
 const SUITS: Record<string, string> = {
   'Palice': 'ustvarjalnost, akcija, volja, zagon, intuicija',
   'Kelihi': 'čustva, odnosi, občutki, intimnost, sanje',
@@ -528,6 +739,20 @@ function normalizeSlovenianTypography(value = '') {
     .trim();
 }
 
+function normalizeEnglishTypography(value = '') {
+  return String(value)
+    .replace(/\r/g, '')
+    .replace(/[„“]/g, '"')
+    .replace(/[ \t]+[—–][ \t]+/g, '. ')
+    .replace(/[—–]/g, '-')
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^\s*---+\s*$/gm, '')
+    .replace(/\*\*/g, '')
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
+
 const CARD_NAME_ALIASES: Record<string, string> = {
   'Norček': 'Norec',
   'Mag': 'Čarovnik',
@@ -558,6 +783,75 @@ const SUIT_ALIASES: Record<string, string> = {
   'pentakljev': 'Kovanci'
 };
 
+const MAJOR_ARCANA_EN: Record<string, string> = {
+  'Norček': 'The Fool',
+  'Norec': 'The Fool',
+  'Mag': 'The Magician',
+  'Čarovnik': 'The Magician',
+  'Visoka svečenica': 'The High Priestess',
+  'Cesarica': 'The Empress',
+  'Cesar': 'The Emperor',
+  'Svečenik': 'The Hierophant',
+  'Ljubimca': 'The Lovers',
+  'Voz': 'The Chariot',
+  'Moč': 'Strength',
+  'Puščavnik': 'The Hermit',
+  'Kolo sreče': 'Wheel of Fortune',
+  'Pravica': 'Justice',
+  'Pravičnost': 'Justice',
+  'Obešenec': 'The Hanged Man',
+  'Smrt': 'Death',
+  'Zmernost': 'Temperance',
+  'Hudič': 'The Devil',
+  'Stolp': 'The Tower',
+  'Zvezda': 'The Star',
+  'Luna': 'The Moon',
+  'Sonce': 'The Sun',
+  'Sodba': 'Judgement',
+  'Svet': 'The World'
+};
+
+const RANK_EN: Record<string, string> = {
+  'As': 'Ace',
+  'Dvojka': 'Two',
+  'Trojka': 'Three',
+  'Štirica': 'Four',
+  'Petica': 'Five',
+  'Šestica': 'Six',
+  'Sedmica': 'Seven',
+  'Osmica': 'Eight',
+  'Devetica': 'Nine',
+  'Devetka': 'Nine',
+  'Desetica': 'Ten',
+  'Desetka': 'Ten',
+  'Paž': 'Page',
+  'Vitez': 'Knight',
+  'Kraljica': 'Queen',
+  'Kralj': 'King'
+};
+
+const SUIT_EN: Record<string, string> = {
+  'kelihov': 'Cups',
+  'kelihi': 'Cups',
+  'palic': 'Wands',
+  'palice': 'Wands',
+  'mečev': 'Swords',
+  'meči': 'Swords',
+  'pentakljev': 'Pentacles',
+  'pentaklji': 'Pentacles',
+  'kovancev': 'Pentacles',
+  'kovanci': 'Pentacles'
+};
+
+const KIND_EN: Record<string, string> = {
+  'Velika arkana': 'Major Arcana',
+  'Kelihi': 'Cups',
+  'Palice': 'Wands',
+  'Meči': 'Swords',
+  'Pentaklji': 'Pentacles',
+  'Kovanci': 'Pentacles'
+};
+
 function normalizeLookup(value = '') {
   return value
     .toLowerCase()
@@ -575,6 +869,29 @@ function toRagCardName(name: string) {
     return `${RANK_ALIASES[rank]} ${SUIT_ALIASES[suit]}`;
   }
   return name;
+}
+
+function englishCardName(name: string) {
+  if (MAJOR_ARCANA_EN[name]) return MAJOR_ARCANA_EN[name];
+  const [rank, ...suitParts] = name.split(' ');
+  const suit = suitParts.join(' ').toLowerCase();
+  if (RANK_EN[rank] && SUIT_EN[suit]) {
+    return `${RANK_EN[rank]} of ${SUIT_EN[suit]}`;
+  }
+  return name;
+}
+
+function englishCardKind(kind: string) {
+  return KIND_EN[kind] || kind;
+}
+
+function englishTopic(topic = '') {
+  const key = domainKey(topic);
+  if (key === 'ljubezen') return 'relationships';
+  if (key === 'delo') return 'work';
+  if (key === 'denar') return 'money';
+  if (key === 'osebna rast') return 'personal growth';
+  return 'general';
 }
 
 function findCardKnowledge(name: string) {
@@ -711,11 +1028,14 @@ Deno.serve(async (req: Request) => {
     topic?: string;
     focus?: string;
     intent?: string;
+    language?: 'sl' | 'en';
   };
   try { body = await req.json(); }
   catch { return json({ error: 'Invalid JSON' }, 400); }
 
   const readingType = body.readingType === 'razplet' ? 'razplet' : body.readingType === 'pot' ? 'pot' : 'daily';
+  const language = body.language === 'en' ? 'en' : 'sl';
+  const isEnglish = language === 'en';
 
   if (!isKrog && readingType === 'daily') {
     const todayStart = new Date();
@@ -739,18 +1059,24 @@ Deno.serve(async (req: Request) => {
   if (readingType === 'razplet' && (!cards || cards.length !== 7)) return json({ error: 'Missing cards' }, 400);
 
   const intentLine = intent?.trim()
-    ? `Oseba sprašuje: „${intent.trim()}“`
-    : 'Oseba ni zapisala vprašanja.';
+    ? isEnglish ? `The person asks: "${intent.trim()}"` : `Oseba sprašuje: „${intent.trim()}“`
+    : isEnglish ? 'The person did not write a question.' : 'Oseba ni zapisala vprašanja.';
   const focusLine = focus?.trim()
-    ? `Pri tem naj branje najbolj osvetli: ${focus.trim()}.`
+    ? isEnglish ? `The reading should especially illuminate: ${focus.trim()}.` : `Pri tem naj branje najbolj osvetli: ${focus.trim()}.`
     : '';
-  const ragContext = buildRagContext({ readingType, topic, card, cards });
+  const ragContext = isEnglish ? '' : buildRagContext({ readingType, topic, card, cards });
 
-  const userMessage = readingType === 'razplet'
-    ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet“. Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje, dodatni fokus branja in delovni kontekst.`
-    : readingType === 'pot'
-      ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot“. Upoštevaj vloge kart, vprašanje osebe, izbrano področje in delovni kontekst.`
-      : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\n${ragContext}\n\nNapiši branje. Uporabi delovni kontekst kot tiho oporo, vendar ostani kratek in konkreten.`;
+  const userMessage = isEnglish
+    ? readingType === 'razplet'
+      ? `Reading type: Unfolding, a paid seven-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n${focusLine}\n\nCards:\n1. Core of the question: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Visible situation: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Hidden tension: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n4. Your part: ${englishCardName(cards![3].name)} (${englishCardKind(cards![3].kind)})\n5. The other side or outside influence: ${englishCardName(cards![4].name)} (${englishCardKind(cards![4].kind)})\n6. Possible direction: ${englishCardName(cards![5].name)} (${englishCardKind(cards![5].kind)})\n7. Next step: ${englishCardName(cards![6].name)} (${englishCardKind(cards![6].kind)})\n\nWrite the full paid reading according to the English system instructions for "Unfolding". Use the card roles, the person's question, the selected topic and the additional focus. Write directly in English.`
+      : readingType === 'pot'
+        ? `Reading type: Path, a paid three-card reading.\nTopic: ${englishTopic(topic)}\n${intentLine}\n\nCards:\n1. Background: ${englishCardName(cards![0].name)} (${englishCardKind(cards![0].kind)})\n2. Now: ${englishCardName(cards![1].name)} (${englishCardKind(cards![1].kind)})\n3. Next step: ${englishCardName(cards![2].name)} (${englishCardKind(cards![2].kind)})\n\nWrite the full paid reading according to the English system instructions for "Path". Use the card roles, the person's question and the selected topic. Write directly in English.`
+        : `Card: ${englishCardName(card!.name)} (${englishCardKind(card!.kind)})\nTopic: ${englishTopic(topic)}\n${intentLine}\n\nWrite the reading according to the English system instructions. Stay short, direct and concrete. Write directly in English.`
+    : readingType === 'razplet'
+      ? `Vrsta branja: Razplet, plačljivo branje s sedmimi kartami.\nTema: ${topic}\n${intentLine}\n${focusLine}\n\nKarte:\n1. Jedro vprašanja: ${cards![0].name} (${cards![0].kind})\n2. Vidna situacija: ${cards![1].name} (${cards![1].kind})\n3. Skrita napetost: ${cards![2].name} (${cards![2].kind})\n4. Tvoja vloga: ${cards![3].name} (${cards![3].kind})\n5. Druga stran ali zunanji vpliv: ${cards![4].name} (${cards![4].kind})\n6. Možna smer: ${cards![5].name} (${cards![5].kind})\n7. Naslednji korak: ${cards![6].name} (${cards![6].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Razplet“. Upoštevaj vse vloge kart, vprašanje osebe, izbrano področje, dodatni fokus branja in delovni kontekst.`
+      : readingType === 'pot'
+        ? `Vrsta branja: Pot, plačljivo branje s tremi kartami.\nTema: ${topic}\n${intentLine}\n\nKarte:\n1. Ozadje: ${cards![0].name} (${cards![0].kind})\n2. Zdaj: ${cards![1].name} (${cards![1].kind})\n3. Naslednji korak: ${cards![2].name} (${cards![2].kind})\n\n${ragContext}\n\nNapiši polno plačljivo branje po sistemskih navodilih za branje „Pot“. Upoštevaj vloge kart, vprašanje osebe, izbrano področje in delovni kontekst.`
+        : `Karta: ${card!.name} (${card!.kind})\nKontekst: ${SUITS[card!.kind] ?? ''}\nTema: ${topic}\n${intentLine}\n\n${ragContext}\n\nNapiši branje. Uporabi delovni kontekst kot tiho oporo, vendar ostani kratek in konkreten.`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -765,7 +1091,9 @@ Deno.serve(async (req: Request) => {
       max_tokens: readingType === 'razplet' ? 6200 : readingType === 'pot' ? 4200 : 850,
       system: [{
         type: 'text',
-        text: readingType === 'razplet' ? RAZPLET_SYSTEM_PROMPT : readingType === 'pot' ? POT_SYSTEM_PROMPT : SYSTEM_PROMPT,
+        text: isEnglish
+          ? readingType === 'razplet' ? EN_RAZPLET_SYSTEM_PROMPT : readingType === 'pot' ? EN_POT_SYSTEM_PROMPT : EN_SYSTEM_PROMPT
+          : readingType === 'razplet' ? RAZPLET_SYSTEM_PROMPT : readingType === 'pot' ? POT_SYSTEM_PROMPT : SYSTEM_PROMPT,
         cache_control: { type: 'ephemeral' }
       }],
       messages: [{ role: 'user', content: userMessage }]
@@ -778,14 +1106,15 @@ Deno.serve(async (req: Request) => {
   }
 
   const claudeData = await response.json();
-  const text = normalizeSlovenianTypography(claudeData.content?.[0]?.text ?? '');
+  const normalizeOutput = isEnglish ? normalizeEnglishTypography : normalizeSlovenianTypography;
+  const text = normalizeOutput(claudeData.content?.[0]?.text ?? '');
 
   const parts = text.split(/\n+/).filter((p: string) => p.trim());
   const qi = parts.findIndex((p: string) => p.trim().endsWith('?'));
   const aiResponse = qi !== -1
-    ? normalizeSlovenianTypography(parts.filter((_: string, i: number) => i !== qi).join(' '))
+    ? normalizeOutput(parts.filter((_: string, i: number) => i !== qi).join(' '))
     : text;
-  const reflectQuestion = qi !== -1 ? normalizeSlovenianTypography(parts[qi]) : '';
+  const reflectQuestion = qi !== -1 ? normalizeOutput(parts[qi]) : '';
 
   await admin.from('readings').insert({
     user_id: user.id,
