@@ -859,7 +859,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
           <div class="crystal-arc"></div>
         </div>
       </div>
-      <p class="loading-text">Razplet se sestavlja...</p>
+      <p class="loading-text">Karte se tiho postavljajo v svojo zgodbo ...</p>
     </div>
     <div class="pot-reading-text" id="razpletText" style="display:none"></div>
     <div class="result-cta" id="razpletCta" style="display:none">
@@ -1254,9 +1254,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 </div>
 
 <script>
-history.scrollRestoration = 'manual';
-window.scrollTo(0, 0);
-window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+const initialHash = window.location.hash;
+history.scrollRestoration = initialHash ? 'auto' : 'manual';
+if(!initialHash){
+  window.scrollTo(0, 0);
+  window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+}
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 100));
 const hamb = document.getElementById('hamb');
@@ -1773,7 +1776,7 @@ function renderReadingHistory(readings){
         </div>
         <div class="history-actions">
           <button class="pricing-btn" onclick="openReadingReport(${i})">Odpri</button>
-          <button class="pricing-btn" onclick="openReadingReport(${i});setTimeout(printReport,120)">Poročilo</button>
+          <button class="pricing-btn" onclick="openReadingReport(${i})">Poročilo</button>
         </div>
       </article>
     `;

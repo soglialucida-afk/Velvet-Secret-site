@@ -524,7 +524,7 @@ function renderReadingHistory(readings){
         </div>
         <div class="history-actions">
           <button class="btn" onclick="openReadingReport(${index})">Odpri</button>
-          <button class="btn primary" onclick="openReadingReport(${index});setTimeout(printReport,120)">Poročilo</button>
+          <button class="btn primary" onclick="openReadingReport(${index})">Poročilo</button>
           <button class="btn danger" onclick="openDeleteConfirm('${esc(reading.id)}')">Izbriši</button>
         </div>
       </article>
