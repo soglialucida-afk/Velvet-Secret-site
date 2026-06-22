@@ -267,7 +267,7 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .steps{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 3rem;max-width:480px}
 .step{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-width:80px}
 .step-num{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.78rem;letter-spacing:.1em;color:var(--muted);transition:.4s}
-.step.active .step-num{border-color:var(--violet-light);color:var(--violet-light);background:rgba(199,188,228,.1)}
+.step.active .step-num{border-color:var(--violet-deep);color:#fff;background:var(--violet-deep)}
 .step.done .step-num{border-color:var(--violet-deep);background:var(--violet-deep);color:#fff}
 .step-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.4s}
 .step.active .step-label{color:var(--text)}
@@ -951,7 +951,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Iskra</h3><em class="gallery-tagline">En simbol. En trenutek. En majhen premik v pogledu.</em><p>Za hiter dnevni vpogled, ko potrebuješ le namig, ki osvetli del poti.</p><div class="gallery-footer"><span class="gallery-price">Brezplačno</span><a href="#branje" class="gallery-btn">Naroči →</a></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Pot</h3><em class="gallery-tagline">Tri karte. Tri perspektive. Ena zgodba.</em><p>Ko želiš razumeti, kaj je pripeljalo do trenutne situacije, kje stojiš danes in v katero smer se odpira naslednji korak.</p><div class="gallery-footer"><span class="gallery-price">4,90 €</span><button type="button" class="gallery-btn" onclick="startPotFlow()">Naroči →</button></div></div></div>
     <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Razplet</h3><em class="gallery-tagline">Za vprašanja, ki so večplastna.</em><p>Odnosi, odločitve, notranji konflikti in življenjske situacije, kadar en sam simbol ni dovolj za celotno sliko.</p><div class="gallery-footer"><span class="gallery-price">14,90 €</span><button type="button" class="gallery-btn" onclick="startRazpletFlow()">Naroči →</button></div></div></div>
-    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Za vprašanja, ki zorijo skozi mesec.</em><p>Mesečni lok z glavnim branjem, dodatnim vprašanjem, tedenskimi vpogledi in poročilom o simbolih, ki se vračajo.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><a href="moja-branja.html" class="gallery-btn">Vstopi →</a></div></div></div>
+    <div class="gallery-card fade-in"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cikel</h3><em class="gallery-tagline">Za vprašanja, ki zorijo skozi mesec.</em><p>Mesečni lok z glavnim branjem, dodatnim vprašanjem, tedenskimi vpogledi in poročilom o simbolih, ki se vračajo.</p><div class="gallery-footer"><span class="gallery-price">9,90 € / mes</span><button type="button" class="gallery-btn" onclick="openCycleModal()">Poglej →</button></div></div></div>
   </div>
 </section>
 
@@ -1025,7 +1025,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <li>Spremljanje ponavljajočih kart in simbolov</li>
         <li>Mesečno poročilo v Mojem prostoru</li>
       </ul>
-      <a href="moja-branja.html" class="pricing-btn">Vstopi</a>
+      <button type="button" class="pricing-btn" onclick="openCycleModal()">Poglej Cikel</button>
     </div>
   </div>
 </section>
@@ -1124,7 +1124,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         </span>
         <span class="upsell-option-meta">
           <span class="upsell-price">9,90 € <span>/ mesec</span></span>
-          <a href="moja-branja.html" class="pricing-btn" onclick="closeUpsell()" style="padding:.55rem .85rem;font-size:.68rem">Vstopi</a>
+          <button type="button" class="pricing-btn" onclick="closeUpsell();openCycleModal()" style="padding:.55rem .85rem;font-size:.68rem">Poglej</button>
         </span>
       </div>
     </div>
@@ -1132,6 +1132,27 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="modal-actions">
       <button class="pricing-btn" onclick="closeUpsell()">Nazaj na stran</button>
       <a href="#cenik" class="pricing-btn" onclick="closeUpsell()">Poglej cenik</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="cycleModal" role="dialog" aria-modal="true" aria-labelledby="cycleTitle" onclick="if(event.target===this)closeCycleModal()">
+  <div class="modal" style="max-width:560px">
+    <button class="close" onclick="closeCycleModal()" aria-label="Zapri">×</button>
+    <span class="section-label">Cikel · 9,90 € / mesec</span>
+    <h3 id="cycleTitle">Mesečni prostor za vprašanja, ki se vračajo.</h3>
+    <p class="sub-t">Cikel še ni odprt za naročnino. To je zasnova mesečnega prostora, kjer se ne išče hiter odgovor, ampak vzorec, ki se pokaže skozi čas.</p>
+    <ul class="pricing-features" style="margin:1.4rem 0 1.2rem">
+      <li>1 mesečno branje Cikel</li>
+      <li>1 dodatno vprašanje po prvem branju</li>
+      <li>4 krajši tedenski vpogledi</li>
+      <li>Spremljanje ponavljajočih kart in simbolov</li>
+      <li>Mesečno poročilo v Mojem prostoru</li>
+    </ul>
+    <p class="fine">Ko bo Cikel tehnično priklopljen, bo naročnina odprla poseben mesečni tok in poročila v tvojem prostoru.</p>
+    <div class="modal-actions">
+      <button class="pricing-btn" onclick="closeCycleModal()">Nazaj</button>
+      <a href="#cenik" class="pricing-btn" onclick="closeCycleModal()">Cenik</a>
     </div>
   </div>
 </div>
@@ -1277,7 +1298,7 @@ function toggleMenu(open){
 }
 hamb.addEventListener('click', () => toggleMenu(!hamb.classList.contains('open')));
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closePotModal(); closeRazpletModal(); closeReading(); closeReport(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); closeAuth(); closeUpsell(); closeCycleModal(); closePotModal(); closeRazpletModal(); closeReading(); closeReport(); } });
 
 function initHeroVideoLoop(){
   const videos = Array.from(document.querySelectorAll('[data-hero-video]'));
@@ -1953,11 +1974,11 @@ const readingDetails = [
     price: '14,90 €'
   },
   {
-    label: 'Mesečno · Krog',
-    title: 'Mesečni krog',
-    body: 'Karta dneva kadar jo potrebuješ. Osem branj s tremi kartami in en veliki razplet mesečno. Za tiste, ki se radi redno vračajo k sebi.',
-    body2: 'Vsa branja so shranjena. Vzorci postanejo vidni šele sčasoma.',
-    cta: 'Vstopi v Krog',
+    label: 'Mesečno · Cikel',
+    title: 'Mesečni Cikel',
+    body: 'En mesečni lok za vprašanja, ki se vračajo: glavno branje, dodatno vprašanje, štirje krajši tedenski vpogledi in spremljanje simbolov, ki se ponavljajo.',
+    body2: 'Na koncu meseca nastane poročilo, ki pokaže, katere karte, teme in občutki so se vračali skozi čas.',
+    cta: 'Poglej Cikel',
     href: '#cenik',
     price: '9,90 € / mes'
   }
@@ -1975,6 +1996,12 @@ function openReading(i){
 }
 function closeReading(){
   document.getElementById('readingModal').classList.remove('open');
+}
+function openCycleModal(){
+  document.getElementById('cycleModal').classList.add('open');
+}
+function closeCycleModal(){
+  document.getElementById('cycleModal').classList.remove('open');
 }
 function toggleFeatures(btn){
   const list = btn.nextElementSibling;
@@ -2080,7 +2107,8 @@ function formatPotReading(text){
     'Kako se karte povežejo',
     'V naslednjih 7 dneh',
     'Česa ne forsiraj',
-    'Vprašanje za konec'
+    'Vprašanje za konec',
+    'Zaključek'
   ]);
   const escapeHtml = value => value
     .replace(/&/g, '&amp;')

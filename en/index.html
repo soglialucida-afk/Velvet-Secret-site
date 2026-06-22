@@ -153,7 +153,7 @@
     <article class="gallery-card"><div class="visual"></div><div class="gallery-num">01</div><div class="gallery-content"><h3>Spark</h3><em class="gallery-tagline">One symbol. One moment. One small shift in perspective.</em><p>For a quick daily insight when you need a quiet sign that lights part of the path.</p><div class="gallery-footer"><span class="gallery-price">Free</span><a href="#reading" class="gallery-btn">Order</a></div></div></article>
     <article class="gallery-card"><div class="visual"></div><div class="gallery-num">02</div><div class="gallery-content"><h3>Path</h3><em class="gallery-tagline">Three cards. Three perspectives. One thread.</em><p>For understanding what led to the present moment, where you stand now and what next step is asking for attention.</p><div class="gallery-footer"><span class="gallery-price">4.90 €</span><button type="button" class="gallery-btn" onclick="openPathModal()">Order</button></div></div></article>
     <article class="gallery-card"><div class="visual"></div><div class="gallery-num">03</div><div class="gallery-content"><h3>Unfolding</h3><em class="gallery-tagline">For questions with more than one layer.</em><p>Relationships, decisions, inner conflicts and life situations where a single symbol is not enough for the whole picture.</p><div class="gallery-footer"><span class="gallery-price">14.90 €</span><button type="button" class="gallery-btn" onclick="openUnfoldingModal()">Order</button></div></div></article>
-    <article class="gallery-card"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cycle</h3><em class="gallery-tagline">For questions that mature across a month.</em><p>A monthly arc with one main reading, one follow-up question, weekly check-ins and a report on the symbols that keep returning.</p><div class="gallery-footer"><span class="gallery-price">9.90 € / month</span><a href="/en/my-readings.html" class="gallery-btn">Enter</a></div></div></article>
+    <article class="gallery-card"><div class="visual"></div><div class="gallery-num">04</div><div class="gallery-content"><h3>Cycle</h3><em class="gallery-tagline">For questions that mature across a month.</em><p>A monthly arc with one main reading, one follow-up question, weekly check-ins and a report on the symbols that keep returning.</p><div class="gallery-footer"><span class="gallery-price">9.90 € / month</span><button type="button" class="gallery-btn" onclick="openCycleModal()">View</button></div></div></article>
   </div>
 </section>
 <section id="card-cta" class="section-compact" style="text-align:center;max-width:760px;margin:0 auto">
@@ -176,7 +176,7 @@
     <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Spark</h3><p class="pricing-desc">One symbol for a small shift in perspective.</p><div class="pricing-price">0 €</div><a href="#reading" class="btn">Turn a card</a></article>
     <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Path</h3><p class="pricing-desc">Three cards. Three perspectives. One thread through the question.</p><div class="pricing-price">4.90 €</div><button class="btn" type="button" onclick="openPathModal()">Prepare Path</button></article>
     <article class="pricing-card" data-badge="Single reading"><h3 class="pricing-name">Unfolding</h3><p class="pricing-desc">A deeper reading for questions that do not unfold in a single sentence.</p><div class="pricing-price">14.90 €</div><button class="btn" type="button" onclick="openUnfoldingModal()">Prepare Unfolding</button></article>
-    <article class="pricing-card" data-badge="Subscription"><h3 class="pricing-name">Cycle</h3><p class="pricing-desc">A monthly space for following the questions, symbols and patterns that do not reveal themselves in one day.</p><div class="pricing-price">9.90 € <span>/ month</span></div><button class="features-toggle" type="button" onclick="toggleFeatures(this)" aria-expanded="false">What is included <span class="features-arrow">▾</span></button><ul class="pricing-features" hidden><li>1 monthly Cycle reading</li><li>1 follow-up question after the first reading</li><li>4 shorter weekly check-ins</li><li>Tracking repeated cards and symbols</li><li>A monthly report in My space</li></ul><a href="/en/my-readings.html" class="btn">My space</a></article>
+    <article class="pricing-card" data-badge="Subscription"><h3 class="pricing-name">Cycle</h3><p class="pricing-desc">A monthly space for following the questions, symbols and patterns that do not reveal themselves in one day.</p><div class="pricing-price">9.90 € <span>/ month</span></div><button class="features-toggle" type="button" onclick="toggleFeatures(this)" aria-expanded="false">What is included <span class="features-arrow">▾</span></button><ul class="pricing-features" hidden><li>1 monthly Cycle reading</li><li>1 follow-up question after the first reading</li><li>4 shorter weekly check-ins</li><li>Tracking repeated cards and symbols</li><li>A monthly report in My space</li></ul><button type="button" class="btn" onclick="openCycleModal()">View Cycle</button></article>
   </div>
   <div class="spark-result paid-reading" id="pathResult">
     <div class="spark-meta">Path · three-card reading</div>
@@ -315,13 +315,33 @@
       </div>
       <div class="upsell-option">
         <span><span class="upsell-option-title">Cycle</span><span class="upsell-option-desc">A monthly arc with one follow-up question, weekly check-ins and a report on symbols that keep returning.</span></span>
-        <span class="upsell-option-meta"><span class="upsell-price">9.90 € <span>/ month</span></span><a href="/en/my-readings.html" class="btn" onclick="closeUpsell()" style="padding:.55rem .85rem;font-size:.68rem">Enter</a></span>
+        <span class="upsell-option-meta"><span class="upsell-price">9.90 € <span>/ month</span></span><button type="button" class="btn" onclick="closeUpsell();openCycleModal()" style="padding:.55rem .85rem;font-size:.68rem">View</button></span>
       </div>
     </div>
     <p style="font-size:.78rem;color:var(--muted);opacity:.55;text-align:center">The final word remains yours.</p>
     <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem">
       <button class="btn" type="button" onclick="closeUpsell()">Back to page</button>
       <a href="#pricing" class="btn" onclick="closeUpsell()">See readings</a>
+    </div>
+  </div>
+</div>
+<div class="modal-bg" id="cycleModal" role="dialog" aria-modal="true" aria-labelledby="cycleTitle" onclick="if(event.target===this)closeCycleModal()">
+  <div class="modal" style="max-width:560px">
+    <button class="close" type="button" onclick="closeCycleModal()" aria-label="Close">×</button>
+    <span class="section-label">Cycle · 9.90 € / month</span>
+    <h3 id="cycleTitle" class="section-title" style="font-size:2rem;margin-bottom:.7rem">A monthly space for questions that return.</h3>
+    <p class="section-desc" style="text-align:left;margin:0">Cycle is not open for subscription yet. This is the shape of the monthly space: not a quick answer, but a pattern that becomes visible through time.</p>
+    <ul class="pricing-features" style="margin:1.4rem 0 1.2rem">
+      <li>1 monthly Cycle reading</li>
+      <li>1 follow-up question after the first reading</li>
+      <li>4 shorter weekly check-ins</li>
+      <li>Tracking repeated cards and symbols</li>
+      <li>A monthly report in My space</li>
+    </ul>
+    <p class="fine">When Cycle is technically connected, the subscription will open a dedicated monthly flow and reports in your private space.</p>
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:1.4rem">
+      <button class="btn" type="button" onclick="closeCycleModal()">Back</button>
+      <a href="#pricing" class="btn" onclick="closeCycleModal()">Readings</a>
     </div>
   </div>
 </div>
@@ -412,6 +432,12 @@ function openUpsell(){
 }
 function closeUpsell(){
   document.getElementById('upsellModal').classList.remove('open');
+}
+function openCycleModal(){
+  document.getElementById('cycleModal').classList.add('open');
+}
+function closeCycleModal(){
+  document.getElementById('cycleModal').classList.remove('open');
 }
 
 function initHeroVideoLoop(){
@@ -904,6 +930,7 @@ document.addEventListener('keydown', event => {
   if(event.key === 'Escape'){
     closeAuth();
     closeUpsell();
+    closeCycleModal();
     closePathModal();
     closeUnfoldingModal();
     toggleMenu(false);
