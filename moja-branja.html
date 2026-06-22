@@ -204,6 +204,22 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
   .history-top{flex-direction:column}
   .cycle-weeks{grid-template-columns:1fr}
 }
+.history-cards img,
+.cycle-card img,
+.report-card img{
+  border:1.5px solid rgba(216,189,154,.42);
+  box-shadow:0 10px 28px rgba(0,0,0,.42),0 0 0 1px rgba(199,188,228,.14),0 0 20px rgba(199,188,228,.09);
+  background:#090912;
+  border-radius:1px;
+}
+@media(max-width:860px){
+  .history-cards img,
+  .cycle-card img,
+  .report-card img{
+    border-color:rgba(216,189,154,.58);
+    box-shadow:0 10px 26px rgba(0,0,0,.58),0 0 0 1px rgba(255,255,255,.12),0 0 24px rgba(199,188,228,.16);
+  }
+}
 @media print{
   body *{visibility:hidden!important}
   #reportPaper,#reportPaper *{visibility:visible!important}

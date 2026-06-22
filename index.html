@@ -709,6 +709,52 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .fade-in{opacity:1;transform:none}
 }
+.reading-login-gate{
+  max-width:680px;
+  margin:0 auto 3rem;
+  padding:2rem;
+  border:1px solid rgba(216,189,154,.2);
+  background:radial-gradient(circle at 16% 0,rgba(216,189,154,.08),transparent 38%),linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+  text-align:center;
+  box-shadow:0 22px 70px rgba(0,0,0,.28),0 0 34px rgba(127,108,175,.1);
+}
+.reading-login-gate[hidden]{display:none}
+.reading-login-gate h3{
+  font-family:var(--display);
+  font-size:clamp(1.55rem,4vw,2.1rem);
+  font-weight:500;
+  color:#fff;
+  line-height:1.25;
+  margin:.25rem 0 .8rem;
+}
+.reading-login-gate p{
+  max-width:520px;
+  margin:0 auto 1.4rem;
+  color:var(--muted);
+  font-size:.95rem;
+  line-height:1.75;
+}
+#branje.reading-locked .steps,
+#branje.reading-locked .topic-row,
+#branje.reading-locked .intent-wrap,
+#branje.reading-locked .cards,
+#branje.reading-locked .shuffle-hint,
+#branje.reading-locked .daily-notice,
+#branje.reading-locked .result{display:none!important}
+.pot-card img,
+.history-cards img,
+.report-card img,
+.example-card{
+  border:1.5px solid rgba(216,189,154,.42);
+  box-shadow:0 12px 32px rgba(0,0,0,.46),0 0 0 1px rgba(199,188,228,.16),0 0 24px rgba(199,188,228,.1);
+  background:#090912;
+}
+.pot-card img,
+.history-cards img,
+.report-card img{
+  display:block;
+  border-radius:1px;
+}
 @media print{
   body *{visibility:hidden!important}
   #reportPaper,#reportPaper *{visibility:visible!important}
@@ -761,12 +807,19 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
 </section>
 
-<section id="branje">
+<section id="branje" class="reading-locked">
   <div class="section-header fade-in">
     <span class="section-label">Prva karta</span>
     <h2 class="section-title">Trije koraki do odgovora.</h2>
     <div class="section-divider"></div>
     <p class="section-desc">Ni treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
+  </div>
+
+  <div class="reading-login-gate fade-in" id="readingLoginGate">
+    <span class="section-label">Brezplačna prijava</span>
+    <h3>Najprej odpri svoj prostor.</h3>
+    <p>Prijava se zgodi pred izbiro področja in vprašanjem, da te pozneje ne prekine sredi obračanja karte. Karta in poročilo se shranita v tvoj prostor.</p>
+    <button class="pricing-btn google-auth-btn" onclick="openAuth()">Prijava z Google računom</button>
   </div>
 
   <div class="steps fade-in">
@@ -1672,7 +1725,7 @@ function closeAuth(){document.getElementById('authModal').classList.remove('open
 function getAuthRedirectUrl(){
   const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
   const origin = isLocal ? window.location.origin : 'https://velvet-secret-site.netlify.app';
-  return `${origin}${window.location.pathname}`;
+  return `${origin}${window.location.pathname}?resume=reading`;
 }
 
 async function signInWithGoogle(){
@@ -1888,6 +1941,14 @@ function updateNavUser(user){
   }
 }
 
+function updateReadingGate(user){
+  const section = document.getElementById('branje');
+  const gate = document.getElementById('readingLoginGate');
+  const locked = !user;
+  section?.classList.toggle('reading-locked', locked);
+  if(gate) gate.hidden = !locked;
+}
+
 let restoredPendingAfterAuth = false;
 function clearPendingReading(){
   localStorage.removeItem('vs_pending_topic');
@@ -1924,24 +1985,37 @@ function restorePendingReadingAfterAuth(){
   showToast('Prijava uspešna. Karte so pripravljene.');
   return true;
 }
+function restoreReadingGateAfterAuth(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('resume') !== 'reading') return false;
+  window.history.replaceState(null, '', `${window.location.pathname}#branje`);
+  setTimeout(() => {
+    document.getElementById('branje')?.scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 120);
+  return true;
+}
 
 showCookieConsent();
 
 _sb.auth.getSession().then(({ data: { session } }) => {
+  updateReadingGate(session?.user || null);
   if(session){
     updateNavUser(session.user);
     loadMyReadings();
-    restorePendingReadingAfterAuth();
+    if(!restorePendingReadingAfterAuth()) restoreReadingGateAfterAuth();
   } else {
+    updateNavUser(null);
     loadMyReadings();
   }
 });
 _sb.auth.onAuthStateChange((_event, session) => {
   updateNavUser(session?.user || null);
+  updateReadingGate(session?.user || null);
   loadMyReadings();
   closeAuth();
   if(session){
     if(restorePendingReadingAfterAuth()) return;
+    restoreReadingGateAfterAuth();
     if(pendingConfirm){
       confirmIntent();
     }
