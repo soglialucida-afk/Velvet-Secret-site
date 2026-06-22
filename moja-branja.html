@@ -272,6 +272,72 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
         </div>
       </div>
     </section>
+    <section class="panel cycle-panel locked" id="cyclePanel" aria-labelledby="cycleTitle">
+      <div class="cycle-head">
+        <div>
+          <span class="section-label">Cikel</span>
+          <h2 class="panel-title" id="cycleTitle">Mesečni prostor za vprašanja, ki se vračajo.</h2>
+          <p class="muted">Eno globlje mesečno branje, štirje tedenski obrati, prostor za dodatno vprašanje in poročilo o vzorcih, ki se skozi mesec vračajo.</p>
+        </div>
+        <span class="cycle-status" id="cycleStatus">Zaklenjeno</span>
+      </div>
+      <div class="cycle-content" id="cycleContent">
+        <div class="cycle-weeks">
+          <article class="cycle-week" data-cycle-week="0">
+            <span class="cycle-week-num">01</span>
+            <div class="cycle-card"><img src="cards/optimized/oracle-card-back-velvet-secret.webp" alt=""></div>
+            <h3>Prvi premik</h3>
+            <p>Kaj se v vprašanju odpira ta teden?</p>
+            <button class="btn" onclick="turnCycleWeek(0)">Obrni karto</button>
+          </article>
+          <article class="cycle-week" data-cycle-week="1">
+            <span class="cycle-week-num">02</span>
+            <div class="cycle-card"><img src="cards/optimized/oracle-card-back-velvet-secret.webp" alt=""></div>
+            <h3>Skriti pritisk</h3>
+            <p>Kje se vzorec ponovi, če ga ne ustaviš?</p>
+            <button class="btn" onclick="turnCycleWeek(1)">Obrni karto</button>
+          </article>
+          <article class="cycle-week" data-cycle-week="2">
+            <span class="cycle-week-num">03</span>
+            <div class="cycle-card"><img src="cards/optimized/oracle-card-back-velvet-secret.webp" alt=""></div>
+            <h3>Druga možnost</h3>
+            <p>Kateri korak ne potrebuje več čakanja?</p>
+            <button class="btn" onclick="turnCycleWeek(2)">Obrni karto</button>
+          </article>
+          <article class="cycle-week" data-cycle-week="3">
+            <span class="cycle-week-num">04</span>
+            <div class="cycle-card"><img src="cards/optimized/oracle-card-back-velvet-secret.webp" alt=""></div>
+            <h3>Mesečni sklep</h3>
+            <p>Kaj ostaja kot najjasnejše sporočilo meseca?</p>
+            <button class="btn" onclick="turnCycleWeek(3)">Obrni karto</button>
+          </article>
+        </div>
+        <div class="cycle-insight">
+          <div class="cycle-box">
+            <span class="section-label">Ponavljajoči vzorci</span>
+            <h3>Kar se vrača, ni naključje.</h3>
+            <ul>
+              <li>Motiv praga: odločitev se pojavlja kot prehod, ne kot pritisk.</li>
+              <li>Ponavljajoča tema: jasnost pride šele, ko vprašanju ne dodajaš več novih izgovorov.</li>
+              <li>Najmočnejši simbol: meč kot meja med mislijo in dejanjem.</li>
+            </ul>
+          </div>
+          <div class="cycle-box">
+            <span class="section-label">Mesečno poročilo · primer</span>
+            <h3>Vprašanje se je premaknilo, ko si nehala iskati popolno zagotovilo.</h3>
+            <p>Ta mesec ne kaže ene velike rešitve, ampak zaporedje manjših premikov. Prvi teden odpre temo izbire. Drugi pokaže, kje se vrača stari dvom. Tretji prinese bolj miren pogled, četrti pa te vrne k bistvu: odločitev ni samo odgovor na situacijo, ampak tudi priznanje, kaj si že dolgo vedela.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cycle-lock" id="cycleLock">
+        <div class="cycle-lock-card">
+          <span class="section-label">Za naročnike</span>
+          <h3>Cikel odpre mesečno sliko.</h3>
+          <p>Če si prijavljena samo zaradi enega branja, je ta prostor zamegljen. Naročnina odklene 4 tedenske obrate, dodatno vprašanje in mesečno poročilo o ponavljajočih vzorcih.</p>
+          <a href="index.html#cenik" class="btn primary">Poglej Cikel</a>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -366,6 +432,13 @@ const hamb = document.getElementById('hamb');
 const mobile = document.getElementById('mobile');
 let accountReadings = [];
 let activeFilter = 'all';
+let isCycleSubscriber = false;
+const cycleSampleCards = [
+  { name:'Dvojka mečev', img:'cards/optimized/labeled-v2/two-of-swords.webp', text:'Odločitev potrebuje manj hrupa in več notranje iskrenosti.' },
+  { name:'Luna', img:'cards/optimized/labeled-v2/the-moon.webp', text:'Ni vse še vidno. Najprej opazuj občutek, ki se vrača.' },
+  { name:'Zvezda', img:'cards/optimized/labeled-v2/the-star.webp', text:'Upanje ni pobeg, kadar te vrne k tišjemu zaupanju vase.' },
+  { name:'As kelihov', img:'cards/optimized/labeled-v2/ace-of-cups.webp', text:'Nekaj se lahko začne mehkeje, kot si pričakovala.' }
+];
 
 function toggleMenu(open){
   hamb.classList.toggle('open', open);
@@ -500,6 +573,35 @@ function setFilter(filter){
   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.filter === filter));
   renderReadingHistory(filteredReadings());
 }
+function renderCycleSpace(profile){
+  isCycleSubscriber = profile?.plan === 'krog';
+  const panel = document.getElementById('cyclePanel');
+  const lock = document.getElementById('cycleLock');
+  const status = document.getElementById('cycleStatus');
+  if(!panel) return;
+  panel.classList.toggle('locked', !isCycleSubscriber);
+  panel.classList.toggle('unlocked', isCycleSubscriber);
+  if(lock) lock.hidden = isCycleSubscriber;
+  if(status) status.textContent = isCycleSubscriber ? 'Odprto' : 'Zaklenjeno';
+}
+function turnCycleWeek(index){
+  if(!isCycleSubscriber) return;
+  const card = cycleSampleCards[index];
+  const week = document.querySelector(`[data-cycle-week="${index}"]`);
+  if(!card || !week) return;
+  const image = week.querySelector('.cycle-card img');
+  const title = week.querySelector('h3');
+  const text = week.querySelector('p');
+  const button = week.querySelector('button');
+  if(image) image.src = card.img;
+  if(title) title.textContent = card.name;
+  if(text) text.textContent = card.text;
+  if(button){
+    button.textContent = 'Odprto';
+    button.disabled = true;
+  }
+  week.classList.add('revealed');
+}
 function renderLoggedOut(){
   document.getElementById('accountSummary').innerHTML = `
     <span class="section-label">Račun</span>
@@ -508,6 +610,7 @@ function renderLoggedOut(){
     <button class="btn primary" style="margin-top:1.15rem" onclick="openAuth()">Prijavi se</button>
   `;
   document.getElementById('readingHistory').innerHTML = '<div class="empty">Prijavi se, da odpreš svojo zgodovino branj.</div>';
+  renderCycleSpace(null);
 }
 function renderAccountSummary(user, profile, readings){
   const latestPaid = readings.find(r => r.reading_type !== 'daily');
@@ -576,6 +679,7 @@ async function loadMyReadings(){
   }
   accountReadings = (readings || []).filter(isVisibleReading);
   renderAccountSummary(session.user, profile, accountReadings);
+  renderCycleSpace(profile);
   renderReadingHistory(filteredReadings());
 }
 function formatReadingText(text){
