@@ -418,14 +418,37 @@ select.intent-input option:checked,
 .face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:rgba(216,189,154,.82);text-align:center;text-transform:uppercase}
 .result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
 .daily-notice{display:none;text-align:center;margin:1.6rem auto 0;max-width:480px;font-size:.82rem;letter-spacing:.08em;color:var(--muted);opacity:.7}
+.daily-complete{
+  display:none;
+  max-width:620px;
+  margin:0 auto 2rem;
+  padding:1.8rem;
+  border:1px solid rgba(216,189,154,.2);
+  background:radial-gradient(circle at 18% 0,rgba(216,189,154,.08),transparent 36%),linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+  text-align:center;
+  box-shadow:0 18px 58px rgba(0,0,0,.28);
+}
+.daily-complete h3{
+  font-family:var(--display);
+  font-size:clamp(1.45rem,3vw,2rem);
+  font-weight:500;
+  color:#fff;
+  margin:.2rem 0 .7rem;
+}
+.daily-complete p{
+  color:var(--muted);
+  line-height:1.75;
+  margin:0 auto 1.2rem;
+  max-width:480px;
+}
+.daily-complete-actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+#branje.daily-locked .daily-complete{display:block}
 #branje.daily-locked .steps,
 #branje.daily-locked .topic-row,
 #branje.daily-locked .intent-wrap,
 #branje.daily-locked .cards,
 #branje.daily-locked .shuffle-hint{
-  opacity:.28;
-  filter:saturate(.45);
-  pointer-events:none;
+  display:none!important;
 }
 #branje.daily-locked .step.active .step-num,
 #branje.daily-locked .step.done .step-num{
@@ -435,10 +458,8 @@ select.intent-input option:checked,
 }
 #branje.daily-locked .step.active .step-label{color:var(--muted)}
 #branje.daily-locked .intent-wrap{
-  visibility:visible;
-  transform:none;
-  max-height:360px;
-  margin-bottom:3rem;
+  max-height:0;
+  margin-bottom:0;
 }
 .result.show{display:block;animation:rise .7s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -863,6 +884,16 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <h3>Najprej odpri svoj prostor.</h3>
     <p>Prijava se zgodi pred izbiro področja in vprašanjem, da te pozneje ne prekine sredi obračanja karte. Karta in poročilo se shranita v tvoj prostor.</p>
     <button class="pricing-btn google-auth-btn" onclick="openAuth()">Prijava z Google računom</button>
+  </div>
+
+  <div class="daily-complete fade-in" id="dailyComplete">
+    <span class="section-label">Današnja karta</span>
+    <h3>Karta je že prebrana.</h3>
+    <p>Za danes je dnevni simbol že odprt. Vrni se jutri, ko se prostor znova odpre za novo vprašanje.</p>
+    <div class="daily-complete-actions">
+      <a href="#cenik" class="pricing-btn">Poglej razplete</a>
+      <a href="moja-branja.html" class="pricing-btn">Moj prostor</a>
+    </div>
   </div>
 
   <div class="steps fade-in">
@@ -1555,8 +1586,9 @@ function lockDailyControls(){
     btn.disabled = true;
     btn.setAttribute('aria-disabled', 'true');
   });
+  document.getElementById('dailyComplete')?.classList.add('visible');
   const intentWrap = document.getElementById('intent-wrap');
-  intentWrap?.classList.add('visible');
+  intentWrap?.classList.remove('visible');
   const intent = document.getElementById('intent');
   if(intent){
     intent.value = '';
@@ -1570,8 +1602,7 @@ function lockDailyControls(){
   }
   const hint = document.getElementById('shuffle-hint');
   if(hint){
-    hint.textContent = 'Izberi svojo karto';
-    hint.classList.add('visible');
+    hint.classList.remove('visible');
   }
 }
 function showCookieConsent(){
@@ -1686,7 +1717,13 @@ async function showResult(card, topicLabel, intent){
   loadMyReadings();
 }
 function applyDailyLock(mode = 'afterReveal'){
-  lockDailyControls();
+  if(mode === 'restored'){
+    lockDailyControls();
+    const notice = document.getElementById('daily-notice');
+    notice.textContent = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
+    notice.style.display = 'none';
+    return;
+  }
   document.querySelectorAll('.card').forEach((card, i) => {
     card.disabled = true;
     card.setAttribute('aria-disabled', 'true');

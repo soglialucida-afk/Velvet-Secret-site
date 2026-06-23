@@ -75,6 +75,31 @@
 }
 #reading.reading-locked .steps,
 #reading.reading-locked .spark-shell{display:none!important}
+.daily-complete{
+  display:none;
+  max-width:620px;
+  margin:0 auto 2rem;
+  padding:1.8rem;
+  border:1px solid rgba(216,189,154,.2);
+  background:radial-gradient(circle at 18% 0,rgba(216,189,154,.08),transparent 36%),linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+  text-align:center;
+  box-shadow:0 18px 58px rgba(0,0,0,.28);
+}
+.daily-complete h3{
+  font-family:var(--display);
+  font-size:clamp(1.45rem,3vw,2rem);
+  font-weight:500;
+  color:#fff;
+  margin:.2rem 0 .7rem;
+}
+.daily-complete p{
+  color:var(--muted);
+  line-height:1.75;
+  margin:0 auto 1.2rem;
+  max-width:480px;
+}
+.daily-complete-actions{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+#reading.spark-daily-locked .daily-complete{display:block}
 .gallery-footer{
   align-items:center;
   justify-content:space-between;
@@ -121,12 +146,10 @@
 #reading.spark-daily-locked .topic-row,
 #reading.spark-daily-locked label[for="sparkQuestion"],
 #reading.spark-daily-locked .question-input,
-#reading.spark-daily-locked .spark-actions .btn,
+#reading.spark-daily-locked .spark-actions,
 #reading.spark-daily-locked .spark-deck,
 #reading.spark-daily-locked .fine{
-  opacity:.28;
-  filter:saturate(.45);
-  pointer-events:none;
+  display:none!important;
 }
 #reading.spark-daily-locked .step.active .step-num,
 #reading.spark-daily-locked .step.done .step-num{
@@ -208,6 +231,15 @@
     <h3>Open your space first.</h3>
     <p>Sign in before choosing a field or writing the question, so the card ritual is not interrupted halfway through. Your card and reading stay connected to your space.</p>
     <button class="btn google-auth-btn" type="button" onclick="openAuth()">Continue with Google</button>
+  </div>
+  <div class="daily-complete" id="dailyComplete">
+    <span class="section-label">Today’s card</span>
+    <h3>Your card has already been read.</h3>
+    <p>The daily symbol is already open for today. Return tomorrow, when the space opens again for a new question.</p>
+    <div class="daily-complete-actions">
+      <a href="#pricing" class="btn">View readings</a>
+      <a href="/en/my-readings.html" class="btn">My space</a>
+    </div>
   </div>
   <div class="steps">
     <div class="step active" id="sparkStep1">
@@ -745,6 +777,7 @@ function saveDaily(card, topicLabel){
 }
 function lockSparkDaily(message = 'Your free card for today has already been opened. You can turn a new one tomorrow.'){
   document.getElementById('reading')?.classList.add('spark-daily-locked');
+  document.getElementById('dailyComplete')?.classList.add('visible');
   document.querySelectorAll('.steps .step').forEach(step => step.classList.remove('active','done'));
   document.querySelectorAll('#topicRow .topic').forEach(btn => {
     btn.classList.remove('active');
@@ -761,7 +794,7 @@ function lockSparkDaily(message = 'Your free card for today has already been ope
     buttonEl.disabled = true;
     buttonEl.setAttribute('aria-disabled', 'true');
   }
-  document.getElementById('sparkDeck')?.classList.add('show');
+  document.getElementById('sparkDeck')?.classList.remove('show','shuffle','ready');
   statusEl.textContent = message;
 }
 
