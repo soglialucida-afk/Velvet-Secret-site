@@ -105,6 +105,57 @@
   border-color:rgba(199,188,228,.6);
   color:#fff;
 }
+.topic:disabled{
+  cursor:not-allowed;
+  opacity:.52;
+  background:transparent!important;
+  border-color:rgba(199,188,228,.22)!important;
+  color:var(--muted)!important;
+}
+.spark-daily-locked .topic.active{
+  background:transparent!important;
+  border-color:rgba(199,188,228,.22)!important;
+  color:var(--muted)!important;
+}
+#reading.spark-daily-locked .steps,
+#reading.spark-daily-locked .topic-row,
+#reading.spark-daily-locked label[for="sparkQuestion"],
+#reading.spark-daily-locked .question-input,
+#reading.spark-daily-locked .spark-actions .btn,
+#reading.spark-daily-locked .spark-deck,
+#reading.spark-daily-locked .fine{
+  opacity:.28;
+  filter:saturate(.45);
+  pointer-events:none;
+}
+#reading.spark-daily-locked .step.active .step-num,
+#reading.spark-daily-locked .step.done .step-num{
+  border-color:var(--line);
+  background:transparent;
+  color:var(--muted);
+}
+#reading.spark-daily-locked .step.active .step-label{color:var(--muted)}
+@media(max-width:760px){
+  .gallery-footer{
+    align-items:flex-start;
+  }
+  .gallery-btn,
+  .btn,
+  .cookie-btn{
+    min-height:42px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .gallery-btn{
+    min-width:112px;
+  }
+  .upsell-option-meta .btn,
+  .modal .btn{
+    width:100%;
+    max-width:none;
+  }
+}
 </style>
 </head>
 <body>
@@ -678,6 +729,42 @@ let selectedTopic = 'General';
 const statusEl = document.getElementById('sparkStatus');
 const buttonEl = document.getElementById('sparkButton');
 
+function getDailyKey(){ return new Date().toISOString().slice(0,10); }
+function loadDaily(){
+  try {
+    const stored = localStorage.getItem('vs_daily');
+    if(!stored) return null;
+    const daily = JSON.parse(stored);
+    return daily.date === getDailyKey() ? daily : null;
+  } catch {
+    return null;
+  }
+}
+function saveDaily(card, topicLabel){
+  localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
+}
+function lockSparkDaily(message = 'Your free card for today has already been opened. You can turn a new one tomorrow.'){
+  document.getElementById('reading')?.classList.add('spark-daily-locked');
+  document.querySelectorAll('.steps .step').forEach(step => step.classList.remove('active','done'));
+  document.querySelectorAll('#topicRow .topic').forEach(btn => {
+    btn.classList.remove('active');
+    btn.disabled = true;
+    btn.setAttribute('aria-disabled', 'true');
+  });
+  const question = document.getElementById('sparkQuestion');
+  if(question){
+    question.value = '';
+    question.disabled = true;
+    question.setAttribute('aria-disabled', 'true');
+  }
+  if(buttonEl){
+    buttonEl.disabled = true;
+    buttonEl.setAttribute('aria-disabled', 'true');
+  }
+  document.getElementById('sparkDeck')?.classList.add('show');
+  statusEl.textContent = message;
+}
+
 function shuffleDeck(deck){
   return deck.map(card => ({ card, sort: crypto.getRandomValues(new Uint32Array(1))[0] }))
     .sort((a, b) => a.sort - b.sort)
@@ -940,6 +1027,10 @@ async function prepareUnfoldingReading(){
   }
 }
 async function turnSparkCard(){
+  if(loadDaily()){
+    lockSparkDaily();
+    return;
+  }
   setSparkStep(3);
   const { data: { session } } = await _sb.auth.getSession();
   if(!session){
@@ -983,14 +1074,19 @@ async function turnSparkCard(){
       new Promise(resolve => setTimeout(resolve, 1400))
     ]);
     const data = await res.json();
-    if(data.error === 'daily_limit') throw new Error('Your free card for today has already been opened.');
+    if(data.error === 'daily_limit'){
+      saveDaily(card, selectedTopic);
+      lockSparkDaily();
+      throw new Error('Your free card for today has already been opened.');
+    }
     if(!res.ok || data.error) throw new Error('The reading could not be prepared right now.');
+    saveDaily(card, selectedTopic);
     renderResult(card, data.text || '');
     statusEl.textContent = '';
   } catch (error) {
     statusEl.textContent = error.message || 'The reading could not be prepared right now.';
   } finally {
-    buttonEl.disabled = false;
+    if(!loadDaily()) buttonEl.disabled = false;
     document.getElementById('sparkResult').classList.remove('is-loading');
     deckEl?.classList.remove('show','shuffle','ready');
   }
@@ -1039,13 +1135,24 @@ document.querySelectorAll('.custom-select').forEach(initCustomSelect);
 document.getElementById('topicRow').addEventListener('click', event => {
   const btn = event.target.closest('.topic');
   if(!btn) return;
+  if(loadDaily()){
+    lockSparkDaily();
+    return;
+  }
   selectedTopic = btn.dataset.topic;
   document.querySelectorAll('.topic').forEach(item => item.classList.toggle('active', item === btn));
   setSparkStep(2);
 });
-document.getElementById('sparkQuestion')?.addEventListener('focus', () => setSparkStep(2));
-document.getElementById('sparkQuestion')?.addEventListener('input', () => setSparkStep(document.getElementById('sparkQuestion').value.trim() ? 3 : 2));
+document.getElementById('sparkQuestion')?.addEventListener('focus', () => {
+  if(loadDaily()) return lockSparkDaily();
+  setSparkStep(2);
+});
+document.getElementById('sparkQuestion')?.addEventListener('input', () => {
+  if(loadDaily()) return lockSparkDaily();
+  setSparkStep(document.getElementById('sparkQuestion').value.trim() ? 3 : 2);
+});
 buttonEl.addEventListener('click', turnSparkCard);
+if(loadDaily()) lockSparkDaily();
 document.addEventListener('keydown', event => {
   if(event.key === 'Escape'){
     closeAuth();

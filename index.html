@@ -344,6 +344,13 @@ select.intent-input option:checked,
   transition:.25s;
 }
 .topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
+.topic:disabled{
+  cursor:not-allowed;
+  opacity:.52;
+  background:transparent!important;
+  border-color:rgba(199,188,228,.22)!important;
+  color:var(--muted)!important;
+}
 .cards{display:flex;justify-content:center;align-items:flex-start;gap:clamp(14px,3.4vw,38px);min-height:0;max-height:0;overflow:hidden;perspective:1400px;transition:max-height .45s ease,margin-top .45s ease}
 .cards.cards-visible{min-height:300px;max-height:340px;overflow:visible}
 .card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
@@ -411,6 +418,28 @@ select.intent-input option:checked,
 .face-front .card-num{font-size:.58rem;letter-spacing:.22em;color:rgba(216,189,154,.82);text-align:center;text-transform:uppercase}
 .result{max-width:640px;margin:3.4rem auto 0;padding:2.7rem 2.5rem;border:1px solid var(--line);background:rgba(17,16,24,.56);display:none;text-align:left;position:relative}
 .daily-notice{display:none;text-align:center;margin:1.6rem auto 0;max-width:480px;font-size:.82rem;letter-spacing:.08em;color:var(--muted);opacity:.7}
+#branje.daily-locked .steps,
+#branje.daily-locked .topic-row,
+#branje.daily-locked .intent-wrap,
+#branje.daily-locked .cards,
+#branje.daily-locked .shuffle-hint{
+  opacity:.28;
+  filter:saturate(.45);
+  pointer-events:none;
+}
+#branje.daily-locked .step.active .step-num,
+#branje.daily-locked .step.done .step-num{
+  border-color:var(--line);
+  background:transparent;
+  color:var(--muted);
+}
+#branje.daily-locked .step.active .step-label{color:var(--muted)}
+#branje.daily-locked .intent-wrap{
+  visibility:visible;
+  transform:none;
+  max-height:360px;
+  margin-bottom:3rem;
+}
 .result.show{display:block;animation:rise .7s ease both}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .result .section-label{text-align:center;color:var(--violet-light)}
@@ -661,6 +690,14 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .gallery-num{top:1rem;left:1.1rem;font-size:3.2rem;opacity:.32;text-shadow:0 2px 18px rgba(0,0,0,.7)}
   .gallery-content p{font-size:.92rem;line-height:1.65}
   .gallery-footer{gap:1rem}
+  .gallery-btn,
+  .intro-blog-link,
+  .pricing-btn{
+    min-height:42px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
   .pricing-container{grid-template-columns:1fr}
   .pot-spread{grid-template-columns:1fr}
   .pot-card{display:grid;grid-template-columns:64px 1fr;gap:.9rem;text-align:left;align-items:center}
@@ -682,6 +719,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .close{top:.65rem;right:.75rem}
   .upsell-option{grid-template-columns:1fr;gap:.75rem}
   .upsell-option-meta{text-align:left;align-items:flex-start}
+  .upsell-option-meta .pricing-btn,
+  .result-cta .pricing-btn,
+  .modal-actions .pricing-btn{
+    width:100%;
+    justify-content:center;
+  }
   .cookie-consent{grid-template-columns:1fr;bottom:.75rem;width:calc(100% - 1.5rem);padding:1rem}
   .cookie-copy strong{font-size:.98rem}
   .cookie-copy p{font-size:.8rem}
@@ -1503,6 +1546,34 @@ function loadDaily(){
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
+function lockDailyControls(){
+  topic = '';
+  document.getElementById('branje')?.classList.add('daily-locked');
+  document.querySelectorAll('.steps .step').forEach(step => step.classList.remove('active','done'));
+  document.querySelectorAll('.topic').forEach(btn => {
+    btn.classList.remove('active');
+    btn.disabled = true;
+    btn.setAttribute('aria-disabled', 'true');
+  });
+  const intentWrap = document.getElementById('intent-wrap');
+  intentWrap?.classList.add('visible');
+  const intent = document.getElementById('intent');
+  if(intent){
+    intent.value = '';
+    intent.disabled = true;
+    intent.setAttribute('aria-disabled', 'true');
+  }
+  const confirmBtn = document.getElementById('confirmBtn');
+  if(confirmBtn){
+    confirmBtn.disabled = true;
+    confirmBtn.setAttribute('aria-disabled', 'true');
+  }
+  const hint = document.getElementById('shuffle-hint');
+  if(hint){
+    hint.textContent = 'Izberi svojo karto';
+    hint.classList.add('visible');
+  }
+}
 function showCookieConsent(){
   const banner = document.getElementById('cookieConsent');
   if(!banner) return;
@@ -1615,6 +1686,7 @@ async function showResult(card, topicLabel, intent){
   loadMyReadings();
 }
 function applyDailyLock(mode = 'afterReveal'){
+  lockDailyControls();
   document.querySelectorAll('.card').forEach((card, i) => {
     card.disabled = true;
     card.setAttribute('aria-disabled', 'true');
@@ -1667,11 +1739,15 @@ function renderCards(){
   }, 3000);
 }
 function setTopic(btn){
+  if(loadDaily()){
+    lockDailyControls();
+    applyDailyLock('restored');
+    return;
+  }
   document.querySelectorAll('.topic').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   topic = btn.dataset.topic;
   setStepDone(2);
-  if(loadDaily()) return;
   clearCardArea();
   setTimeout(() => {
     document.getElementById('intent-wrap').classList.add('visible');
