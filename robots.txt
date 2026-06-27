@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /moja-branja.html
+Disallow: /en/my-readings.html
+
+Sitemap: https://velvet-secret-site.netlify.app/sitemap.xml

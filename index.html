@@ -25,6 +25,72 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://velvet-secret-site.netlify.app/#website",
+      "url": "https://velvet-secret-site.netlify.app/",
+      "name": "Velvet Secret",
+      "description": "Simbolno branje kart za trenutke, ko potrebuješ jasnejši pogled.",
+      "inLanguage": "sl",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://velvet-secret-site.netlify.app/#branje",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://velvet-secret-site.netlify.app/#organization",
+      "name": "Velvet Secret",
+      "url": "https://velvet-secret-site.netlify.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://velvet-secret-site.netlify.app/assets/images/velvet-secret-share.png"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "Service",
+      "@id": "https://velvet-secret-site.netlify.app/#service",
+      "name": "Simbolno branje kart",
+      "description": "AI-podprto simbolno branje tarot kart za osebno refleksijo in vpogled. Branja niso namenjeni napovedovanju prihodnosti, temveč poglobljenemu razmišljanju.",
+      "provider": {
+        "@id": "https://velvet-secret-site.netlify.app/#organization"
+      },
+      "serviceType": "Tarot reading",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["Slovenian", "English"],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Iskra — brezplačno branje",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Brezplačna dnevna karta z AI razlago."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pot — tri karte",
+          "price": "4.90",
+          "priceCurrency": "EUR",
+          "description": "Tri-kartno branje za ozadje, sedanjost in naslednji korak."
+        },
+        {
+          "@type": "Offer",
+          "name": "Razplet — sedem kart",
+          "price": "9.90",
+          "priceCurrency": "EUR",
+          "description": "Poglobljeno sedem-kartno branje za kompleksna vprašanja."
+        }
+      ]
+    }
+  ]
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{
@@ -1574,20 +1640,21 @@ tarotDeck.forEach(card => {
 });
 let currentSpread = [];
 let topic = '';
+const DAILY_STORAGE_KEY = 'vs_daily_sl';
 function shuffleDeck(deck){
   return deck.map(card => ({ card, sort: crypto.getRandomValues(new Uint32Array(1))[0] })).sort((a, b) => a.sort - b.sort).map(item => item.card);
 }
 function getDailyKey(){ return new Date().toISOString().slice(0,10); }
 function loadDaily(){
   try {
-    const s = localStorage.getItem('vs_daily');
+    const s = localStorage.getItem(DAILY_STORAGE_KEY);
     if(!s) return null;
     const d = JSON.parse(s);
     return d.date === getDailyKey() ? d : null;
   } catch { return null; }
 }
 function saveDaily(card, topicLabel){
-  localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
+  localStorage.setItem(DAILY_STORAGE_KEY, JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
 function lockDailyControls(){
   topic = '';
@@ -1686,6 +1753,7 @@ async function showResult(card, topicLabel, intent){
   window.scrollTo({ top, behavior: 'smooth' });
 
   let mainText = card.text, reflectText = card.reflect;
+  let shouldSaveDaily = true;
   try {
     const { data: { session: sSingle } } = await _sb.auth.getSession();
     const [res] = await Promise.all([
@@ -1700,19 +1768,29 @@ async function showResult(card, topicLabel, intent){
       new Promise(r => setTimeout(r, 2500))
     ]);
     const data = await res.json();
-    const raw = data.text || '';
-    const parsed = splitReading(raw);
-    if(parsed.reflect){
-      mainText = parsed.main;
-      reflectText = parsed.reflect;
+    if(data.error === 'daily_limit'){
+      shouldSaveDaily = false;
+      mainText = 'Današnja brezplačna karta je že prebrana. Novo karto lahko odpreš jutri.';
+      reflectText = '';
+    } else if(!res.ok || data.error) {
+      throw new Error('reading_failed');
     } else {
-      mainText = raw || card.text;
-      reflectText = card.reflect;
+      const raw = data.text || '';
+      const parsed = splitReading(raw);
+      if(parsed.reflect){
+        mainText = parsed.main;
+        reflectText = parsed.reflect;
+      } else {
+        mainText = raw || card.text;
+        reflectText = card.reflect;
+      }
     }
   } catch {
+    shouldSaveDaily = false;
     mainText = card.text;
     reflectText = card.reflect;
   }
+  if(shouldSaveDaily) saveDaily(card, topicLabel);
   document.getElementById('rLoading').style.display = 'none';
   const rIntent = document.getElementById('rIntent');
   if(intent){ rIntent.textContent = `„${slovenianTypography(intent)}“`; rIntent.style.display = ''; }
@@ -1827,7 +1905,6 @@ function reveal(index){
   });
   const card = currentSpread[index];
   const intent = document.getElementById('intent')?.value.trim() || '';
-  saveDaily(card, topic);
   applyDailyLock();
   // počakamo da se karta obrne (flip traja 0.9s), potem pokažemo branje
   setTimeout(() => showResult(card, topic, intent), 1000);
@@ -2456,6 +2533,7 @@ async function showResult2(card, topicLabel){
   document.getElementById('r2Text').textContent = '...';
   document.getElementById('r2Reflect').textContent = '';
   document.getElementById('result2').classList.add('show');
+  let shouldSaveDaily = true;
 
   try {
     const { data: { session: s } } = await _sb.auth.getSession();
@@ -2469,8 +2547,11 @@ async function showResult2(card, topicLabel){
     });
     const data = await res.json();
     if(data.error === 'daily_limit'){
+      shouldSaveDaily = false;
       document.getElementById('r2Text').textContent = 'Brezplačna karta za danes je bila že uporabljena.';
       document.getElementById('r2Reflect').textContent = '';
+    } else if(!res.ok || data.error){
+      throw new Error('reading_failed');
     } else if(data.text){
       const parsed = splitReading(data.text);
       if(parsed.reflect){
@@ -2484,9 +2565,11 @@ async function showResult2(card, topicLabel){
       document.getElementById('r2Reflect').textContent = card.reflect;
     }
   } catch {
+    shouldSaveDaily = false;
     document.getElementById('r2Text').textContent = card.text;
     document.getElementById('r2Reflect').textContent = card.reflect;
   }
+  if(shouldSaveDaily) saveDaily(card, topicLabel);
   loadMyReadings();
 }
 async function revealSingle(){
@@ -2505,7 +2588,6 @@ async function revealSingle(){
   document.getElementById('sc-num').textContent = card.num;
   document.getElementById('sc-name').textContent = card.name;
   sc.classList.add('flipped');
-  saveDaily(card, 'Splošno');
   showResult2(card, 'Splošno');
   applyDailyLock();
   const n = document.getElementById('daily-notice2');
