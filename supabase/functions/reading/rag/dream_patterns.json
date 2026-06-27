@@ -1,0 +1,80 @@
+[
+  {
+    "id": "recurring_dream",
+    "terms": [
+      "ponavljajoče sanje",
+      "isto sanjam",
+      "spet se ponavlja"
+    ],
+    "meaning": "Ponavljanje pogosto pomeni, da se isti občutek ali notranje vprašanje vrača v drugi obliki.",
+    "response_rule": "Ne razlagaj ponavljanja kot opozorila ali kazni. Predlagaj, naj uporabnik primerja, kaj se v sanjah spremeni in kaj ostaja isto.",
+    "questions": [
+      "Kaj je v teh sanjah vedno enako?",
+      "Kaj se je nazadnje spremenilo?"
+    ],
+    "access": "paid_priority"
+  },
+  {
+    "id": "nightmare",
+    "terms": [
+      "nočna mora",
+      "grozne sanje",
+      "zbudila sem se prestrašena"
+    ],
+    "meaning": "Nočna mora pogosto poveča čustvo, ki ga čez dan ni mogoče dovolj jasno občutiti ali izraziti.",
+    "response_rule": "Umiri ton, ne poglabljaj strahu. Loči občutek od dejanske nevarnosti.",
+    "questions": [
+      "Kateri trenutek je bil najhujši?",
+      "Kaj se je zgodilo tik pred prebujenjem?"
+    ],
+    "access": "paid_priority"
+  },
+  {
+    "id": "lucid_or_observer",
+    "terms": [
+      "vedela sem da sanjam",
+      "opazujem sanje",
+      "lucidne sanje"
+    ],
+    "meaning": "Zavedanje znotraj sanj lahko kaže razdaljo do občutka ali večjo možnost izbire v notranjem prizoru.",
+    "response_rule": "Poglej, ali je uporabnik v sanjah lahko vplival na dogajanje ali je samo opazoval.",
+    "questions": [
+      "Si lahko kaj spremenila?",
+      "Je opazovanje prineslo mir ali nemoč?"
+    ],
+    "access": "paid_priority"
+  },
+  {
+    "id": "blocked_movement",
+    "terms": [
+      "ne morem se premakniti",
+      "težko hodim",
+      "ne morem govoriti",
+      "zmrznem"
+    ],
+    "meaning": "Blokirano gibanje ali glas pogosto kaže občutek nemoči, zadržanosti ali premočnega pritiska.",
+    "response_rule": "Ne diagnosticiraj. Razlago drži na simbolni ravni občutka nemoči ali zadržanega izraza.",
+    "questions": [
+      "Kaj si hotela narediti, pa nisi mogla?",
+      "Kdo ali kaj je bilo prisotno?"
+    ],
+    "access": "paid_priority"
+  },
+  {
+    "id": "threshold_sequence",
+    "terms": [
+      "vrata",
+      "most",
+      "stopnice",
+      "pot",
+      "prehod"
+    ],
+    "meaning": "Več simbolov prehoda v istih sanjah pogosto okrepi temo spremembe, praga ali odločitve.",
+    "response_rule": "Poveži simbole v zaporedje: od kod uporabnik prihaja, kje se ustavi, kam ga sanje postavljajo.",
+    "questions": [
+      "Kateri prag je bil najtežji?",
+      "Kaj je bilo pred in kaj po prehodu?"
+    ],
+    "access": "paid_priority"
+  }
+]

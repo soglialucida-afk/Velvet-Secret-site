@@ -1,0 +1,685 @@
+[
+  {
+    "id": "water",
+    "terms": [
+      "voda",
+      "morje",
+      "reka",
+      "jezero",
+      "poplava",
+      "valovi",
+      "plavanje"
+    ],
+    "public_meaning": "Voda se pogosto povezuje s čustvi, nezavednim tokom in tem, koliko lahko nekaj v sebi pustiš teči.",
+    "free_hint": "Pomembno je, ali je bila voda mirna, motna, globoka ali nevarna.",
+    "paid_layers": [
+      "čustvena preplavljenost",
+      "stik z nezavednim",
+      "prehod med starim in novim občutkom",
+      "potreba po večji pretočnosti"
+    ],
+    "shadow": "Občutek, da te nekaj nosi hitreje, kot lahko razumeš.",
+    "growth": "Prepoznati občutek, ne da ga takoj nadzoruješ.",
+    "reflection_questions": [
+      "Kakšna je bila voda: mirna, globoka, motna ali premočna?",
+      "Kje v budnem življenju čutiš podoben tok?"
+    ],
+    "related": [
+      "moon",
+      "boat",
+      "bridge",
+      "fish",
+      "flood"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "house",
+    "terms": [
+      "hiša",
+      "stanovanje",
+      "soba",
+      "klet",
+      "podstrešje",
+      "hodnik",
+      "dom"
+    ],
+    "public_meaning": "Hiša pogosto govori o notranjem prostoru: o tem, kateri deli tebe so domači, skriti, zapuščeni ali še neodprti.",
+    "free_hint": "Soba, v katero vstopiš, je pogosto pomembnejša od same hiše.",
+    "paid_layers": [
+      "občutek identitete",
+      "družinski vzorci",
+      "zasebnost",
+      "skriti del osebnosti",
+      "potreba po varnosti"
+    ],
+    "shadow": "Zaklenjen ali zanemarjen del notranjega sveta.",
+    "growth": "Počasi odpreti prostor, ki ga običajno preskočiš.",
+    "reflection_questions": [
+      "Kateri del hiše je bil najbolj živ?",
+      "Je bil prostor tvoj, tuj, varen ali nelagoden?"
+    ],
+    "related": [
+      "door",
+      "key",
+      "stairs",
+      "basement",
+      "window"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "door",
+    "terms": [
+      "vrata",
+      "prag",
+      "vhod",
+      "izhod",
+      "zaklenjena vrata",
+      "odprta vrata"
+    ],
+    "public_meaning": "Vrata so simbol praga: nečesa, kamor lahko vstopiš, ali nečesa, pred čimer še stojiš.",
+    "free_hint": "Vprašaj se, ali so bila vrata odprta, zaklenjena ali si jih sama zaprla.",
+    "paid_layers": [
+      "odločitev",
+      "prehod",
+      "meja",
+      "strah pred spremembo",
+      "dovoljenje za nov korak"
+    ],
+    "shadow": "Odlašanje pred korakom, ki ga del tebe že pozna.",
+    "growth": "Prepoznati, kaj se konča, ko prestopiš prag.",
+    "reflection_questions": [
+      "Kaj je bilo na drugi strani vrat?",
+      "Si hotela vstopiti ali oditi?"
+    ],
+    "related": [
+      "house",
+      "key",
+      "path",
+      "bridge"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "key",
+    "terms": [
+      "ključ",
+      "ključi",
+      "odklepanje",
+      "zaklepanje"
+    ],
+    "public_meaning": "Ključ se pogosto pojavi, ko sanje govorijo o dostopu, rešitvi, dovoljenju ali nečem, kar še ni odprto.",
+    "free_hint": "Pomembno je, ali si ključ našla, izgubila, dobila ali uporabila.",
+    "paid_layers": [
+      "iskanje rešitve",
+      "notranje dovoljenje",
+      "nadzor nad dostopom",
+      "skrivnost",
+      "pripravljenost"
+    ],
+    "shadow": "Občutek, da rešitev obstaja, vendar ji še ne zaupaš.",
+    "growth": "Videti, katera vrata sploh želiš odpreti.",
+    "reflection_questions": [
+      "Kaj naj bi ključ odprl?",
+      "Kdo ga je imel v sanjah?"
+    ],
+    "related": [
+      "door",
+      "house",
+      "box",
+      "lock"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "falling",
+    "terms": [
+      "padanje",
+      "padem",
+      "padec",
+      "prepad",
+      "višina"
+    ],
+    "public_meaning": "Padanje se pogosto povezuje z izgubo nadzora, spuščanjem ali občutkom, da ni več trdnih tal.",
+    "free_hint": "Ni vse padanje slabo: včasih sanje kažejo tudi spuščanje nečesa, kar si predolgo držala.",
+    "paid_layers": [
+      "izguba kontrole",
+      "strah pred neuspehom",
+      "prehod brez opore",
+      "opuščanje napetosti"
+    ],
+    "shadow": "Držanje vsega skupaj za vsako ceno.",
+    "growth": "Razločiti med nevarnostjo in potrebo po predaji napetosti.",
+    "reflection_questions": [
+      "Si med padanjem čutila grozo, olajšanje ali praznino?",
+      "Kaj v življenju nima več opore kot prej?"
+    ],
+    "related": [
+      "flying",
+      "stairs",
+      "mountain",
+      "abyss"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "chase",
+    "terms": [
+      "preganjanje",
+      "nekdo me lovi",
+      "bežanje",
+      "skrivanje",
+      "zasledovanje"
+    ],
+    "public_meaning": "Sanje o preganjanju pogosto pokažejo, da se nekaj v življenju približuje tvoji pozornosti, ti pa pred tem še bežiš.",
+    "free_hint": "Vprašanje ni samo, kdo te lovi, ampak čemu se v sanjah ne moreš obrniti naproti.",
+    "paid_layers": [
+      "izogibanje soočenju",
+      "pritisk",
+      "potlačen strah",
+      "notranji konflikt",
+      "del sebe, ki zahteva pozornost"
+    ],
+    "shadow": "Beg pred občutkom, ki postaja glasnejši.",
+    "growth": "Ustaviti se dovolj dolgo, da vidiš, kaj v resnici prihaja za tabo.",
+    "reflection_questions": [
+      "Kdo ali kaj te je lovilo?",
+      "Kaj bi se zgodilo, če bi se v sanjah obrnila?"
+    ],
+    "related": [
+      "monster",
+      "shadow_figure",
+      "running",
+      "forest"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "teeth",
+    "terms": [
+      "zobje",
+      "izpadanje zob",
+      "zob",
+      "usta",
+      "kri iz ust"
+    ],
+    "public_meaning": "Zobje se pogosto povezujejo z močjo izraza, samopodobo, izgubo kontrole ali strahom, kako te vidijo drugi.",
+    "free_hint": "Pomembno je, ali je bil občutek sram, panika, bolečina ali olajšanje.",
+    "paid_layers": [
+      "ranljivost",
+      "sram",
+      "strah pred izgubo moči",
+      "neizrečene besede",
+      "telesna tesnoba"
+    ],
+    "shadow": "Občutek, da nekaj razpada pred očmi drugih.",
+    "growth": "Najti besede za nekaj, kar se izraža skozi telo.",
+    "reflection_questions": [
+      "Si v sanjah poskušala skriti zobe?",
+      "Kaj trenutno težko poveš na glas?"
+    ],
+    "related": [
+      "mouth",
+      "mirror",
+      "blood",
+      "voice"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "snake",
+    "terms": [
+      "kača",
+      "kače",
+      "ugriz kače",
+      "strup"
+    ],
+    "public_meaning": "Kača je močan simbol instinkta, preobrazbe, nevarnosti ali modrosti, odvisno od občutka v sanjah.",
+    "free_hint": "Kača ni nujno slab znak. Vprašaj se, ali je bila grožnja, opozorilo ali tiha prisotnost.",
+    "paid_layers": [
+      "instinkt",
+      "preobrazba",
+      "potlačena želja",
+      "nezaupanje",
+      "zdravilna ali nevarna bližina"
+    ],
+    "shadow": "Strah pred nečim prvinskim, česar ne moreš povsem nadzorovati.",
+    "growth": "Spoštovati notranji signal, ne da mu takoj pripišeš katastrofo.",
+    "reflection_questions": [
+      "Je kača napadla, opazovala ali se umaknila?",
+      "Kje v življenju čutiš mešanico privlačnosti in previdnosti?"
+    ],
+    "related": [
+      "forest",
+      "bite",
+      "skin",
+      "animal"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "dead_person",
+    "terms": [
+      "pokojni",
+      "mrtva oseba",
+      "umrli",
+      "pokojna mama",
+      "pokojni oče",
+      "smrt"
+    ],
+    "public_meaning": "Pokojna oseba v sanjah pogosto odpre spomin, nedokončan občutek, žalovanje ali del odnosa, ki še živi v tebi.",
+    "free_hint": "Takšne sanje niso napoved. Pogosto so prostor, kjer se duševnost še pogovarja z izgubo.",
+    "paid_layers": [
+      "žalovanje",
+      "spomin",
+      "nedokončan pogovor",
+      "notranja vez",
+      "prehod"
+    ],
+    "shadow": "Bolečina, ki jo čez dan lažje potisneš na stran.",
+    "growth": "Dati občutku prostor brez sklepanja, da sanje nekaj napovedujejo.",
+    "reflection_questions": [
+      "Kaj je pokojna oseba naredila ali rekla?",
+      "Kateri občutek je ostal po prebujenju?"
+    ],
+    "related": [
+      "grave",
+      "message",
+      "family",
+      "house",
+      "childhood"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "path",
+    "terms": [
+      "pot",
+      "cesta",
+      "križišče",
+      "razpotje",
+      "gozdna pot",
+      "slepa ulica"
+    ],
+    "public_meaning": "Pot ali cesta pogosto govori o smeri, izbiri in občutku, ali se v življenju premikaš ali vrtiš v krogu.",
+    "free_hint": "Poglej, ali je bila pot jasna, zaraščena, nevarna, prazna ali polna ljudi.",
+    "paid_layers": [
+      "življenjska smer",
+      "odločitev",
+      "prehod",
+      "negotovost",
+      "tempo"
+    ],
+    "shadow": "Hoditi naprej brez vprašanja, ali je smer še tvoja.",
+    "growth": "Opaziti, kje potrebuješ naslednji korak, ne celotnega zemljevida.",
+    "reflection_questions": [
+      "Si vedela, kam greš?",
+      "Kaj te je na poti ustavilo ali vodilo?"
+    ],
+    "related": [
+      "door",
+      "bridge",
+      "car",
+      "forest",
+      "mountain"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "bridge",
+    "terms": [
+      "most",
+      "prečkanje",
+      "čez reko",
+      "viadukt"
+    ],
+    "public_meaning": "Most je simbol prehoda med dvema stanjema, odnosoma ali obdobjema.",
+    "free_hint": "Največ pove to, ali si most prečkala, obstala na njem ali se je podiral.",
+    "paid_layers": [
+      "prehod",
+      "povezovanje",
+      "strah pred vmesnim prostorom",
+      "odločitev",
+      "zaupanje"
+    ],
+    "shadow": "Ostati predolgo med starim in novim.",
+    "growth": "Dovoliti si prehod, tudi če še ni vse jasno.",
+    "reflection_questions": [
+      "Kaj je bilo na eni in kaj na drugi strani?",
+      "Je bil most varen?"
+    ],
+    "related": [
+      "water",
+      "path",
+      "door",
+      "river"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "flying",
+    "terms": [
+      "letenje",
+      "letim",
+      "lebdenje",
+      "krila"
+    ],
+    "public_meaning": "Letenje se pogosto povezuje s svobodo, razdaljo od težav ali željo, da bi presegla omejitve.",
+    "free_hint": "Pomembno je, ali si let nadzorovala ali te je nosilo brez tvoje volje.",
+    "paid_layers": [
+      "svoboda",
+      "umik",
+      "ambicija",
+      "duhovna razdalja",
+      "potreba po lahkotnosti"
+    ],
+    "shadow": "Pobeg v višino, ko tla zahtevajo pozornost.",
+    "growth": "Najti razmerje med širšim pogledom in konkretnim korakom.",
+    "reflection_questions": [
+      "Si letela z lahkoto ali strahom?",
+      "Od česa si se dvignila stran?"
+    ],
+    "related": [
+      "falling",
+      "bird",
+      "sky",
+      "mountain"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "animal",
+    "terms": [
+      "žival",
+      "pes",
+      "mačka",
+      "konj",
+      "volk",
+      "lev",
+      "ptica",
+      "riba"
+    ],
+    "public_meaning": "Živali v sanjah pogosto pokažejo instinktiven, naraven ali manj nadzorovan del doživljanja.",
+    "free_hint": "Vrsta živali pove manj kot njen odnos do tebe: je bila prijazna, ranjena, nevarna ali zapuščena?",
+    "paid_layers": [
+      "instinkt",
+      "zaščita",
+      "ranljivost",
+      "agresija",
+      "zvestoba",
+      "divjost"
+    ],
+    "shadow": "Del tebe, ki ga poskušaš ukrotiti ali prezreti.",
+    "growth": "Vprašati se, katera naravna potreba želi biti slišana.",
+    "reflection_questions": [
+      "Kako se je žival obnašala do tebe?",
+      "Kateri občutek je žival nosila?"
+    ],
+    "related": [
+      "snake",
+      "dog",
+      "cat",
+      "horse",
+      "bird"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "baby_child",
+    "terms": [
+      "otrok",
+      "dojenček",
+      "punčka",
+      "fantek",
+      "nosečnost",
+      "rojstvo"
+    ],
+    "public_meaning": "Otrok ali dojenček pogosto govori o ranljivosti, novem začetku, potrebi po negi ali delu tebe, ki še raste.",
+    "free_hint": "Vprašaj se, ali si otroka varovala, izgubila, našla ali se ga bala.",
+    "paid_layers": [
+      "nov začetek",
+      "ranljivost",
+      "notranji otrok",
+      "odgovornost",
+      "nežno še neoblikovano življenje"
+    ],
+    "shadow": "Strah, da nečesa nežnega ne boš znala zaščititi.",
+    "growth": "Negovati nekaj v začetku, preden od tega zahtevaš moč.",
+    "reflection_questions": [
+      "Kdo je skrbel za otroka?",
+      "Je otrok predstavljal veselje, skrb ali pritisk?"
+    ],
+    "related": [
+      "mother",
+      "family",
+      "house",
+      "birth"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "car_vehicle",
+    "terms": [
+      "avto",
+      "vlak",
+      "avtobus",
+      "vožnja",
+      "nesreča",
+      "zavore",
+      "vozilo"
+    ],
+    "public_meaning": "Vozilo pogosto govori o smeri, nadzoru in tem, kdo ali kaj vodi tvoje življenje v tem obdobju.",
+    "free_hint": "Pomembno je, ali si vozila sama, bila sopotnica ali vozila brez zavor.",
+    "paid_layers": [
+      "nadzor",
+      "tempo",
+      "odgovornost",
+      "usmeritev",
+      "odvisnost od drugih"
+    ],
+    "shadow": "Občutek, da se stvari premikajo, ti pa nimaš roke na volanu.",
+    "growth": "Preveriti, kje lahko prevzameš majhen del smeri nazaj.",
+    "reflection_questions": [
+      "Kdo je vozil?",
+      "Si poznala cilj?"
+    ],
+    "related": [
+      "path",
+      "accident",
+      "bridge",
+      "travel"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "mirror",
+    "terms": [
+      "ogledalo",
+      "odsev",
+      "obraz",
+      "videti sebe"
+    ],
+    "public_meaning": "Ogledalo pogosto odpre vprašanje samopodobe: kaj vidiš, česa nočeš videti in katera podoba ni več resnična.",
+    "free_hint": "Najbolj pomembno je, ali si se v odsevu prepoznala.",
+    "paid_layers": [
+      "samopodoba",
+      "identiteta",
+      "sram",
+      "resnica",
+      "vloga"
+    ],
+    "shadow": "Strah pred podobo sebe, ki ni urejena za druge.",
+    "growth": "Videti se manj strogo in bolj resnično.",
+    "reflection_questions": [
+      "Kaj je bilo v odsevu drugače?",
+      "Si želela pogledati ali odvrniti pogled?"
+    ],
+    "related": [
+      "teeth",
+      "face",
+      "mask",
+      "water"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "stairs",
+    "terms": [
+      "stopnice",
+      "vzpenjanje",
+      "spuščanje",
+      "lestev",
+      "dvigalo"
+    ],
+    "public_meaning": "Stopnice pogosto kažejo premik med ravnmi: napor, rast, padec, vračanje ali prehod v globlji prostor.",
+    "free_hint": "Smer je pomembna: gor, dol, v klet, na podstrešje ali v neznano nadstropje.",
+    "paid_layers": [
+      "napredovanje",
+      "regresija",
+      "prehod med zavestnim in skritim",
+      "ambicija",
+      "utrujenost"
+    ],
+    "shadow": "Pritisk, da se moraš premakniti hitreje, kot zmoreš.",
+    "growth": "Opaziti, katera raven notranjega življenja zdaj kliče pozornost.",
+    "reflection_questions": [
+      "Si šla gor ali dol?",
+      "So bile stopnice varne, neskončne ali prekinjene?"
+    ],
+    "related": [
+      "house",
+      "basement",
+      "falling",
+      "mountain"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "fire",
+    "terms": [
+      "ogenj",
+      "požar",
+      "plamen",
+      "gorenje",
+      "dim"
+    ],
+    "public_meaning": "Ogenj lahko govori o strasti, jezi, čiščenju, nevarnosti ali nečem, kar se ne da več držati pod površjem.",
+    "free_hint": "Vprašaj se, ali je ogenj grel, uničeval, opozarjal ali očiščeval.",
+    "paid_layers": [
+      "intenzivnost",
+      "jeza",
+      "strast",
+      "preobrazba",
+      "izgorelost"
+    ],
+    "shadow": "Notranja napetost, ki lahko postane destruktivna, če nima prostora.",
+    "growth": "Usmeriti moč, preden začne požirati vse okoli sebe.",
+    "reflection_questions": [
+      "Kaj je gorelo?",
+      "Si ogenj opazovala, gasila ali zanetila?"
+    ],
+    "related": [
+      "smoke",
+      "house",
+      "sun",
+      "anger"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "lost_searching",
+    "terms": [
+      "izgubljena",
+      "iščem",
+      "iskanje",
+      "ne najdem",
+      "zamujam",
+      "labirint"
+    ],
+    "public_meaning": "Iskanje ali izgubljenost pogosto pokaže notranjo orientacijo: nekaj iščeš, vendar morda še ne veš, kaj v resnici manjka.",
+    "free_hint": "Predmet iskanja je pomemben, vendar je občutek med iskanjem še pomembnejši.",
+    "paid_layers": [
+      "negotovost",
+      "pomanjkanje jasnosti",
+      "iskanje smisla",
+      "strah pred zamudo",
+      "izgubljen stik s sabo"
+    ],
+    "shadow": "Nenehno iskati zunaj, kar se najprej mora poimenovati znotraj.",
+    "growth": "Ustaviti iskanje dovolj dolgo, da vprašaš, kaj pravzaprav iščeš.",
+    "reflection_questions": [
+      "Kaj si iskala?",
+      "Si bila sama ali te je kdo vodil?"
+    ],
+    "related": [
+      "path",
+      "key",
+      "house",
+      "maze"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "moon",
+    "terms": [
+      "luna",
+      "mesečina",
+      "noč",
+      "mrak"
+    ],
+    "public_meaning": "Luna pogosto govori o sanjskem, čustvenem in ne povsem jasnem delu doživljanja.",
+    "free_hint": "Luna osvetli, vendar ne razkrije vsega. Zato so občutki v takih sanjah ključni.",
+    "paid_layers": [
+      "negotovost",
+      "intuicija",
+      "projekcija",
+      "ritem",
+      "ženski ali ciklični občutek"
+    ],
+    "shadow": "Zamenjati strah za intuicijo ali intuicijo za strah.",
+    "growth": "Počakati, da se slika razjasni, preden jo razglasiš za resnico.",
+    "reflection_questions": [
+      "Je bila luna polna, skrita ali premočna?",
+      "Kaj je luna osvetlila?"
+    ],
+    "related": [
+      "water",
+      "night",
+      "window",
+      "dream"
+    ],
+    "access": "free_plus_paid"
+  },
+  {
+    "id": "blood",
+    "terms": [
+      "kri",
+      "krvavitev",
+      "rana",
+      "poškodba"
+    ],
+    "public_meaning": "Kri v sanjah pogosto pritegne pozornost na življenjsko moč, rano, izgubo energije ali nekaj zelo osebnega.",
+    "free_hint": "Tak simbol ni napoved. Bolj pomembno je, kje je bila rana in kdo jo je opazil.",
+    "paid_layers": [
+      "ranjenost",
+      "življenjska moč",
+      "izčrpanost",
+      "sram",
+      "potreba po negi"
+    ],
+    "shadow": "Spregledana rana, ki želi biti vzeta resno.",
+    "growth": "Ne dramatizirati, ampak nežno pogledati, kaj boli.",
+    "reflection_questions": [
+      "Kje se je pojavila kri?",
+      "Si rano skrivala ali iskala pomoč?"
+    ],
+    "related": [
+      "teeth",
+      "body",
+      "knife",
+      "accident"
+    ],
+    "access": "free_plus_paid"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "type": "dream_opening",
+    "question": "Katera podoba iz sanj je ostala najdlje po prebujenju?"
+  },
+  {
+    "id": 2,
+    "type": "emotion",
+    "question": "Kateri občutek je bil močnejši od same zgodbe sanj?"
+  },
+  {
+    "id": 3,
+    "type": "context",
+    "question": "Kje v budnem življenju se pojavlja podoben občutek?"
+  },
+  {
+    "id": 4,
+    "type": "symbol",
+    "question": "Če bi ta simbol lahko nekaj vprašal, kaj bi te vprašal?"
+  },
+  {
+    "id": 5,
+    "type": "recurring",
+    "question": "Kaj se v teh sanjah ponavlja, čeprav se prizor spreminja?"
+  },
+  {
+    "id": 6,
+    "type": "shadow",
+    "question": "Kateri del sanj si najraje ne bi razlagala?"
+  },
+  {
+    "id": 7,
+    "type": "threshold",
+    "question": "Pred katerim pragom si v sanjah obstala?"
+  },
+  {
+    "id": 8,
+    "type": "relationship",
+    "question": "Katera oseba v sanjah je nosila občutek, ki ga poznaš tudi čez dan?"
+  },
+  {
+    "id": 9,
+    "type": "body",
+    "question": "Kje v telesu se je po prebujenju poznal občutek sanj?"
+  },
+  {
+    "id": 10,
+    "type": "integration",
+    "question": "Kaj bi se spremenilo, če bi sanje vzela kot vprašanje, ne kot odgovor?"
+  },
+  {
+    "id": 11,
+    "type": "free_search",
+    "question": "Kaj si najprej pomislila, še preden si iskala pomen simbola?"
+  },
+  {
+    "id": 12,
+    "type": "paid_closure",
+    "question": "Kateri majhen korak bi spoštoval sporočilo sanj, ne da bi mu slepo sledila?"
+  }
+]
