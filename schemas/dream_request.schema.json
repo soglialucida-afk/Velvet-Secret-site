@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "dream_text": {
+      "type": "string"
+    },
+    "primary_emotion": {
+      "type": "string"
+    },
+    "emotion_intensity": {
+      "type": "number"
+    },
+    "recurring": {
+      "type": "boolean"
+    },
+    "life_area": {
+      "type": "string"
+    },
+    "user_associations": {
+      "type": "array"
+    },
+    "requested_depth": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dream_text"
+  ]
+}

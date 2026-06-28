@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "detected_symbols": {
+      "type": "array"
+    },
+    "main_interpretation": {
+      "type": "string"
+    },
+    "alternative_interpretations": {
+      "type": "array"
+    },
+    "reflection_questions": {
+      "type": "array"
+    },
+    "safety_flags": {
+      "type": "array"
+    }
+  }
+}

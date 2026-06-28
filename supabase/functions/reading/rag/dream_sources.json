@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cheung_20000_dreams",
+    "title": "The Element Encyclopedia of 20,000 Dreams",
+    "author": "Theresa Cheung",
+    "local_file": "books/The_Element_Encyclopedia_of_20000_Dreams_The_Ultimate_A-Z_to_Interpret_the_Secrets_of_Your_Dreams_-_Theresa_Cheung.pdf",
+    "role": "dream_dictionary_layer",
+    "usage": "Use as a broad cultural and symbolic index for common dream images. Do not treat entries as fixed meanings and do not reproduce source text verbatim."
+  },
+  {
+    "id": "jung_man_and_his_symbols",
+    "title": "Man and His Symbols",
+    "author": "Carl Gustav Jung and collaborators",
+    "local_file": "books/Man and His Symbols - Carl Gustav Jung.pdf",
+    "role": "jungian_symbolic_layer",
+    "usage": "Use as a methodological influence for symbolic, personal, archetypal and unconscious material. Keep user-facing language simple and non-academic."
+  },
+  {
+    "id": "irreducible_consciousness",
+    "title": "Irreducible",
+    "author": "Federico Faggin",
+    "local_file": "books/Irreducable_260627_215341.pdf",
+    "role": "consciousness_layer_later",
+    "usage": "Not used for the first dream dictionary. Reserve for later consciousness and philosophy documentation."
+  }
+]

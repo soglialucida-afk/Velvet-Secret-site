@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array"
+    },
+    "priority": {
+      "type": "number"
+    },
+    "safety": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  }
+}
