@@ -2,470 +2,485 @@
   {
     "id": "water",
     "name": "Voda",
-    "terms": [
-      "voda",
-      "morje",
-      "reka",
-      "jezero",
-      "poplava",
-      "valovi",
-      "plavanje"
-    ],
+    "terms": ["voda","morje","reka","jezero","poplava","valovi","plavanje","potok","ribnik"],
     "public": "Voda se pogosto povezuje s čustvi, nezavednim tokom in tem, koliko lahko nekaj v sebi pustiš teči.",
     "hint": "Pomembno je, ali je bila voda mirna, motna, globoka ali nevarna.",
     "tension": "Občutek, da te nekaj nosi hitreje, kot lahko razumeš.",
     "movement": "Prepoznati občutek, ne da ga takoj nadzoruješ.",
     "question": "Kakšna je bila voda: mirna, globoka, motna ali premočna?",
-    "related": [
-      "Luna",
-      "Čoln",
-      "Most",
-      "Riba"
-    ]
+    "related": ["Luna","Čoln","Most","Morje"]
   },
   {
     "id": "house",
     "name": "Hiša",
-    "terms": [
-      "hiša",
-      "stanovanje",
-      "soba",
-      "klet",
-      "podstrešje",
-      "hodnik",
-      "dom"
-    ],
-    "public": "Hiša pogosto govori o notranjem prostoru: o tem, kateri deli tebe so domači, skriti, zapuščeni ali še neodprti.",
-    "hint": "Soba, v katero vstopiš, je pogosto pomembnejša od same hiše.",
-    "tension": "Zaklenjen ali zanemarjen del notranjega sveta.",
-    "movement": "Počasi odpreti prostor, ki ga običajno preskočiš.",
-    "question": "Kateri del hiše je bil najbolj živ?",
-    "related": [
-      "Vrata",
-      "Ključ",
-      "Stopnice",
-      "Klet"
-    ]
+    "terms": ["hiša","stanovanje","soba","klet","podstrešje","dom","spalnica","kuhinja","hodnik"],
+    "public": "Jung je verjel, da hiša v sanjah predstavlja tvoje notranje življenje — različne sobe so različni vidiki tvojega jaza.",
+    "hint": "Katera soba je bila najpomembnejša in v kakšnem stanju je bila?",
+    "tension": "Zaklenjen ali zanemarjen del notranjega sveta, ki čaka na pozornost.",
+    "movement": "Odpreti prostor, ki ga v vsakdanjem življenju preskočiš.",
+    "question": "Kateri del hiše je bil v sanjah najbolj živ ali vznemirljiv?",
+    "related": ["Vrata","Stopnice","Klet","Podstrešje"]
   },
   {
     "id": "door",
     "name": "Vrata",
-    "terms": [
-      "vrata",
-      "prag",
-      "vhod",
-      "izhod",
-      "zaklenjena vrata",
-      "odprta vrata"
-    ],
-    "public": "Vrata so simbol praga: nečesa, kamor lahko vstopiš, ali nečesa, pred čimer še stojiš.",
-    "hint": "Vprašaj se, ali so bila vrata odprta, zaklenjena ali si jih sama zaprla.",
+    "terms": ["vrata","prag","vhod","izhod","zaklenjena vrata","odprta vrata"],
+    "public": "Vrata so simbol praga med dvema stanjema — prehod, ki zahteva odločitev ali pogum.",
+    "hint": "Ali so bila vrata odprta, zaklenjena ali si jih odpirala s težavo?",
     "tension": "Odlašanje pred korakom, ki ga del tebe že pozna.",
-    "movement": "Prepoznati, kaj se konča, ko prestopiš prag.",
-    "question": "Kaj je bilo na drugi strani vrat?",
-    "related": [
-      "Hiša",
-      "Ključ",
-      "Pot",
-      "Most"
-    ]
+    "movement": "Prepoznati, kaj se konča in kaj se začne, ko prekoračiš prag.",
+    "question": "Kaj je bilo na drugi strani vrat in kako si se ob tem počutila?",
+    "related": ["Hiša","Ključ","Pot","Prag"]
   },
   {
     "id": "key",
     "name": "Ključ",
-    "terms": [
-      "ključ",
-      "ključi",
-      "odklepanje",
-      "zaklepanje"
-    ],
-    "public": "Ključ se pogosto pojavi, ko sanje govorijo o dostopu, rešitvi, dovoljenju ali nečem, kar še ni odprto.",
-    "hint": "Pomembno je, ali si ključ našla, izgubila, dobila ali uporabila.",
-    "tension": "Občutek, da rešitev obstaja, vendar ji še ne zaupaš.",
-    "movement": "Videti, katera vrata sploh želiš odpreti.",
-    "question": "Kaj naj bi ključ odprl?",
-    "related": [
-      "Vrata",
-      "Hiša",
-      "Škatla",
-      "Ključavnica"
-    ]
+    "terms": ["ključ","zaklepanje","odpiranje","ključavnica","skrita skrinja"],
+    "public": "Ključ v sanjah kaže na rešitev, dostop ali skrivnost, ki jo imaš v rokah, a je morda še ne prepoznaš.",
+    "hint": "Ali si ključ imela, ga iskala ali izgubila?",
+    "tension": "Vedeti, da odgovor obstaja, a se ne znati lotiti vrat.",
+    "movement": "Zaupati lastni zmožnosti, da odpreš tisto, kar si dosedaj zapirala.",
+    "question": "Katero vprašanje v budnem življenju čaka na pravi ključ?",
+    "related": ["Vrata","Hiša","Skrivnost","Sef"]
   },
   {
     "id": "falling",
     "name": "Padanje",
-    "terms": [
-      "padanje",
-      "padem",
-      "padec",
-      "prepad",
-      "višina"
-    ],
-    "public": "Padanje se pogosto povezuje z izgubo nadzora, spuščanjem ali občutkom, da ni več trdnih tal.",
-    "hint": "Ni vse padanje slabo: včasih sanje kažejo tudi spuščanje nečesa, kar si predolgo držala.",
-    "tension": "Držanje vsega skupaj za vsako ceno.",
-    "movement": "Razločiti med nevarnostjo in potrebo po predaji napetosti.",
-    "question": "Si med padanjem čutila grozo, olajšanje ali praznino?",
-    "related": [
-      "Letenje",
-      "Stopnice",
-      "Gora",
-      "Prepad"
-    ]
+    "terms": ["padanje","padec","zdrs","prepaden","pasti v globino","zdrseti","brezno"],
+    "public": "Padanje v sanjah pogosto odraža občutek izgube nadzora ali negotovosti glede neke odločitve.",
+    "hint": "Padanje ni vedno negativno — včasih pomeni sprostitev nadzora, ki ni bil potreben.",
+    "tension": "Strah pred tem, da bi izgubil_a tla pod nogami — v odnosu, službi ali samopodobi.",
+    "movement": "Preveriti, kje je v budnem življenju tla treba spet poiskati.",
+    "question": "Kam si padala in kaj si čutila tik pred dnom?",
+    "related": ["Letenje","Stopnice","Brezno","Izguba nadzora"]
   },
   {
     "id": "chase",
     "name": "Preganjanje",
-    "terms": [
-      "preganjanje",
-      "nekdo me lovi",
-      "bežanje",
-      "skrivanje",
-      "zasledovanje"
-    ],
-    "public": "Sanje o preganjanju pogosto pokažejo, da se nekaj v življenju približuje tvoji pozornosti, ti pa pred tem še bežiš.",
-    "hint": "Vprašanje ni samo, kdo te lovi, ampak čemu se v sanjah ne moreš obrniti naproti.",
-    "tension": "Beg pred občutkom, ki postaja glasnejši.",
-    "movement": "Ustaviti se dovolj dolgo, da vidiš, kaj v resnici prihaja za tabo.",
-    "question": "Kdo ali kaj te je lovilo?",
-    "related": [
-      "Preganjalec",
-      "Temna figura",
-      "Tek",
-      "Gozd"
-    ]
+    "terms": ["preganjanje","beg","zasledovanje","lovljenje","pobeg","beži","zasledovalec","loviti"],
+    "public": "Ko te v sanjah nekdo zasleduje, pogosto predstavlja vidik sebe, ki ga v budnem življenju poskušaš ignorirati.",
+    "hint": "Zasledovalec je redko zunanji sovražnik — pogosteje je nezavedna čustvena vsebina.",
+    "tension": "Izogibanje temu, kar bi moralo biti soočeno.",
+    "movement": "Obrniti se in pogledati, kaj te zasleduje — to že zmanjša njegovo moč.",
+    "question": "Bi te zasledovalec v sanjah sploh dohitel, če bi se obrnila?",
+    "related": ["Strah","Borba","Tujec","Senca"]
   },
   {
     "id": "teeth",
     "name": "Zobje",
-    "terms": [
-      "zobje",
-      "izpadanje zob",
-      "zob",
-      "usta",
-      "kri iz ust"
-    ],
-    "public": "Zobje se pogosto povezujejo z močjo izraza, samopodobo, izgubo kontrole ali strahom, kako te vidijo drugi.",
-    "hint": "Pomembno je, ali je bil občutek sram, panika, bolečina ali olajšanje.",
-    "tension": "Občutek, da nekaj razpada pred očmi drugih.",
-    "movement": "Najti besede za nekaj, kar se izraža skozi telo.",
-    "question": "Si v sanjah poskušala skriti zobe?",
-    "related": [
-      "Usta",
-      "Ogledalo",
-      "Kri",
-      "Glas"
-    ]
+    "terms": ["zobje","zob","izpadanje zob","usta","dlesni","zob izpade"],
+    "public": "Zobje se v sanjah pogosto povezujejo s samozavestjo, strahom pred izgubo ali skrbjo, kako te vidijo drugi.",
+    "hint": "Ali ti zobje izpadajo, se lomijo ali pa so zdravi? Občutek ob tem je ključen.",
+    "tension": "Strah, da bi se ti javno kaj razpadlo, kar si skrbno vzdrževal_a.",
+    "movement": "Najti besede za tisto, kar te muči — zobje so simbol govora in izraza.",
+    "question": "Kaj je tisto, kar ti je v zadnjem času težko povedati na glas?",
+    "related": ["Usta","Ogledalo","Telo","Glas"]
   },
   {
     "id": "snake",
     "name": "Kača",
-    "terms": [
-      "kača",
-      "kače",
-      "ugriz kače",
-      "strup"
-    ],
-    "public": "Kača je močan simbol instinkta, preobrazbe, nevarnosti ali modrosti, odvisno od občutka v sanjah.",
-    "hint": "Kača ni nujno slab znak. Vprašaj se, ali je bila grožnja, opozorilo ali tiha prisotnost.",
-    "tension": "Strah pred nečim prvinskim, česar ne moreš povsem nadzorovati.",
-    "movement": "Spoštovati notranji signal, ne da mu takoj pripišeš katastrofo.",
-    "question": "Je kača napadla, opazovala ali se umaknila?",
-    "related": [
-      "Gozd",
-      "Ugriz",
-      "Koža",
-      "Žival"
-    ]
+    "terms": ["kača","zmija","gad","plazilec","kačica","upa","uga"],
+    "public": "Kača je eden najpogostejših Jungovih arhetipov — hkrati simbolizira nevarnost in transformacijo, strupenost in zdravljenje.",
+    "hint": "Je bila kača grožnja ali le prisotna? Reakcija do nje pove več kot kača sama.",
+    "tension": "Stik z nekaterimi deli sebe, ki jih raje ignoriramo.",
+    "movement": "Prepoznati, da transformacija pogosto prihaja skozi tisto, česar se bojimo.",
+    "question": "Kaj v tvojem življenju je podobno kači — nevarno in osvobajujoče hkrati?",
+    "related": ["Žival","Gozd","Preobrazba","Strah"]
   },
   {
-    "id": "dead_person",
+    "id": "deceased",
     "name": "Pokojni",
-    "terms": [
-      "pokojni",
-      "mrtva oseba",
-      "umrli",
-      "pokojna mama",
-      "pokojni oče",
-      "smrt"
-    ],
-    "public": "Pokojna oseba v sanjah pogosto odpre spomin, nedokončan občutek, žalovanje ali del odnosa, ki še živi v tebi.",
-    "hint": "Takšne sanje niso napoved. Pogosto so prostor, kjer se duševnost še pogovarja z izgubo.",
-    "tension": "Bolečina, ki jo čez dan lažje potisneš na stran.",
-    "movement": "Dati občutku prostor brez sklepanja, da sanje nekaj napovedujejo.",
-    "question": "Kaj je pokojna oseba naredila ali rekla?",
-    "related": [
-      "Grob",
-      "Sporočilo",
-      "Družina",
-      "Hiša"
-    ]
+    "terms": ["pokojni","umrli","mrtva oseba","preminuli","duh","rajni","babica","dedek"],
+    "public": "Sanje o pokojnih so pogosto nežne in pomenske — duša jih vzame kot priložnost za dokončan pogovor.",
+    "hint": "Kaj je rekla ali naredila ta oseba? Sporočilo je pogosto tisto, kar ni bilo povedano v življenju.",
+    "tension": "Nedokončano, nerazrešeno ali neurečeno v razmerju z njo.",
+    "movement": "Dovoliti si žalovati, spomniti ali pa se posloviti na svojem lastnem ritmu.",
+    "question": "Kaj bi tej osebi rad_a povedal_a, a je ni več mogoče?",
+    "related": ["Smrt","Dom","Spomin","Žalovanje"]
   },
   {
     "id": "path",
     "name": "Pot",
-    "terms": [
-      "pot",
-      "cesta",
-      "križišče",
-      "razpotje",
-      "gozdna pot",
-      "slepa ulica"
-    ],
-    "public": "Pot ali cesta pogosto govori o smeri, izbiri in občutku, ali se v življenju premikaš ali vrtiš v krogu.",
-    "hint": "Poglej, ali je bila pot jasna, zaraščena, nevarna, prazna ali polna ljudi.",
-    "tension": "Hoditi naprej brez vprašanja, ali je smer še tvoja.",
-    "movement": "Opaziti, kje potrebuješ naslednji korak, ne celotnega zemljevida.",
-    "question": "Si vedela, kam greš?",
-    "related": [
-      "Vrata",
-      "Most",
-      "Car",
-      "Gozd"
-    ]
+    "terms": ["pot","steza","hoditi","brezpotje","razpotje","prečkati","hodnik"],
+    "public": "Pot v sanjah predstavlja smer tvojega življenja — kako jo vidiš, kako se počutiš na njej.",
+    "hint": "Je bila pot jasna ali si se izgubila? Razpotje nakazuje odločitev.",
+    "tension": "Negotovost glede smeri, v katero gre tvoje življenje.",
+    "movement": "Narediti naslednji korak, čeprav cilj ni viden.",
+    "question": "Kakšna je bila pot: ravna, vijugasta, prekinjena?",
+    "related": ["Gora","Most","Cesta","Razpotje"]
   },
   {
     "id": "bridge",
     "name": "Most",
-    "terms": [
-      "most",
-      "prečkanje",
-      "čez reko",
-      "viadukt"
-    ],
-    "public": "Most je simbol prehoda med dvema stanjema, odnosoma ali obdobjema.",
-    "hint": "Največ pove to, ali si most prečkala, obstala na njem ali se je podiral.",
-    "tension": "Ostati predolgo med starim in novim.",
-    "movement": "Dovoliti si prehod, tudi če še ni vse jasno.",
-    "question": "Kaj je bilo na eni in kaj na drugi strani?",
-    "related": [
-      "Voda",
-      "Pot",
-      "Vrata",
-      "Reka"
-    ]
+    "terms": ["most","prečkati vodo","prehod","mostič","brv","viadukt"],
+    "public": "Most predstavlja prehod med dvema stanjema — od preteklosti k prihodnosti ali od enega čustvenega stanja k drugemu.",
+    "hint": "Ali je bil most trden, ali si ga prehodila z lahkoto ali s strahom?",
+    "tension": "Strah pred prehodom, ki ga veš, da je potreben.",
+    "movement": "Korak na drug breg ni vedno velik — pogosto je dovolj, da se začneš premikati.",
+    "question": "Kaj je na drugi strani mostu, česar se ne upaš lotiti?",
+    "related": ["Reka","Pot","Voda","Prehod"]
   },
   {
     "id": "flying",
     "name": "Letenje",
-    "terms": [
-      "letenje",
-      "letim",
-      "lebdenje",
-      "krila"
-    ],
-    "public": "Letenje se pogosto povezuje s svobodo, razdaljo od težav ali željo, da bi presegla omejitve.",
-    "hint": "Pomembno je, ali si let nadzorovala ali te je nosilo brez tvoje volje.",
-    "tension": "Pobeg v višino, ko tla zahtevajo pozornost.",
-    "movement": "Najti razmerje med širšim pogledom in konkretnim korakom.",
-    "question": "Si letela z lahkoto ali strahom?",
-    "related": [
-      "Padanje",
-      "Ptica",
-      "Nebo",
-      "Gora"
-    ]
+    "terms": ["letenje","letim","lebdenje","vzpon","leteti","višina","oblaki","preleteti"],
+    "public": "Letenje je pogosto osvobajujoče — nezavedno sporoča, da zmoreš preseči omejitve, ki jih pri budnosti čutiš.",
+    "hint": "Ali si letela visoko in svobodno ali nizko in z naporom?",
+    "tension": "Iskanje svobode od nečesa, kar te v vsakdanjem življenju vklepa.",
+    "movement": "Prepoznati, kje v budnem življenju je čas za vzlet, ne le za hodanje po tleh.",
+    "question": "Nad čim si letela in kako si se počutila?",
+    "related": ["Padanje","Oblaki","Ptica","Svoboda"]
   },
   {
     "id": "animal",
     "name": "Žival",
-    "terms": [
-      "žival",
-      "pes",
-      "mačka",
-      "konj",
-      "volk",
-      "lev",
-      "ptica",
-      "riba"
-    ],
-    "public": "Živali v sanjah pogosto pokažejo instinktiven, naraven ali manj nadzorovan del doživljanja.",
-    "hint": "Vrsta živali pove manj kot njen odnos do tebe: je bila prijazna, ranjena, nevarna ali zapuščena?",
-    "tension": "Del tebe, ki ga poskušaš ukrotiti ali prezreti.",
-    "movement": "Vprašati se, katera naravna potreba želi biti slišana.",
-    "question": "Kako se je žival obnašala do tebe?",
-    "related": [
-      "Kača",
-      "Pes",
-      "Mačka",
-      "Konj"
-    ]
+    "terms": ["žival","divja žival","domača žival","plenilec","plen","bik","volk","medved"],
+    "public": "Živali v sanjah pogosto predstavljajo naše instinkte ali vidike osebnosti, ki jih zavedni um ne sprejema.",
+    "hint": "Kakšen je bil tvoj odnos do živali — strah, radovednost, spoštovanje?",
+    "tension": "Del osebnosti, ki ga zatre racionalni um.",
+    "movement": "Prisluhniti notranjemu instinktu, ki ga pogosto utišamo.",
+    "question": "Kaj bi ta žival naredila, ko bi ji v budnem življenju pustila, da govori?",
+    "related": ["Gozd","Narava","Kača","Senca"]
   },
   {
-    "id": "baby_child",
+    "id": "child",
     "name": "Otrok",
-    "terms": [
-      "otrok",
-      "dojenček",
-      "punčka",
-      "fantek",
-      "nosečnost",
-      "rojstvo"
-    ],
-    "public": "Otrok ali dojenček pogosto govori o ranljivosti, novem začetku, potrebi po negi ali delu tebe, ki še raste.",
-    "hint": "Vprašaj se, ali si otroka varovala, izgubila, našla ali se ga bala.",
-    "tension": "Strah, da nečesa nežnega ne boš znala zaščititi.",
-    "movement": "Negovati nekaj v začetku, preden od tega zahtevaš moč.",
-    "question": "Kdo je skrbel za otroka?",
-    "related": [
-      "Mati",
-      "Družina",
-      "Hiša",
-      "Rojstvo"
-    ]
+    "terms": ["otrok","dojenček","dete","novorojenček","mlad jaz","igranje","otroci","deklica","fantek"],
+    "public": "Otrok v sanjah pogosto predstavlja tvoj notranji otrok — neizkrivljeno, ranljivo in spontano jedro.",
+    "hint": "Ali je bil otrok tvoj ali neznan? V kakšnem stanju je bil?",
+    "tension": "Ranljivost ali nedolžnost, ki jo je odrasel jaz prekrilo z zaščitnimi plastmi.",
+    "movement": "Dovoliti si igrivost, radovednost ali enostavnost brez opravičevanja.",
+    "question": "Kaj bi ti kot otrok povedal_a odraslemu tebi danes?",
+    "related": ["Dom","Šola","Igra","Starši"]
   },
   {
-    "id": "car_vehicle",
+    "id": "vehicle",
     "name": "Vozilo",
-    "terms": [
-      "avto",
-      "vlak",
-      "avtobus",
-      "vožnja",
-      "nesreča",
-      "zavore",
-      "vozilo"
-    ],
-    "public": "Vozilo pogosto govori o smeri, nadzoru in tem, kdo ali kaj vodi tvoje življenje v tem obdobju.",
-    "hint": "Pomembno je, ali si vozila sama, bila sopotnica ali vozila brez zavor.",
-    "tension": "Občutek, da se stvari premikajo, ti pa nimaš roke na volanu.",
-    "movement": "Preveriti, kje lahko prevzameš majhen del smeri nazaj.",
-    "question": "Kdo je vozil?",
-    "related": [
-      "Pot",
-      "Nesreča",
-      "Most",
-      "Potovanje"
-    ]
+    "terms": ["avto","vozilo","avtobus","letalo","vožnja","šofirati","potnik","volaniti"],
+    "public": "Vozilo v sanjah predstavlja smer in nadzor v tvojem življenju — ali voziš sam_a ali pa si le potnik_ca?",
+    "hint": "Kdo je bil za volanom in kako so šle zavore?",
+    "tension": "Vprašanje, ali res krmariš lastno življenje ali se le pelješ z drugimi.",
+    "movement": "Prevzeti krmilo, tudi ko pot ni jasna.",
+    "question": "Si bila v sanjah voznik_ca ali potnik_ca — in kaj to pove o tem, kje si zdaj?",
+    "related": ["Pot","Cesta","Vlak","Hitrost"]
   },
   {
     "id": "mirror",
     "name": "Ogledalo",
-    "terms": [
-      "ogledalo",
-      "odsev",
-      "obraz",
-      "videti sebe"
-    ],
-    "public": "Ogledalo pogosto odpre vprašanje samopodobe: kaj vidiš, česa nočeš videti in katera podoba ni več resnična.",
-    "hint": "Najbolj pomembno je, ali si se v odsevu prepoznala.",
-    "tension": "Strah pred podobo sebe, ki ni urejena za druge.",
-    "movement": "Videti se manj strogo in bolj resnično.",
-    "question": "Kaj je bilo v odsevu drugače?",
-    "related": [
-      "Zobje",
-      "Obraz",
-      "Maska",
-      "Voda"
-    ]
+    "terms": ["ogledalo","odsev","zrcalo","slika sebe","ne prepoznam sebe","odrazi"],
+    "public": "Ogledalo v sanjah povabi k pogledu na to, kako se vidiš — ne kako te vidijo drugi.",
+    "hint": "Kaj si videla v ogledalu — ali si se prepoznala?",
+    "tension": "Razlika med tem, kako se doživljaš, in tem, kako misliš, da te vidijo drugi.",
+    "movement": "Sprejeti, kar vidiš, ne popravljati odraza.",
+    "question": "Ali te je ogledalo v sanjah prikazalo takšno, kot se vidiš, ali drugače?",
+    "related": ["Obraz","Telo","Senca","Identiteta"]
   },
   {
     "id": "stairs",
     "name": "Stopnice",
-    "terms": [
-      "stopnice",
-      "vzpenjanje",
-      "spuščanje",
-      "lestev",
-      "dvigalo"
-    ],
-    "public": "Stopnice pogosto kažejo premik med ravnmi: napor, rast, padec, vračanje ali prehod v globlji prostor.",
-    "hint": "Smer je pomembna: gor, dol, v klet, na podstrešje ali v neznano nadstropje.",
-    "tension": "Pritisk, da se moraš premakniti hitreje, kot zmoreš.",
-    "movement": "Opaziti, katera raven notranjega življenja zdaj kliče pozornost.",
-    "question": "Si šla gor ali dol?",
-    "related": [
-      "Hiša",
-      "Klet",
-      "Padanje",
-      "Gora"
-    ]
+    "terms": ["stopnice","vzpenjati se","spuščati se","lestev","hodnik navzgor","podstrešje","navzdol"],
+    "public": "Stopnice nakazujejo premik — navzgor k zavedanju ali navzdol k globljim plastem nezavednega.",
+    "hint": "Si se vzpenjala ali spuščala in kako si se počutila pri tem?",
+    "tension": "Napor ali strah pred premagovanjem razlike med tem, kar si, in tem, kar bi bila.",
+    "movement": "Stopiti en korak navzgor, čeprav ne vidiš vrha.",
+    "question": "Kam so te stopnice peljale in ali si hotela priti tja?",
+    "related": ["Hiša","Klet","Podstrešje","Vzpon"]
   },
   {
     "id": "fire",
     "name": "Ogenj",
-    "terms": [
-      "ogenj",
-      "požar",
-      "plamen",
-      "gorenje",
-      "dim"
-    ],
-    "public": "Ogenj lahko govori o strasti, jezi, čiščenju, nevarnosti ali nečem, kar se ne da več držati pod površjem.",
-    "hint": "Vprašaj se, ali je ogenj grel, uničeval, opozarjal ali očiščeval.",
-    "tension": "Notranja napetost, ki lahko postane destruktivna, če nima prostora.",
-    "movement": "Usmeriti moč, preden začne požirati vse okoli sebe.",
-    "question": "Kaj je gorelo?",
-    "related": [
-      "Dim",
-      "Hiša",
-      "Sonce",
-      "Jeza"
-    ]
+    "terms": ["ogenj","plamen","požar","sveča","pepel","goreti","toplota","gori"],
+    "public": "Ogenj v sanjah je simbol preobrazbe — kar gori, izgine, a s tem sprosti prostor za novo.",
+    "hint": "Je bil ogenj pod nadzorom, ali so zgorele stvari, ki so ti bile dragocene?",
+    "tension": "Strah pred tem, da bi neko področje življenja zagorelo in se nepopravljivo spremenilo.",
+    "movement": "Prepoznati, kaj je v tvojem življenju zrelo za sprostitev ali preobrazbo.",
+    "question": "Kaj bi rada pustila, da se sprevrže v pepel?",
+    "related": ["Toplota","Preobrazba","Luč","Voda"]
   },
   {
-    "id": "lost_searching",
+    "id": "search",
     "name": "Iskanje",
-    "terms": [
-      "izgubljena",
-      "iščem",
-      "iskanje",
-      "ne najdem",
-      "zamujam",
-      "labirint"
-    ],
-    "public": "Iskanje ali izgubljenost pogosto pokaže notranjo orientacijo: nekaj iščeš, vendar morda še ne veš, kaj v resnici manjka.",
-    "hint": "Predmet iskanja je pomemben, vendar je občutek med iskanjem še pomembnejši.",
-    "tension": "Nenehno iskati zunaj, kar se najprej mora poimenovati znotraj.",
-    "movement": "Ustaviti iskanje dovolj dolgo, da vprašaš, kaj pravzaprav iščeš.",
-    "question": "Kaj si iskala?",
-    "related": [
-      "Pot",
-      "Ključ",
-      "Hiša",
-      "Labirint"
-    ]
+    "terms": ["iskanje","izgubiti","iskati","poiskati","ne najdem","pogrešiti","izgubljen predmet"],
+    "public": "Iskanje v sanjah odraža prizadevanje za nečim, kar v budnem življenju čutiš, da manjka.",
+    "hint": "Kaj si iskala in ali si to našla?",
+    "tension": "Pritisk, ki ga čutiš, ko si prepričana, da bi morala že vedeti, kaj hočeš.",
+    "movement": "Včasih iskanje samo po sebi je že odgovor — kaže smer.",
+    "question": "Kaj je tisto, kar te v budnem življenju prav tako iščeš brez rezultata?",
+    "related": ["Pot","Izguba","Dom","Ključ"]
   },
   {
     "id": "moon",
     "name": "Luna",
-    "terms": [
-      "luna",
-      "mesečina",
-      "noč",
-      "mrak"
-    ],
-    "public": "Luna pogosto govori o sanjskem, čustvenem in ne povsem jasnem delu doživljanja.",
-    "hint": "Luna osvetli, vendar ne razkrije vsega. Zato so občutki v takih sanjah ključni.",
-    "tension": "Zamenjati strah za intuicijo ali intuicijo za strah.",
-    "movement": "Počakati, da se slika razjasni, preden jo razglasiš za resnico.",
-    "question": "Je bila luna polna, skrita ali premočna?",
-    "related": [
-      "Voda",
-      "Noč",
-      "Okno",
-      "Sanje"
-    ]
+    "terms": ["luna","polna luna","mlaj","srp","lunina svetloba","lunina faza","mesec"],
+    "public": "Luna je simbol ritma, nezavednega in tega, kar se skriva pod površjem. Jung jo je povezoval z intuicijo.",
+    "hint": "V kakšni fazi je bila luna in kakšno čustvo je prinesla?",
+    "tension": "Nezavedna vsebina, ki izhaja na površje le v tišini ali temi.",
+    "movement": "Zaupati intuiciji, ki deluje po lastnih ciklih.",
+    "question": "Kaj lunina svetloba v sanjah osvetljuje, česar pri dnevni luči ne vidiš?",
+    "related": ["Noč","Zvezde","Voda","Intuicija"]
   },
   {
     "id": "blood",
     "name": "Kri",
-    "terms": [
-      "kri",
-      "krvavitev",
-      "rana",
-      "poškodba"
-    ],
-    "public": "Kri v sanjah pogosto pritegne pozornost na življenjsko moč, rano, izgubo energije ali nekaj zelo osebnega.",
-    "hint": "Tak simbol ni napoved. Bolj pomembno je, kje je bila rana in kdo jo je opazil.",
-    "tension": "Spregledana rana, ki želi biti vzeta resno.",
-    "movement": "Ne dramatizirati, ampak nežno pogledati, kaj boli.",
-    "question": "Kje se je pojavila kri?",
-    "related": [
-      "Zobje",
-      "Telo",
-      "Nož",
-      "Nesreča"
-    ]
+    "terms": ["kri","krvavitev","rana","rdeča tekočina","poškodba","krvaviti"],
+    "public": "Kri v sanjah pogosto simbolizira življenjsko energijo, čustveno intenzivnost ali rano, ki potrebuje pozornost.",
+    "hint": "Je bila kri tvoja ali tuja? Je iztekala ali si jo zadrževala?",
+    "tension": "Vitalna energija, ki jo porabite za tisto, kar te boli, namesto za tisto, kar te hrani.",
+    "movement": "Oskrbeti rano — ne zanikati, da obstaja.",
+    "question": "Kje v tvojem življenju teče energija, ki bi jo raje ohranil_a?",
+    "related": ["Telo","Rana","Preobrazba","Zdravljenje"]
+  },
+  {
+    "id": "angel",
+    "name": "Angel",
+    "terms": ["angel","varuh","angelska bitja","varuh angel","svetlo bitje","nebeški glasnik"],
+    "public": "Angel v sanjah pogosto prinaša sporočilo, ki ga tvoja lastna modrost že ve, a ga zavest še ni slišala.",
+    "hint": "Kaj je angel sporočal — z besedami, s prisotnostjo ali s čustvenim vzdušjem?",
+    "tension": "Del sebe, ki išče vodstvo, ker si ne zaupa dovolj.",
+    "movement": "Prisluhniti tihi notranji vednosti, ne le zunanjemu svetu.",
+    "question": "Katero sporočilo si v sanjah slišala, ki si ga v budnosti ignorirala?",
+    "related": ["Luč","Nebo","Vodnik","Zvezde"]
+  },
+  {
+    "id": "abyss",
+    "name": "Brezno",
+    "terms": ["brezno","globina","prepad","ponor","brez dna","jama brez izhoda","strmina"],
+    "public": "Brezno nakazuje strah pred neznanim — a Jung je opozarjal, da je tisto, kar nas prestrašuje, pogosto prav tisto, kar nas kliče k rasti.",
+    "hint": "Si gledala v brezno ali si vanj padla? Razlika je bistvena.",
+    "tension": "Strah pred izgubo nadzora ali posledicami kakšne globoke odločitve.",
+    "movement": "Pogledati v brezno, ne da bi morala skočiti — pogum je že v opazovanju.",
+    "question": "Kaj je tisto, kar ti v budnem življenju deluje kot brezno brez dna?",
+    "related": ["Padanje","Globina","Tema","Jama"]
+  },
+  {
+    "id": "fight",
+    "name": "Borba",
+    "terms": ["borba","boj","pretep","konflikt","tepen","udariti","napadena","braniti se","spopadu"],
+    "public": "Borba v sanjah pogosto odraža notranji konflikt — dve strani sebe, ki si ne stojita v glavi.",
+    "hint": "S kom si se borila in kaj se je na koncu zgodilo?",
+    "tension": "Notranja razcepljenost med dvema vrednostma, željama ali odgovornostma.",
+    "movement": "Prepoznati, da boj ni nujno z zunanjim svetom, ampak znotraj sebe.",
+    "question": "Katera dva dela sebe sta se v sanjah spopadla?",
+    "related": ["Strah","Moč","Preganjanje","Senca"]
+  },
+  {
+    "id": "road",
+    "name": "Cesta",
+    "terms": ["cesta","ulica","avenija","cestišče","daljnica","pločnik","promet","avtocesta"],
+    "public": "Cesta je simbol smeri in življenjske poti — ravna ali vijugasta, lahka ali z ovirami.",
+    "hint": "Kako je bila cesta: asfaltiranana, razbita, prazna ali polna prometa?",
+    "tension": "Negotovost, ali greš v pravo smer ali se premikate dovolj hitro.",
+    "movement": "Hoditi naprej, čeprav ceste ne vidiš do konca.",
+    "question": "Kam te cesta v sanjah pelje in si bila vesela, da greš tja?",
+    "related": ["Pot","Vozilo","Razpotje","Ovira"]
+  },
+  {
+    "id": "flower",
+    "name": "Cvet",
+    "terms": ["cvet","roža","rožice","vrtnica","polje cvetlic","cvetenje","vrt","tulipan","lilija"],
+    "public": "Cvet v sanjah predstavlja rast, lepoto in tisto, kar se v tebi razvija — morda bolj nežno, kot si opazila.",
+    "hint": "Je cvet odprt, popadel ali šele brstel?",
+    "tension": "Ranljivost rastoče stvari — kako jo negovati brez pretirane zaščite.",
+    "movement": "Pustiti, da se tisto, kar v tebi cveti, pokaže navzven.",
+    "question": "Kaj v tvojem življenju sedaj cveti in ali mu dovoliš, da cveti?",
+    "related": ["Vrt","Narava","Rast","Pomlad"]
+  },
+  {
+    "id": "time",
+    "name": "Čas",
+    "terms": ["ura","čas","zamuda","pohiti","prepozno","satovnik","minuta","hiteti","ura tiktaka"],
+    "public": "Ura ali čas v sanjah pogosto odraža pritisk ali strah, da bo prepozno za tisto, kar je važno.",
+    "hint": "Ali si zamujala, je čas minil prepočasi ali pa je stalo?",
+    "tension": "Globoki strah pred tem, da zamudišz kaj bistveno — v življenju ali v sebi.",
+    "movement": "Vprašati se, ali je zamujanje, ki ga čutiš, resnično ali le zgodba, ki si jo pripoveduje.",
+    "question": "Za kaj v življenju se ti zdi, da čas teče prezgodaj?",
+    "related": ["Staranje","Pot","Hitrost","Sedanjost"]
+  },
+  {
+    "id": "boat",
+    "name": "Čoln",
+    "terms": ["čoln","ladja","plovilo","barka","jadrnica","veslati","krmariti","kajak"],
+    "public": "Čoln na vodi simbolizira pot skozi čustvene tokove — ali si na njej sama, ali te nekdo krmar?",
+    "hint": "Je voda mirna ali burna in ali je čoln trden?",
+    "tension": "Negotovost, ali zmoreš krmariti lastna čustvena stanja.",
+    "movement": "Veslati, tudi ko ni vetra — včasih je dovolj lastna moč.",
+    "question": "Si bila v čolnu sama in s krmilom v rokah?",
+    "related": ["Voda","Morje","Pot","Reka"]
+  },
+  {
+    "id": "monster",
+    "name": "Čudovišče",
+    "terms": ["čudovišče","pošast","demon","monster","grozljivo bitje","neznana groza","zver"],
+    "public": "Čudovišče v sanjah pogosto predstavlja tisto, česar se bojimo v sebi — ali pritisk od zunaj, ki ga doživljamo kot neobvladljivo silo.",
+    "hint": "Je čudovišče prišlo po tebe ali je le obstajalo? Kakšen občutek je pustilo?",
+    "tension": "Tisto, česar ne znamo poimenovati, v sanjah postane monstrum.",
+    "movement": "Ko damo grozi ime, zmanjša svojo moč nad nami.",
+    "question": "Kaj v tvojem življenju bi postalo manj strašljivo, ko bi mu dal_a pravo ime?",
+    "related": ["Strah","Senca","Preganjanje","Tema"]
+  },
+  {
+    "id": "tree",
+    "name": "Drevo",
+    "terms": ["drevo","hrast","bor","bukev","deblo","veje","korenine","les","drevesa"],
+    "public": "Jung je drevo videl kot simbol celotnega jaza — korenine so preteklost, deblo sedanjost, krošnja rast in možnosti.",
+    "hint": "Kakšno je bilo drevo — staro in mogočno, mlado, ali suho?",
+    "tension": "Vprašanje, ali so tvoje korenine dovolj globoke za rast, ki jo načrtuješ.",
+    "movement": "Zaupati procesu rasti, ki poteka pod površjem, čeprav ni viden.",
+    "question": "S katerim delom drevesa se v tem trenutku življenja najbolj identificiraš?",
+    "related": ["Gozd","Narava","Korenine","Rast"]
+  },
+  {
+    "id": "grave",
+    "name": "Grob",
+    "terms": ["grob","pokopališče","nagrobnik","pogreb","žalovanje","pokop","nagrobna plošča"],
+    "public": "Grob v sanjah ne pomeni vedno smrti v dobesednem smislu — pogosto gre za zaključek, slovo ali prehod.",
+    "hint": "Čigav grob je bil in kakšno čustvo je sprožil — žalost, mir ali olajšanje?",
+    "tension": "Težava s sprejemanjem koncev, ki so del naravnega ritma življenja.",
+    "movement": "Dovoliti, da se nečemu iztečejo.",
+    "question": "Kaj v tvojem življenju morda čaka, da mu dovoliš spokojno počiti?",
+    "related": ["Pokojni","Smrt","Prehod","Sprostitev"]
+  },
+  {
+    "id": "forest",
+    "name": "Gozd",
+    "terms": ["gozd","gozdič","les","temni gozd","borov gozd","listavci","džungla","grmičje"],
+    "public": "Gozd v sanjah simbolizira nezavedno in neznano — tisto, kar ni kartografirano in nas kliče v globino.",
+    "hint": "Ali si se v gozdu izgubila ali si ga namerno prehodila?",
+    "tension": "Strah pred neznanim, ki hkrati pritegne in odvrne.",
+    "movement": "V gozd ne gre le kdor se izgubi — gre kdor se upa pogledati globlje.",
+    "question": "Kaj je bilo v gozdu, kar te je spodbudilo, da si vstopila?",
+    "related": ["Drevo","Žival","Tema","Narava"]
+  },
+  {
+    "id": "mountain",
+    "name": "Gora",
+    "terms": ["gora","vrh","plezati","hrib","greben","vzpenjati se po gori","gorska pot","planina"],
+    "public": "Gora v sanjah simbolizira izziv, ambicijo ali cilj — vzpon zahteva trud, vrh pa nudi širši pogled.",
+    "hint": "Si se vzpenjala k vrhu, si bila že zgoraj ali pa gora deluje nedosegljivo?",
+    "tension": "Cilj, ki ga čutiš kot velik in oddaljen, ter dvom, ali zmoreš.",
+    "movement": "Vsak korak navzgor šteje, čeprav vrh ni viden.",
+    "question": "Kateri cilj ali izziv v budnem življenju se zdi kot gora pred tabo?",
+    "related": ["Vzpon","Pot","Vrh","Plezanje"]
+  },
+  {
+    "id": "cave",
+    "name": "Jama",
+    "terms": ["jama","votlina","spelunka","podzemlje","temna votlina","podhod","brlog"],
+    "public": "Jama je prastar simbol notranjega sveta — prostor, v katerega stopamo, ko iščemo stik z najglobljo resnico.",
+    "hint": "Si vstopila prostovoljno ali si bila prisiljena? Kako je bila osvetljena?",
+    "tension": "Strah pred lastno globino — kaj je tam skrito, ne vemo, a smo radovedni.",
+    "movement": "Stopiti v temo je pogumno dejanje — ne beg, ampak iskanje.",
+    "question": "Kaj si v jami našla ali pričakovala, da boš?",
+    "related": ["Gozd","Brezno","Skrivnost","Gora"]
+  },
+  {
+    "id": "sea",
+    "name": "Morje",
+    "terms": ["morje","ocean","valovi","obala","globina","plimovanje","slanica","plaža"],
+    "public": "Morje je arhetip nezavednega v vsej njegovi veličini — nepreglednost in globina, ki hkrati vznemirja in privlači.",
+    "hint": "Je bilo morje mirno ali vzvalovano in si bila na njem ali v njem?",
+    "tension": "Soočenje z lastno notranjostjo, ki je globja in bolj nepredvidljiva kot pričakujemo.",
+    "movement": "Zaupati, da globina ni sovražnica — je prostor lastnega potenciala.",
+    "question": "Kaj je v morju tvojega notranjega sveta, česar se bojiš?",
+    "related": ["Voda","Čoln","Globina","Obala"]
+  },
+  {
+    "id": "bird",
+    "name": "Ptica",
+    "terms": ["ptica","orel","golob","lastovica","ptica ujeda","jata ptic","leteti kot ptica","vrabec"],
+    "public": "Ptica simbolizira svobodo, dušo in vidik sebe, ki ni ujet zemeljskim omejitvam.",
+    "hint": "Kakšna je bila ptica in ali je bila v kletki, prosta ali poranjena?",
+    "tension": "Del sebe, ki hrepeni po svobodi, a se boji zapustiti varno tla.",
+    "movement": "Opazovati, kaj v tebi hoče poleteti, in dati temu prostor.",
+    "question": "Kateremu delu sebe daješ dovolj svobode, da leti?",
+    "related": ["Letenje","Nebo","Žival","Svoboda"]
+  },
+  {
+    "id": "sun",
+    "name": "Sonce",
+    "terms": ["sonce","sončna svetloba","sončni zahod","sončni vzhod","toplota","žarki","sončen dan"],
+    "public": "Sonce v sanjah prinaša svetlobo in jasnost — Jung ga je povezoval z zavednim jazom in orientacijo v življenju.",
+    "hint": "Je sonce sijalo jasno ali je bilo zakrito z oblaki? Je zahajalo ali vzhajalo?",
+    "tension": "Iskanje orientacije in smernice v obdobju nejasnosti.",
+    "movement": "Poiskati tisto, kar ti nudi toploto in jasnost — ni nujno velika stvar.",
+    "question": "Kaj je v tvojem življenju trenutno tvoje sonce — kar ti daje smer?",
+    "related": ["Luna","Svetloba","Nebo","Toplota"]
+  },
+  {
+    "id": "death_dream",
+    "name": "Smrt",
+    "terms": ["smrt","umreti","konec","smrt nekoga","lastna smrt","pogreb","umiranje"],
+    "public": "Smrt v sanjah redko pomeni dobesedno smrt — pogosteje nakazuje konec neke faze, preobrazbo ali sprostitev starih vzorcev.",
+    "hint": "Kdo je umrl in kakšen je bil tvoj odziv — žalost, olajšanje, mirnost?",
+    "tension": "Strah pred konci in prehodi, ki so pogosto začetek nečesa novega.",
+    "movement": "Sprejeti, da vsak konec nosi seme začetka.",
+    "question": "Kaj v tvojem življenju je morda zrelo za dokončanje?",
+    "related": ["Pokojni","Grob","Prehod","Preobrazba"]
+  },
+  {
+    "id": "school",
+    "name": "Šola",
+    "terms": ["šola","razred","učilnica","izpit","test","učiteljica","šolski hodnik","ocena","pouk"],
+    "public": "Šola v sanjah pogosto ne kaže na preteklost, ampak na sedanjost — lekcijo, ki jo nekje v življenju moraš opraviti.",
+    "hint": "Si bila poučena, preizkušana ali si se izgubila med hodniki?",
+    "tension": "Občutek, da nekje v življenju ne dosegaš pričakovanj — lastnih ali tujih.",
+    "movement": "Prepoznati, da si že davno diplomirala iz lekcij, ki se ti zdijo neopravjene.",
+    "question": "Katero lekcijo v budnem življenju se ti zdi, da si prisiljena ponavljati?",
+    "related": ["Otrok","Izpit","Učenje","Odraslost"]
+  },
+  {
+    "id": "body",
+    "name": "Telo",
+    "terms": ["telo","roke","noge","hrbet","trebuh","srce","obraz","bolečina v telesu","okud"],
+    "public": "Telo v sanjah pogosto sporoča tisto, kar um ignorira — fizični simptom ali čustvena napetost, ki iščeta pozornost.",
+    "hint": "Kateri del telesa je bil v ospredju in kako se je počutil?",
+    "tension": "Zanemarjanje fizičnih ali čustvenih potreb v korist razumske kontrole.",
+    "movement": "Prisluhniti telesu, ki govori bolj iskreno kot um.",
+    "question": "Kateri del tvojega telesa v sanjah kliče po pozornosti?",
+    "related": ["Zdravje","Bolečina","Roke","Noge"]
+  },
+  {
+    "id": "stranger",
+    "name": "Tujec",
+    "terms": ["tujec","neznan obraz","neznanec","neznana oseba","nepoznana ženska","nepoznan moški","neznana figura"],
+    "public": "Tujec v sanjah pogosto predstavlja del tebe, ki ga ne poznaš — senca, potencial ali vidik osebnosti, ki čaka na integracijo.",
+    "hint": "Je bil tujec prijazen ali grožnja? Kakšen vtis je pustil?",
+    "tension": "Stik z neznanimi deli lastne psihe, ki jih racionalni um odklanja.",
+    "movement": "Pogledati tujcu v oči — v sanjah je to pogosto srečanje s samim seboj.",
+    "question": "Koga od sebe ne prepoznaš, ko ga srečaš v sanjah ali v ogledalu?",
+    "related": ["Senca","Strah","Arhetip","Ogledalo"]
+  },
+  {
+    "id": "train",
+    "name": "Vlak",
+    "terms": ["vlak","postaja","vlakovna pot","perron","zamuditi vlak","tirnice","železnica"],
+    "public": "Vlak simbolizira pot, ki je kolektivno določena — gre po tirnicah, ki jih ni postavil posameznik sam.",
+    "hint": "Si ujela vlak ali zamudila? Je vlak peljal v pravo smer?",
+    "tension": "Strah pred tem, da zamudiš priložnost, ali da greš v napačno smer.",
+    "movement": "Vprašati se, ali je vlak, na katerem si, tisti, ki si ga sama izbrala.",
+    "question": "Kdo je postavil tirnice tvojega življenja in ali te peljejo tja, kjer hočeš biti?",
+    "related": ["Vozilo","Cesta","Postaja","Pot"]
+  },
+  {
+    "id": "earth",
+    "name": "Zemlja",
+    "terms": ["zemlja","tla","kopati","prst","korenine","saditi","zakopati","vrt","izkopati"],
+    "public": "Zemlja simbolizira stabilnost, preteklost in temelj. Kopanje v zemljo v sanjah pogosto odkriva skrito.",
+    "hint": "Si kopala v zemljo, sadila vanjo ali si bila zakopana?",
+    "tension": "Tisto, kar je bilo potisnjeno pod površjem in čaka, da pride na dan.",
+    "movement": "Preučiti, kaj je zakopano pod površjem, da boš razumela, kar raste nad njim.",
+    "question": "Kaj v tvojem življenju je zakopano in bi moralo biti obdelano?",
+    "related": ["Korenine","Drevo","Narava","Preteklost"]
+  },
+  {
+    "id": "stars",
+    "name": "Zvezde",
+    "terms": ["zvezde","nebo","zvezdnata noč","zvezda vodnica","konstelacija","vesolje","meteorji"],
+    "public": "Zvezde v sanjah kažejo na smer, ki jo išče tvoja duša — oddaljeni svetilniki, ki pomagajo krmariti.",
+    "hint": "Si se zazrla v zvezde z občutkom upanja, osamljenosti ali čudenja?",
+    "tension": "Iskanje smisla in orientacije, ko se zemeljski znaki zdijo nezanesljivi.",
+    "movement": "Zaupati oddaljeni, tihi vednosti, ki ne kriči, ampak sveti.",
+    "question": "Katera zvezda v tvojem notranjem nebu zdaj sveti najjasneje?",
+    "related": ["Luna","Nebo","Sonce","Noč"]
   }
 ]
