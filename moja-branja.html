@@ -98,6 +98,7 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
 .empty{border:1px dashed rgba(199,188,228,.24);background:rgba(255,255,255,.025);padding:1.4rem;color:var(--muted);line-height:1.7}
 .btn.danger{border-color:rgba(220,80,80,.32);background:rgba(220,80,80,.055);color:rgba(240,140,140,.9)}
 .btn.danger:hover{background:rgba(220,80,80,.14);border-color:rgba(220,80,80,.58);color:#fff}
+.btn.fav-btn.active{border-color:rgba(216,189,154,.62);background:rgba(216,189,154,.12);color:var(--warm)}
 .delete-account-zone{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(199,188,228,.08)}
 .delete-account-zone button{background:none;border:0;color:var(--muted-dark);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
 .delete-account-zone button:hover{color:rgba(220,100,100,.8)}
@@ -282,6 +283,7 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
           <button class="filter-btn" data-filter="pot" onclick="setFilter('pot')">Pot</button>
           <button class="filter-btn" data-filter="razplet" onclick="setFilter('razplet')">Razplet</button>
           <button class="filter-btn" data-filter="cikel" onclick="setFilter('cikel')">Cikel</button>
+          <button class="filter-btn" data-filter="favorite" onclick="setFilter('favorite')">★ Pomembna</button>
         </div>
         <div class="history-list" id="readingHistory">
           <div class="empty">Ko odpreš karto ali naročiš branje, se bo tukaj shranil tvoj zapis.</div>
@@ -582,7 +584,9 @@ function cardsFromReading(reading){
   }));
 }
 function filteredReadings(){
-  return activeFilter === 'all' ? accountReadings : accountReadings.filter(r => r.reading_type === activeFilter);
+  if(activeFilter === 'all') return accountReadings;
+  if(activeFilter === 'favorite') return accountReadings.filter(r => r.is_favorite);
+  return accountReadings.filter(r => r.reading_type === activeFilter);
 }
 function setFilter(filter){
   activeFilter = filter;
@@ -672,6 +676,7 @@ function renderReadingHistory(readings){
         <div class="history-actions">
           <button class="btn" onclick="openReadingReport(${index})">Odpri</button>
           <button class="btn primary" onclick="openReadingReport(${index})">Poročilo</button>
+          <button class="btn fav-btn${reading.is_favorite ? ' active' : ''}" onclick="toggleFavorite('${esc(reading.id)}')">${reading.is_favorite ? '★ Pomembno' : '☆ Označi'}</button>
           <button class="btn danger" onclick="openDeleteConfirm('${esc(reading.id)}')">Izbriši</button>
         </div>
       </article>
@@ -686,14 +691,14 @@ async function loadMyReadings(){
     return;
   }
   const [{ data: readings, error: readingsError }, { data: profile }] = await Promise.all([
-    _sb.from('readings').select('id,created_at,card_name,card_kind,topic,intent,ai_response,reflect_question,reading_type').order('created_at', { ascending:false }).limit(120),
+    _sb.from('readings').select('id,created_at,card_name,card_kind,topic,intent,ai_response,reflect_question,reading_type,is_favorite,language').order('created_at', { ascending:false }).limit(120),
     _sb.from('profiles').select('plan').eq('id', session.user.id).maybeSingle()
   ]);
   if(readingsError){
     document.getElementById('readingHistory').innerHTML = '<div class="empty">Zgodovine trenutno ni mogoče naložiti.</div>';
     return;
   }
-  accountReadings = (readings || []).filter(isVisibleReading);
+  accountReadings = (readings || []).filter(isVisibleReading).filter(r => r.language !== 'en');
   renderAccountSummary(session.user, profile, accountReadings);
   renderCycleSpace(profile);
   renderReadingHistory(filteredReadings());
@@ -851,6 +856,20 @@ async function confirmDelete(){
   const { data: { session } } = await _sb.auth.getSession();
   if(session) renderAccountSummary(session.user, null, accountReadings);
   renderReadingHistory(filteredReadings());
+}
+
+async function toggleFavorite(id){
+  const reading = accountReadings.find(r => String(r.id) === String(id));
+  if(!reading) return;
+  const next = !reading.is_favorite;
+  reading.is_favorite = next;
+  renderReadingHistory(filteredReadings());
+  const { error } = await _sb.from('readings').update({ is_favorite: next }).eq('id', id);
+  if(error){
+    reading.is_favorite = !next;
+    renderReadingHistory(filteredReadings());
+    alert('Označevanje ni uspelo. Poskusi znova.');
+  }
 }
 
 function showCookieConsent(){

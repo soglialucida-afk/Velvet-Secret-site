@@ -1234,7 +1234,8 @@ Deno.serve(async (req: Request) => {
     intent: intent || null,
     ai_response: aiResponse,
     reflect_question: reflectQuestion,
-    reading_type: readingType
+    reading_type: readingType,
+    language
   });
 
   return json({ text });
