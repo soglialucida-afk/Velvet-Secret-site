@@ -261,7 +261,8 @@ img,svg{display:block;max-width:100%}
   font-size:1.14rem;font-weight:300;line-height:1.85;
 }
 .hero-cta{
-  display:inline-flex;align-items:center;justify-content:center;
+  display:flex;width:fit-content;margin:0 auto;min-width:220px;
+  align-items:center;justify-content:center;
   padding:.9rem 1.25rem;
   background:linear-gradient(90deg,rgba(199,188,228,.92),rgba(216,189,154,.84));
   border:1px solid rgba(216,189,154,.45);
@@ -321,7 +322,7 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .intro-card:nth-child(2) .intro-visual{background-image:url("assets/images/optimized/intro-konkretno.webp")}
 .intro-card:nth-child(3) .intro-visual{background-image:url("assets/images/optimized/intro-tvoje.webp")}
 .intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1;pointer-events:none}
-.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-copy h3{min-height:3.6rem;display:flex;align-items:flex-end}
+.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-copy h3{min-height:3.6rem;display:flex;align-items:flex-end}.intro-copy p{min-height:4.6rem}
 .intro-card h3{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0;text-shadow:0 2px 18px rgba(0,0,0,.65)}
 .intro-card p{font-size:.9rem;color:rgba(255,255,255,.68);font-weight:300;margin-bottom:1.1rem}
 .intro-blog{display:flex;align-items:center;justify-content:flex-end;gap:.8rem;flex-wrap:wrap;margin-top:auto}
@@ -1085,7 +1086,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 <section id="zgodba" class="section-soft">
   <div class="section-header fade-in">
-    <span class="section-label">Kako deluje</span>
+    <span class="section-label">Blog</span>
     <h2 class="section-title">Tri preproste stopnice, ki vodijo od vprašanja do uvida.</h2>
     <div class="section-divider"></div>
   </div>
@@ -1209,7 +1210,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <h3 class="pricing-name">Iskra</h3>
       <p class="pricing-desc">En simbol za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
       <div class="pricing-price">0 €</div>
-      <a href="#branje" class="pricing-btn">Naroči</a>
+      <a href="#branje" class="pricing-btn">Nadaljuj</a>
     </div>
     <div class="pricing-card fade-in" data-badge="Enkratni nakup">
       <h3 class="pricing-name">Pot</h3>
