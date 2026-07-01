@@ -321,7 +321,7 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .intro-card:nth-child(2) .intro-visual{background-image:url("assets/images/optimized/intro-konkretno.webp")}
 .intro-card:nth-child(3) .intro-visual{background-image:url("assets/images/optimized/intro-tvoje.webp")}
 .intro-num{position:absolute;top:1.4rem;left:1.7rem;z-index:2;font-family:var(--display);font-size:2.7rem;color:#fff;opacity:.14;line-height:1;pointer-events:none}
-.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}
+.intro-copy{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:1.7rem;color:#fff;background:linear-gradient(to top,rgba(17,16,24,.9),rgba(17,16,24,.3) 72%,transparent)}.intro-copy h3{min-height:3.6rem;display:flex;align-items:flex-end}
 .intro-card h3{font-family:var(--display);font-size:1.38rem;font-weight:500;color:#fff;margin:.35rem 0;text-shadow:0 2px 18px rgba(0,0,0,.65)}
 .intro-card p{font-size:.9rem;color:rgba(255,255,255,.68);font-weight:300;margin-bottom:1.1rem}
 .intro-blog{display:flex;align-items:center;justify-content:flex-end;gap:.8rem;flex-wrap:wrap;margin-top:auto}
@@ -942,7 +942,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
       <span class="hero-subtitle">Branje kart</span>
-      <h1 class="hero-title">Kaj ti <em>simboli</em> kart poskušajo povedati.</h1>
+      <h1 class="hero-title">Kaj ti simboli kart<em>poskušajo</em>povedati.</h1>
       <p class="hero-desc">Jungovski simboli, tarot karte in intuitivno branje za trenutke, ko čutiš, da se nekaj premika, pa še nimaš jasnega odgovora.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
       <span class="hero-note">Najprej občutek. Potem pomen.</span>
@@ -1227,14 +1227,6 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <h3 class="pricing-name">Cikel</h3>
       <p class="pricing-desc">Mesečni prostor za spremljanje vprašanj, simbolov in vzorcev, ki se ne razkrijejo v enem dnevu.</p>
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
-      <button class="features-toggle" onclick="toggleFeatures(this)" aria-expanded="false">Kaj je vključeno <span class="features-arrow">▾</span></button>
-      <ul class="pricing-features" hidden>
-        <li>1 mesečno branje Cikel</li>
-        <li>1 dodatno vprašanje po prvem branju</li>
-        <li>4 krajši tedenski vpogledi</li>
-        <li>Spremljanje ponavljajočih kart in simbolov</li>
-        <li>Mesečno poročilo v Mojem prostoru</li>
-      </ul>
       <button type="button" class="pricing-btn" onclick="openCycleModal()">Poglej Cikel</button>
     </div>
   </div>
