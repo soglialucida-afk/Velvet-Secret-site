@@ -176,6 +176,7 @@ Pred oddajo tiho preveri:
 - Ali v besedilu ni nobenega pomišljaja?
 - Ali so vsi navedki v obliki „besedilo"?
 - Ali ni Markdown oznak?
+- Ali so vsi šumniki pravilno zapisani? Preveri vsako besedo z ž, š ali č: ž mora biti ž (ne z), š mora biti š (ne s), č mora biti č (ne c). Primer: življenje (ne zivljenje), šepetanje (ne sepetanje), občutek (ne obcutek).
 Tipografske napake popravi tiho, brez opombe.`;
 
 function json(body: unknown, status = 200) {
