@@ -261,11 +261,12 @@ img,svg{display:block;max-width:100%}
   font-size:1.14rem;font-weight:300;line-height:1.85;
 }
 .hero-cta{
-  display:inline-flex;align-items:center;gap:.75rem;
-  padding:1rem 2.35rem;border:1px solid rgba(255,255,255,.3);
-  color:#fff;background:rgba(255,255,255,.1);
-  font-size:.82rem;letter-spacing:2px;text-transform:uppercase;
-  backdrop-filter:blur(10px);transition:.35s ease;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.9rem 1.25rem;
+  background:linear-gradient(90deg,rgba(199,188,228,.92),rgba(216,189,154,.84));
+  border:1px solid rgba(216,189,154,.45);
+  color:#111018;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+  transition:.25s;min-height:46px;
 }
 .hero-cta:hover{background:var(--violet-deep);border-color:var(--violet-deep);transform:translateY(-2px);box-shadow:0 10px 40px rgba(127,108,175,.38)}
 .hero-second{margin-left:.75rem;background:rgba(17,16,24,.28)}
@@ -834,7 +835,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 }
 @media(max-width:420px){
   .nav-logo{font-size:1rem}
-  .hero-title{font-size:clamp(1.95rem,9vw,2.8rem)}
+  .hero-title{font-size:clamp(2.4rem,12vw,3.6rem)}
   section:not(.hero),#branje,#cenik,#pristop{padding:3rem 1rem!important}
   #branje{padding-top:2.75rem!important;padding-bottom:2.5rem!important}
   section.section-compact,#pristop.section-compact{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
@@ -843,7 +844,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .hero{align-items:flex-start;justify-content:center}
   .hero-content{padding-top:5.5rem;padding-bottom:5rem}
   .hero-subtitle{font-size:.72rem;letter-spacing:.28em;margin-bottom:1rem}
-  .hero-title{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .hero-title{font-size:clamp(2.2rem,11vw,3.4rem)}
   .hero-desc{font-size:.9rem;margin-bottom:1.6rem}
   .hero-note{font-size:.62rem}
 }
@@ -941,7 +942,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
       <span class="hero-subtitle">Branje kart</span>
-      <h1 class="hero-title">Ko <em>simboli</em> odprejo vrata notranjemu svetu.</h1>
+      <h1 class="hero-title">Kaj ti <em>simboli</em> kart poskušajo povedati.</h1>
       <p class="hero-desc">Jungovski simboli, tarot karte in intuitivno branje za trenutke, ko čutiš, da se nekaj premika, pa še nimaš jasnega odgovora.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
       <span class="hero-note">Najprej občutek. Potem pomen.</span>
