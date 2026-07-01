@@ -235,17 +235,22 @@ h1{font-family:var(--display);font-size:clamp(2.4rem,6vw,5.2rem);font-weight:500
   <ul class="nav-links">
     <li><a href="index.html" class="nav-link">Branje kart</a></li>
     <li><a href="sanje.html" class="nav-link">Razlaga sanj</a></li>
-    <li><a href="moja-branja.html" class="nav-link">Moja branja</a></li>
+    <li><a href="index.html#zgodba" class="nav-link">Blog</a></li>
+    <li><a href="moja-branja.html" class="nav-link active">Moja branja</a></li>
+    <li><a href="en/my-readings.html" class="nav-link">EN</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile" id="mobile">
-  <a href="index.html#branje" class="mobile-link" onclick="toggleMenu(false)">Branje kart</a>
-  <a href="index.html#cenik" 
-  <a href="moja-branja.html" class="mobile-link" onclick="toggleMenu(false)">Moja branja</a>
-  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Prijava</button>
+  <a href="index.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Branje kart</a>
+  <a href="sanje.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Razlaga sanj</a>
+  <a href="index.html#zgodba" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Blog</a>
+  <a href="moja-branja.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Moja branja</a>
+  <a href="en/my-readings.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">EN</a>
+  <button id="mobileAuthBtn" onclick="openAuth()">Prijava</button>
   <div class="mobile-user" id="mobileUser"></div>
+</div>
 </div>
 
 <main>

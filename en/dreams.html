@@ -91,19 +91,20 @@ main{position:relative}.section{padding:6rem 2rem;max-width:1180px;margin:0 auto
     <li><a href="dreams.html" class="nav-link active">Dream readings</a></li>
     <li><a href="#blog" class="nav-link">Blog</a></li>
     <li><a href="my-readings.html" class="nav-link">My readings</a></li>
-    <li><a href="dreams.html" class="nav-link">EN</a></li>
-    <li id="enNavAuth"><button class="nav-login" onclick="openDreamAuth()">Sign in</button></li>
+    <li><a href="../sanje.html" class="nav-link">SL</a></li>
+    <li><button class="nav-login" onclick="openDreamAuth()">Sign in</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile" id="mobile">
-  <a href="../index.html" class="mobile-link">Card readings</a>
-  <a href="dreams.html" class="mobile-link">Dream readings</a>
-  <a href="#blog" class="mobile-link">Blog</a>
-  <a href="my-readings.html" class="mobile-link">My readings</a>
-  <a href="dreams.html" class="mobile-link">EN</a>
-  <button id="mobileAuthBtnEn" onclick="document.getElementById('mobile').classList.remove('open');document.getElementById('hamb').classList.remove('open');document.body.style.overflow='';openDreamAuth()">Sign in</button>
+  <a href="../index.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Card readings</a>
+  <a href="dreams.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Dream readings</a>
+  <a href="#blog" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Blog</a>
+  <a href="my-readings.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">My readings</a>
+  <a href="../sanje.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">SL</a>
+  <button id="mobileAuthBtnEn" onclick="openDreamAuth()">Sign in</button>
   <div class="mobile-user" id="mobileUserEn"></div>
+</div>
 </div>
 <header class="dream-hero">
   <div class="hero-media" aria-hidden="true">

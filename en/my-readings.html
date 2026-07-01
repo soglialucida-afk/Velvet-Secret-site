@@ -39,21 +39,24 @@ main{min-height:100vh;padding:8.8rem 2rem 5rem;background:radial-gradient(circle
 <nav class="nav" id="nav">
   <a href="/en/" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
-    <li><a href="/en/#reading" class="nav-link">Reading</a></li>
-    <li><a href="/en/#pricing" class="nav-link">Readings</a></li>
-    <li><a href="/en/#journal" class="nav-link">Journal</a></li>
-    <li><a href="/" class="nav-link">SL</a></li>
+    <li><a href="../index.html" class="nav-link">Card readings</a></li>
+    <li><a href="dreams.html" class="nav-link">Dream readings</a></li>
+    <li><a href="dreams.html#blog" class="nav-link">Blog</a></li>
+    <li><a href="my-readings.html" class="nav-link active">My readings</a></li>
+    <li><a href="../moja-branja.html" class="nav-link">SL</a></li>
     <li><button class="nav-login" onclick="openAuth()">Sign in</button></li>
   </ul>
   <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile" id="mobile">
-  <a href="/en/#reading" class="mobile-link" onclick="toggleMenu(false)">Reading</a>
-  <a href="/en/#pricing" class="mobile-link" onclick="toggleMenu(false)">Readings</a>
-  <a href="/en/#journal" class="mobile-link" onclick="toggleMenu(false)">Journal</a>
-  <a href="/" class="mobile-link" onclick="toggleMenu(false)">SL</a>
-  <button id="mobileAuthBtn" onclick="openAuth();toggleMenu(false)">Sign in</button>
+  <a href="../index.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Card readings</a>
+  <a href="dreams.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Dream readings</a>
+  <a href="dreams.html#blog" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">Blog</a>
+  <a href="my-readings.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">My readings</a>
+  <a href="../moja-branja.html" class="mobile-link" onclick="document.getElementById('hamb').classList.remove('open');document.getElementById('mobile').classList.remove('open');document.body.style.overflow='';">SL</a>
+  <button id="mobileAuthBtn" onclick="openAuth()">Sign in</button>
   <div class="mobile-user" id="mobileUser"></div>
+</div>
 </div>
 <main>
   <div class="shell">
