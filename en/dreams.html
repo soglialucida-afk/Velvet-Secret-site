@@ -168,7 +168,7 @@ main{position:relative}.section{padding:6rem 2rem;max-width:1180px;margin:0 auto
           </div>
 
           <div class="step-reveal" id="dreamWrapFeeling">
-            <label class="field-label">Občutek po prebujenju</label>
+            <label class="field-label">Feeling on waking</label>
             <div class="custom-select" id="feelingSelectCS">
               <button class="cs-trigger" type="button"><span>Choose a feeling</span></button>
               <div class="cs-options">
@@ -376,8 +376,8 @@ main{position:relative}.section{padding:6rem 2rem;max-width:1180px;margin:0 auto
 </footer>
 <div class="modal-bg" id="dreamAuthModal" role="dialog" aria-modal="true" aria-labelledby="dreamAuthTitle">
   <div class="modal">
-    <button class="modal-close" id="dreamAuthClose" aria-label="Zapri">×</button>
-    <h3 id="dreamAuthTitle">Tvoj prostor</h3>
+    <button class="modal-close" id="dreamAuthClose" aria-label="Close">×</button>
+    <h3 id="dreamAuthTitle">Your space</h3>
     <p>Your dream reading is saved to your profile. Sign in and you can start right away.</p>
     <button class="btn google-auth-btn" id="dreamGoogleSignIn">
       <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
@@ -386,17 +386,17 @@ main{position:relative}.section{padding:6rem 2rem;max-width:1180px;margin:0 auto
         <path fill="#FBBC05" d="M10.5 28.7A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.6 2.7 10.8l7.8-6.1z"/>
         <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.1-5.5c-2.2 1.5-5 2.3-8.8 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z"/>
       </svg>
-      Prijava z Google računom
+      Sign in with Google
     </button>
   </div>
 </div>
 <div class="modal-bg" id="paidModal" role="dialog" aria-modal="true" aria-labelledby="paidModalTitle">
   <div class="modal">
-    <button class="modal-close" id="paidModalClose" aria-label="Zapri">×</button>
+    <button class="modal-close" id="paidModalClose" aria-label="Close">×</button>
     <h3 id="paidModalTitle">Dream readings</h3>
-    <p>Razlaga sanj poveže celoten sanjski prizor, izbrani simbol, občutek po prebujenju in možne smeri pomena. Brezplačni slovar odpre prvo sled, osebna razlaga pa pogleda širšo zgodbo sanj.</p>
-    <p>Za razlago bo potrebna prijava, da se zapis shrani v tvoj prostor.</p>
-    <button class="btn primary" id="paidModalOk">Razumem</button>
+    <p>The reading connects your full dream scene, chosen symbol, feeling on waking and possible directions of meaning. The free dictionary opens the first clue; a personal reading looks at the wider dream story.</p>
+    <p>Sign in is required to save your reading to your personal space.</p>
+    <button class="btn primary" id="paidModalOk">Got it</button>
   </div>
 </div>
 <script>
@@ -443,13 +443,13 @@ document.getElementById('dreamGoogleSignIn').addEventListener('click',async func
 
 function renderAiResult(data){
   const paras=(data.text||'').split(/\n\n+/).map(function(p){return p.trim();}).filter(Boolean).map(function(p){return '<p class="result-text">'+esc(p)+'</p>';}).join('');
-  showResultPanel('<div class="result-kicker">Dream readings</div>'+paras+(data.reflect_question?'<div class="reflect-question"><strong>Vprašanje za razmislek</strong><p>'+esc(data.reflect_question)+'</p></div>':'')+(data.detected_symbols&&data.detected_symbols.length?'<p class="ai-detected">Zaznani simboli: '+data.detected_symbols.map(function(s){return esc(s);}).join(', ')+'</p>':'')+resultCtaRow());
+  showResultPanel('<div class="result-kicker">Dream readings</div>'+paras+(data.reflect_question?'<div class="reflect-question"><strong>Reflection question</strong><p>'+esc(data.reflect_question)+'</p></div>':'')+(data.detected_symbols&&data.detected_symbols.length?'<p class="ai-detected">Detected symbols: '+data.detected_symbols.map(function(s){return esc(s);}).join(', ')+'</p>':'')+resultCtaRow());
   bindResultCta();
 }
 
 document.getElementById('aiReadBtn').addEventListener('click', async function(){
   const dreamText=document.getElementById('dreamText').value.trim();
-  if(dreamText.length<20){showResultPanel('<div class="result-empty"><div class="result-mark">!</div><p>Zapiši vsaj eno ali dve povedi sanj, preden zahtevam razlago.</p></div>');return;}
+  if(dreamText.length<20){showResultPanel('<div class="result-empty"><div class="result-mark">!</div><p>Write at least one or two sentences about your dream before requesting an interpretation.</p></div>');return;}
   const {data:{session}}=await _sb.auth.getSession();
   if(!session){openDreamAuth();return;}
   const btn=document.getElementById('aiReadBtn');
@@ -465,19 +465,19 @@ document.getElementById('aiReadBtn').addEventListener('click', async function(){
     if(!res.ok||data.error)throw new Error(data.error||'napaka');
     renderAiResult(data);
   }catch(err){
-    showResultPanel('<div class="result-empty"><div class="result-mark">!</div><p>Prišlo je do napake. Preveri, da si prijavljena, in poskusi znova.</p></div>');
+    showResultPanel('<div class="result-empty"><div class="result-mark">!</div><p>Something went wrong. Make sure you're signed in and try again.</p></div>');
   }finally{
-    btn.disabled=false;btn.textContent='Razloži sanje';
+    btn.disabled=false;btn.textContent='Interpret dream';
   }
 });
 
 let dreamSymbols=[];
 let popular=[];
 const fallbackDreamSymbols=[
-  {id:'water',name:'Voda',terms:['voda','morje','reka','jezero','poplava'],public:'Voda se pogosto povezuje s čustvi, nezavednim tokom in tem, koliko lahko nekaj v sebi pustiš teči.',hint:'Pomembno je, ali je bila voda mirna, motna, globoka ali nevarna.',tension:'Občutek, da te nekaj nosi hitreje, kot lahko razumeš.',movement:'Prepoznati občutek, ne da ga takoj nadzoruješ.',question:'Kje v budnem življenju čutiš podoben tok?',related:['Luna','Most','Riba']},
-  {id:'house',name:'Hiša',terms:['hiša','stanovanje','soba','klet','podstrešje','dom'],public:'Hiša pogosto govori o notranjem prostoru: o tem, kateri deli tebe so domači, skriti, zapuščeni ali še neodprti.',hint:'Soba, v katero vstopiš, je pogosto pomembnejša od same hiše.',tension:'Zaklenjen ali zanemarjen del notranjega sveta.',movement:'Počasi odpreti prostor, ki ga običajno preskočiš.',question:'Kateri del hiše je bil najbolj živ?',related:['Vrata','Ključ','Stopnice']},
-  {id:'door',name:'Vrata',terms:['vrata','prag','vhod','izhod'],public:'Vrata so simbol praga: nečesa, kamor lahko vstopiš, ali nečesa, pred čimer še stojiš.',hint:'Vprašaj se, ali so bila vrata odprta, zaklenjena ali si jih sama zaprla.',tension:'Odlašanje pred korakom, ki ga del tebe že pozna.',movement:'Prepoznati, kaj se konča, ko prestopiš prag.',question:'Kaj je bilo na drugi strani vrat?',related:['Hiša','Ključ','Pot']},
-  {id:'teeth',name:'Zobje',terms:['zobje','zob','izpadanje zob','usta'],public:'Zobje se pogosto povezujejo z močjo izraza, samopodobo, izgubo kontrole ali strahom, kako te vidijo drugi.',hint:'Pomembno je, ali je bil občutek sram, panika, bolečina ali olajšanje.',tension:'Občutek, da nekaj razpada pred očmi drugih.',movement:'Najti besede za nekaj, kar se izraža skozi telo.',question:'Kaj trenutno težko poveš na glas?',related:['Ogledalo','Usta','Kri']}
+  {id:'water',name:'Water',terms:['water','ocean','river','lake','flood','waves'],public:'Water often connects to emotions, unconscious flow and how much you allow yourself to let something move through you.',hint:'Was the water calm, murky, deep or dangerous?',tension:'Being carried faster than you can understand.',movement:'Recognising the feeling without immediately controlling it.',question:'Where in your waking life do you feel a similar current?',related:['Moon','Bridge','Fish']},
+  {id:'house',name:'House',terms:['house','apartment','room','basement','attic','home'],public:'A house often speaks about your inner space: which parts feel familiar, hidden, abandoned or not yet opened.',hint:'The room you enter is often more significant than the house itself.',tension:'A locked or neglected part of your inner world.',movement:'Slowly opening a space you usually skip.',question:'Which part of the house felt most alive?',related:['Door','Key','Stairs']},
+  {id:'door',name:'Door',terms:['door','threshold','entrance','exit','gateway'],public:'A door is a symbol of a threshold: something you can enter, or something you are still standing before.',hint:'Was the door open, locked, or did you close it yourself?',tension:'Hesitation before a step part of you already knows.',movement:'Recognising what ends when you cross the threshold.',question:'What was on the other side of the door?',related:['House','Key','Path']},
+  {id:'teeth',name:'Teeth',terms:['teeth','tooth','losing teeth','mouth'],public:'Teeth often connect to expression, self-image, loss of control or fear of how others see you.',hint:'Was the feeling shame, panic, pain or relief?',tension:'A sense that something is falling apart in front of others.',movement:'Finding words for something that expresses itself through the body.',question:'What is currently hard to say out loud?',related:['Mirror','Mouth','Blood']}
 ];
 const heroChips=document.getElementById('heroChips');
 const workChips=document.getElementById('workChips');
@@ -496,18 +496,18 @@ function renderChips(target){if(!target)return;target.innerHTML=popular.map(name
 function renderSelect(){}
 function symbolSummary(s){return String(s.public||'').split('. ').slice(0,1).join('. ').replace(/\.$/,'')+'.';}
 function matchesDictionary(s){const q=norm(dictionaryFilter);const name=norm(s.name);if(dictionaryLetter===null&&!q)return false;if(dictionaryLetter&&!s.name.toUpperCase().startsWith(dictionaryLetter))return false;if(!q)return true;return name.includes(q)||s.terms.some(t=>norm(t).includes(q));}
-function renderDictionaryLetters(){const el=document.getElementById('dictionaryLetters');if(!el)return;const SLO_ABC=['A','B','C','Č','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','Š','T','U','V','Z','Ž'];const available=new Set(dreamSymbols.map(s=>s.name.charAt(0).toUpperCase()));el.innerHTML=SLO_ABC.map(l=>`<button class="letter-btn${dictionaryLetter===l?' active':''}" type="button" data-letter="${esc(l)}"${available.has(l)?'':' disabled'}>${esc(l)}</button>`).join('');el.querySelectorAll('.letter-btn:not([disabled])').forEach(btn=>btn.addEventListener('click',()=>{dictionaryLetter=dictionaryLetter===btn.dataset.letter?null:btn.dataset.letter;renderDictionary();}));}
-function renderDictionary(){renderDictionaryLetters();const grid=document.getElementById('dictionaryGrid');if(!grid)return;if(dictionaryLetter===null&&!dictionaryFilter){grid.innerHTML='';return;}const items=dreamSymbols.filter(matchesDictionary);grid.innerHTML=items.length?items.map(s=>`<article class="dictionary-card${norm(s.name)===norm(chosenSymbol)?' active':''}"><h3 class="dict-name">${esc(s.name)}</h3><button class="dict-link" type="button" data-symbol="${esc(s.name)}">Odpri</button><p class="dict-text">${esc(symbolSummary(s))}</p></article>`).join(''):'<div class="dictionary-empty">Tega simbola še ni v odprtem slovarju. Poskusi z drugo besedo ali zapiši sanje za osebno razlago.</div>';grid.querySelectorAll('.dict-link').forEach(btn=>btn.addEventListener('click',()=>selectSymbol(btn.dataset.symbol,false,false)));}
+function renderDictionaryLetters(){const el=document.getElementById('dictionaryLetters');if(!el)return;const ENG_ABC=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];const available=new Set(dreamSymbols.map(s=>s.name.charAt(0).toUpperCase()));el.innerHTML=ENG_ABC.map(l=>`<button class="letter-btn${dictionaryLetter===l?' active':''}" type="button" data-letter="${esc(l)}"${available.has(l)?'':' disabled'}>${esc(l)}</button>`).join('');el.querySelectorAll('.letter-btn:not([disabled])').forEach(btn=>btn.addEventListener('click',()=>{dictionaryLetter=dictionaryLetter===btn.dataset.letter?null:btn.dataset.letter;renderDictionary();}));}
+function renderDictionary(){renderDictionaryLetters();const grid=document.getElementById('dictionaryGrid');if(!grid)return;if(dictionaryLetter===null&&!dictionaryFilter){grid.innerHTML='';return;}const items=dreamSymbols.filter(matchesDictionary);grid.innerHTML=items.length?items.map(s=>`<article class="dictionary-card${norm(s.name)===norm(chosenSymbol)?' active':''}"><h3 class="dict-name">${esc(s.name)}</h3><button class="dict-link" type="button" data-symbol="${esc(s.name)}">Open</button><p class="dict-text">${esc(symbolSummary(s))}</p></article>`).join(''):'<div class="dictionary-empty">This symbol is not in the open dictionary yet. Try another word or write your dream.</div>';grid.querySelectorAll('.dict-link').forEach(btn=>btn.addEventListener('click',()=>selectSymbol(btn.dataset.symbol,false,false)));}
 function renderDictionaryDetail(s){
   const detail=document.getElementById('dictionaryDetail');
   if(!detail||!s)return;
-  detail.innerHTML=`<div class="result-kicker">Prva sled</div><h3 class="dict-detail-title">${esc(s.name)}</h3><p class="dict-detail-copy">${esc(symbolSummary(s))}</p><div class="dict-detail-list"><div class="dict-detail-row"><strong>Namig:</strong> ${esc(s.hint||'Pomen je odvisen od prizora in občutka po prebujenju.')}</div><div class="dict-detail-row"><strong>Vprašanje:</strong> ${esc(s.question||'Kateri občutek je ostal po prebujenju?')}</div></div>${(s.related&&s.related.length)?`<div class="dict-detail-related"><strong>Sorodni simboli</strong><div class="chips">${s.related.map(r=>'<button class="chip" type="button" data-symbol="'+esc(r)+'">'+esc(r)+'</button>').join('')}</div></div>`:''}<div class="result-cta"><a class="btn primary" href="#entry">Razloži moje sanje</a></div>`;
+  detail.innerHTML=`<div class="result-kicker">First clue</div><h3 class="dict-detail-title">${esc(s.name)}</h3><p class="dict-detail-copy">${esc(symbolSummary(s))}</p><div class="dict-detail-list"><div class="dict-detail-row"><strong>Hint:</strong> ${esc(s.hint||'The meaning depends on the scene and feeling on waking.')}</div><div class="dict-detail-row"><strong>Question:</strong> ${esc(s.question||'What feeling stayed with you after waking?')}</div></div>${(s.related&&s.related.length)?`<div class="dict-detail-related"><strong>Related symbols</strong><div class="chips">${s.related.map(r=>'<button class="chip" type="button" data-symbol="'+esc(r)+'">'+esc(r)+'</button>').join('')}</div></div>`:''}<div class="result-cta"><a class="btn primary" href="#entry">Interpret my dream</a></div>`;
   detail.querySelectorAll('.chip[data-symbol]').forEach(btn=>btn.addEventListener('click',()=>selectSymbol(btn.dataset.symbol,false,false)));
 }
 function setActive(name){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',norm(c.dataset.symbol)===norm(name)));document.querySelectorAll('.dictionary-card').forEach(c=>c.classList.toggle('active',norm(c.querySelector('.dict-name')?.textContent)===norm(name)));}
 function selectSymbol(name,scroll,renderMain=true){const hs=document.getElementById('heroSearch');if(hs)hs.value=name;chosenSymbol=name;setActive(name);if(name&&name.trim()){setDreamStepDone(2);revealDreamWrap('dreamWrapText');}const found=findSymbol(name);renderDictionaryDetail(found);if(renderMain)renderResult(found);renderDictionary();if(scroll)document.getElementById('entry').scrollIntoView({behavior:'smooth',block:'start'});}
 function inferFromText(text){const n=norm(text);return dreamSymbols.find(s=>s.terms.some(t=>n.includes(norm(t))))||null;}
-function renderResult(s){if(!s){showResultPanel('<div class="result-empty"><div class="result-mark">?</div><p>Tega simbola še ni v odprtem slovarju. Poskusi z besedami voda, hiša, vrata, zobje, kača ali pot.</p></div>');return;}const feeling=document.getElementById('feelingSelect').value;const dream=document.getElementById('dreamText').value.trim();const personal=dream?`Ker si sanje tudi zapisala, je smiselno gledati predvsem povezavo med simbolom in občutkom, ki je ostal po prebujenju${feeling?`: ${feeling}.`:'.'}`:'Če dodaš še sanjski zapis, bo osebni namig natančnejši.';showResultPanel(`<div class="result-kicker">Prvi brezplačni namig</div><h3 class="result-title">${esc(s.name)}</h3><p class="result-text">${esc(s.public)}</p><p class="result-text">${esc(s.hint)}</p><div class="result-list"><div class="result-row"><strong>Možna napetost:</strong> ${esc(s.tension||'Pomen je odvisen od občutka in prizora.')}</div><div class="result-row"><strong>Premik:</strong> ${esc(s.movement||'Poglej, kaj ta simbol odpira v tvojem trenutnem obdobju.')}</div><div class="result-row"><strong>Vprašanje:</strong> ${esc(s.question||'Kateri občutek je ostal po prebujenju?')}</div></div><p class="result-text">${esc(personal)}</p>${(s.related&&s.related.length)?`<div style="margin-top:1.1rem"><strong style="display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.55rem">Sorodni simboli</strong><div class="chips">${s.related.map(r=>'<button class="chip" type="button" data-symbol="'+esc(r)+'">'+esc(r)+'</button>').join('')}</div></div>`:''}`+resultCtaRow());
+function renderResult(s){if(!s){showResultPanel('<div class="result-empty"><div class="result-mark">?</div><p>This symbol is not in the open dictionary yet. Try words like water, house, door, teeth, snake or path.</p></div>');return;}const feeling=document.getElementById('feelingSelect').value;const dream=document.getElementById('dreamText').value.trim();const personal=dream?`Since you also wrote your dream, the key is the connection between the symbol and the feeling that stayed with you on waking${feeling?`: ${feeling}.`:'.'}`:'Adding your dream description will make the personal hint more precise.';showResultPanel(`<div class="result-kicker">First free hint</div><h3 class="result-title">${esc(s.name)}</h3><p class="result-text">${esc(s.public)}</p><p class="result-text">${esc(s.hint)}</p><div class="result-list"><div class="result-row"><strong>Possible tension:</strong> ${esc(s.tension||'The meaning depends on the scene and feeling on waking.')}</div><div class="result-row"><strong>Movement:</strong> ${esc(s.movement||'Look at what this symbol opens in your current period of life.')}</div><div class="result-row"><strong>Question:</strong> ${esc(s.question||'What feeling stayed with you after waking?')}</div></div><p class="result-text">${esc(personal)}</p>${(s.related&&s.related.length)?`<div style="margin-top:1.1rem"><strong style="display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet-light);margin-bottom:.55rem">Related symbols</strong><div class="chips">${s.related.map(r=>'<button class="chip" type="button" data-symbol="'+esc(r)+'">'+esc(r)+'</button>').join('')}</div></div>`:''}`+resultCtaRow());
 resultCard.querySelectorAll('.chip[data-symbol]').forEach(function(btn){btn.addEventListener('click',function(){selectSymbol(btn.dataset.symbol,false,true);});});
 bindResultCta();}
 function bootDreamSymbols(data){dreamSymbols=(Array.isArray(data)&&data.length?data:fallbackDreamSymbols);popular=dreamSymbols.slice(0,7).map(s=>s.name);renderChips(heroChips);renderChips(workChips);renderChips(document.getElementById('dictionaryChips'));renderSelect();renderDictionary();}
